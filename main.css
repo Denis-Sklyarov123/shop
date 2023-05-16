@@ -13,27 +13,27 @@ h1 {
 .basis {
   display: grid;
   grid-template: auto 1fr auto / auto 1fr auto;
-  /* grid-template-columns: repeat(3, 250px)  */
 }
 
-.cell:hover {
+.menu-item:hover {
   background: orange;
   color: white;
-  cursor:pointer;
-  /* border-radius: 10px; */
+  cursor: pointer;
 }
 
-.WindowsBanner {
+.menu {
   background: whitesmoke;
   margin-left: 38px;
   width: 232px;
   height: 380px;
   text-align: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
   line-height: 55px;
   border-radius: 10px;
   overflow: hidden;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 .buy {
@@ -52,19 +52,19 @@ h1 {
   border-radius: 10px;
 }
 
-.first-part {
+.basket-icon {
   background: gold;
   color: white;
   border-radius: 10px 10px 0px 0px;
   text-align: center;
   line-height: 55px;
   font-size: 35px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 4px;
   padding: 0px 15px 0px 0px;
 }
 
-.second-parts {
+.order-name-and-quantity {
   background: yellow;
   color: black;
   display: inline-block;
@@ -72,26 +72,26 @@ h1 {
   height: 40px;
   width: 114px;
   line-height: 40px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 633;
 }
 
-.three-part {
+.total {
   background: yellow;
   text-align: center;
   line-height: 45px;
   margin-top: 4px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 633;
 }
 
-.part-on-button {
+.order-button {
   background: yellow;
   line-height: 60px;
   border-radius: 0px 0px 10px 10px;
 }
 
-.zakaz {
+.ordering-food {
   font-weight: 700;
   color: white;
   text-decoration: none;
@@ -106,20 +106,23 @@ h1 {
   margin-bottom: 30px;
 }
 
-.ikonka {
+.icon {
   width: 60px;
   height: 40px;
   margin: 0px 0px -7px 10px;
   padding: 0px 3px 0px 0px;
 }
 
-.all-windows-burgers {
+.main-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  gap: 10px;
+  max-inline-size: 1140px;
+  margin-inline: auto;
 }
 
-.lobbi {
+.card-product {
   flex: 1 1 150px;
   margin: -12px 0px 0px 50px;
   display: flex;
@@ -129,7 +132,7 @@ h1 {
 }
 
 .names {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   /* border-bottom: 3px solid black; */
   padding-bottom: 7px;
@@ -156,11 +159,11 @@ h1 {
   padding-top: 7px;
   color: chocolate;
   font-weight: 700;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 18px;
 }
 
-.inbasket {
+.in-basket {
   background: gold;
   color: white;
   font-weight: 800;
@@ -172,14 +175,14 @@ h1 {
   border-radius: 5px;
 }
 
-.quantity  {
+.quantity {
   font-weight: 700;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 13px;
   margin-top: 10px;
 }
 
-.TwoButtons {
+.buttons {
   display: flex;
   flex-direction: row;
 }
