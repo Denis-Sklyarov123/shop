@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="style/main.css" />
     <link rel="shortcut icon" href="img/2088955.png" type="image/x-icon" />
+    <script defer src="index.js"></script>
   </head>
 
   <body>
@@ -74,7 +75,7 @@
               src="/home/vyacheslav/Projects/shop/img/plus.svg"
             />
           </div>
-          <button class="in-basket">В КОРЗИНУ</button>
+          <button class="in-basket" id="open-modal-btn-1">В КОРЗИНУ</button>
         </article>
 
         <article class="card-product">
@@ -105,7 +106,7 @@
               src="/home/vyacheslav/Projects/shop/img/plus.svg"
             />
           </div>
-          <button class="in-basket">В КОРЗИНУ</button>
+          <button class="in-basket" id="open-modal-btn-2">В КОРЗИНУ</button>
         </article>
 
         <article class="card-product">
@@ -136,7 +137,7 @@
               src="/home/vyacheslav/Projects/shop/img/plus.svg"
             />
           </div>
-          <button class="in-basket">В КОРЗИНУ</button>
+          <button class="in-basket" id="open-modal-btn-3">В КОРЗИНУ</button>
         </article>
 
         <article class="card-product">
@@ -167,7 +168,7 @@
               src="/home/vyacheslav/Projects/shop/img/plus.svg"
             />
           </div>
-          <button class="in-basket">В КОРЗИНУ</button>
+          <button class="in-basket" id="open-modal-btn-4">В КОРЗИНУ</button>
         </article>
 
         <article class="card-product">
@@ -196,7 +197,7 @@
               src="/home/vyacheslav/Projects/shop/img/plus.svg"
             />
           </div>
-          <button class="in-basket">В КОРЗИНУ</button>
+          <button class="in-basket" id="open-modal-btn-5">В КОРЗИНУ</button>
         </article>
 
         <article class="card-product">
@@ -225,8 +226,63 @@
               src="/home/vyacheslav/Projects/shop/img/plus.svg"
             />
           </div>
-          <button class="in-basket">В КОРЗИНУ</button>
+          <button class="in-basket" id="open-modal-btn-6">В КОРЗИНУ</button>
         </article>
+
+        <div class="modal" id="my-modal">
+          <div class="modal-box">
+            <button class="modal-close-btn" id="close-my-modal-btn">
+              <img
+                class="closse"
+                src="/home/vyacheslav/Projects/4115230-cancel-close-cross-delete_114048.png"
+              />
+            </button>
+            <h2 class="modal-window-text">Проверьте и добавьте в корзину</h2>
+            <div class="modal-window-menu">
+              <div class="items-menu">
+                <button class="item-modal-window-menu">Размер</button>
+
+                <button class="item-modal-window-menu">Хлеб</button>
+
+                <button class="item-modal-window-menu">Овощи</button>
+
+                <button class="item-modal-window-menu">Соусы</button>
+
+                <button class="item-modal-window-menu">Начинка</button>
+
+                <button class="item-modal-window-menu">Готово!</button>
+              </div>
+              <div class="products">Контент</div>
+            </div>
+            <div class="price-quantity-in-basket">
+              <div class="buttons-and-quantity">
+                <div class="quantity">КОЛИЧЕСТВО</div>
+
+                <div class="price-buttons">
+                  <img
+                    class="minus"
+                    src="/home/vyacheslav/Projects/shop/img/minus.svg"
+                  />
+
+                  <input value="1" maxlength="3" class="input-in-modal-window" />
+
+                  <img
+                    class="plus"
+                    src="/home/vyacheslav/Projects/shop/img/plus.svg"
+                  />
+                </div>
+              </div>
+
+              <div class="price-and-basket">
+                <div class="price">Цена: 150 руб.</div>
+
+                <button class="in-basket" id="open-modal-btn-1">
+                  В КОРЗИНУ
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </section>
   </body>
