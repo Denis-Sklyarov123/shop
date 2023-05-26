@@ -225,3 +225,244 @@
 // keys.push("job");
 
 // console.log(keys);
+
+// Теперь вопрос стоит так: какую структуру данных вы бы предложили использовать для хранения информации о том, когда сообщение было прочитано?
+// В предыдущем задании нам нужно было сохранить только факт прочтения «да или нет». Теперь же нам нужно сохранить дату, и она должна исчезнуть из памяти при удалении «сборщиком мусора» сообщения.
+// P.S. Даты в JavaScript можно хранить как объекты встроенного класса Date, которые мы разберём позднее.
+// *
+// function timeMessage(arr) {
+//   let newMap = new WeakMap()
+//   newMap.set(arr[0], '22:55')
+// }
+
+// console.log(
+//   timeMessage([
+//     { text: 'Hello', from: 'John' },
+//     { text: 'How goes?', from: 'John' },
+//     { text: 'See you soon', from: 'Alice' },
+//   ])
+// )
+
+// Есть объект salaries с произвольным количеством свойств, содержащих заработные платы.
+// Напишите функцию sumSalaries(salaries), которая возвращает сумму всех зарплат с помощью метода Object.values и цикла for..of.
+// Если объект salaries пуст, то результат должен быть 0.
+
+// function sumSalaries(salaries) {
+//   let sum = 0
+//   for (let value of Object.values(salaries)) {
+//     sum += value
+//   }
+//   return sum
+// }
+
+// console.log(
+//   sumSalaries({
+//     John: 100,
+//     Pete: 300,
+//     Mary: 250,
+//   })
+// )
+
+// Напишите функцию count(obj), которая возвращает количество свойств объекта:
+// let user = {
+//   name: 'John',
+//   age: 30
+// };
+// alert( count(user) ); // 2
+// Постарайтесь сделать код как можно короче.
+// P.S. Игнорируйте символьные свойства, подсчитывайте только «обычные».
+
+// function count(obj) {
+//   return Object.keys(obj).length
+// }
+
+// console.log(
+//   count({
+//     name: 'John',
+//     age: 30,
+//     job: 'Frontend',
+//   })
+// )
+
+// У нас есть объект:
+// let user = {
+//   name: "John",
+//   years: 30
+// };
+// Напишите деструктурирующее присваивание, которое:
+// свойство name присвоит в переменную name.
+// свойство years присвоит в переменную age.
+// свойство isAdmin присвоит в переменную isAdmin (false, если нет такого свойства)
+
+// let user = {
+//   name: 'John',
+//   years: 30,
+// }
+
+// let { name, years: age, isAdmin = false } = user
+
+// alert(name)
+// alert(age)
+// alert(isAdmin)
+
+// У нас есть объект salaries с зарплатами:
+// let salaries = {
+//   "John": 100,
+//   "Pete": 300,
+//   "Mary": 250
+// };
+// Создайте функцию topSalary(salaries), которая возвращает имя самого высокооплачиваемого сотрудника.
+// Если объект salaries пустой, то нужно вернуть null.
+// Если несколько высокооплачиваемых сотрудников, можно вернуть любого из них.
+// P.S. Используйте Object.entries и деструктурирование, чтобы перебрать пары ключ/значение.
+
+// function topSalary(salaries) {
+//   let max = 0
+//   let maxSalary = null
+
+//   for (const [name, salary] of Object.entries(salaries)) {
+//     if (max < salary) {
+//       max = salary
+//       maxSalary = name
+//     }
+//   }
+//   return maxSalary
+// }
+
+// console.log(
+//   topSalary({
+//     John: 100,
+//     Pete: 300,
+//     Mary: 250,
+//   })
+// )
+
+// Создайте объект Date для даты: 20 февраля 2012 года, 3 часа 12 минут. Временная зона – местная.
+// Для вывода используйте alert.
+
+// let data = new Date(2012, 1, 20, 3, 12)
+
+// alert(data)
+
+// Напишите функцию getWeekDay(date), показывающую день недели в коротком формате: «ПН», «ВТ», «СР», «ЧТ», «ПТ», «СБ», «ВС».
+
+// function getWeekDay(date) {
+//   let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
+
+//   return days[date.getDay()]
+// }
+
+// let date = new Date(2012, 0, 3)
+// alert(getWeekDay(date))
+
+// В Европейских странах неделя начинается с понедельника (день номер 1), затем идёт вторник (номер 2) и так до воскресенья (номер 7). Напишите функцию getLocalDay(date), которая возвращает «европейский» день недели для даты date.
+
+// function getLocalDay(date) {
+//   let days = ['7', '1', '2', '3', '4', '5', '6']
+
+//   return days[date.getDay()]
+// }
+
+// let date = new Date(2012, 0, 5)
+// alert(getLocalDay(date))
+
+// =====================================================
+
+// function getLocalDay(date) {
+//   let day = date.getDay()
+
+//   if (day == 0) {
+//     day = 7
+//   }
+
+//   return day
+// }
+
+// let date = new Date(2012, 0, 5)
+// alert(getLocalDay(date))
+
+// Преобразуйте user в JSON, затем прочитайте этот JSON в другую переменную.
+
+// function transformInJson(value) {
+//   let json = JSON.stringify(value)
+//   return json
+// }
+
+// console.log(
+//   transformInJson({
+//     name: 'Василий Иванович',
+//     age: 35,
+//   })
+// )
+
+// В простых случаях циклических ссылок мы можем исключить свойство, из-за которого они возникают, из сериализации по его имени.
+// Но иногда мы не можем использовать имя, так как могут быть и другие, нужные, свойства с этим именем во вложенных объектах. Поэтому можно проверять свойство по значению.
+// Напишите функцию replacer для JSON-преобразования, которая удалит свойства, ссылающиеся на meetup:
+
+// let room = {
+//   number: 23,
+// }
+
+// let meetup = {
+//   title: 'Совещание',
+//   occupiedBy: [{ name: 'Иванов' }, { name: 'Петров' }],
+//   place: room,
+// }
+
+// room.occupiedBy = meetup
+// meetup.self = meetup
+
+// alert(
+//   JSON.stringify(meetup, function replacer(key, value) {
+//     return key != '' && value == meetup ? undefined : value
+//   })
+// )
+
+// Дочерние элементы в DOM
+// Для страницы:
+// <html>
+// <body>
+//   <div>Пользователи:</div>
+//   <ul>
+//     <li>Джон</li>
+//     <li>Пит</li>
+//   </ul>
+// </body>
+// </html>
+// Напишите код, как получить…
+// элемент <div>?
+// <ul>?
+// второй <li> (с именем Пит)?
+
+// console.log(
+//   document.body.firstElementChild,
+//   document.body.lastElementChild,
+//   document.body.lastElementChild.lastElementChild
+// )
+
+// for (let item of document.body.children) {
+//   console.log(item)
+// }
+
+// function culc(a, b) {
+//   let sum = a * b
+//   return sum
+// }
+
+// alert(culc(8, 7))
+
+// let oneNumber = prompt('Введите первое число', 0)
+// let twoNumber = prompt('Введите второе число', 0)
+
+// let sum = +oneNumber * +twoNumber
+
+// alert(sum)
+
+// Большинство браузеров поддерживают в инструментах разработчика две команды: console.log и console.dir. Они выводят свои аргументы в консоль. Для JavaScript-объектов эти команды обычно выводят одно и то же.
+// Но для DOM-элементов они работают по-разному:
+// console.log(elem) выводит элемент в виде DOM-дерева.
+// console.dir(elem) выводит элемент в виде DOM-объекта, что удобно для анализа его свойств.
+
+// console.log(document.body)
+// console.dir(document.body)
+
