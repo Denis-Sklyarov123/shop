@@ -234,13 +234,15 @@
             <button class="modal-close-btn" id="close-my-modal-btn">
               <img
                 class="closse"
-                src="/home/vyacheslav/Projects/4115230-cancel-close-cross-delete_114048.png"
+                src="/home/vyacheslav/Projects/shop/img/4115230-cancel-close-cross-delete_114048.png"
               />
             </button>
             <h2 class="modal-window-text">Проверьте и добавьте в корзину</h2>
             <div class="modal-window-menu">
               <div class="items-menu">
-                <button class="item-modal-window-menu">Размер</button>
+                <button class="item-modal-window-menu" id="open-size">
+                  Размер
+                </button>
 
                 <button class="item-modal-window-menu">Хлеб</button>
 
@@ -252,7 +254,41 @@
 
                 <button class="item-modal-window-menu">Готово!</button>
               </div>
-              <div class="products">Контент</div>
+              <div class="products">
+                Приветствуем вас, в разделе создания собственного блюда! Для
+                того чтобы начать, нажмите кнопку "Размер"
+              </div>
+            </div>
+            <div class="menu-size-product" id="size-menu">
+              <button class="forward-button">
+                <div class="indent-for-word-forward">ВПЕРЕД</div>
+                <img
+                  class="arrow"
+                  src="/home/vyacheslav/Projects/shop/img/keyboard-right-arrow-button-1_icon-icons.com_72690.svg"
+                />
+              </button>
+              <div class="size-cards">
+                <button class="product-size-card-buttons">
+                  <div class="opptions-background-little-bread">
+                    <img
+                      class="little-bread"
+                      src="/home/vyacheslav/Projects/shop/img/1x1.png"
+                    />
+                  </div>
+                  <div>razmer</div>
+                  <div>price</div>
+                </button>
+                <button class="product-size-card-buttons">
+                  <div class="opptions-background-little-bread">
+                    <img
+                      class="little-bread"
+                      src="/home/vyacheslav/Projects/shop/img/2x2.png"
+                    />
+                  </div>
+                  <div>razmer</div>
+                  <div>price</div>
+                </button>
+              </div>
             </div>
             <div class="price-quantity-in-basket">
               <div class="buttons-and-quantity">
@@ -264,7 +300,11 @@
                     src="/home/vyacheslav/Projects/shop/img/minus.svg"
                   />
 
-                  <input value="1" maxlength="3" class="input-in-modal-window" />
+                  <input
+                    value="1"
+                    maxlength="3"
+                    class="input-in-modal-window"
+                  />
 
                   <img
                     class="plus"
