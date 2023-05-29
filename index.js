@@ -55,3 +55,13 @@ document
   .addEventListener('click', function () {
     document.getElementById('my-modal').classList.add('open')
   })
+
+document.getElementById('open-size').addEventListener('click', function () {
+  document.getElementById('size-menu').classList.add('open')
+})
+
+document
+  .getElementById('close-my-modal-btn')
+  .addEventListener('click', function () {
+    document.getElementById('size-menu').classList.remove('open')
+  })
