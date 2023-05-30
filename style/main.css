@@ -116,13 +116,22 @@ h1 {
   padding: 0px 3px 0px 0px;
 }
 
-.main-content {
+.main-burger-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 10px;
   max-inline-size: 1140px;
   margin-inline: auto;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.main-burger-content.open {
+  visibility: visible;
+  position: absolute;
+  top: 0;
 }
 
 .card-product {
@@ -201,3 +210,114 @@ h1 {
   border: 1px solid gray;
 }
 
+.main-pancakes-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  max-inline-size: 1140px;
+  margin-inline: auto;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.main-pancakes-content.open {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+}
+
+.main-shawarma-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  max-inline-size: 1140px;
+  margin-inline: auto;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.main-shawarma-content.open {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+}
+
+.main-sandwiches-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  max-inline-size: 1140px;
+  margin-inline: auto;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.main-sandwiches-content.open {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+}
+
+.main-chicken-and-potato-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  max-inline-size: 1140px;
+  margin-inline: auto;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.main-chicken-and-potato-content.open {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+}
+
+.main-tortilla-and-salads-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  max-inline-size: 1140px;
+  margin-inline: auto;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.main-tortilla-and-salads-content.open {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+}
+
+.main-drinks-and-desserts-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  max-inline-size: 1140px;
+  margin-inline: auto;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+.main-drinks-and-desserts-content.open {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+}
+
+.all-product-card-windows {
+  position: relative;
+}

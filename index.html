@@ -16,19 +16,25 @@
     <section class="basis">
       <nav>
         <ul class="menu">
-          <li class="menu-item">Блины</li>
+          <li class="menu-item" id="open-pancakes-menu">Блины</li>
 
-          <li class="menu-item">Шаурма</li>
+          <li class="menu-item" id="open-shawarma-menu">Шаурма</li>
 
-          <li class="menu-item">Сендвичи</li>
+          <li class="menu-item" id="open-burger-menu">Сендвичи</li>
 
-          <li class="menu-item">Бургеры</li>
+          <li class="menu-item" id="open-sandwiches-menu">Бургеры</li>
 
-          <li class="menu-item">Курица & Картофель</li>
+          <li class="menu-item" id="open-chicken-and-potato-menu">
+            Курица & Картофель
+          </li>
 
-          <li class="menu-item">Тортилья & Салаты</li>
+          <li class="menu-item" id="open-tortilla-and-salads-menu">
+            Тортилья & Салаты
+          </li>
 
-          <li class="menu-item">Напитки & Десерты</li>
+          <li class="menu-item" id="open-drinks-and-desserts-menu">
+            Напитки & Десерты
+          </li>
         </ul>
 
         <aside class="basket">
@@ -47,188 +53,229 @@
           </div>
         </aside>
       </nav>
-
-      <main class="main-content">
-        <article class="card-product">
-          <img class="subway" src="img/SUBWAY1.png" />
-
-          <img class="burgers" src="img/oneburger.png" />
-
-          <div class="names">Овощной</div>
-
-          <div class="ingredients">Соус и овощи на выбор</div>
-
-          <div class="price">Цена: 110 руб.</div>
-
-          <div class="quantity">КОЛИЧЕСТВО</div>
-
-          <div class="buttons">
-            <img
-              class="minus"
-              src="/home/vyacheslav/Projects/shop/img/minus.svg"
-            />
-
-            <input value="1" maxlength="3" class="input" />
-
-            <img
-              class="plus"
-              src="/home/vyacheslav/Projects/shop/img/plus.svg"
-            />
-          </div>
-          <button class="in-basket" id="open-modal-btn-1">В КОРЗИНУ</button>
-        </article>
-
-        <article class="card-product">
-          <img class="subway" src="img/SUBWAY1.png" />
-
-          <img class="burgers" src="img/oneburger.png" />
-
-          <div class="names">Сабвэй Клаб</div>
-
-          <div class="ingredients">
-            Индейка, ветчина, ростбиф, соус и овощи на выбор
+      <main>
+        <div class="all-product-card-windows">
+          <div class="main-pancakes-content" id="pancakes-menu-reveal-button">
+            блины, блины, блины, блины, блины, блины
           </div>
 
-          <div class="price">Цена: 160 руб.</div>
-
-          <div class="quantity">КОЛИЧЕСТВО</div>
-
-          <div class="buttons">
-            <img
-              class="minus"
-              src="/home/vyacheslav/Projects/shop/img/minus.svg"
-            />
-
-            <input value="1" maxlength="3" class="input" />
-
-            <img
-              class="plus"
-              src="/home/vyacheslav/Projects/shop/img/plus.svg"
-            />
-          </div>
-          <button class="in-basket" id="open-modal-btn-2">В КОРЗИНУ</button>
-        </article>
-
-        <article class="card-product">
-          <img class="subway" src="img/SUBWAY1.png" />
-
-          <img class="burgers" src="img/oneburger.png" />
-
-          <div class="names">Альпийский</div>
-
-          <div class="ingredients">
-            Альпийские колбаски 2шт, соус и овощи на выбор
+          <div class="main-shawarma-content" id="shawarma-menu-reveal-button">
+            Шаурма, Шаурма, Шаурма, Шаурма, Шаурма, Шаурма
           </div>
 
-          <div class="price">Цена: 180 руб.</div>
-
-          <div class="quantity">КОЛИЧЕСТВО</div>
-
-          <div class="buttons">
-            <img
-              class="minus"
-              src="/home/vyacheslav/Projects/shop/img/minus.svg"
-            />
-
-            <input value="1" maxlength="3" class="input" />
-
-            <img
-              class="plus"
-              src="/home/vyacheslav/Projects/shop/img/plus.svg"
-            />
-          </div>
-          <button class="in-basket" id="open-modal-btn-3">В КОРЗИНУ</button>
-        </article>
-
-        <article class="card-product">
-          <img class="subway" src="img/SUBWAY1.png" />
-
-          <img class="burgers" src="img/oneburger.png" />
-
-          <div class="names">Мексиканский</div>
-
-          <div class="ingredients">
-            Индейка, ветчина, ростбиф, соус и овощи на выбор
+          <div
+            class="main-sandwiches-content"
+            id="sandwiches-menu-reveal-button"
+          >
+            Бургеры, Бургеры, Бургеры, Бургеры, Бургеры, Бургеры
           </div>
 
-          <div class="price">Цена: 230 руб.</div>
-
-          <div class="quantity">КОЛИЧЕСТВО</div>
-
-          <div class="buttons">
-            <img
-              class="minus"
-              src="/home/vyacheslav/Projects/shop/img/minus.svg"
-            />
-
-            <input value="1" maxlength="3" class="input" />
-
-            <img
-              class="plus"
-              src="/home/vyacheslav/Projects/shop/img/plus.svg"
-            />
+          <div
+            class="main-chicken-and-potato-content"
+            id="chicken-and-potato-menu-reveal-button"
+          >
+            Курица и Картофель, Курица и Картофель, Курица и Картофель, Курица и
+            Картофель, Курица и Картофель, Курица и Картофель
           </div>
-          <button class="in-basket" id="open-modal-btn-4">В КОРЗИНУ</button>
-        </article>
 
-        <article class="card-product">
-          <img class="subway" src="img/SUBWAY1.png" />
-
-          <img class="burgers" src="img/oneburger.png" />
-
-          <div class="names">Классический</div>
-
-          <div class="ingredients">Соус и овощи на выбор</div>
-
-          <div class="price">Цена: 150 руб.</div>
-
-          <div class="quantity">КОЛИЧЕСТВО</div>
-
-          <div class="buttons">
-            <img
-              class="minus"
-              src="/home/vyacheslav/Projects/shop/img/minus.svg"
-            />
-
-            <input value="1" maxlength="3" class="input" />
-
-            <img
-              class="plus"
-              src="/home/vyacheslav/Projects/shop/img/plus.svg"
-            />
+          <div
+            class="main-tortilla-and-salads-content"
+            id="tortilla-and-salads-menu-reveal-button"
+          >
+            Тортилья и Салаты, Тортилья и Салаты, Тортилья и Салаты, Тортилья и
+            Салаты, Тортилья и Салаты, Тортилья и Салаты
           </div>
-          <button class="in-basket" id="open-modal-btn-5">В КОРЗИНУ</button>
-        </article>
 
-        <article class="card-product">
-          <img class="subway" src="img/SUBWAY1.png" />
-
-          <img class="burgers" src="img/oneburger.png" />
-
-          <div class="names">На углях</div>
-
-          <div class="ingredients">Индейка, ветчина, ростбиф</div>
-
-          <div class="price">Цена: 170 руб.</div>
-
-          <div class="quantity">КОЛИЧЕСТВО</div>
-
-          <div class="buttons">
-            <img
-              class="minus"
-              src="/home/vyacheslav/Projects/shop/img/minus.svg"
-            />
-
-            <input value="1" maxlength="3" class="input" />
-
-            <img
-              class="plus"
-              src="/home/vyacheslav/Projects/shop/img/plus.svg"
-            />
+          <div
+            class="main-drinks-and-desserts-content"
+            id="drinks-and-desserts-menu-reveal-button"
+          >
+            Напитки и Десерты, Напитки и Десерты, Напитки и Десерты, Напитки и
+            Десерты, Напитки и Десерты, Напитки и Десерты
           </div>
-          <button class="in-basket" id="open-modal-btn-6">В КОРЗИНУ</button>
-        </article>
 
+          <div class="main-burger-content" id="burger-menu-reveal-button">
+            <article class="card-product">
+              <img class="subway" src="img/SUBWAY1.png" />
+
+              <img class="burgers" src="img/oneburger.png" />
+
+              <div class="names">Овощной</div>
+
+              <div class="ingredients">Соус и овощи на выбор</div>
+
+              <div class="price">Цена: 110 руб.</div>
+
+              <div class="quantity">КОЛИЧЕСТВО</div>
+
+              <div class="buttons">
+                <img
+                  class="minus"
+                  src="/home/vyacheslav/Projects/shop/img/minus.svg"
+                />
+
+                <input value="1" maxlength="3" class="input" />
+
+                <img
+                  class="plus"
+                  src="/home/vyacheslav/Projects/shop/img/plus.svg"
+                />
+              </div>
+              <button class="in-basket" id="open-modal-btn-1">В КОРЗИНУ</button>
+            </article>
+
+            <article class="card-product">
+              <img class="subway" src="img/SUBWAY1.png" />
+
+              <img class="burgers" src="img/oneburger.png" />
+
+              <div class="names">Сабвэй Клаб</div>
+
+              <div class="ingredients">
+                Индейка, ветчина, ростбиф, соус и овощи на выбор
+              </div>
+
+              <div class="price">Цена: 160 руб.</div>
+
+              <div class="quantity">КОЛИЧЕСТВО</div>
+
+              <div class="buttons">
+                <img
+                  class="minus"
+                  src="/home/vyacheslav/Projects/shop/img/minus.svg"
+                />
+
+                <input value="1" maxlength="3" class="input" />
+
+                <img
+                  class="plus"
+                  src="/home/vyacheslav/Projects/shop/img/plus.svg"
+                />
+              </div>
+              <button class="in-basket" id="open-modal-btn-2">В КОРЗИНУ</button>
+            </article>
+
+            <article class="card-product">
+              <img class="subway" src="img/SUBWAY1.png" />
+
+              <img class="burgers" src="img/oneburger.png" />
+
+              <div class="names">Альпийский</div>
+
+              <div class="ingredients">
+                Альпийские колбаски 2шт, соус и овощи на выбор
+              </div>
+
+              <div class="price">Цена: 180 руб.</div>
+
+              <div class="quantity">КОЛИЧЕСТВО</div>
+
+              <div class="buttons">
+                <img
+                  class="minus"
+                  src="/home/vyacheslav/Projects/shop/img/minus.svg"
+                />
+
+                <input value="1" maxlength="3" class="input" />
+
+                <img
+                  class="plus"
+                  src="/home/vyacheslav/Projects/shop/img/plus.svg"
+                />
+              </div>
+              <button class="in-basket" id="open-modal-btn-3">В КОРЗИНУ</button>
+            </article>
+
+            <article class="card-product">
+              <img class="subway" src="img/SUBWAY1.png" />
+
+              <img class="burgers" src="img/oneburger.png" />
+
+              <div class="names">Мексиканский</div>
+
+              <div class="ingredients">
+                Индейка, ветчина, ростбиф, соус и овощи на выбор
+              </div>
+
+              <div class="price">Цена: 230 руб.</div>
+
+              <div class="quantity">КОЛИЧЕСТВО</div>
+
+              <div class="buttons">
+                <img
+                  class="minus"
+                  src="/home/vyacheslav/Projects/shop/img/minus.svg"
+                />
+
+                <input value="1" maxlength="3" class="input" />
+
+                <img
+                  class="plus"
+                  src="/home/vyacheslav/Projects/shop/img/plus.svg"
+                />
+              </div>
+              <button class="in-basket" id="open-modal-btn-4">В КОРЗИНУ</button>
+            </article>
+
+            <article class="card-product">
+              <img class="subway" src="img/SUBWAY1.png" />
+
+              <img class="burgers" src="img/oneburger.png" />
+
+              <div class="names">Классический</div>
+
+              <div class="ingredients">Соус и овощи на выбор</div>
+
+              <div class="price">Цена: 150 руб.</div>
+
+              <div class="quantity">КОЛИЧЕСТВО</div>
+
+              <div class="buttons">
+                <img
+                  class="minus"
+                  src="/home/vyacheslav/Projects/shop/img/minus.svg"
+                />
+
+                <input value="1" maxlength="3" class="input" />
+
+                <img
+                  class="plus"
+                  src="/home/vyacheslav/Projects/shop/img/plus.svg"
+                />
+              </div>
+              <button class="in-basket" id="open-modal-btn-5">В КОРЗИНУ</button>
+            </article>
+
+            <article class="card-product">
+              <img class="subway" src="img/SUBWAY1.png" />
+
+              <img class="burgers" src="img/oneburger.png" />
+
+              <div class="names">На углях</div>
+
+              <div class="ingredients">Индейка, ветчина, ростбиф</div>
+
+              <div class="price">Цена: 170 руб.</div>
+
+              <div class="quantity">КОЛИЧЕСТВО</div>
+
+              <div class="buttons">
+                <img
+                  class="minus"
+                  src="/home/vyacheslav/Projects/shop/img/minus.svg"
+                />
+
+                <input value="1" maxlength="3" class="input" />
+
+                <img
+                  class="plus"
+                  src="/home/vyacheslav/Projects/shop/img/plus.svg"
+                />
+              </div>
+              <button class="in-basket" id="open-modal-btn-6">В КОРЗИНУ</button>
+            </article>
+          </div>
+        </div>
         <div class="modal" id="my-modal">
           <div class="modal-box">
             <button class="modal-close-btn" id="close-my-modal-btn">
@@ -275,8 +322,8 @@
                       src="/home/vyacheslav/Projects/shop/img/1x1.png"
                     />
                   </div>
-                  <div>razmer</div>
-                  <div>price</div>
+                  <div>15 См</div>
+                  <div>Цена: 110 руб.</div>
                 </button>
                 <button class="product-size-card-buttons">
                   <div class="opptions-background-little-bread">
@@ -285,8 +332,8 @@
                       src="/home/vyacheslav/Projects/shop/img/2x2.png"
                     />
                   </div>
-                  <div>razmer</div>
-                  <div>price</div>
+                  <div>30 См</div>
+                  <div>Цена: 178 руб.</div>
                 </button>
               </div>
             </div>

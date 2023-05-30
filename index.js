@@ -56,6 +56,8 @@ document
     document.getElementById('my-modal').classList.add('open')
   })
 
+// =========================Смена карточек ингридиентов в модальном окне==============================
+
 document.getElementById('open-size').addEventListener('click', function () {
   document.getElementById('size-menu').classList.add('open')
 })
@@ -65,3 +67,195 @@ document
   .addEventListener('click', function () {
     document.getElementById('size-menu').classList.remove('open')
   })
+
+// =======================Смена карточек продуктов в главном меню===================================
+
+document
+  .getElementById('open-burger-menu')
+  .addEventListener('click', function () {
+    document.getElementById('burger-menu-reveal-button').classList.add('open')
+  })
+
+document
+  .getElementById('open-pancakes-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('burger-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+document
+  .getElementById('open-shawarma-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('burger-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-sandwiches-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('burger-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-chicken-and-potato-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('burger-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-tortilla-and-salads-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('burger-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-drinks-and-desserts-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('burger-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+// ====================================================================================================
+
+document
+  .getElementById('open-pancakes-menu')
+  .addEventListener('click', function () {
+    document.getElementById('pancakes-menu-reveal-button').classList.add('open')
+  })
+
+document
+  .getElementById('open-burger-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('pancakes-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-shawarma-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('pancakes-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-sandwiches-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('pancakes-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-chicken-and-potato-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('pancakes-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-tortilla-and-salads-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('pancakes-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-drinks-and-desserts-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('pancakes-menu-reveal-button')
+      .classList.remove('open')
+  })
+// ========================================================================================================
+
+document
+  .getElementById('open-shawarma-menu')
+  .addEventListener('click', function () {
+    document.getElementById('shawarma-menu-reveal-button').classList.add('open')
+  })
+
+document
+  .getElementById('open-burger-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('shawarma-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+// ============================================================================================================
+
+document
+  .getElementById('open-sandwiches-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('sandwiches-menu-reveal-button')
+      .classList.add('open')
+  })
+
+document
+  .getElementById('open-burger-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('sandwiches-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+// ===============================================================================================================
+
+document
+  .getElementById('open-chicken-and-potato-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('chicken-and-potato-menu-reveal-button')
+      .classList.add('open')
+  })
+
+document
+  .getElementById('open-burger-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('chicken-and-potato-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+// =================================================================================================================
+
+document
+  .getElementById('open-tortilla-and-salads-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .classList.add('open')
+  })
+
+document
+  .getElementById('open-burger-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+// ====================================================================================================================
+
+document
+  .getElementById('open-drinks-and-desserts-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .classList.add('open')
+  })
+
+document
+  .getElementById('open-burger-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+// =======================================================================================================================
