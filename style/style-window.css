@@ -168,7 +168,9 @@
 .size-cards {
   display: flex;
   flex-direction: row;
-  background-color: rgb(228, 219, 219);
+  background: rgb(228, 219, 219);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .forward-button {
@@ -199,6 +201,15 @@
 .product-size-card-buttons {
   display: flex;
   flex-direction: column;
+  background: rgb(228, 219, 219);
+  border: none;
+  border-radius: 5px;
+}
+
+.product-size-card-buttons:hover {
+  background: gold;
+  cursor: pointer;
+  border: none;
 }
 
 .forward-button {
