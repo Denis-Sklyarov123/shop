@@ -68,7 +68,7 @@ document
     document.getElementById('size-menu').classList.remove('open')
   })
 
-// =======================Смена карточек продуктов в главном меню===================================
+// =======================Смена карточек продуктов в главном меню===============Сендвичи====================
 
 document
   .getElementById('open-burger-menu')
@@ -120,7 +120,14 @@ document
       .classList.remove('open')
   })
 
-// ====================================================================================================
+document
+  .getElementById('open-burger-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('invisibility of the initial cards window')
+      .classList.add('open')
+  })
+// ==============================================================================Блины======================
 
 document
   .getElementById('open-pancakes-menu')
@@ -170,7 +177,15 @@ document
       .getElementById('pancakes-menu-reveal-button')
       .classList.remove('open')
   })
-// ========================================================================================================
+
+document
+  .getElementById('open-pancakes-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('invisibility of the initial cards window')
+      .classList.add('open')
+  })
+// ==============================================================================Шаурма==========================
 
 document
   .getElementById('open-shawarma-menu')
@@ -186,7 +201,50 @@ document
       .classList.remove('open')
   })
 
-// ============================================================================================================
+document
+  .getElementById('open-pancakes-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('shawarma-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-sandwiches-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('shawarma-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-chicken-and-potato-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('shawarma-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-tortilla-and-salads-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('shawarma-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-drinks-and-desserts-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('shawarma-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+document
+  .getElementById('open-shawarma-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('invisibility of the initial cards window')
+      .classList.add('open')
+  })
+// ==================================================================================Бургеры==========================
 
 document
   .getElementById('open-sandwiches-menu')
@@ -204,7 +262,50 @@ document
       .classList.remove('open')
   })
 
-// ===============================================================================================================
+document
+  .getElementById('open-pancakes-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('sandwiches-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-shawarma-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('sandwiches-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-chicken-and-potato-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('sandwiches-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-tortilla-and-salads-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('sandwiches-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-drinks-and-desserts-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('sandwiches-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+document
+  .getElementById('open-sandwiches-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('invisibility of the initial cards window')
+      .classList.add('open')
+  })
+// ======================================================================================Курица и Картошка=========================
 
 document
   .getElementById('open-chicken-and-potato-menu')
@@ -222,7 +323,50 @@ document
       .classList.remove('open')
   })
 
-// =================================================================================================================
+document
+  .getElementById('open-pancakes-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('chicken-and-potato-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-shawarma-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('chicken-and-potato-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-sandwiches-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('chicken-and-potato-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-tortilla-and-salads-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('chicken-and-potato-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-drinks-and-desserts-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('chicken-and-potato-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+document
+  .getElementById('open-chicken-and-potato-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('invisibility of the initial cards window')
+      .classList.add('open')
+  })
+// =================================================================================Тортилья и Салаты================================
 
 document
   .getElementById('open-tortilla-and-salads-menu')
@@ -240,7 +384,50 @@ document
       .classList.remove('open')
   })
 
-// ====================================================================================================================
+document
+  .getElementById('open-pancakes-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-shawarma-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-sandwiches-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-chicken-and-potato-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-drinks-and-desserts-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+document
+  .getElementById('open-tortilla-and-salads-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('invisibility of the initial cards window')
+      .classList.add('open')
+  })
+// =====================================================================================Напитки и Десерты===============================
 
 document
   .getElementById('open-drinks-and-desserts-menu')
@@ -258,4 +445,47 @@ document
       .classList.remove('open')
   })
 
+document
+  .getElementById('open-pancakes-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-shawarma-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-sandwiches-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-chicken-and-potato-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .classList.remove('open')
+  })
+document
+  .getElementById('open-tortilla-and-salads-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .classList.remove('open')
+  })
+
+document
+  .getElementById('open-drinks-and-desserts-menu')
+  .addEventListener('click', function () {
+    document
+      .getElementById('invisibility of the initial cards window')
+      .classList.add('open')
+  })
 // =======================================================================================================================

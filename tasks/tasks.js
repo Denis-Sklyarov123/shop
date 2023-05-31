@@ -545,3 +545,101 @@
 // }
 
 // createTree(container, data)
+
+// var settings;
+
+// function init() {
+//   loadJSON(function(response) {
+//     settings = JSON.parse(response);
+//   });
+//   document.getElementsByClassName('one')[0].innerHTML = settings.one;
+//   document.getElementsByClassName('two')[0].innerHTML = settings.two;
+// }
+
+// function loadJSON(callback) {
+//    var xobj = new XMLHttpRequest();
+//    xobj.overrideMimeType("application/json");
+//    xobj.open('GET', 'dataTasks.json', true);
+//    xobj.onreadystatechange = function () {
+//      if (xobj.readyState == 4 && xobj.status == "200") {
+//        callback(xobj.responseText);
+//      }
+//    };
+//    xobj.send(null);
+// }
+
+// function getFileSity(fileName) {
+//   let request = new XMLHttpRequest()
+//   request.open('GET', fileName, false)
+//   request.send(null)
+//   return JSON.parse(request.responseText)
+// }
+// let sityData = getFileSity('http://127.0.0.1:5500/data.json')
+
+// console.log(sityData)
+
+// async function getCustomerId() {
+//   var output
+//   let response = await fetch('http://127.0.0.1:5500/dataTasks.json')
+//   if (response.status !== 200) {
+//     console.log(
+//       'Looks like there was a problem. Status Code: ' + response.status
+//     )
+//   } else {
+//     const data = await response.json()
+//     output = data
+//   }
+//   console.log(output)
+// }
+// getCustomerId()
+
+fetch('http://127.0.0.1:5500/dataTasks.json')
+  .then(response => response.json())
+  .then(json => {
+    window.data = json
+    console.log(json)
+  })
+
+// function createTree(container, obj) {
+//   container.append(createTreeDom(obj))
+// }
+
+// function createTreeDom(obj) {
+//   let ul = document.createElement('ul')
+
+//   for (let key in obj) {
+//     let li = document.createElement('li')
+//     li.innerHTML = key
+
+//     let childrenUl = createTreeDom(obj[key])
+//     if (childrenUl) {
+//       li.append(childrenUl)
+//     }
+
+//     ul.append(li)
+//   }
+
+//   return ul
+// }
+
+// let container = document.getElementById('container')
+// createTree(container, data)
+
+// function createTree(container, obj) {
+//   container.innerHTML = createTreeText(obj)
+// }
+
+// function createTreeText(obj) {
+//   // отдельная рекурсивная функция
+//   let li = ''
+//   let ul
+//   for (let key in obj) {
+//     li += '<li>' + key + createTreeText(obj[key]) + '</li>'
+//   }
+//   if (li) {
+//     ul = '<ul>' + li + '</ul>'
+//   }
+//   return ul || ''
+// }
+
+// createTree(container, data)

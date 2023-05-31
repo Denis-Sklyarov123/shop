@@ -321,3 +321,21 @@ h1 {
 .all-product-card-windows {
   position: relative;
 }
+
+.the-initial-window-of-product-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  max-inline-size: 1140px;
+  margin-inline: auto;
+  visibility: visible;
+  position: absolute;
+  top: 0;
+}
+
+.the-initial-window-of-product-cards.open {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
