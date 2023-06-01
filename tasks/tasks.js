@@ -578,27 +578,63 @@
 
 // console.log(sityData)
 
-// async function getCustomerId() {
-//   var output
-//   let response = await fetch('http://127.0.0.1:5500/dataTasks.json')
-//   if (response.status !== 200) {
-//     console.log(
-//       'Looks like there was a problem. Status Code: ' + response.status
-//     )
-//   } else {
-//     const data = await response.json()
-//     output = data
-//   }
-//   console.log(output)
-// }
-// getCustomerId()
+// ========================================Получаем объект из локального сервера=================
+async function getCustomerId() {
+  window.data = []
+  let response = await fetch('http://127.0.0.1:5500/dataTasks.json')
+  if (response.status !== 200) {
+    console.log(
+      'Looks like there was a problem. Status Code: ' + response.status
+    )
+  } else {
+    const data = await response.json()
+    window.data = data
+  }
+  return window.data
+}
 
-fetch('http://127.0.0.1:5500/dataTasks.json')
-  .then(response => response.json())
-  .then(json => {
-    window.data = json
-    console.log(json)
-  })
+getCustomerId().then(data => {
+  console.log(data)
+  createTree(hytyt, data)
+})
+// =====================================Чтобы его где-то вызвать, вставляем его в промис=============
+// let promise = new Promise(function (resolve) {
+//   resolve(getCustomerId())
+// })
+
+// promise.then(result => console.log(result))
+// ============================================Функция которая вставляет наш объект в Html блок с id conainer=======
+function createTree(container, obj) {
+  container.innerHTML = createTreeText(obj)
+}
+// // =========================================функция которая меняет объект как нам нужно================
+function createTreeText(obj) {
+  // отдельная рекурсивная функция
+  let li = ''
+  let ul
+  for (let key in obj) {
+    li += '<li>' + key + '</li>' //Может вставить эту функцию в promise.then?
+  } //Как тогда вставить promise.then в функцию
+  if (li) {
+    //которая вставляет наш объект в Html блок c id conainer
+    ul = '<ul>' + li + '</ul>'
+  }
+  return ul || ''
+}
+// ==========================================Пытаюсь вызвать функцию с нужным объектом==============
+// createTree(container, window.data)
+// ==========================================Пытаюсь вызвать функцию с нужным объектом===========
+// createTree(
+//   container,
+//   promise.then(result => result)
+// )
+
+// fetch('http://127.0.0.1:5500/dataTasks.json')
+//   .then(response => response.json())
+//   .then(json => {
+//     window.data = json
+//     console.log(json)
+//   })
 
 // function createTree(container, obj) {
 //   container.append(createTreeDom(obj))
