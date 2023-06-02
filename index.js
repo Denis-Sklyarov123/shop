@@ -124,7 +124,7 @@ document
   .getElementById('open-burger-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('invisibility of the initial cards window')
+      .getElementById('invisibilityOfTheInitialCardsWindow')
       .classList.add('open')
   })
 // ==============================================================================Блины======================
@@ -132,45 +132,45 @@ document
 document
   .getElementById('open-pancakes-menu')
   .addEventListener('click', function () {
-    document.getElementById('pancakesMenuRevealButton').classList.add('open')
+    document.getElementById('pizzaMenuRevealButton').classList.add('open')
   })
 
 document
   .getElementById('open-burger-menu')
   .addEventListener('click', function () {
-    document.getElementById('pancakesMenuRevealButton').classList.remove('open')
+    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
   })
 document
   .getElementById('open-shawarma-menu')
   .addEventListener('click', function () {
-    document.getElementById('pancakesMenuRevealButton').classList.remove('open')
+    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
   })
 document
   .getElementById('open-sandwiches-menu')
   .addEventListener('click', function () {
-    document.getElementById('pancakesMenuRevealButton').classList.remove('open')
+    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
   })
 document
   .getElementById('open-chicken-and-potato-menu')
   .addEventListener('click', function () {
-    document.getElementById('pancakesMenuRevealButton').classList.remove('open')
+    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
   })
 document
   .getElementById('open-tortilla-and-salads-menu')
   .addEventListener('click', function () {
-    document.getElementById('pancakesMenuRevealButton').classList.remove('open')
+    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
   })
 document
   .getElementById('open-drinks-and-desserts-menu')
   .addEventListener('click', function () {
-    document.getElementById('pancakesMenuRevealButton').classList.remove('open')
+    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
   })
 
 document
   .getElementById('open-pancakes-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('invisibility of the initial cards window')
+      .getElementById('invisibilityOfTheInitialCardsWindow')
       .classList.add('open')
   })
 // ==============================================================================Шаурма==========================
@@ -178,58 +178,46 @@ document
 document
   .getElementById('open-shawarma-menu')
   .addEventListener('click', function () {
-    document.getElementById('shawarma-menu-reveal-button').classList.add('open')
+    document.getElementById('shawarmaMenuMevealButton').classList.add('open')
   })
 
 document
   .getElementById('open-burger-menu')
   .addEventListener('click', function () {
-    document
-      .getElementById('shawarma-menu-reveal-button')
-      .classList.remove('open')
+    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
   })
 
 document
   .getElementById('open-pancakes-menu')
   .addEventListener('click', function () {
-    document
-      .getElementById('shawarma-menu-reveal-button')
-      .classList.remove('open')
+    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
   })
 document
   .getElementById('open-sandwiches-menu')
   .addEventListener('click', function () {
-    document
-      .getElementById('shawarma-menu-reveal-button')
-      .classList.remove('open')
+    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
   })
 document
   .getElementById('open-chicken-and-potato-menu')
   .addEventListener('click', function () {
-    document
-      .getElementById('shawarma-menu-reveal-button')
-      .classList.remove('open')
+    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
   })
 document
   .getElementById('open-tortilla-and-salads-menu')
   .addEventListener('click', function () {
-    document
-      .getElementById('shawarma-menu-reveal-button')
-      .classList.remove('open')
+    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
   })
 document
   .getElementById('open-drinks-and-desserts-menu')
   .addEventListener('click', function () {
-    document
-      .getElementById('shawarma-menu-reveal-button')
-      .classList.remove('open')
+    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
   })
 
 document
   .getElementById('open-shawarma-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('invisibility of the initial cards window')
+      .getElementById('invisibilityOfTheInitialCardsWindow')
       .classList.add('open')
   })
 // ==================================================================================Бургеры==========================
@@ -237,16 +225,14 @@ document
 document
   .getElementById('open-sandwiches-menu')
   .addEventListener('click', function () {
-    document
-      .getElementById('sandwiches-menu-reveal-button')
-      .classList.add('open')
+    document.getElementById('sandwichesMenuRevealButton').classList.add('open')
   })
 
 document
   .getElementById('open-burger-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('sandwiches-menu-reveal-button')
+      .getElementById('sandwichesMenuRevealButton')
       .classList.remove('open')
   })
 
@@ -254,35 +240,35 @@ document
   .getElementById('open-pancakes-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('sandwiches-menu-reveal-button')
+      .getElementById('sandwichesMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-shawarma-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('sandwiches-menu-reveal-button')
+      .getElementById('sandwichesMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-chicken-and-potato-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('sandwiches-menu-reveal-button')
+      .getElementById('sandwichesMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-tortilla-and-salads-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('sandwiches-menu-reveal-button')
+      .getElementById('sandwichesMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-drinks-and-desserts-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('sandwiches-menu-reveal-button')
+      .getElementById('sandwichesMenuRevealButton')
       .classList.remove('open')
   })
 
@@ -290,7 +276,7 @@ document
   .getElementById('open-sandwiches-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('invisibility of the initial cards window')
+      .getElementById('invisibilityOfTheInitialCardsWindow')
       .classList.add('open')
   })
 // ======================================================================================Курица и Картошка=========================
@@ -299,7 +285,7 @@ document
   .getElementById('open-chicken-and-potato-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('chicken-and-potato-menu-reveal-button')
+      .getElementById('chickenAndPotatoMenuRevealButton')
       .classList.add('open')
   })
 
@@ -307,7 +293,7 @@ document
   .getElementById('open-burger-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('chicken-and-potato-menu-reveal-button')
+      .getElementById('chickenAndPotatoMenuRevealButton')
       .classList.remove('open')
   })
 
@@ -315,35 +301,35 @@ document
   .getElementById('open-pancakes-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('chicken-and-potato-menu-reveal-button')
+      .getElementById('chickenAndPotatoMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-shawarma-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('chicken-and-potato-menu-reveal-button')
+      .getElementById('chickenAndPotatoMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-sandwiches-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('chicken-and-potato-menu-reveal-button')
+      .getElementById('chickenAndPotatoMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-tortilla-and-salads-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('chicken-and-potato-menu-reveal-button')
+      .getElementById('chickenAndPotatoMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-drinks-and-desserts-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('chicken-and-potato-menu-reveal-button')
+      .getElementById('chickenAndPotatoMenuRevealButton')
       .classList.remove('open')
   })
 
@@ -351,7 +337,7 @@ document
   .getElementById('open-chicken-and-potato-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('invisibility of the initial cards window')
+      .getElementById('invisibilityOfTheInitialCardsWindow')
       .classList.add('open')
   })
 // =================================================================================Тортилья и Салаты================================
@@ -360,7 +346,7 @@ document
   .getElementById('open-tortilla-and-salads-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .getElementById('tortillaAndSaladsMenuRevealButton')
       .classList.add('open')
   })
 
@@ -368,7 +354,7 @@ document
   .getElementById('open-burger-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .getElementById('tortillaAndSaladsMenuRevealButton')
       .classList.remove('open')
   })
 
@@ -376,35 +362,35 @@ document
   .getElementById('open-pancakes-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .getElementById('tortillaAndSaladsMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-shawarma-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .getElementById('tortillaAndSaladsMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-sandwiches-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .getElementById('tortillaAndSaladsMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-chicken-and-potato-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .getElementById('tortillaAndSaladsMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-drinks-and-desserts-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('tortilla-and-salads-menu-reveal-button')
+      .getElementById('tortillaAndSaladsMenuRevealButton')
       .classList.remove('open')
   })
 
@@ -412,7 +398,7 @@ document
   .getElementById('open-tortilla-and-salads-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('invisibility of the initial cards window')
+      .getElementById('invisibilityOfTheInitialCardsWindow')
       .classList.add('open')
   })
 // =====================================================================================Напитки и Десерты===============================
@@ -421,7 +407,7 @@ document
   .getElementById('open-drinks-and-desserts-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.add('open')
   })
 
@@ -429,7 +415,7 @@ document
   .getElementById('open-burger-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.remove('open')
   })
 
@@ -437,35 +423,35 @@ document
   .getElementById('open-pancakes-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-shawarma-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-sandwiches-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-chicken-and-potato-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.remove('open')
   })
 document
   .getElementById('open-tortilla-and-salads-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('drinks-and-desserts-menu-reveal-button')
+      .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.remove('open')
   })
 
@@ -473,14 +459,14 @@ document
   .getElementById('open-drinks-and-desserts-menu')
   .addEventListener('click', function () {
     document
-      .getElementById('invisibility of the initial cards window')
+      .getElementById('invisibilityOfTheInitialCardsWindow')
       .classList.add('open')
   })
 // =======================================================================================================================
 
 async function getCustomerId() {
   window.data = []
-  let response = await fetch('http://127.0.0.1:5500/dataTasks.json')
+  let response = await fetch('/data.json')
   if (response.status !== 200) {
     console.log(
       'Looks like there was a problem. Status Code: ' + response.status
@@ -492,55 +478,133 @@ async function getCustomerId() {
   return window.data
 }
 
+//==========================================================================================================
+
 function createTree(container, obj) {
-  container.innerHTML = createTreeText(obj)
+  container.innerHTML = createTreeText(obj, 'sandwiches')
 }
 
-function createTreeText(obj) {
-  // отдельная рекурсивная функция
-  //   let li = ''
-  //   let ul
-  //   for (let key in obj) {
-  //     li += '<li>' + key + '</li>'
-  //   }
-  //   if (li) {
-
-  //     ul = '<ul>' + li + '</ul>'
-  //   }
-  //   return ul || ''
-  let html
-  for (let value in obj) {
-    if (value == 'sandwiches') {
-      obj.forEach(element => {
-        const html = `<div class="card-product">
-          <img class="subway" src="img/SUBWAY1.png" />
-          <img class="burgers" src=${element.image} />
-          <div class="names">${element.name}</div>
-          <div class="ingredients">${element.description}</div>
-          <div class="price">${element.price}</div>
-          <div class="quantity">КОЛИЧЕСТВО</div>
-          <div class="buttons">
-            <img
-              class="minus"
-              src="/home/vyacheslav/Projects/shop/img/minus.svg"
-            />
-            <input value="1" maxlength="3" class="input" />
-            <img
-              class="plus"
-              src="/home/vyacheslav/Projects/shop/img/plus.svg"
-            />
-          </div>
-          <button class="in-basket" id="open-modal-btn-1">
-            В КОРЗИНУ
-          </button>
-        </div>`
-      })
-    }
-  }
-  return html
+function createTreeText(obj, category) {
+  let arrMenu = obj.menu
+  let cardsSandwiches = arrMenu
+    .filter(item => item.category == category)
+    .map(
+      item => `
+      <div class="card-product">
+      <img class="subway" src="img/SUBWAY1.png" />
+      <img class="opptions-background-img" src="/img${item.image}" />
+      <div class="names">${item.name}</div>
+      <div class="ingredients">${item.description}</div>
+      <div class="price">Цена: ${item.price} руб.</div>
+      <div class="quantity">КОЛИЧЕСТВО</div>
+      <div class="buttons">
+        <img
+          class="minus"
+          src="/img/minus.svg"
+        />
+        <input value="1" maxlength="3" class="input" />
+        <img
+          class="plus"
+          src="/img/plus.svg"
+        />
+      </div>
+      <button class="in-basket" id="open-modal-btn-1">
+        В КОРЗИНУ
+      </button>
+    </div>`
+    )
+    .join('')
+  return cardsSandwiches
 }
 
+//=======================================================================================================
+
+function createTree1(container, obj) {
+  container.innerHTML = createTreeText(obj, 'drinks')
+}
+
+//========================================================================================================
+
+function createTree2(container, obj) {
+  container.innerHTML = createTreeText(obj, 'chicken')
+}
+
+//========================================================================================================
+
+function createTree3(container, obj) {
+  container.innerHTML = createTreeText(obj, 'salads')
+}
+
+//========================================================================================================
+
+function createTree4(container, obj) {
+  container.innerHTML = createTreeText(obj, 'shaurma')
+}
+
+//========================================================================================================
+
+var category = 'ololololo'
+
+function createTree5(container, obj) {
+  container.innerHTML = createTreeText(obj, 'pizza')
+}
+
+//========================================================================================================
+
+function createTree6(container, obj) {
+  container.innerHTML = createTreeText6(obj)
+}
+
+function createTreeText6(obj) {
+  let arrMenu = obj.menu
+  let cardsSandwiches = arrMenu
+    .filter(item => item.category == 'pizza')
+    .map(
+      item => `
+      <div class="card-product">
+      <img class="subway" src="img/SUBWAY1.png" />
+      <img class="opptions-background-img" src="/img${item.image}" />
+      <div class="names">${item.name}</div>
+      <div class="ingredients">${item.description}</div>
+      <div class="price">Цена: ${item.price} руб.</div>
+      <div class="quantity">КОЛИЧЕСТВО</div>
+      <div class="buttons">
+        <img
+          class="minus"
+          src="/img/minus.svg"
+        />
+        <input value="1" maxlength="3" class="input" />
+        <img
+          class="plus"
+          src="/img/plus.svg"
+        />
+      </div>
+      <button class="in-basket" id="open-modal-btn-1">
+        В КОРЗИНУ
+      </button>
+    </div>`
+    )
+    .join('')
+  return cardsSandwiches
+}
+
+//========================================================================================================
 getCustomerId().then(data => {
   console.log(data)
-  createTree(pancakesMenuRevealButton, data)
+  createTree6(
+    document.getElementById('invisibilityOfTheInitialCardsWindow'),
+    data
+  )
+  createTree5(document.getElementById('pizzaMenuRevealButton'), data)
+  createTree4(document.getElementById('shawarmaMenuMevealButton'), data)
+  createTree3(
+    document.getElementById('tortillaAndSaladsMenuRevealButton'),
+    data
+  )
+  createTree2(document.getElementById('chickenAndPotatoMenuRevealButton'), data)
+  createTree1(
+    document.getElementById('drinksAndDessertsMenuRevealButton'),
+    data
+  )
+  createTree(document.getElementById('sandwichesMenuRevealButton'), data)
 })
