@@ -1,8 +1,8 @@
-document
-  .getElementById('open-modal-btn-1')
-  .addEventListener('click', function () {
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('in-basket')) {
     document.getElementById('my-modal').classList.add('open')
-  })
+  }
+})
 
 document
   .getElementById('close-my-modal-btn')
@@ -25,36 +25,6 @@ document.getElementById('my-modal').addEventListener('click', event => {
   if (event._isClickWithInModal) return
   event.currentTarget.classList.remove('open')
 })
-
-document
-  .getElementById('open-modal-btn-2')
-  .addEventListener('click', function () {
-    document.getElementById('my-modal').classList.add('open')
-  })
-
-document
-  .getElementById('open-modal-btn-3')
-  .addEventListener('click', function () {
-    document.getElementById('my-modal').classList.add('open')
-  })
-
-document
-  .getElementById('open-modal-btn-4')
-  .addEventListener('click', function () {
-    document.getElementById('my-modal').classList.add('open')
-  })
-
-document
-  .getElementById('open-modal-btn-5')
-  .addEventListener('click', function () {
-    document.getElementById('my-modal').classList.add('open')
-  })
-
-document
-  .getElementById('open-modal-btn-6')
-  .addEventListener('click', function () {
-    document.getElementById('my-modal').classList.add('open')
-  })
 
 // =========================Смена карточек ингридиентов в модальном окне==============================
 
@@ -479,6 +449,31 @@ async function getCustomerId() {
 }
 
 //==========================================================================================================
+var categorys = [
+  'sandwiches',
+  'drinks',
+  'chicken',
+  'salads',
+  'shaurma',
+  'pizza',
+  'burgers',
+]
+
+// function changeArray(someArray) {
+//   for (i = 0; i < someArray.length; ++i) {
+//     return someArray[i]
+//   }
+// }
+// console.log(changeArray(categorys)) //Выдаёт первый элемент
+
+// function changeArray(someArray) {
+//   var arrEmpty = []
+//   for (i = 0; i < someArray.length; ++i) {
+//     arrEmpty.push(someArray[i])
+//   }
+//   return arrEmpty
+// }
+// console.log(changeArray(categorys)) //выдаёт тот же массив
 
 function createTree(container, obj) {
   container.innerHTML = createTreeText(obj, 'sandwiches')
@@ -508,7 +503,7 @@ function createTreeText(obj, category) {
           src="/img/plus.svg"
         />
       </div>
-      <button class="in-basket" id="open-modal-btn-1">
+      <button class="in-basket">
         В КОРЗИНУ
       </button>
     </div>`
@@ -543,10 +538,13 @@ function createTree4(container, obj) {
 
 //========================================================================================================
 
-var category = 'ololololo'
-
 function createTree5(container, obj) {
   container.innerHTML = createTreeText(obj, 'pizza')
+}
+//=======================================================================================================
+
+function createTree7(container, obj) {
+  container.innerHTML = createTreeText(obj, 'burgers')
 }
 
 //========================================================================================================
@@ -590,7 +588,7 @@ function createTreeText6(obj) {
 
 //========================================================================================================
 getCustomerId().then(data => {
-  console.log(data)
+  createTree7(document.getElementById('burger-menu-reveal-button'), data)
   createTree6(
     document.getElementById('invisibilityOfTheInitialCardsWindow'),
     data
