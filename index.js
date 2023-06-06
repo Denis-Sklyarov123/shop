@@ -27,7 +27,7 @@ document.getElementById('my-modal').addEventListener('click', event => {
 })
 
 // =========================Смена карточек ингридиентов в модальном окне==============================
-
+//===========================Размер=============================================================
 document.getElementById('open-size').addEventListener('click', function () {
   document.getElementById('size-menu').classList.add('open')
 })
@@ -37,7 +37,182 @@ document
   .addEventListener('click', function () {
     document.getElementById('size-menu').classList.remove('open')
   })
+//===========================================Закрытие других разделов по нажатию на "Размер"==========================================================
 
+document.getElementById('open-size').addEventListener('click', function () {
+  document.getElementById('bread-menu').classList.remove('open')
+})
+
+document.getElementById('open-size').addEventListener('click', function () {
+  document.getElementById('vegetable-menu').classList.remove('open')
+})
+
+document.getElementById('open-size').addEventListener('click', function () {
+  document.getElementById('sauces-menu').classList.remove('open')
+})
+
+document.getElementById('open-size').addEventListener('click', function () {
+  document.getElementById('stuffing-menu').classList.remove('open')
+})
+
+document.getElementById('open-size').addEventListener('click', function () {
+  document.getElementById('ready-menu').classList.remove('open')
+})
+//==============================================Хлеб=======================================================
+document
+  .getElementById('is-open-bread-menu')
+  .addEventListener('click', function () {
+    document.getElementById('bread-menu').classList.add('open')
+  })
+
+document
+  .getElementById('close-my-modal-btn')
+  .addEventListener('click', function () {
+    document.getElementById('bread-menu').classList.remove('open')
+  })
+//===========================================Закрытие других разделов по нажатию на "Хлеб"==================
+
+document
+  .getElementById('is-open-bread-menu')
+  .addEventListener('click', function () {
+    document.getElementById('size-menu').classList.remove('open')
+  })
+
+document
+  .getElementById('is-open-bread-menu')
+  .addEventListener('click', function () {
+    document.getElementById('vegetable-menu').classList.remove('open')
+  })
+
+document
+  .getElementById('is-open-bread-menu')
+  .addEventListener('click', function () {
+    document.getElementById('sauces-menu').classList.remove('open')
+  })
+document
+  .getElementById('is-open-bread-menu')
+  .addEventListener('click', function () {
+    document.getElementById('stuffing-menu').classList.remove('open')
+  })
+
+document
+  .getElementById('is-open-bread-menu')
+  .addEventListener('click', function () {
+    document.getElementById('ready-menu').classList.remove('open')
+  })
+//========================Овощи=============================================================================
+
+document
+  .getElementById('vegetable-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('vegetable-menu').classList.add('open')
+  })
+
+document
+  .getElementById('close-my-modal-btn')
+  .addEventListener('click', function () {
+    document.getElementById('vegetable-menu').classList.remove('open')
+  })
+//===========================================Закрытие других разделов по нажатию на "Овощи"==================
+document
+  .getElementById('vegetable-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('size-menu').classList.remove('open')
+  })
+
+document
+  .getElementById('vegetable-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('bread-menu').classList.remove('open')
+  })
+
+document
+  .getElementById('vegetable-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('sauces-menu').classList.remove('open')
+  })
+document
+  .getElementById('vegetable-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('stuffing-menu').classList.remove('open')
+  })
+
+document
+  .getElementById('vegetable-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('ready-menu').classList.remove('open')
+  })
+//========================Соусы=============================================================================
+document
+  .getElementById('sauces-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('sauces-menu').classList.add('open')
+  })
+
+document
+  .getElementById('close-my-modal-btn')
+  .addEventListener('click', function () {
+    document.getElementById('sauces-menu').classList.remove('open')
+  })
+//===========================================Закрытие других разделов по нажатию на "Соусы"=================
+document
+  .getElementById('sauces-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('stuffing-menu').classList.remove('open')
+  })
+document
+  .getElementById('sauces-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('ready-menu').classList.remove('open')
+  })
+//========================Начинка===========================================================================
+document
+  .getElementById('stuffing-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('stuffing-menu').classList.add('open')
+  })
+
+document
+  .getElementById('close-my-modal-btn')
+  .addEventListener('click', function () {
+    document.getElementById('stuffing-menu').classList.remove('open')
+  })
+//===========================================Закрытие других разделов по нажатию на "Начинка"===============
+document
+  .getElementById('stuffing-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('size-menu').classList.remove('open')
+  })
+
+document
+  .getElementById('stuffing-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('bread-menu').classList.remove('open')
+  })
+
+document
+  .getElementById('stuffing-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('sauces-menu').classList.remove('open')
+  })
+document
+  .getElementById('stuffing-open-menu')
+  .addEventListener('click', function () {
+    document.getElementById('ready-menu').classList.remove('open')
+  })
+//========================Готово!===========================================================================
+document
+  .getElementById('open-menu-ready')
+  .addEventListener('click', function () {
+    document.getElementById('ready-menu').classList.add('open')
+  })
+
+document
+  .getElementById('close-my-modal-btn')
+  .addEventListener('click', function () {
+    document.getElementById('ready-menu').classList.remove('open')
+  })
+//===========================================Закрытие других разделов по нажатию на "Готово"===============
 // =======================Смена карточек продуктов в главном меню===============Сендвичи====================
 
 document
@@ -458,6 +633,12 @@ var categorys = [
   'pizza',
   'burgers',
 ]
+// function allProduct(arrProduct) {
+//   arrProduct.forEach(element => {
+//     console.log(element)
+//   })
+// }
+// allProduct(categorys) //выдаёт все элементы
 
 // function changeArray(someArray) {
 //   for (i = 0; i < someArray.length; ++i) {
@@ -474,6 +655,13 @@ var categorys = [
 //   return arrEmpty
 // }
 // console.log(changeArray(categorys)) //выдаёт тот же массив
+
+// function allProduct(arrProduct) {
+//   arrProduct.forEach(element => {
+//     return element
+//   })
+// }
+// console.log(allProduct(categorys))
 
 function createTree(container, obj) {
   container.innerHTML = createTreeText(obj, 'sandwiches')
@@ -606,3 +794,64 @@ getCustomerId().then(data => {
   )
   createTree(document.getElementById('sandwichesMenuRevealButton'), data)
 })
+//==============================================Переключение между ячейками меню создания блюда============
+// let width = 130 // ширина картинки
+// let count = 3 // видимое количество изображений
+
+// let list = carousel.querySelector('.gallery')
+// let listElems = carousel.querySelectorAll('.bread-selection-menu')
+
+// let position = 0 // положение ленты прокрутки
+
+// carousel.querySelector('.back-button').onclick = function () {
+//   // сдвиг влево
+//   position += width * count
+//   // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+//   position = Math.min(position, 0)
+//   list.style.marginLeft = position + 'px'
+// }
+
+// carousel.querySelector('.forward-button').onclick = function () {
+//   // сдвиг вправо
+//   position -= width * count
+//   // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
+//   position = Math.max(position, -width * (listElems.length - count))
+//   list.style.marginLeft = position + 'px'
+// }
+//=========================================================================================================
+// function createTree(container, obj) {
+//   container.innerHTML = createTreeText(obj, 'sandwiches')
+// }
+
+// function createTreeText(obj, category) {
+//   let objFillings = obj.fillings
+//   let cardsFillings = objFillings
+//     .filter(item => item.category == category)
+//     .map(
+//       item => `
+//       <div class="card-product">
+//       <img class="subway" src="img/SUBWAY1.png" />
+//       <img class="opptions-background-img" src="/img${item.image}" />
+//       <div class="names">${item.name}</div>
+//       <div class="ingredients">${item.description}</div>
+//       <div class="price">Цена: ${item.price} руб.</div>
+//       <div class="quantity">КОЛИЧЕСТВО</div>
+//       <div class="buttons">
+//         <img
+//           class="minus"
+//           src="/img/minus.svg"
+//         />
+//         <input value="1" maxlength="3" class="input" />
+//         <img
+//           class="plus"
+//           src="/img/plus.svg"
+//         />
+//       </div>
+//       <button class="in-basket">
+//         В КОРЗИНУ
+//       </button>
+//     </div>`
+//     )
+//     .join('')
+//   return cardsFillings
+// }
