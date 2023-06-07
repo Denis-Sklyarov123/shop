@@ -166,17 +166,19 @@
 }
 
 .size-cards {
-  display: flex;
-  flex-direction: row;
+  column-count: 2;
+  /* display: flex;
+  flex-direction: row; */
   background: rgb(228, 219, 219);
   border-radius: 6px;
   overflow: hidden;
+  margin: 40px 0px 0px 0px;
 }
 
 .forward-button {
-  position: absolute;
+  position: fixed;
   border: none;
-  top: 20px;
+  top: 140px;
   right: 28px;
   border: none;
   background-color: rgb(224, 116, 116);
@@ -190,9 +192,9 @@
 }
 
 .back-button {
-  position: absolute;
+  position: fixed;
   border: none;
-  top: 20px;
+  top: 140px;
   left: 28px;
   border: none;
   background-color: rgb(224, 116, 116);
@@ -266,12 +268,13 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 633;
   font-size: 17px;
-  padding-top: 10px;
+  padding-top: 15px;
   width: 150px;
   text-underline-offset: 3px;
   border-bottom: 3px solid black;
   height: 30px;
   max-width: 200px;
+  padding-bottom: 10px;
 }
 
 .price-bread {
@@ -281,7 +284,7 @@
   font-size: 18px;
   padding-top: 6px;
   width: 150px;
-  padding-bottom: 25px;
+  padding-bottom: 35px;
 }
 
 .bread-selection-menu.open {
