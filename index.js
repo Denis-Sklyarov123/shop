@@ -774,6 +774,51 @@ function createTreeText6(obj) {
   return cardsSandwiches
 }
 
+//================================================================================================================
+// function drawingModalWindowElements(container, obj) {
+//   container.innerHTML = settingHtmlLayoutForRendering(obj)
+// }
+
+// function settingHtmlLayoutForRendering(obj) {
+//   var objFillings = obj.fillings
+//   for (let key in objFillings) {
+//     if (objFillings.hasOwnProperty(key)) {
+//       var text = ''
+//       text += `
+//         <button class="product-size-card-buttons">
+//           <div class="opptions-background-little-bread">
+//             <img class="little-bread" src="/img${objFillings[key].image}" />
+//           </div>
+//           <div class="size-bread">${objFillings[key].name}</div>
+//           <div class="price-bread">Цена:${objFillings[key].price}</div>
+//         </button>`
+//       // console.log(text)
+//     }
+//     return text
+//   }
+// }
+//===============================================================================================================
+function drawingModalWindowElements(container, obj) {
+  container.innerHTML = settingHtmlLayoutForRendering(obj)
+}
+
+function settingHtmlLayoutForRendering(obj) {
+  var objFillings = obj.fillings
+  var result = Object.values(objFillings)
+    .map(
+      v => `
+          <button class="product-size-card-buttons">
+            <div class="opptions-background-little-bread">
+              <img class="little-bread" src="/img${v.image}" />
+            </div>
+            <div class="size-bread">${v.name}</div>
+            <div class="price-bread">Цена:${v.price}</div>
+          </button>`
+    )
+    .join('')
+  return result
+}
+
 //========================================================================================================
 getCustomerId().then(data => {
   createTree7(document.getElementById('burger-menu-reveal-button'), data)
@@ -793,6 +838,7 @@ getCustomerId().then(data => {
     data
   )
   createTree(document.getElementById('sandwichesMenuRevealButton'), data)
+  drawingModalWindowElements(document.getElementById('stuffing-content'), data)
 })
 //==============================================Переключение между ячейками меню создания блюда============
 // let width = 130 // ширина картинки
@@ -819,39 +865,3 @@ getCustomerId().then(data => {
 //   list.style.marginLeft = position + 'px'
 // }
 //=========================================================================================================
-// function createTree(container, obj) {
-//   container.innerHTML = createTreeText(obj, 'sandwiches')
-// }
-
-// function createTreeText(obj, category) {
-//   let objFillings = obj.fillings
-//   let cardsFillings = objFillings
-//     .filter(item => item.category == category)
-//     .map(
-//       item => `
-//       <div class="card-product">
-//       <img class="subway" src="img/SUBWAY1.png" />
-//       <img class="opptions-background-img" src="/img${item.image}" />
-//       <div class="names">${item.name}</div>
-//       <div class="ingredients">${item.description}</div>
-//       <div class="price">Цена: ${item.price} руб.</div>
-//       <div class="quantity">КОЛИЧЕСТВО</div>
-//       <div class="buttons">
-//         <img
-//           class="minus"
-//           src="/img/minus.svg"
-//         />
-//         <input value="1" maxlength="3" class="input" />
-//         <img
-//           class="plus"
-//           src="/img/plus.svg"
-//         />
-//       </div>
-//       <button class="in-basket">
-//         В КОРЗИНУ
-//       </button>
-//     </div>`
-//     )
-//     .join('')
-//   return cardsFillings
-// }
