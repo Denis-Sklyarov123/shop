@@ -171,8 +171,7 @@
   flex-direction: row; */
   background: rgb(228, 219, 219);
   border-radius: 6px;
-  overflow: hidden;
-  margin: 40px 0px 0px 0px;
+  /* overflow: hidden; */
 }
 
 .forward-button {
@@ -249,10 +248,13 @@
   border-radius: 100%;
   overflow: hidden;
   border: 10px solid gold;
+  margin: 28px 0px 0px 0px;
 }
 
 .little-bread {
   margin: 30px 0px 0px 0px;
+  width: 100px;
+  border-radius: 50%;
 }
 
 .opptions-background-img {
@@ -275,6 +277,8 @@
   height: 30px;
   max-width: 200px;
   padding-bottom: 10px;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 .price-bread {
