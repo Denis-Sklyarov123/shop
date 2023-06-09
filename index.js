@@ -14,6 +14,7 @@ document
     document.getElementById('vegetable-menu').classList.remove('open')
     document.getElementById('bread-menu').classList.remove('open')
     document.getElementById('size-menu').classList.remove('open')
+    document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
   })
 
 window.addEventListener('keydown', e => {
@@ -39,13 +40,15 @@ document
   .addEventListener('click', function () {
     document.getElementById('size-menu').classList.remove('open')
     document.getElementById('bread-menu').classList.add('open')
+    document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
   })
 //============================<-- хлеб -->====================================================================
 document
-  .getElementById('go-to-size-block')
+  .getElementById('go-to-back-size-block')
   .addEventListener('click', function () {
     document.getElementById('bread-menu').classList.remove('open')
     document.getElementById('size-menu').classList.add('open')
+    document.querySelector('p').textContent = 'Выберите размер сендвича'
   })
 //=============================================================================================================
 document
@@ -53,13 +56,15 @@ document
   .addEventListener('click', function () {
     document.getElementById('bread-menu').classList.remove('open')
     document.getElementById('vegetable-menu').classList.add('open')
+    document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
   })
 //==============================<-- овощи -->=================================================================
 document
-  .getElementById('go-to-bread-block')
+  .getElementById('go-to-back-bread-block')
   .addEventListener('click', function () {
     document.getElementById('vegetable-menu').classList.remove('open')
     document.getElementById('bread-menu').classList.add('open')
+    document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
   })
 //============================================================================================================
 document
@@ -67,6 +72,8 @@ document
   .addEventListener('click', function () {
     document.getElementById('vegetable-menu').classList.remove('open')
     document.getElementById('sauces-menu').classList.add('open')
+    document.querySelector('p').textContent =
+      'Выберите 3 бесплатных соуса по вкусу'
   })
 //==================================<-- Соусы -->=============================================================
 document
@@ -74,6 +81,7 @@ document
   .addEventListener('click', function () {
     document.getElementById('sauces-menu').classList.remove('open')
     document.getElementById('vegetable-menu').classList.add('open')
+    document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
   })
 //============================================================================================================
 document
@@ -81,6 +89,7 @@ document
   .addEventListener('click', function () {
     document.getElementById('sauces-menu').classList.remove('open')
     document.getElementById('stuffing-menu').classList.add('open')
+    document.querySelector('p').textContent = 'Добавьте начинку по вкусу'
   })
 //==============================<-- Начинка -->===============================================================
 document
@@ -88,6 +97,8 @@ document
   .addEventListener('click', function () {
     document.getElementById('stuffing-menu').classList.remove('open')
     document.getElementById('sauces-menu').classList.add('open')
+    document.querySelector('p').textContent =
+      'Выберите 3 бесплатных соуса по вкусу'
   })
 //============================================================================================================
 document
@@ -105,6 +116,7 @@ document.getElementById('open-size').addEventListener('click', function () {
   document.getElementById('sauces-menu').classList.remove('open')
   document.getElementById('stuffing-menu').classList.remove('open')
   document.getElementById('ready-menu').classList.remove('open')
+  document.querySelector('p').textContent = 'Выберите размер сендвича'
 })
 //==============================================Хлеб=======================================================
 document
@@ -116,6 +128,7 @@ document
     document.getElementById('sauces-menu').classList.remove('open')
     document.getElementById('stuffing-menu').classList.remove('open')
     document.getElementById('ready-menu').classList.remove('open')
+    document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
   })
 //========================Овощи=============================================================================
 document
@@ -127,6 +140,7 @@ document
     document.getElementById('sauces-menu').classList.remove('open')
     document.getElementById('stuffing-menu').classList.remove('open')
     document.getElementById('ready-menu').classList.remove('open')
+    document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
   })
 //========================Соусы=============================================================================
 document
@@ -135,6 +149,8 @@ document
     document.getElementById('sauces-menu').classList.add('open')
     document.getElementById('stuffing-menu').classList.remove('open')
     document.getElementById('ready-menu').classList.remove('open')
+    document.querySelector('p').textContent =
+      'Выберите 3 бесплатных соуса по вкусу'
   })
 //========================Начинка===========================================================================
 document
@@ -145,12 +161,14 @@ document
     document.getElementById('bread-menu').classList.remove('open')
     document.getElementById('sauces-menu').classList.remove('open')
     document.getElementById('ready-menu').classList.remove('open')
+    document.querySelector('p').textContent = 'Добавьте начинку по вкусу'
   })
 //========================Готово!===========================================================================
 document
   .getElementById('open-menu-ready')
   .addEventListener('click', function () {
     document.getElementById('ready-menu').classList.add('open')
+    document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
   })
 // =======================Смена карточек продуктов в главном меню============================================
 //=====================================Сендвичи==============================================================
@@ -347,15 +365,15 @@ async function getCustomerId() {
 }
 
 //==========================================================================================================
-var categorys = [
-  'sandwiches',
-  'drinks',
-  'chicken',
-  'salads',
-  'shaurma',
-  'pizza',
-  'burgers',
-]
+// var categorys = [
+//   'sandwiches',
+//   'drinks',
+//   'chicken',
+//   'salads',
+//   'shaurma',
+//   'pizza',
+//   'burgers',
+// ]
 // function allProduct(arrProduct) {
 //   arrProduct.forEach(element => {
 //     console.log(element)
@@ -386,11 +404,11 @@ var categorys = [
 // }
 // console.log(allProduct(categorys))
 
-function createTree(container, obj) {
-  container.innerHTML = createTreeText(obj, 'sandwiches')
+function sendingDataToTheDesiredHtmlBlock(container, obj) {
+  container.innerHTML = convertingDataToHtml(obj, 'sandwiches')
 }
 
-function createTreeText(obj, category) {
+function convertingDataToHtml(obj, category) {
   let arrMenu = obj.menu
   let cardsSandwiches = arrMenu
     .filter(item => item.category == category)
@@ -425,49 +443,49 @@ function createTreeText(obj, category) {
 
 //=======================================================================================================
 // function createTree88(container, obj, label) {
-//   container.innerHTML = createTreeText(obj, label)
+//   container.innerHTML = convertingDataToHtml(obj, label)
 //   } // пример помошника
 //=======================================================================================================
-function createTree1(container, obj) {
-  container.innerHTML = createTreeText(obj, 'drinks')
+function sendingDataToTheDesiredHtmlBlock1(container, obj) {
+  container.innerHTML = convertingDataToHtml(obj, 'drinks')
 }
 
 //========================================================================================================
 
-function createTree2(container, obj) {
-  container.innerHTML = createTreeText(obj, 'chicken')
+function sendingDataToTheDesiredHtmlBlock2(container, obj) {
+  container.innerHTML = convertingDataToHtml(obj, 'chicken')
 }
 
 //========================================================================================================
 
-function createTree3(container, obj) {
-  container.innerHTML = createTreeText(obj, 'salads')
+function sendingDataToTheDesiredHtmlBlock3(container, obj) {
+  container.innerHTML = convertingDataToHtml(obj, 'salads')
 }
 
 //========================================================================================================
 
-function createTree4(container, obj) {
-  container.innerHTML = createTreeText(obj, 'shaurma')
+function sendingDataToTheDesiredHtmlBlock4(container, obj) {
+  container.innerHTML = convertingDataToHtml(obj, 'shaurma')
 }
 
 //========================================================================================================
 
-function createTree5(container, obj) {
-  container.innerHTML = createTreeText(obj, 'pizza')
+function sendingDataToTheDesiredHtmlBlock5(container, obj) {
+  container.innerHTML = convertingDataToHtml(obj, 'pizza')
 }
 //=======================================================================================================
 
-function createTree7(container, obj) {
-  container.innerHTML = createTreeText(obj, 'burgers')
+function sendingDataToTheDesiredHtmlBlock7(container, obj) {
+  container.innerHTML = convertingDataToHtml(obj, 'burgers')
 }
 
 //========================================================================================================
 
-function createTree6(container, obj) {
-  container.innerHTML = createTreeText6(obj)
+function sendingDataToTheDesiredHtmlBlock6(container, obj) {
+  container.innerHTML = convertingDataToHtml6(obj)
 }
 
-function createTreeText6(obj) {
+function convertingDataToHtml6(obj) {
   let arrMenu = obj.menu
   let cardsSandwiches = arrMenu
     .filter(item => item.category == 'pizza')
@@ -529,7 +547,6 @@ function drawingModalWindowElements(container, obj) {
 }
 
 function settingHtmlLayoutForRendering(obj, objectInObject) {
-  // var objFillings = obj.fillings
   var result = Object.values(objectInObject)
     .map(
       v => `
@@ -544,6 +561,28 @@ function settingHtmlLayoutForRendering(obj, objectInObject) {
     .join('')
   return result
 }
+
+// document.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('product-size-card-buttons')) {
+//     '' = constructorCard(card)
+//   }
+// })
+
+// function constructorCard(card) {
+//   this.name = card.querySelector('size-bread').innerText
+// }
+// function addingToWindowDone(obj, objectInObject) {
+//   var resultCard = Object.values(objectInObject)
+//     .map(v => `<div class="size-bread">Размер: ${v.name}</div>`)
+//     .join('')
+//   return resultCard
+// }
+
+// document.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('product-size-card-buttons')) {
+//     document.getElementById('the-content-of-the-final-block-in-the-modal-window') = addingToWindowDone(obj, objectInObject)
+//   }
+// })
 //========================================================================================================
 function drawingModalWindowElements2(container, obj) {
   container.innerHTML = settingHtmlLayoutForRendering(obj, obj.sizes)
@@ -567,23 +606,38 @@ getCustomerId().then(data => {
   //   createTree88(document.getElementById('burger-menu-reveal-button'), data, item)
   //   }) //пример помошника
   //=================================================================================
-  createTree7(document.getElementById('burger-menu-reveal-button'), data)
-  createTree6(
+  sendingDataToTheDesiredHtmlBlock7(
+    document.getElementById('burger-menu-reveal-button'),
+    data
+  )
+  sendingDataToTheDesiredHtmlBlock6(
     document.getElementById('invisibilityOfTheInitialCardsWindow'),
     data
   )
-  createTree5(document.getElementById('pizzaMenuRevealButton'), data)
-  createTree4(document.getElementById('shawarmaMenuMevealButton'), data)
-  createTree3(
+  sendingDataToTheDesiredHtmlBlock5(
+    document.getElementById('pizzaMenuRevealButton'),
+    data
+  )
+  sendingDataToTheDesiredHtmlBlock4(
+    document.getElementById('shawarmaMenuMevealButton'),
+    data
+  )
+  sendingDataToTheDesiredHtmlBlock3(
     document.getElementById('tortillaAndSaladsMenuRevealButton'),
     data
   )
-  createTree2(document.getElementById('chickenAndPotatoMenuRevealButton'), data)
-  createTree1(
+  sendingDataToTheDesiredHtmlBlock2(
+    document.getElementById('chickenAndPotatoMenuRevealButton'),
+    data
+  )
+  sendingDataToTheDesiredHtmlBlock1(
     document.getElementById('drinksAndDessertsMenuRevealButton'),
     data
   )
-  createTree(document.getElementById('sandwichesMenuRevealButton'), data)
+  sendingDataToTheDesiredHtmlBlock(
+    document.getElementById('sandwichesMenuRevealButton'),
+    data
+  )
   drawingModalWindowElements(document.getElementById('stuffing-content'), data)
   drawingModalWindowElements2(document.getElementById('size-products'), data)
   drawingModalWindowElements3(
