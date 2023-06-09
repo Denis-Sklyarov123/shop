@@ -13,7 +13,7 @@
 
   <body>
     <h1>CДЕЛАЙТЕ ЗАКАЗ НАПРЯМУЮ ИЗ РЕСТОРАНА</h1>
-    <section class="basis">
+    <main class="basis">
       <nav>
         <ul class="menu">
           <li class="menu-item" id="open-pancakes-menu">Пицца</li>
@@ -53,8 +53,8 @@
           </div>
         </aside>
       </nav>
-      <main>
-        <div class="all-product-card-windows">
+      <div>
+        <section class="all-product-card-windows">
           <div
             class="the-initial-window-of-product-cards"
             id="invisibilityOfTheInitialCardsWindow"
@@ -97,7 +97,7 @@
           <div class="main-burger-content" id="burger-menu-reveal-button">
             Бургеры, Бургеры, Бургеры, Бургеры, Бургеры, Бургеры, Бургеры
           </div>
-        </div>
+        </section>
         <div class="modal" id="my-modal">
           <div class="modal-box">
             <button class="modal-close-btn" id="close-my-modal-btn">
@@ -106,7 +106,7 @@
                 src="img/4115230-cancel-close-cross-delete_114048.png"
               />
             </button>
-            <h2 class="modal-window-text">Проверьте и добавьте в корзину</h2>
+            <p class="modal-window-text">Проверьте и добавьте в корзину</p>
             <div class="modal-window-menu">
               <div class="items-menu">
                 <button class="item-modal-window-menu" id="open-size">
@@ -154,7 +154,7 @@
                   <div class="size-cards" id="size-products">много размеры</div>
                 </div>
                 <div class="bread-selection-menu" id="bread-menu">
-                  <button class="back-button" id="go-to-size-block">
+                  <button class="back-button" id="go-to-back-size-block">
                     <img
                       class="arrow"
                       src="img/left_icon-icons.com_61213.svg"
@@ -173,7 +173,7 @@
                   </div>
                 </div>
                 <div class="vegetable-setting-menu" id="vegetable-menu">
-                  <button class="back-button" id="go-to-bread-block">
+                  <button class="back-button" id="go-to-back-bread-block">
                     <img
                       class="arrow"
                       src="img/left_icon-icons.com_61213.svg"
@@ -235,7 +235,12 @@
                   </div>
                 </div>
                 <div class="final-created-product" id="ready-menu">
-                  <div class="size-cards">Готово!</div>
+                  <div
+                    class="size-cards"
+                    id="the-content-of-the-final-block-in-the-modal-window"
+                  >
+                    Готово!
+                  </div>
                 </div>
               </div>
             </div>
@@ -266,7 +271,7 @@
             </div>
           </div>
         </div>
-      </main>
-    </section>
+      </div>
+    </main>
   </body>
 </html>

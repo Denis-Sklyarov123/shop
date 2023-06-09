@@ -579,24 +579,24 @@
 // console.log(sityData)
 
 // ========================================Получаем объект из локального сервера=================
-async function getCustomerId() {
-  window.data = []
-  let response = await fetch('http://127.0.0.1:5500/dataTasks.json')
-  if (response.status !== 200) {
-    console.log(
-      'Looks like there was a problem. Status Code: ' + response.status
-    )
-  } else {
-    const data = await response.json()
-    window.data = data
-  }
-  return window.data
-}
+// async function getCustomerId() {
+//   window.data = []
+//   let response = await fetch('http://127.0.0.1:5500/dataTasks.json')
+//   if (response.status !== 200) {
+//     console.log(
+//       'Looks like there was a problem. Status Code: ' + response.status
+//     )
+//   } else {
+//     const data = await response.json()
+//     window.data = data
+//   }
+//   return window.data
+// }
 
-getCustomerId().then(data => {
-  console.log(data)
-  createTree(hytyt, data)
-})
+// getCustomerId().then(data => {
+//   console.log(data)
+//   createTree(hytyt, data)
+// })
 // =====================================Чтобы его где-то вызвать, вставляем его в промис=============
 // let promise = new Promise(function (resolve) {
 //   resolve(getCustomerId())
@@ -604,23 +604,23 @@ getCustomerId().then(data => {
 
 // promise.then(result => console.log(result))
 // ============================================Функция которая вставляет наш объект в Html блок с id conainer=======
-function createTree(container, obj) {
-  container.innerHTML = createTreeText(obj)
-}
+// function createTree(container, obj) {
+//   container.innerHTML = createTreeText(obj)
+// }
 // // =========================================функция которая меняет объект как нам нужно================
-function createTreeText(obj) {
-  // отдельная рекурсивная функция
-  let li = ''
-  let ul
-  for (let key in obj) {
-    li += '<li>' + key + '</li>' //Может вставить эту функцию в promise.then?
-  } //Как тогда вставить promise.then в функцию
-  if (li) {
-    //которая вставляет наш объект в Html блок c id conainer
-    ul = '<ul>' + li + '</ul>'
-  }
-  return ul || ''
-}
+// function createTreeText(obj) {
+//   // отдельная рекурсивная функция
+//   let li = ''
+//   let ul
+//   for (let key in obj) {
+//     li += '<li>' + key + '</li>' //Может вставить эту функцию в promise.then?
+//   } //Как тогда вставить promise.then в функцию
+//   if (li) {
+//     //которая вставляет наш объект в Html блок c id conainer
+//     ul = '<ul>' + li + '</ul>'
+//   }
+//   return ul || ''
+// }
 // ==========================================Пытаюсь вызвать функцию с нужным объектом==============
 // createTree(container, window.data)
 // ==========================================Пытаюсь вызвать функцию с нужным объектом===========
@@ -679,3 +679,41 @@ function createTreeText(obj) {
 // }
 
 // createTree(container, data)
+
+//Напишите функцию sumTo(n), которая вычисляет сумму чисел 1 + 2 + ... + n.
+
+// sumTo(4) = 4 + 3 + 2 + 1 = 10
+// Сделайте три варианта решения:
+// С использованием цикла.
+// Через рекурсию, т.к. sumTo(n) = n + sumTo(n-1) for n > 1.
+// С использованием формулы арифметической прогрессии.
+
+// function sumTo(n) {
+//   let f = n / 2
+//   let g = n + 1
+//   let sum = f * g
+//   return sum
+// }
+
+// console.log(sumTo(57))
+
+// function sumTo(n) {
+//   sum = 0
+//   for (let i = 0; i <= n; ++i) {
+//     sum += i
+//   }
+//   return sum
+// }
+
+// console.log(sumTo(44))
+
+// function sumTo(n) {
+//   if (n == 1) {
+//     return n
+//   } else {
+//     return n + sumTo(n - 1)
+//   }
+// }
+
+// console.log(sumTo(29))
+
