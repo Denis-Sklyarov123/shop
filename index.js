@@ -543,10 +543,10 @@ function convertingDataToHtml6(obj) {
 // }
 //===============================================================================================================
 function drawingModalWindowElements(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj, obj.fillings)
+  container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
 }
 
-function settingHtmlLayoutForRendering(obj, objectInObject) {
+function settingHtmlLayoutForRendering(objectInObject) {
   var result = Object.values(objectInObject)
     .map(
       v => `
@@ -560,44 +560,51 @@ function settingHtmlLayoutForRendering(obj, objectInObject) {
     )
     .join('')
   return result
+  //console.log(result)
 }
 
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('product-size-card-buttons')) {
-//     '' = constructorCard(card)
+// function changeArray(someArray) {
+//   for (i = 0; i < someArray.length; ++i) {
+//     return someArray[i]
 //   }
-// })
-
-// function constructorCard(card) {
-//   this.name = card.querySelector('size-bread').innerText
 // }
-// function addingToWindowDone(obj, objectInObject) {
-//   var resultCard = Object.values(objectInObject)
-//     .map(v => `<div class="size-bread">Размер: ${v.name}</div>`)
-//     .join('')
-//   return resultCard
-// }
+// console.log(changeArray(categorys)) //Выдаёт первый элемент
 
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('product-size-card-buttons')) {
-//     document.getElementById('the-content-of-the-final-block-in-the-modal-window') = addingToWindowDone(obj, objectInObject)
-//   }
-// })
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('size-bread')) {
+    document.getElementById(
+      'sizes-products'
+    ).innerHTML = `${e.target.innerHTML}`
+    // var content = e.target.innerHTML
+    // console.info(`Содержимое элемента: "${content}"!`)
+    // console.log(e.target)
+  }
+})
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('size-bread')) {
+    document.getElementById(
+      'products-prices'
+    ).innerHTML = `${e.target.innerHTML}`
+    // var content = e.target.innerHTML
+    // console.info(`Содержимое элемента: "${content}"!`)
+    // console.log(e.target)
+  }
+})
 //========================================================================================================
 function drawingModalWindowElements2(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj, obj.sizes)
+  container.innerHTML = settingHtmlLayoutForRendering(obj.sizes)
 }
 function drawingModalWindowElements3(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj, obj.breads)
+  container.innerHTML = settingHtmlLayoutForRendering(obj.breads)
 }
 function drawingModalWindowElements4(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj, obj.vegetables)
+  container.innerHTML = settingHtmlLayoutForRendering(obj.vegetables)
 }
 function drawingModalWindowElements5(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj, obj.sauces)
+  container.innerHTML = settingHtmlLayoutForRendering(obj.sauces)
 }
 function drawingModalWindowElements6(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj, obj.fillings)
+  container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
 }
 //========================================================================================================
 getCustomerId().then(data => {
