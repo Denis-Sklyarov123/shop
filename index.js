@@ -519,9 +519,6 @@ function convertingDataToHtml6(obj) {
 }
 
 //================================================================================================================
-// function drawingModalWindowElements(container, obj) {
-//   container.innerHTML = settingHtmlLayoutForRendering(obj)
-// }
 
 // function settingHtmlLayoutForRendering(obj) {
 //   var objFillings = obj.fillings
@@ -542,8 +539,30 @@ function convertingDataToHtml6(obj) {
 //   }
 // }
 //===============================================================================================================
+// function drawingModalWindowElements(container, obj) {
+//   container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
+// }
+
+// function settingHtmlLayoutForRendering(objectInObject) {
+//   var result = Object.values(objectInObject)
+//     .map(
+//       v => `
+//           <button class="product-size-card-buttons">
+//             <div class="opptions-background-little-bread">
+//               <img class="little-bread" src="/img${v.image}" />
+//             </div>
+//             <div class="the-final-filling-in-the-product">${v.name}</div>
+//             <div class="price-bread">Цена:${v.price}</div>
+//           </button>`
+//     )
+//     .join('')
+//   return result
+//   //console.log(result)
+// }
+//=============================================================================================================
+
 function drawingModalWindowElements(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
+  container.innerHTML = settingHtmlLayoutForRendering(obj)
 }
 
 function settingHtmlLayoutForRendering(objectInObject) {
@@ -555,41 +574,138 @@ function settingHtmlLayoutForRendering(objectInObject) {
               <img class="little-bread" src="/img${v.image}" />
             </div>
             <div class="size-bread">${v.name}</div>
-            <div class="price-bread">Цена:${v.price}</div>
+            <div class="price-bread">Цена: ${v.price} руб.</div>
           </button>`
     )
     .join('')
   return result
   //console.log(result)
 }
-
-// function changeArray(someArray) {
-//   for (i = 0; i < someArray.length; ++i) {
-//     return someArray[i]
-//   }
+//=============================================================================================================
+// function settingHtmlLayoutForRenderin3(objectInObject) {
+//   var result = Object.values(objectInObject)
+//     .map(
+//       v => `
+//           <button class="product-size-card-buttons">
+//             <div class="opptions-background-little-bread">
+//               <img class="little-bread" src="/img${v.image}" />
+//             </div>
+//             <div class="type-of-bread">${v.name}</div>
+//             <div class="price-bread">Цена:${v.price}</div>
+//           </button>`
+//     )
+//     .join('')
+//   return result
+//   //console.log(result)
 // }
-// console.log(changeArray(categorys)) //Выдаёт первый элемент
+//=============================================================================================================
+// function settingHtmlLayoutForRenderin4(objectInObject) {
+//   var result = Object.values(objectInObject)
+//     .map(
+//       v => `
+//           <button class="product-size-card-buttons">
+//             <div class="opptions-background-little-bread">
+//               <img class="little-bread" src="/img${v.image}" />
+//             </div>
+//             <div class="vegetables-of-your-choice">${v.name}</div>
+//             <div class="price-bread">Цена:${v.price}</div>
+//           </button>`
+//     )
+//     .join('')
+//   return result
+//   //console.log(result)
+// }
+//=============================================================================================================
+// function settingHtmlLayoutForRenderin5(objectInObject) {
+//   var result = Object.values(objectInObject)
+//     .map(
+//       v => `
+//           <button class="product-size-card-buttons">
+//             <div class="opptions-background-little-bread">
+//               <img class="little-bread" src="/img${v.image}" />
+//             </div>
+//             <div class="sauces-for-product-creation">${v.name}</div>
+//             <div class="price-bread">Цена:${v.price}</div>
+//           </button>`
+//     )
+//     .join('')
+//   return result
+//   //console.log(result)
+// }
+
+//=============================================================================================================
+
+// document.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('size-bread')) {
+//     document.getElementById(
+//       'sizes-products'
+//     ).innerHTML = `Размер: ${e.target.innerHTML}`
+//     var fergerge = e.target
+
+//     console.log(fergerge)
+//     console.log(e)
+//   }
+//   // else if (e.target.classList.contains('price-bread')) {
+//   //   document.getElementById('sizes-products').innerHTML = `Размер: ${fergerge}`
+//   //   console.log(fergerge)
+//   // }
+// })
+
+// document.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('type-of-bread')) {
+//     document.getElementById(
+//       'product-type'
+//     ).innerHTML = `Хлеб: ${e.target.innerHTML}`
+//   }
+// })
+
+// document.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('vegetables-of-your-choice')) {
+//     document.getElementById(
+//       'products-vegetable'
+//     ).innerHTML = `Овощи: ${e.target.innerHTML}`
+//     document.getElementById
+//   }
+// })
+
+// document.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('sauces-for-product-creation')) {
+//     document.getElementById(
+//       'products-sauces'
+//     ).innerHTML = `Соусы: ${e.target.innerHTML}`
+//   }
+// })
+
+// document.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('the-final-filling-in-the-product')) {
+//     document.getElementById(
+//       'products-stuffing'
+//     ).innerHTML = ` Начинка: ${e.target.innerHTML}`
+//   }
+// })
+//========================================================================================================
+
+let cartWrapper = document.querySelector('.name-of-final-products')
 
 document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('size-bread')) {
-    document.getElementById(
-      'sizes-products'
-    ).innerHTML = `${e.target.innerHTML}`
-    // var content = e.target.innerHTML
-    // console.info(`Содержимое элемента: "${content}"!`)
-    // console.log(e.target)
+  if (e.target.classList.contains('little-bread')) {
+    let card = e.target.closest('.product-size-card-buttons')
+    console.log(card)
+    let productInfo = {
+      name: card.querySelector('.size-bread').innerText,
+      price: card.querySelector('.price-bread').innerText,
+    }
+    console.log(productInfo)
+    let cartItemHTML = `                      
+    <div
+    class="size-of-the-final-product"
+    id="sizes-products">
+    Размер: ${productInfo.name}
+  </div>`
+    cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML)
   }
 })
-document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('size-bread')) {
-    document.getElementById(
-      'products-prices'
-    ).innerHTML = `${e.target.innerHTML}`
-    // var content = e.target.innerHTML
-    // console.info(`Содержимое элемента: "${content}"!`)
-    // console.log(e.target)
-  }
-})
+
 //========================================================================================================
 function drawingModalWindowElements2(container, obj) {
   container.innerHTML = settingHtmlLayoutForRendering(obj.sizes)
@@ -603,7 +719,7 @@ function drawingModalWindowElements4(container, obj) {
 function drawingModalWindowElements5(container, obj) {
   container.innerHTML = settingHtmlLayoutForRendering(obj.sauces)
 }
-function drawingModalWindowElements6(container, obj) {
+function drawingModalWindowElements(container, obj) {
   container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
 }
 //========================================================================================================
