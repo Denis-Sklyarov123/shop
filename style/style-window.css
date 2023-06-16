@@ -137,6 +137,7 @@
   max-width: 40px;
   margin: 0 20px 0 20px;
   border: 1px solid gray;
+  padding: 2px 20px 0px 20px;
   border-radius: 4px;
   outline: none;
   text-align: center;
@@ -251,7 +252,31 @@
   margin: 28px 0px 0px 0px;
 }
 
-.little-bread {
+.img-bread {
+  margin: 30px 0px 0px 0px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.img-size {
+  margin: 30px 0px 0px 0px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.img-filling {
+  margin: 30px 0px 0px 0px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.img-vegetables {
+  margin: 30px 0px 0px 0px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.img-sauce {
   margin: 30px 0px 0px 0px;
   width: 100px;
   border-radius: 50%;
@@ -354,6 +379,59 @@
   padding-top: 6px;
   width: 150px;
   padding-bottom: 35px;
+}
+
+.price-size {
+  color: chocolate;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  padding-top: 6px;
+  width: 150px;
+  padding-bottom: 35px;
+  display: inline;
+}
+
+.price-size-letters {
+  color: chocolate;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  padding-top: 6px;
+  width: 150px;
+  padding-bottom: 35px;
+  display: inline;
+}
+
+.price-vegetables {
+  color: chocolate;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  padding-top: 6px;
+  width: 150px;
+  padding-bottom: 35px;
+}
+
+.price-sauces {
+  color: chocolate;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  padding-top: 6px;
+  width: 150px;
+  padding-bottom: 35px;
+}
+
+.price-filling {
+  color: chocolate;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  padding-top: 6px;
+  width: 150px;
+  padding-bottom: 35px;
+  display: inline;
 }
 
 .bread-selection-menu.open {
@@ -499,7 +577,7 @@
 
 .stuffing-final-product {
   border-bottom: 2px solid;
-  width: 400px;
+  width: 433px;
   padding-bottom: 10px;
 }
 
@@ -517,9 +595,17 @@
   padding-bottom: 10px;
 }
 
+.the-one-remaining-sections {
+  padding-bottom: 10px;
+}
+
 .the-bread-remaining-sections {
   padding-bottom: 10px;
   padding-top: 10px;
+}
+
+.products-in-line {
+  display: inline;
 }
 
 .price-in-the-basket {
@@ -530,8 +616,31 @@
   font-size: 18px;
 }
 
+.price-in-basket-letters {
+  padding-top: 7px;
+  padding-right: 5px;
+  padding-left: 5px;
+  color: chocolate;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+}
+
 .little-size-bread {
   margin: 30px 0px 0px 0px;
   width: 100px;
   border-radius: 50%;
+}
+
+.add-to-final-price {
+  background: gold;
+  color: white;
+  font-weight: 800;
+  padding: 3px 3px;
+  min-width: 150px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  border: solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
 }
