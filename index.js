@@ -3,7 +3,20 @@ document.addEventListener('click', function (e) {
     document.getElementById('my-modal').classList.add('open')
   }
 })
+//=====================================================================================================
+let counter = document.querySelector('.input-in-modal-window')
 
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('plus')) {
+    counter.innerText = ++counter.innerText
+  }
+})
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('minus') && parseInt(counter.innerText) > 1) {
+    counter.innerText = --counter.innerText
+  }
+})
+//=====================================================================================================
 document
   .getElementById('close-my-modal-btn')
   .addEventListener('click', function () {
@@ -519,7 +532,6 @@ function convertingDataToHtml6(obj) {
 }
 
 //================================================================================================================
-
 // function settingHtmlLayoutForRendering(obj) {
 //   var objFillings = obj.fillings
 //   for (let key in objFillings) {
@@ -537,30 +549,8 @@ function convertingDataToHtml6(obj) {
 //     }
 //     return text
 //   }
-// }
+//}
 //===============================================================================================================
-// function drawingModalWindowElements(container, obj) {
-//   container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
-// }
-
-// function settingHtmlLayoutForRendering(objectInObject) {
-//   var result = Object.values(objectInObject)
-//     .map(
-//       v => `
-//           <button class="product-size-card-buttons">
-//             <div class="opptions-background-little-bread">
-//               <img class="little-bread" src="/img${v.image}" />
-//             </div>
-//             <div class="the-final-filling-in-the-product">${v.name}</div>
-//             <div class="price-bread">Цена:${v.price}</div>
-//           </button>`
-//     )
-//     .join('')
-//   return result
-//   //console.log(result)
-// }
-//=============================================================================================================
-
 function drawingModalWindowElements(container, obj) {
   container.innerHTML = settingHtmlLayoutForRendering(obj)
 }
@@ -571,9 +561,51 @@ function settingHtmlLayoutForRendering(objectInObject) {
       v => `
           <button class="product-size-card-buttons">
             <div class="opptions-background-little-bread">
-              <img class="little-bread" src="/img${v.image}" />
+              <img class="img-filling" src="/img${v.image}" />
+            </div>
+            <div class="the-final-filling-in-the-product">${v.name}</div>
+            <div class="price-size-letters">
+              <div class="price-size-letters">Цена:</div>
+              <div class="price-filling">${v.price}</div>
+              <div class="price-size-letters">руб.</div>
+            </div>
+          </button>`
+    )
+    .join('')
+  return result
+  //console.log(result)
+}
+//=============================================================================================================
+function settingHtmlLayoutForRendering2(objectInObject) {
+  var result = Object.values(objectInObject)
+    .map(
+      v => `
+          <button class="product-size-card-buttons">
+            <div class="opptions-background-little-bread">
+              <img class="img-size" src="/img${v.image}" />
             </div>
             <div class="size-bread">${v.name}</div>
+            <div class="price-size-letters">
+              <div class="price-size-letters">Цена:</div>
+              <div class="price-size">${v.price}</div>
+              <div class="price-size-letters">руб.</div>
+            </div>
+          </button>`
+    )
+    .join('')
+  return result
+  //console.log(result)
+}
+//=============================================================================================================
+function settingHtmlLayoutForRendering3(objectInObject) {
+  var result = Object.values(objectInObject)
+    .map(
+      v => `
+          <button class="product-size-card-buttons">
+            <div class="opptions-background-little-bread">
+              <img class="img-bread" src="/img${v.image}" />
+            </div>
+            <div class="type-of-bread">${v.name}</div>
             <div class="price-bread">Цена: ${v.price} руб.</div>
           </button>`
     )
@@ -582,56 +614,39 @@ function settingHtmlLayoutForRendering(objectInObject) {
   //console.log(result)
 }
 //=============================================================================================================
-// function settingHtmlLayoutForRenderin3(objectInObject) {
-//   var result = Object.values(objectInObject)
-//     .map(
-//       v => `
-//           <button class="product-size-card-buttons">
-//             <div class="opptions-background-little-bread">
-//               <img class="little-bread" src="/img${v.image}" />
-//             </div>
-//             <div class="type-of-bread">${v.name}</div>
-//             <div class="price-bread">Цена:${v.price}</div>
-//           </button>`
-//     )
-//     .join('')
-//   return result
-//   //console.log(result)
-// }
+function settingHtmlLayoutForRendering4(objectInObject) {
+  var result = Object.values(objectInObject)
+    .map(
+      v => `
+          <button class="product-size-card-buttons">
+            <div class="opptions-background-little-bread">
+              <img class="img-vegetables" src="/img${v.image}" />
+            </div>
+            <div class="vegetables-of-your-choice">${v.name}</div>
+            <div class="price-vegetables">Цена: ${v.price} руб.</div>
+          </button>`
+    )
+    .join('')
+  return result
+  //console.log(result)
+}
 //=============================================================================================================
-// function settingHtmlLayoutForRenderin4(objectInObject) {
-//   var result = Object.values(objectInObject)
-//     .map(
-//       v => `
-//           <button class="product-size-card-buttons">
-//             <div class="opptions-background-little-bread">
-//               <img class="little-bread" src="/img${v.image}" />
-//             </div>
-//             <div class="vegetables-of-your-choice">${v.name}</div>
-//             <div class="price-bread">Цена:${v.price}</div>
-//           </button>`
-//     )
-//     .join('')
-//   return result
-//   //console.log(result)
-// }
-//=============================================================================================================
-// function settingHtmlLayoutForRenderin5(objectInObject) {
-//   var result = Object.values(objectInObject)
-//     .map(
-//       v => `
-//           <button class="product-size-card-buttons">
-//             <div class="opptions-background-little-bread">
-//               <img class="little-bread" src="/img${v.image}" />
-//             </div>
-//             <div class="sauces-for-product-creation">${v.name}</div>
-//             <div class="price-bread">Цена:${v.price}</div>
-//           </button>`
-//     )
-//     .join('')
-//   return result
-//   //console.log(result)
-// }
+function settingHtmlLayoutForRendering5(objectInObject) {
+  var result = Object.values(objectInObject)
+    .map(
+      v => `
+          <button class="product-size-card-buttons">
+            <div class="opptions-background-little-bread">
+              <img class="img-sauce" src="/img${v.image}" />
+            </div>
+            <div class="sauces-for-product-creation">${v.name}</div>
+            <div class="price-sauces">Цена: ${v.price} руб.</div>
+          </button>`
+    )
+    .join('')
+  return result
+  //console.log(result)
+}
 
 //=============================================================================================================
 
@@ -640,7 +655,6 @@ function settingHtmlLayoutForRendering(objectInObject) {
 //     document.getElementById(
 //       'sizes-products'
 //     ).innerHTML = `Размер: ${e.target.innerHTML}`
-//     var fergerge = e.target
 
 //     console.log(fergerge)
 //     console.log(e)
@@ -684,43 +698,154 @@ function settingHtmlLayoutForRendering(objectInObject) {
 //   }
 // })
 //========================================================================================================
-
-let cartWrapper = document.querySelector('.name-of-final-products')
+var fullPrice = document.querySelector('.price-in-the-basket')
+//========================================================================================================
+let cartSize = document.getElementById('sizes-products')
 
 document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('little-bread')) {
+  if (e.target.classList.contains('img-size')) {
     let card = e.target.closest('.product-size-card-buttons')
     console.log(card)
     let productInfo = {
       name: card.querySelector('.size-bread').innerText,
+      price: card.querySelector('.price-size').innerText,
+    }
+    console.log(productInfo.price)
+    cartSize.innerHTML = `Размер: ${productInfo.name}.`
+    fullPrice.innerHTML =
+      parseInt(fullPrice.innerText) + parseInt(productInfo.price)
+    console.log(fullPrice)
+  }
+})
+//========================================================================================================
+let cartBread = document.getElementById('product-type')
+
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('img-bread')) {
+    let card = e.target.closest('.product-size-card-buttons')
+    console.log(card)
+    let productInfo = {
+      name: card.querySelector('.type-of-bread').innerText,
       price: card.querySelector('.price-bread').innerText,
     }
     console.log(productInfo)
-    let cartItemHTML = `                      
+    cartBread.innerHTML = `Хлеб: ${productInfo.name}.`
+  }
+})
+//========================================================================================================
+let cartVegetables = document.querySelector('.the-one-remaining-sections')
+
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('img-vegetables')) {
+    let card = e.target.closest('.product-size-card-buttons')
+    console.log(card)
+    let productInfo = {
+      name: card.querySelector('.vegetables-of-your-choice').innerText,
+      price: card.querySelector('.price-vegetables').innerText,
+    }
+    console.log(productInfo)
+    let cartItemHTML = `
     <div
-    class="size-of-the-final-product"
-    id="sizes-products">
-    Размер: ${productInfo.name}
-  </div>`
-    cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML)
+    class="products-in-line">
+    ${productInfo.name}.
+    </div>`
+    cartVegetables.insertAdjacentHTML('beforeend', cartItemHTML)
   }
 })
 
 //========================================================================================================
-function drawingModalWindowElements2(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj.sizes)
-}
-function drawingModalWindowElements3(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj.breads)
-}
-function drawingModalWindowElements4(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj.vegetables)
-}
-function drawingModalWindowElements5(container, obj) {
-  container.innerHTML = settingHtmlLayoutForRendering(obj.sauces)
-}
+let cartSauces = document.querySelector('.the-two-remaining-sections')
+
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('img-sauce')) {
+    let card = e.target.closest('.product-size-card-buttons')
+    console.log(card)
+    let productInfo = {
+      name: card.querySelector('.sauces-for-product-creation').innerText,
+      price: card.querySelector('.price-sauces').innerText,
+    }
+    console.log(productInfo)
+    let cartItemHTML = `                      
+    <div
+    class="products-in-line">
+    ${productInfo.name}. 
+    </div>`
+    cartSauces.insertAdjacentHTML('beforeend', cartItemHTML)
+  }
+})
+//========================================================================================================
+
+let cartFilling = document.querySelector('.stuffing-final-product')
+
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('img-filling')) {
+    let card = e.target.closest('.product-size-card-buttons')
+    console.log(card)
+    let productInfo = {
+      name: card.querySelector('.the-final-filling-in-the-product').innerText,
+      price: card.querySelector('.price-filling').innerText,
+    }
+    console.log(productInfo)
+    let cartItemHTML = `                      
+    <div
+    class="products-in-line">
+    ${productInfo.name}. 
+    </div>`
+    cartFilling.insertAdjacentHTML('beforeend', cartItemHTML)
+    fullPrice.innerHTML =
+      parseInt(fullPrice.innerText) + parseInt(productInfo.price)
+    console.log(fullPrice)
+  }
+})
+//========================================================================================================
+let totalName = document.querySelector('.names-is-products-in-final-block')
+let totalPrice = document.getElementById('id-final-purchase-price')
+let totalNameOrder = document.getElementById('total-order-name')
+
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('add-to-final-price')) {
+    totalPrice.innerHTML = fullPrice.innerText
+    totalNameOrder.innerHTML = totalName.textContent
+  }
+})
+
+//========================================================================================================
+// let cartWrapper = document.querySelector('.name-of-final-products')
+
+// document.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('little-bread')) {
+//     let card = e.target.closest('.product-size-card-buttons')
+//     console.log(card)
+//     let productInfo = {
+//       name: card.querySelector('.size-bread').innerText,
+//       price: card.querySelector('.price-bread').innerText,
+//     }
+//     console.log(productInfo)
+//     let cartItemHTML = `
+//     <div
+//     class="size-of-the-final-product"
+//     id="sizes-products">
+//     Размер: ${productInfo.name}
+//   </div>`
+//     cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML)
+//   }
+// })
+
+//========================================================================================================
 function drawingModalWindowElements(container, obj) {
   container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
+}
+function drawingModalWindowElements2(container, obj) {
+  container.innerHTML = settingHtmlLayoutForRendering2(obj.sizes)
+}
+function drawingModalWindowElements3(container, obj) {
+  container.innerHTML = settingHtmlLayoutForRendering3(obj.breads)
+}
+function drawingModalWindowElements4(container, obj) {
+  container.innerHTML = settingHtmlLayoutForRendering4(obj.vegetables)
+}
+function drawingModalWindowElements5(container, obj) {
+  container.innerHTML = settingHtmlLayoutForRendering5(obj.sauces)
 }
 //========================================================================================================
 getCustomerId().then(data => {

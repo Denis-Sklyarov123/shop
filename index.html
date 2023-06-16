@@ -42,11 +42,29 @@
             <img class="icon" src="img/krytaia-korzinka.png" />Корзина
           </div>
 
-          <div class="order-name-and-quantity">Название</div>
+          <div class="order-name-and-quantity" id="total-order-name">
+            Название:
+            <div
+              class="order-name-and-quantit-value"
+              id="total-order-name-value"
+            ></div>
+          </div>
 
-          <div class="order-name-and-quantity">Количество</div>
+          <div class="order-name-and-quantity" id="total-order-quantity">
+            Количество:
+            <div
+              class="order-name-and-quantity-value"
+              id="total-order-quantity-value"
+            ></div>
+          </div>
 
-          <div class="total">Итого:</div>
+          <div class="total">
+            <div class="final-purchase-price">Итого:</div>
+            <div class="final-purchase-price" id="id-final-purchase-price">
+              0
+            </div>
+            <div class="final-purchase-price">руб.</div>
+          </div>
 
           <div class="order-button">
             <button class="ordering-food">ОФОРМИТЬ ЗАКАЗ</button>
@@ -257,7 +275,7 @@
                         Хлеб:
                       </div>
                       <div
-                        class="the-two-remaining-sections"
+                        class="the-one-remaining-sections"
                         id="products-vegetable"
                       >
                         Овощи:
@@ -292,25 +310,22 @@
                 <div class="price-buttons">
                   <img class="minus" src="img/minus.svg" />
 
-                  <input
-                    value="1"
-                    maxlength="3"
-                    class="input-in-modal-window"
-                  />
+                  <div class="input-in-modal-window">1</div>
 
                   <img class="plus" src="img/plus.svg" />
                 </div>
               </div>
 
               <div class="price-and-basket">
+                <div class="price-in-basket-letters">Цена:</div>
                 <div
                   class="price-in-the-basket"
                   id="the-final-price-of-the-product-in-the-modal-window"
                 >
-                  Цена: 150 руб.
+                  0
                 </div>
-
-                <button class="in-basket" id="open-modal-btn-1">
+                <div class="price-in-basket-letters">руб.</div>
+                <button class="add-to-final-price" id="id-add-to-final-price">
                   В КОРЗИНУ
                 </button>
               </div>
