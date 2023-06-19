@@ -28,8 +28,17 @@ document
     document.getElementById('bread-menu').classList.remove('open')
     document.getElementById('size-menu').classList.remove('open')
     document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
+    fullPrice.innerHTML = 0
+    valueInputInModalWindow.innerHTML = 1
+    document.getElementById('total-order-name').textContent = 'Название:'
+    document.getElementById('total-order-quantity').textContent = 'Количество:'
+    document.getElementById('id-final-purchase-price').textContent = '0'
+    document.getElementById('sizes-products').textContent = 'Размер:'
+    document.getElementById('product-type').textContent = 'Хлеб:'
+    document.querySelector('.the-one-remaining-sections').textContent = 'Овощи:'
+    document.querySelector('.the-two-remaining-sections').textContent = 'Соусы:'
+    document.querySelector('.stuffing-final-product').textContent = 'Начинка:'
   })
-
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     document.getElementById('my-modal').classList.remove('open')
@@ -775,7 +784,10 @@ document.addEventListener('click', function (e) {
 })
 //========================================================================================================
 
+var sumProducts = 0
+
 let cartFilling = document.querySelector('.stuffing-final-product')
+var placeInsert = document.querySelector('.place-to-insert')
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('img-filling')) {
@@ -794,18 +806,41 @@ document.addEventListener('click', function (e) {
     cartFilling.insertAdjacentHTML('beforeend', cartItemHTML)
     fullPrice.innerHTML =
       parseInt(fullPrice.innerText) + parseInt(productInfo.price)
-    console.log(fullPrice)
+    sumProducts = parseInt(fullPrice.innerText) + 0
   }
 })
 //========================================================================================================
 let totalName = document.querySelector('.names-is-products-in-final-block')
-let totalPrice = document.getElementById('id-final-purchase-price')
-let totalNameOrder = document.getElementById('total-order-name')
+var totalPrice = document.getElementById('id-final-purchase-price')
+var totalNameOrder = document.getElementById('total-order-name')
+var valueInputInModalWindow = document.querySelector('.input-in-modal-window')
+var finalNumberOfProducts = document.getElementById('total-order-quantity')
+
+console.log(totalNameOrder)
+console.log(totalPrice)
+console.log(finalNumberOfProducts)
+
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('plus')) {
+    fullPrice.innerHTML = parseInt(fullPrice.innerText) + parseInt(sumProducts)
+  }
+})
+
+document.addEventListener('click', function (e) {
+  if (
+    e.target.classList.contains('minus') &&
+    parseInt(fullPrice.innerText) > parseInt(sumProducts)
+  ) {
+    fullPrice.innerHTML = parseInt(fullPrice.innerText) - parseInt(sumProducts)
+  }
+})
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('add-to-final-price')) {
     totalPrice.innerHTML = fullPrice.innerText
     totalNameOrder.innerHTML = totalName.textContent
+    finalNumberOfProducts.innerHTML = `${valueInputInModalWindow.innerText} шт`
+    document.getElementById('my-modal').classList.remove('open')
   }
 })
 
@@ -852,7 +887,7 @@ getCustomerId().then(data => {
   //=================================================================================
   // categorys.forEach((item) => {
   //   createTree88(document.getElementById('burger-menu-reveal-button'), data, item)
-  //   }) //пример помошника
+  //   })
   //=================================================================================
   sendingDataToTheDesiredHtmlBlock7(
     document.getElementById('burger-menu-reveal-button'),
