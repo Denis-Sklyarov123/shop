@@ -7,15 +7,36 @@ document.addEventListener('click', function (e) {
 let counter = document.querySelector('.input-in-modal-window')
 
 document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('plus')) {
+  if (e.target.classList.contains('plus-in-modal-window')) {
     counter.innerText = ++counter.innerText
   }
 })
 document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('minus') && parseInt(counter.innerText) > 1) {
+  if (
+    e.target.classList.contains('minus-in-modal-window') &&
+    parseInt(counter.innerText) > 1
+  ) {
     counter.innerText = --counter.innerText
   }
 })
+//=====================================================================================================
+// var valueInput = document.querySelector('.input')
+
+// console.log(valueInput)
+
+// document.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('plus')) {
+//     valueInput.innerText = ++valueInput.innerText
+//   }
+// })
+// document.addEventListener('click', function (e) {
+//   if (
+//     e.target.classList.contains('minus') &&
+//     parseInt(valueInput.innerText) > 1
+//   ) {
+//     valueInput.innerText = --valueInput.innerText
+//   }
+// })
 //=====================================================================================================
 document
   .getElementById('close-my-modal-btn')
@@ -38,6 +59,12 @@ document
     document.querySelector('.the-one-remaining-sections').textContent = 'Овощи:'
     document.querySelector('.the-two-remaining-sections').textContent = 'Соусы:'
     document.querySelector('.stuffing-final-product').textContent = 'Начинка:'
+    document.getElementById('open-size').classList.remove('open')
+    document.getElementById('is-open-bread-menu').classList.remove('open')
+    document.getElementById('vegetable-open-menu').classList.remove('open')
+    document.getElementById('sauces-open-menu').classList.remove('open')
+    document.getElementById('stuffing-open-menu').classList.remove('open')
+    document.getElementById('open-menu-ready').classList.remove('open')
   })
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
@@ -139,6 +166,12 @@ document.getElementById('open-size').addEventListener('click', function () {
   document.getElementById('stuffing-menu').classList.remove('open')
   document.getElementById('ready-menu').classList.remove('open')
   document.querySelector('p').textContent = 'Выберите размер сендвича'
+  document.getElementById('open-size').classList.add('open')
+  document.getElementById('is-open-bread-menu').classList.remove('open')
+  document.getElementById('vegetable-open-menu').classList.remove('open')
+  document.getElementById('sauces-open-menu').classList.remove('open')
+  document.getElementById('stuffing-open-menu').classList.remove('open')
+  document.getElementById('open-menu-ready').classList.remove('open')
 })
 //==============================================Хлеб=======================================================
 document
@@ -151,6 +184,12 @@ document
     document.getElementById('stuffing-menu').classList.remove('open')
     document.getElementById('ready-menu').classList.remove('open')
     document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
+    document.getElementById('open-size').classList.remove('open')
+    document.getElementById('is-open-bread-menu').classList.add('open')
+    document.getElementById('vegetable-open-menu').classList.remove('open')
+    document.getElementById('sauces-open-menu').classList.remove('open')
+    document.getElementById('stuffing-open-menu').classList.remove('open')
+    document.getElementById('open-menu-ready').classList.remove('open')
   })
 //========================Овощи=============================================================================
 document
@@ -163,6 +202,12 @@ document
     document.getElementById('stuffing-menu').classList.remove('open')
     document.getElementById('ready-menu').classList.remove('open')
     document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
+    document.getElementById('open-size').classList.remove('open')
+    document.getElementById('is-open-bread-menu').classList.remove('open')
+    document.getElementById('vegetable-open-menu').classList.add('open')
+    document.getElementById('sauces-open-menu').classList.remove('open')
+    document.getElementById('stuffing-open-menu').classList.remove('open')
+    document.getElementById('open-menu-ready').classList.remove('open')
   })
 //========================Соусы=============================================================================
 document
@@ -173,6 +218,12 @@ document
     document.getElementById('ready-menu').classList.remove('open')
     document.querySelector('p').textContent =
       'Выберите 3 бесплатных соуса по вкусу'
+    document.getElementById('open-size').classList.remove('open')
+    document.getElementById('is-open-bread-menu').classList.remove('open')
+    document.getElementById('vegetable-open-menu').classList.remove('open')
+    document.getElementById('sauces-open-menu').classList.add('open')
+    document.getElementById('stuffing-open-menu').classList.remove('open')
+    document.getElementById('open-menu-ready').classList.remove('open')
   })
 //========================Начинка===========================================================================
 document
@@ -184,6 +235,12 @@ document
     document.getElementById('sauces-menu').classList.remove('open')
     document.getElementById('ready-menu').classList.remove('open')
     document.querySelector('p').textContent = 'Добавьте начинку по вкусу'
+    document.getElementById('open-size').classList.remove('open')
+    document.getElementById('is-open-bread-menu').classList.remove('open')
+    document.getElementById('vegetable-open-menu').classList.remove('open')
+    document.getElementById('sauces-open-menu').classList.remove('open')
+    document.getElementById('stuffing-open-menu').classList.add('open')
+    document.getElementById('open-menu-ready').classList.remove('open')
   })
 //========================Готово!===========================================================================
 document
@@ -191,6 +248,12 @@ document
   .addEventListener('click', function () {
     document.getElementById('ready-menu').classList.add('open')
     document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
+    document.getElementById('open-size').classList.remove('open')
+    document.getElementById('is-open-bread-menu').classList.remove('open')
+    document.getElementById('vegetable-open-menu').classList.remove('open')
+    document.getElementById('sauces-open-menu').classList.remove('open')
+    document.getElementById('stuffing-open-menu').classList.remove('open')
+    document.getElementById('open-menu-ready').classList.add('open')
   })
 // =======================Смена карточек продуктов в главном меню============================================
 //=====================================Сендвичи==============================================================
@@ -214,6 +277,19 @@ document
       .classList.remove('open')
     document
       .getElementById('drinksAndDessertsMenuRevealButton')
+      .classList.remove('open')
+    document.getElementById('open-burger-menu').classList.add('open')
+    document.getElementById('open-pancakes-menu').classList.remove('open')
+    document.getElementById('open-shawarma-menu').classList.remove('open')
+    document.getElementById('open-sandwiches-menu').classList.remove('open')
+    document
+      .getElementById('open-chicken-and-potato-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-tortilla-and-salads-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-drinks-and-desserts-menu')
       .classList.remove('open')
   })
 // ==============================================Блины========================================================
@@ -241,6 +317,19 @@ document
     document
       .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.remove('open')
+    document.getElementById('open-burger-menu').classList.remove('open')
+    document.getElementById('open-pancakes-menu').classList.add('open')
+    document.getElementById('open-shawarma-menu').classList.remove('open')
+    document.getElementById('open-sandwiches-menu').classList.remove('open')
+    document
+      .getElementById('open-chicken-and-potato-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-tortilla-and-salads-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-drinks-and-desserts-menu')
+      .classList.remove('open')
   })
 // ==============================================================================Шаурма==========================
 
@@ -267,6 +356,19 @@ document
     document
       .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.remove('open')
+    document.getElementById('open-burger-menu').classList.remove('open')
+    document.getElementById('open-pancakes-menu').classList.remove('open')
+    document.getElementById('open-shawarma-menu').classList.add('open')
+    document.getElementById('open-sandwiches-menu').classList.remove('open')
+    document
+      .getElementById('open-chicken-and-potato-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-tortilla-and-salads-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-drinks-and-desserts-menu')
+      .classList.remove('open')
   })
 // =================================================================================Бургеры==========================
 
@@ -290,6 +392,19 @@ document
       .classList.remove('open')
     document
       .getElementById('drinksAndDessertsMenuRevealButton')
+      .classList.remove('open')
+    document.getElementById('open-burger-menu').classList.remove('open')
+    document.getElementById('open-pancakes-menu').classList.remove('open')
+    document.getElementById('open-shawarma-menu').classList.remove('open')
+    document.getElementById('open-sandwiches-menu').classList.add('open')
+    document
+      .getElementById('open-chicken-and-potato-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-tortilla-and-salads-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-drinks-and-desserts-menu')
       .classList.remove('open')
   })
 // ======================================================================================Курица и Картошка=========================
@@ -317,6 +432,19 @@ document
     document
       .getElementById('drinksAndDessertsMenuRevealButton')
       .classList.remove('open')
+    document.getElementById('open-burger-menu').classList.remove('open')
+    document.getElementById('open-pancakes-menu').classList.remove('open')
+    document.getElementById('open-shawarma-menu').classList.remove('open')
+    document.getElementById('open-sandwiches-menu').classList.remove('open')
+    document
+      .getElementById('open-chicken-and-potato-menu')
+      .classList.add('open')
+    document
+      .getElementById('open-tortilla-and-salads-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-drinks-and-desserts-menu')
+      .classList.remove('open')
   })
 // =================================================================================Тортилья и Салаты================================
 
@@ -342,6 +470,19 @@ document
     document.getElementById('pizzaMenuRevealButton').classList.remove('open')
     document
       .getElementById('burger-menu-reveal-button')
+      .classList.remove('open')
+    document.getElementById('open-burger-menu').classList.remove('open')
+    document.getElementById('open-pancakes-menu').classList.remove('open')
+    document.getElementById('open-shawarma-menu').classList.remove('open')
+    document.getElementById('open-sandwiches-menu').classList.remove('open')
+    document
+      .getElementById('open-chicken-and-potato-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-tortilla-and-salads-menu')
+      .classList.add('open')
+    document
+      .getElementById('open-drinks-and-desserts-menu')
       .classList.remove('open')
   })
 // =====================================================================================Напитки и Десерты===============================
@@ -369,6 +510,19 @@ document
     document
       .getElementById('sandwichesMenuRevealButton')
       .classList.remove('open')
+    document.getElementById('open-burger-menu').classList.remove('open')
+    document.getElementById('open-pancakes-menu').classList.remove('open')
+    document.getElementById('open-shawarma-menu').classList.remove('open')
+    document.getElementById('open-sandwiches-menu').classList.remove('open')
+    document
+      .getElementById('open-chicken-and-potato-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-tortilla-and-salads-menu')
+      .classList.remove('open')
+    document
+      .getElementById('open-drinks-and-desserts-menu')
+      .classList.add('open')
   })
 // =======================================================================================================================
 
@@ -723,7 +877,7 @@ document.addEventListener('click', function (e) {
     cartSize.innerHTML = `Размер: ${productInfo.name}.`
     fullPrice.innerHTML =
       parseInt(fullPrice.innerText) + parseInt(productInfo.price)
-    console.log(fullPrice)
+    sumProducts = parseInt(fullPrice.innerText) + 0
   }
 })
 //========================================================================================================
@@ -821,14 +975,14 @@ console.log(totalPrice)
 console.log(finalNumberOfProducts)
 
 document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('plus')) {
+  if (e.target.classList.contains('plus-in-modal-window')) {
     fullPrice.innerHTML = parseInt(fullPrice.innerText) + parseInt(sumProducts)
   }
 })
 
 document.addEventListener('click', function (e) {
   if (
-    e.target.classList.contains('minus') &&
+    e.target.classList.contains('minus-in-modal-window') &&
     parseInt(fullPrice.innerText) > parseInt(sumProducts)
   ) {
     fullPrice.innerHTML = parseInt(fullPrice.innerText) - parseInt(sumProducts)
