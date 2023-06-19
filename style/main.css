@@ -17,6 +17,10 @@ h1 {
   grid-template: auto 1fr auto / auto 1fr auto;
 }
 
+.menu-item.open {
+  background: orange;
+}
+
 .menu-item:hover {
   background: orange;
   color: white;
