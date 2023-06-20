@@ -1,7 +1,13 @@
 @import 'style-window.css';
 
-body {
+.body-style {
   background-image: url(/img/wood1.png);
+}
+
+.body-style.modal-open {
+  background-image: url(/img/wood1.png);
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 h1 {
