@@ -256,10 +256,26 @@
   border-radius: 5px;
 }
 
+.product-size-card-buttons.open {
+  background: gold;
+}
+
 .product-size-card-buttons:hover {
   background: gold;
   cursor: pointer;
   border: none;
+}
+
+.space-for-array-vegetables {
+  display: inline;
+}
+
+.space-for-array-sauces {
+  display: inline;
+}
+
+.space-for-array-stuffing {
+  display: inline;
 }
 
 .opptions-background-little-bread {

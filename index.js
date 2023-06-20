@@ -1,6 +1,7 @@
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
     document.getElementById('my-modal').classList.add('open')
+    document.getElementById('body-id').classList.add('modal-open')
   }
 })
 //=====================================================================================================
@@ -19,24 +20,6 @@ document.addEventListener('click', function (e) {
     counter.innerText = --counter.innerText
   }
 })
-//=====================================================================================================
-// var valueInput = document.querySelector('.input')
-
-// console.log(valueInput)
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('plus')) {
-//     valueInput.innerText = ++valueInput.innerText
-//   }
-// })
-// document.addEventListener('click', function (e) {
-//   if (
-//     e.target.classList.contains('minus') &&
-//     parseInt(valueInput.innerText) > 1
-//   ) {
-//     valueInput.innerText = --valueInput.innerText
-//   }
-// })
 //=====================================================================================================
 document
   .getElementById('close-my-modal-btn')
@@ -65,10 +48,15 @@ document
     document.getElementById('sauces-open-menu').classList.remove('open')
     document.getElementById('stuffing-open-menu').classList.remove('open')
     document.getElementById('open-menu-ready').classList.remove('open')
+    document.getElementById('body-id').classList.remove('modal-open')
+    document
+      .querySelector('.product-size-card-buttons')
+      .classList.remove('open')
   })
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     document.getElementById('my-modal').classList.remove('open')
+    document.getElementById('body-id').classList.remove('modal-open')
   }
 })
 
@@ -80,6 +68,7 @@ document
 document.getElementById('my-modal').addEventListener('click', event => {
   if (event._isClickWithInModal) return
   event.currentTarget.classList.remove('open')
+  document.getElementById('body-id').classList.remove('modal-open')
 })
 
 //==================================Кнопки назад/вперёд в модальном окне======================================
@@ -90,6 +79,8 @@ document
     document.getElementById('size-menu').classList.remove('open')
     document.getElementById('bread-menu').classList.add('open')
     document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
+    document.getElementById('is-open-bread-menu').classList.add('open')
+    document.getElementById('open-size').classList.remove('open')
   })
 //============================<-- хлеб -->====================================================================
 document
@@ -98,6 +89,8 @@ document
     document.getElementById('bread-menu').classList.remove('open')
     document.getElementById('size-menu').classList.add('open')
     document.querySelector('p').textContent = 'Выберите размер сендвича'
+    document.getElementById('is-open-bread-menu').classList.remove('open')
+    document.getElementById('open-size').classList.add('open')
   })
 //=============================================================================================================
 document
@@ -106,6 +99,8 @@ document
     document.getElementById('bread-menu').classList.remove('open')
     document.getElementById('vegetable-menu').classList.add('open')
     document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
+    document.getElementById('is-open-bread-menu').classList.remove('open')
+    document.getElementById('vegetable-open-menu').classList.add('open')
   })
 //==============================<-- овощи -->=================================================================
 document
@@ -114,6 +109,8 @@ document
     document.getElementById('vegetable-menu').classList.remove('open')
     document.getElementById('bread-menu').classList.add('open')
     document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
+    document.getElementById('is-open-bread-menu').classList.add('open')
+    document.getElementById('vegetable-open-menu').classList.remove('open')
   })
 //============================================================================================================
 document
@@ -123,6 +120,8 @@ document
     document.getElementById('sauces-menu').classList.add('open')
     document.querySelector('p').textContent =
       'Выберите 3 бесплатных соуса по вкусу'
+    document.getElementById('sauces-open-menu').classList.add('open')
+    document.getElementById('vegetable-open-menu').classList.remove('open')
   })
 //==================================<-- Соусы -->=============================================================
 document
@@ -131,6 +130,8 @@ document
     document.getElementById('sauces-menu').classList.remove('open')
     document.getElementById('vegetable-menu').classList.add('open')
     document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
+    document.getElementById('sauces-open-menu').classList.remove('open')
+    document.getElementById('vegetable-open-menu').classList.add('open')
   })
 //============================================================================================================
 document
@@ -139,6 +140,8 @@ document
     document.getElementById('sauces-menu').classList.remove('open')
     document.getElementById('stuffing-menu').classList.add('open')
     document.querySelector('p').textContent = 'Добавьте начинку по вкусу'
+    document.getElementById('sauces-open-menu').classList.remove('open')
+    document.getElementById('stuffing-open-menu').classList.add('open')
   })
 //==============================<-- Начинка -->===============================================================
 document
@@ -148,6 +151,8 @@ document
     document.getElementById('sauces-menu').classList.add('open')
     document.querySelector('p').textContent =
       'Выберите 3 бесплатных соуса по вкусу'
+    document.getElementById('sauces-open-menu').classList.add('open')
+    document.getElementById('stuffing-open-menu').classList.remove('open')
   })
 //============================================================================================================
 document
@@ -155,6 +160,8 @@ document
   .addEventListener('click', function () {
     document.getElementById('stuffing-menu').classList.remove('open')
     document.getElementById('ready-menu').classList.add('open')
+    document.getElementById('open-menu-ready').classList.add('open')
+    document.getElementById('stuffing-open-menu').classList.remove('open')
   })
 //=========================Смена карточек ингридиентов в модальном окне======================================
 //===========================Размер===========================================================================
@@ -868,15 +875,15 @@ let cartSize = document.getElementById('sizes-products')
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('img-size')) {
     let card = e.target.closest('.product-size-card-buttons')
-    console.log(card)
+    // console.log(card)
     let productInfo = {
       name: card.querySelector('.size-bread').innerText,
       price: card.querySelector('.price-size').innerText,
     }
-    console.log(productInfo.price)
+    document.querySelector('.product-size-card-buttons').classList.add('open')
+    // console.log(productInfo.price)
     cartSize.innerHTML = `Размер: ${productInfo.name}.`
-    fullPrice.innerHTML =
-      parseInt(fullPrice.innerText) + parseInt(productInfo.price)
+    fullPrice.innerHTML = parseInt(productInfo.price)
     sumProducts = parseInt(fullPrice.innerText) + 0
   }
 })
@@ -886,77 +893,128 @@ let cartBread = document.getElementById('product-type')
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('img-bread')) {
     let card = e.target.closest('.product-size-card-buttons')
-    console.log(card)
+    // console.log(card)
     let productInfo = {
       name: card.querySelector('.type-of-bread').innerText,
       price: card.querySelector('.price-bread').innerText,
     }
-    console.log(productInfo)
+    // console.log(productInfo)
     cartBread.innerHTML = `Хлеб: ${productInfo.name}.`
   }
 })
 //========================================================================================================
-let cartVegetables = document.querySelector('.the-one-remaining-sections')
+// let cartVegetables = document.querySelector('.the-one-remaining-sections')
+let cartVegetables = document.querySelector('.space-for-array-vegetables')
+
+var arrayVegetables = []
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('img-vegetables')) {
     let card = e.target.closest('.product-size-card-buttons')
-    console.log(card)
+    // console.log(card)
     let productInfo = {
       name: card.querySelector('.vegetables-of-your-choice').innerText,
       price: card.querySelector('.price-vegetables').innerText,
     }
-    console.log(productInfo)
-    let cartItemHTML = `
+    if (arrayVegetables.length <= 2) {
+      arrayVegetables.push(productInfo.name)
+    } else {
+      arrayVegetables.shift()
+      arrayVegetables.push(productInfo.name)
+    }
+    // console.log(arrayVegetables)
+    let lastArrayVegetables = arrayVegetables
+      .map(
+        b => `
     <div
     class="products-in-line">
-    ${productInfo.name}.
+    ${b}.
     </div>`
-    cartVegetables.insertAdjacentHTML('beforeend', cartItemHTML)
+      )
+      .join('')
+    cartVegetables.innerHTML = lastArrayVegetables
+    // console.log(productInfo)
+    // let cartItemHTML = `
+    // <div
+    // class="products-in-line">
+    // ${productInfo.name}.
+    // </div>`
+    // cartVegetables.insertAdjacentHTML('beforeend', cartItemHTML)
   }
 })
 
 //========================================================================================================
-let cartSauces = document.querySelector('.the-two-remaining-sections')
+let cartSauces = document.querySelector('.space-for-array-sauces')
+
+var arraySauces = []
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('img-sauce')) {
     let card = e.target.closest('.product-size-card-buttons')
-    console.log(card)
+    // console.log(card)
     let productInfo = {
       name: card.querySelector('.sauces-for-product-creation').innerText,
       price: card.querySelector('.price-sauces').innerText,
     }
-    console.log(productInfo)
-    let cartItemHTML = `                      
+    if (arraySauces.length <= 2) {
+      arraySauces.push(productInfo.name)
+    } else {
+      arraySauces.shift()
+      arraySauces.push(productInfo.name)
+    }
+    // console.log(arraySauces)
+    let lastArraySauces = arraySauces
+      .map(
+        b => `
     <div
     class="products-in-line">
-    ${productInfo.name}. 
+    ${b}.
     </div>`
-    cartSauces.insertAdjacentHTML('beforeend', cartItemHTML)
+      )
+      .join('')
+    cartSauces.innerHTML = lastArraySauces
   }
 })
 //========================================================================================================
 
 var sumProducts = 0
 
-let cartFilling = document.querySelector('.stuffing-final-product')
+let cartFilling = document.querySelector('.space-for-array-stuffing')
 var placeInsert = document.querySelector('.place-to-insert')
+
+var arrayFilling = []
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('img-filling')) {
     let card = e.target.closest('.product-size-card-buttons')
-    console.log(card)
+    // console.log(card)
     let productInfo = {
       name: card.querySelector('.the-final-filling-in-the-product').innerText,
       price: card.querySelector('.price-filling').innerText,
     }
-    console.log(productInfo)
-    let cartItemHTML = `                      
-    <div
-    class="products-in-line">
-    ${productInfo.name}. 
-    </div>`
+    // if (arrayFilling.length <= 2) {
+    //   arrayFilling.push(productInfo.name)
+    // } else {
+    //   arrayFilling.shift()
+    //   arrayFilling.push(productInfo.name)
+    // }
+    // console.log(arrayFilling)
+    // let lastArrayFilling = arrayFilling
+    //   .map(
+    //     b => `
+    // <div
+    // class="products-in-line">
+    // ${b}.
+    // </div>`
+    //   )
+    //   .join('')
+    // console.log(lastArrayFilling)
+    // cartFilling.innerHTML = lastArrayFilling //максимум 3 элемента начинки
+    let cartItemHTML = `
+     <div
+     class="products-in-line">
+     ${productInfo.name}.
+     </div>`
     cartFilling.insertAdjacentHTML('beforeend', cartItemHTML)
     fullPrice.innerHTML =
       parseInt(fullPrice.innerText) + parseInt(productInfo.price)
@@ -969,10 +1027,6 @@ var totalPrice = document.getElementById('id-final-purchase-price')
 var totalNameOrder = document.getElementById('total-order-name')
 var valueInputInModalWindow = document.querySelector('.input-in-modal-window')
 var finalNumberOfProducts = document.getElementById('total-order-quantity')
-
-console.log(totalNameOrder)
-console.log(totalPrice)
-console.log(finalNumberOfProducts)
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('plus-in-modal-window')) {
@@ -995,6 +1049,7 @@ document.addEventListener('click', function (e) {
     totalNameOrder.innerHTML = totalName.textContent
     finalNumberOfProducts.innerHTML = `${valueInputInModalWindow.innerText} шт`
     document.getElementById('my-modal').classList.remove('open')
+    document.getElementById('body-id').classList.remove('modal-open')
   }
 })
 
