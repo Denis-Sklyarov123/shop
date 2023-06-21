@@ -880,13 +880,65 @@ document.addEventListener('click', function (e) {
       name: card.querySelector('.size-bread').innerText,
       price: card.querySelector('.price-size').innerText,
     }
-    document.querySelector('.product-size-card-buttons').classList.add('open')
+
+    // let selectedTd
+    // function highlight(td) {
+    //   if (selectedTd) {
+    //     selectedTd.classList.remove('open')
+    //   }
+    //   selectedTd = td
+    //   selectedTd.classList.add('open')
+    // }
+
+    // highlight(card)
+    // let cardSelection = false
+
+    // if (cardSelection === false) {
+    //   card.classList.add('open')
+    //   cardSelection = true
+    // } else if (cardSelection === true) {
+    //   card.classList.remove('open')
+    //   cardSelection = false
+    // }
+
+    if (card.classList.contains('open')) {
+      card.classList.remove('open')
+    } else {
+      card.classList.add('open')
+    }
+
+    // console.log(cardSelection)
+    // var cardSelection = false
+    // if (cardSelection) {
+    //   document
+    //     .querySelector('.product-size-card-buttons')
+    //     .classList.remove('open')
+    //   cardSelection = false
+    // } else {
+    //   document.querySelector('.product-size-card-buttons').classList.add('open')
+    //   cardSelection = true
+    // }
+
     // console.log(productInfo.price)
     cartSize.innerHTML = `Размер: ${productInfo.name}.`
     fullPrice.innerHTML = parseInt(productInfo.price)
     sumProducts = parseInt(fullPrice.innerText) + 0
   }
 })
+
+// document
+//   .getElementById('size-products')
+//   .addEventListener('click', function (event) {
+//     let target = event.target
+//     // console.log(target)
+//     if (target.tagName != 'img') return
+//     highlight(target)
+//   })
+// function highlight(trt) {
+//   if (selectedTd) {
+//   }
+// }
+
 //========================================================================================================
 let cartBread = document.getElementById('product-type')
 
@@ -900,8 +952,14 @@ document.addEventListener('click', function (e) {
     }
     // console.log(productInfo)
     cartBread.innerHTML = `Хлеб: ${productInfo.name}.`
+    if (card.classList.contains('open')) {
+      card.classList.remove('open')
+    } else {
+      card.classList.add('open')
+    }
   }
 })
+
 //========================================================================================================
 // let cartVegetables = document.querySelector('.the-one-remaining-sections')
 let cartVegetables = document.querySelector('.space-for-array-vegetables')
@@ -940,6 +998,11 @@ document.addEventListener('click', function (e) {
     // ${productInfo.name}.
     // </div>`
     // cartVegetables.insertAdjacentHTML('beforeend', cartItemHTML)
+    if (card.classList.contains('open')) {
+      card.classList.remove('open')
+    } else {
+      card.classList.add('open')
+    }
   }
 })
 
@@ -973,6 +1036,11 @@ document.addEventListener('click', function (e) {
       )
       .join('')
     cartSauces.innerHTML = lastArraySauces
+    if (card.classList.contains('open')) {
+      card.classList.remove('open')
+    } else {
+      card.classList.add('open')
+    }
   }
 })
 //========================================================================================================
@@ -1019,8 +1087,14 @@ document.addEventListener('click', function (e) {
     fullPrice.innerHTML =
       parseInt(fullPrice.innerText) + parseInt(productInfo.price)
     sumProducts = parseInt(fullPrice.innerText) + 0
+    if (card.classList.contains('open')) {
+      card.classList.remove('open')
+    } else {
+      card.classList.add('open')
+    }
   }
 })
+
 //========================================================================================================
 let totalName = document.querySelector('.names-is-products-in-final-block')
 var totalPrice = document.getElementById('id-final-purchase-price')

@@ -260,8 +260,11 @@
   background: gold;
 }
 
+.product-size-card-buttons.openTwo {
+  background: blueviolet;
+}
+
 .product-size-card-buttons:hover {
-  background: gold;
   cursor: pointer;
   border: none;
 }
