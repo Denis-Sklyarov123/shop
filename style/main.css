@@ -246,7 +246,6 @@ h1 {
   gap: 10px;
   max-inline-size: 1140px;
   margin-inline: auto;
-  visibility: hidden;
   position: absolute;
   top: 0;
 }
