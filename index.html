@@ -15,28 +15,7 @@
     <h1>CДЕЛАЙТЕ ЗАКАЗ НАПРЯМУЮ ИЗ РЕСТОРАНА</h1>
     <main class="basis">
       <nav>
-        <ul class="menu">
-          <li class="menu-item" id="open-pancakes-menu">Пицца</li>
-
-          <li class="menu-item" id="open-shawarma-menu">Шаурма</li>
-
-          <li class="menu-item" id="open-burger-menu">Бургеры</li>
-
-          <li class="menu-item" id="open-sandwiches-menu">Сендвичи</li>
-
-          <li class="menu-item" id="open-chicken-and-potato-menu">
-            Курица & Картофель
-          </li>
-
-          <li class="menu-item" id="open-tortilla-and-salads-menu">
-            Тортилья & Салаты
-          </li>
-
-          <li class="menu-item" id="open-drinks-and-desserts-menu">
-            Напитки & Десерты
-          </li>
-        </ul>
-
+        <ul id="products-menu" class="menu"></ul>
         <aside class="basket">
           <div class="basket-icon">
             <img class="icon" src="img/krytaia-korzinka.png" />Корзина
@@ -73,48 +52,7 @@
       </nav>
       <div>
         <section class="all-product-card-windows">
-          <div
-            class="the-initial-window-of-product-cards"
-            id="invisibilityOfTheInitialCardsWindow"
-          ></div>
-
-          <div class="main-pancakes-content" id="pizzaMenuRevealButton"></div>
-
-          <div class="main-shawarma-content" id="shawarmaMenuMevealButton">
-            Шаурма, Шаурма, Шаурма, Шаурма, Шаурма, Шаурма
-          </div>
-
-          <div class="main-sandwiches-content" id="sandwichesMenuRevealButton">
-            Бургеры, Бургеры, Бургеры, Бургеры, Бургеры, Бургеры
-          </div>
-
-          <div
-            class="main-chicken-and-potato-content"
-            id="chickenAndPotatoMenuRevealButton"
-          >
-            Курица и Картофель, Курица и Картофель, Курица и Картофель, Курица и
-            Картофель, Курица и Картофель, Курица и Картофель
-          </div>
-
-          <div
-            class="main-tortilla-and-salads-content"
-            id="tortillaAndSaladsMenuRevealButton"
-          >
-            Тортилья и Салаты, Тортилья и Салаты, Тортилья и Салаты, Тортилья и
-            Салаты, Тортилья и Салаты, Тортилья и Салаты
-          </div>
-
-          <div
-            class="main-drinks-and-desserts-content"
-            id="drinksAndDessertsMenuRevealButton"
-          >
-            Напитки и Десерты, Напитки и Десерты, Напитки и Десерты, Напитки и
-            Десерты, Напитки и Десерты, Напитки и Десерты
-          </div>
-
-          <div class="main-burger-content" id="burger-menu-reveal-button">
-            Бургеры, Бургеры, Бургеры, Бургеры, Бургеры, Бургеры, Бургеры
-          </div>
+          <div class="main-pancakes-content" id="productsContainer"></div>
         </section>
         <div class="modal" id="my-modal">
           <div class="modal-box">
@@ -126,8 +64,8 @@
             </button>
             <p class="modal-window-text">Проверьте и добавьте в корзину</p>
             <div class="modal-window-menu">
-              <div class="items-menu">
-                <button class="item-modal-window-menu" id="open-size">
+              <div class="items-menu" id="modal-menu">
+                <!-- <button class="item-modal-window-menu" id="open-size">
                   Размер
                 </button>
 
@@ -149,7 +87,7 @@
 
                 <button class="item-modal-window-menu" id="open-menu-ready">
                   Готово!
-                </button>
+                </button> -->
               </div>
               <div class="products">
                 Приветствуем вас, в разделе создания собственного блюда! Для
@@ -292,7 +230,8 @@
                         class="stuffing-final-product"
                         id="products-stuffing"
                       >
-                        Начинка: <div class="space-for-array-stuffing"></div>
+                        Начинка:
+                        <div class="space-for-array-stuffing"></div>
                       </div>
                     </div>
                     <div

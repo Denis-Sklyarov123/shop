@@ -1,3 +1,5 @@
+let fillingCategory = ''
+
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
     document.getElementById('my-modal').classList.add('open')
@@ -165,374 +167,104 @@ document
   })
 //=========================Смена карточек ингридиентов в модальном окне======================================
 //===========================Размер===========================================================================
-document.getElementById('open-size').addEventListener('click', function () {
-  document.getElementById('size-menu').classList.add('open')
-  document.getElementById('bread-menu').classList.remove('open')
-  document.getElementById('vegetable-menu').classList.remove('open')
-  document.getElementById('sauces-menu').classList.remove('open')
-  document.getElementById('stuffing-menu').classList.remove('open')
-  document.getElementById('ready-menu').classList.remove('open')
-  document.querySelector('p').textContent = 'Выберите размер сендвича'
-  document.getElementById('open-size').classList.add('open')
-  document.getElementById('is-open-bread-menu').classList.remove('open')
-  document.getElementById('vegetable-open-menu').classList.remove('open')
-  document.getElementById('sauces-open-menu').classList.remove('open')
-  document.getElementById('stuffing-open-menu').classList.remove('open')
-  document.getElementById('open-menu-ready').classList.remove('open')
-})
-//==============================================Хлеб=======================================================
-document
-  .getElementById('is-open-bread-menu')
-  .addEventListener('click', function () {
-    document.getElementById('bread-menu').classList.add('open')
-    document.getElementById('size-menu').classList.remove('open')
-    document.getElementById('vegetable-menu').classList.remove('open')
-    document.getElementById('sauces-menu').classList.remove('open')
-    document.getElementById('stuffing-menu').classList.remove('open')
-    document.getElementById('ready-menu').classList.remove('open')
-    document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
-    document.getElementById('open-size').classList.remove('open')
-    document.getElementById('is-open-bread-menu').classList.add('open')
-    document.getElementById('vegetable-open-menu').classList.remove('open')
-    document.getElementById('sauces-open-menu').classList.remove('open')
-    document.getElementById('stuffing-open-menu').classList.remove('open')
-    document.getElementById('open-menu-ready').classList.remove('open')
-  })
-//========================Овощи=============================================================================
-document
-  .getElementById('vegetable-open-menu')
-  .addEventListener('click', function () {
-    document.getElementById('vegetable-menu').classList.add('open')
-    document.getElementById('size-menu').classList.remove('open')
-    document.getElementById('bread-menu').classList.remove('open')
-    document.getElementById('sauces-menu').classList.remove('open')
-    document.getElementById('stuffing-menu').classList.remove('open')
-    document.getElementById('ready-menu').classList.remove('open')
-    document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
-    document.getElementById('open-size').classList.remove('open')
-    document.getElementById('is-open-bread-menu').classList.remove('open')
-    document.getElementById('vegetable-open-menu').classList.add('open')
-    document.getElementById('sauces-open-menu').classList.remove('open')
-    document.getElementById('stuffing-open-menu').classList.remove('open')
-    document.getElementById('open-menu-ready').classList.remove('open')
-  })
-//========================Соусы=============================================================================
-document
-  .getElementById('sauces-open-menu')
-  .addEventListener('click', function () {
-    document.getElementById('sauces-menu').classList.add('open')
-    document.getElementById('stuffing-menu').classList.remove('open')
-    document.getElementById('ready-menu').classList.remove('open')
-    document.querySelector('p').textContent =
-      'Выберите 3 бесплатных соуса по вкусу'
-    document.getElementById('open-size').classList.remove('open')
-    document.getElementById('is-open-bread-menu').classList.remove('open')
-    document.getElementById('vegetable-open-menu').classList.remove('open')
-    document.getElementById('sauces-open-menu').classList.add('open')
-    document.getElementById('stuffing-open-menu').classList.remove('open')
-    document.getElementById('open-menu-ready').classList.remove('open')
-  })
-//========================Начинка===========================================================================
-document
-  .getElementById('stuffing-open-menu')
-  .addEventListener('click', function () {
-    document.getElementById('stuffing-menu').classList.add('open')
-    document.getElementById('size-menu').classList.remove('open')
-    document.getElementById('bread-menu').classList.remove('open')
-    document.getElementById('sauces-menu').classList.remove('open')
-    document.getElementById('ready-menu').classList.remove('open')
-    document.querySelector('p').textContent = 'Добавьте начинку по вкусу'
-    document.getElementById('open-size').classList.remove('open')
-    document.getElementById('is-open-bread-menu').classList.remove('open')
-    document.getElementById('vegetable-open-menu').classList.remove('open')
-    document.getElementById('sauces-open-menu').classList.remove('open')
-    document.getElementById('stuffing-open-menu').classList.add('open')
-    document.getElementById('open-menu-ready').classList.remove('open')
-  })
-//========================Готово!===========================================================================
-document
-  .getElementById('open-menu-ready')
-  .addEventListener('click', function () {
-    document.getElementById('ready-menu').classList.add('open')
-    document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
-    document.getElementById('open-size').classList.remove('open')
-    document.getElementById('is-open-bread-menu').classList.remove('open')
-    document.getElementById('vegetable-open-menu').classList.remove('open')
-    document.getElementById('sauces-open-menu').classList.remove('open')
-    document.getElementById('stuffing-open-menu').classList.remove('open')
-    document.getElementById('open-menu-ready').classList.add('open')
-  })
+// document.getElementById('open-size').addEventListener('click', function () {
+//   document.getElementById('size-menu').classList.add('open')
+//   document.getElementById('bread-menu').classList.remove('open')
+//   document.getElementById('vegetable-menu').classList.remove('open')
+//   document.getElementById('sauces-menu').classList.remove('open')
+//   document.getElementById('stuffing-menu').classList.remove('open')
+//   document.getElementById('ready-menu').classList.remove('open')
+//   document.querySelector('p').textContent = 'Выберите размер сендвича'
+//   document.getElementById('open-size').classList.add('open')
+//   document.getElementById('is-open-bread-menu').classList.remove('open')
+//   document.getElementById('vegetable-open-menu').classList.remove('open')
+//   document.getElementById('sauces-open-menu').classList.remove('open')
+//   document.getElementById('stuffing-open-menu').classList.remove('open')
+//   document.getElementById('open-menu-ready').classList.remove('open')
+// })
+// //==============================================Хлеб=======================================================
+// document
+//   .getElementById('is-open-bread-menu')
+//   .addEventListener('click', function () {
+//     document.getElementById('bread-menu').classList.add('open')
+//     document.getElementById('size-menu').classList.remove('open')
+//     document.getElementById('vegetable-menu').classList.remove('open')
+//     document.getElementById('sauces-menu').classList.remove('open')
+//     document.getElementById('stuffing-menu').classList.remove('open')
+//     document.getElementById('ready-menu').classList.remove('open')
+//     document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
+//     document.getElementById('open-size').classList.remove('open')
+//     document.getElementById('is-open-bread-menu').classList.add('open')
+//     document.getElementById('vegetable-open-menu').classList.remove('open')
+//     document.getElementById('sauces-open-menu').classList.remove('open')
+//     document.getElementById('stuffing-open-menu').classList.remove('open')
+//     document.getElementById('open-menu-ready').classList.remove('open')
+//   })
+// //========================Овощи=============================================================================
+// document
+//   .getElementById('vegetable-open-menu')
+//   .addEventListener('click', function () {
+//     document.getElementById('vegetable-menu').classList.add('open')
+//     document.getElementById('size-menu').classList.remove('open')
+//     document.getElementById('bread-menu').classList.remove('open')
+//     document.getElementById('sauces-menu').classList.remove('open')
+//     document.getElementById('stuffing-menu').classList.remove('open')
+//     document.getElementById('ready-menu').classList.remove('open')
+//     document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
+//     document.getElementById('open-size').classList.remove('open')
+//     document.getElementById('is-open-bread-menu').classList.remove('open')
+//     document.getElementById('vegetable-open-menu').classList.add('open')
+//     document.getElementById('sauces-open-menu').classList.remove('open')
+//     document.getElementById('stuffing-open-menu').classList.remove('open')
+//     document.getElementById('open-menu-ready').classList.remove('open')
+//   })
+// //========================Соусы=============================================================================
+// document
+//   .getElementById('sauces-open-menu')
+//   .addEventListener('click', function () {
+//     document.getElementById('sauces-menu').classList.add('open')
+//     document.getElementById('stuffing-menu').classList.remove('open')
+//     document.getElementById('ready-menu').classList.remove('open')
+//     document.querySelector('p').textContent =
+//       'Выберите 3 бесплатных соуса по вкусу'
+//     document.getElementById('open-size').classList.remove('open')
+//     document.getElementById('is-open-bread-menu').classList.remove('open')
+//     document.getElementById('vegetable-open-menu').classList.remove('open')
+//     document.getElementById('sauces-open-menu').classList.add('open')
+//     document.getElementById('stuffing-open-menu').classList.remove('open')
+//     document.getElementById('open-menu-ready').classList.remove('open')
+//   })
+// //========================Начинка===========================================================================
+// document
+//   .getElementById('stuffing-open-menu')
+//   .addEventListener('click', function () {
+//     document.getElementById('stuffing-menu').classList.add('open')
+//     document.getElementById('size-menu').classList.remove('open')
+//     document.getElementById('bread-menu').classList.remove('open')
+//     document.getElementById('sauces-menu').classList.remove('open')
+//     document.getElementById('ready-menu').classList.remove('open')
+//     document.querySelector('p').textContent = 'Добавьте начинку по вкусу'
+//     document.getElementById('open-size').classList.remove('open')
+//     document.getElementById('is-open-bread-menu').classList.remove('open')
+//     document.getElementById('vegetable-open-menu').classList.remove('open')
+//     document.getElementById('sauces-open-menu').classList.remove('open')
+//     document.getElementById('stuffing-open-menu').classList.add('open')
+//     document.getElementById('open-menu-ready').classList.remove('open')
+//   })
+// //========================Готово!===========================================================================
+// document
+//   .getElementById('open-menu-ready')
+//   .addEventListener('click', function () {
+//     document.getElementById('ready-menu').classList.add('open')
+//     document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
+//     document.getElementById('open-size').classList.remove('open')
+//     document.getElementById('is-open-bread-menu').classList.remove('open')
+//     document.getElementById('vegetable-open-menu').classList.remove('open')
+//     document.getElementById('sauces-open-menu').classList.remove('open')
+//     document.getElementById('stuffing-open-menu').classList.remove('open')
+//     document.getElementById('open-menu-ready').classList.add('open')
+//   })
 // =======================Смена карточек продуктов в главном меню============================================
-//=====================================Сендвичи==============================================================
-document
-  .getElementById('open-burger-menu')
-  .addEventListener('click', function () {
-    document.getElementById('burger-menu-reveal-button').classList.add('open')
-    document
-      .getElementById('invisibilityOfTheInitialCardsWindow')
-      .classList.add('open')
-    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
-    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
-    document
-      .getElementById('sandwichesMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('chickenAndPotatoMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('tortillaAndSaladsMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('drinksAndDessertsMenuRevealButton')
-      .classList.remove('open')
-    document.getElementById('open-burger-menu').classList.add('open')
-    document.getElementById('open-pancakes-menu').classList.remove('open')
-    document.getElementById('open-shawarma-menu').classList.remove('open')
-    document.getElementById('open-sandwiches-menu').classList.remove('open')
-    document
-      .getElementById('open-chicken-and-potato-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-tortilla-and-salads-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-drinks-and-desserts-menu')
-      .classList.remove('open')
-  })
-// ==============================================Блины========================================================
-
-document
-  .getElementById('open-pancakes-menu')
-  .addEventListener('click', function () {
-    document.getElementById('pizzaMenuRevealButton').classList.add('open')
-    document
-      .getElementById('burger-menu-reveal-button')
-      .classList.remove('open')
-    document
-      .getElementById('invisibilityOfTheInitialCardsWindow')
-      .classList.add('open')
-    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
-    document
-      .getElementById('sandwichesMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('chickenAndPotatoMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('tortillaAndSaladsMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('drinksAndDessertsMenuRevealButton')
-      .classList.remove('open')
-    document.getElementById('open-burger-menu').classList.remove('open')
-    document.getElementById('open-pancakes-menu').classList.add('open')
-    document.getElementById('open-shawarma-menu').classList.remove('open')
-    document.getElementById('open-sandwiches-menu').classList.remove('open')
-    document
-      .getElementById('open-chicken-and-potato-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-tortilla-and-salads-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-drinks-and-desserts-menu')
-      .classList.remove('open')
-  })
-// ==============================================================================Шаурма==========================
-
-document
-  .getElementById('open-shawarma-menu')
-  .addEventListener('click', function () {
-    document.getElementById('shawarmaMenuMevealButton').classList.add('open')
-    document
-      .getElementById('invisibilityOfTheInitialCardsWindow')
-      .classList.add('open')
-    document
-      .getElementById('burger-menu-reveal-button')
-      .classList.remove('open')
-    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
-    document
-      .getElementById('sandwichesMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('chickenAndPotatoMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('tortillaAndSaladsMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('drinksAndDessertsMenuRevealButton')
-      .classList.remove('open')
-    document.getElementById('open-burger-menu').classList.remove('open')
-    document.getElementById('open-pancakes-menu').classList.remove('open')
-    document.getElementById('open-shawarma-menu').classList.add('open')
-    document.getElementById('open-sandwiches-menu').classList.remove('open')
-    document
-      .getElementById('open-chicken-and-potato-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-tortilla-and-salads-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-drinks-and-desserts-menu')
-      .classList.remove('open')
-  })
-// =================================================================================Бургеры==========================
-
-document
-  .getElementById('open-sandwiches-menu')
-  .addEventListener('click', function () {
-    document.getElementById('sandwichesMenuRevealButton').classList.add('open')
-    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
-    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
-    document
-      .getElementById('burger-menu-reveal-button')
-      .classList.remove('open')
-    document
-      .getElementById('invisibilityOfTheInitialCardsWindow')
-      .classList.add('open')
-    document
-      .getElementById('chickenAndPotatoMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('tortillaAndSaladsMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('drinksAndDessertsMenuRevealButton')
-      .classList.remove('open')
-    document.getElementById('open-burger-menu').classList.remove('open')
-    document.getElementById('open-pancakes-menu').classList.remove('open')
-    document.getElementById('open-shawarma-menu').classList.remove('open')
-    document.getElementById('open-sandwiches-menu').classList.add('open')
-    document
-      .getElementById('open-chicken-and-potato-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-tortilla-and-salads-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-drinks-and-desserts-menu')
-      .classList.remove('open')
-  })
-// ======================================================================================Курица и Картошка=========================
-
-document
-  .getElementById('open-chicken-and-potato-menu')
-  .addEventListener('click', function () {
-    document
-      .getElementById('chickenAndPotatoMenuRevealButton')
-      .classList.add('open')
-    document
-      .getElementById('sandwichesMenuRevealButton')
-      .classList.remove('open')
-    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
-    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
-    document
-      .getElementById('burger-menu-reveal-button')
-      .classList.remove('open')
-    document
-      .getElementById('invisibilityOfTheInitialCardsWindow')
-      .classList.add('open')
-    document
-      .getElementById('tortillaAndSaladsMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('drinksAndDessertsMenuRevealButton')
-      .classList.remove('open')
-    document.getElementById('open-burger-menu').classList.remove('open')
-    document.getElementById('open-pancakes-menu').classList.remove('open')
-    document.getElementById('open-shawarma-menu').classList.remove('open')
-    document.getElementById('open-sandwiches-menu').classList.remove('open')
-    document
-      .getElementById('open-chicken-and-potato-menu')
-      .classList.add('open')
-    document
-      .getElementById('open-tortilla-and-salads-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-drinks-and-desserts-menu')
-      .classList.remove('open')
-  })
-// =================================================================================Тортилья и Салаты================================
-
-document
-  .getElementById('open-tortilla-and-salads-menu')
-  .addEventListener('click', function () {
-    document
-      .getElementById('tortillaAndSaladsMenuRevealButton')
-      .classList.add('open')
-    document
-      .getElementById('invisibilityOfTheInitialCardsWindow')
-      .classList.add('open')
-    document
-      .getElementById('drinksAndDessertsMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('chickenAndPotatoMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('sandwichesMenuRevealButton')
-      .classList.remove('open')
-    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
-    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
-    document
-      .getElementById('burger-menu-reveal-button')
-      .classList.remove('open')
-    document.getElementById('open-burger-menu').classList.remove('open')
-    document.getElementById('open-pancakes-menu').classList.remove('open')
-    document.getElementById('open-shawarma-menu').classList.remove('open')
-    document.getElementById('open-sandwiches-menu').classList.remove('open')
-    document
-      .getElementById('open-chicken-and-potato-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-tortilla-and-salads-menu')
-      .classList.add('open')
-    document
-      .getElementById('open-drinks-and-desserts-menu')
-      .classList.remove('open')
-  })
-// =====================================================================================Напитки и Десерты===============================
-
-document
-  .getElementById('open-drinks-and-desserts-menu')
-  .addEventListener('click', function () {
-    document
-      .getElementById('drinksAndDessertsMenuRevealButton')
-      .classList.add('open')
-    document
-      .getElementById('invisibilityOfTheInitialCardsWindow')
-      .classList.add('open')
-    document
-      .getElementById('tortillaAndSaladsMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('chickenAndPotatoMenuRevealButton')
-      .classList.remove('open')
-    document
-      .getElementById('burger-menu-reveal-button')
-      .classList.remove('open')
-    document.getElementById('pizzaMenuRevealButton').classList.remove('open')
-    document.getElementById('shawarmaMenuMevealButton').classList.remove('open')
-    document
-      .getElementById('sandwichesMenuRevealButton')
-      .classList.remove('open')
-    document.getElementById('open-burger-menu').classList.remove('open')
-    document.getElementById('open-pancakes-menu').classList.remove('open')
-    document.getElementById('open-shawarma-menu').classList.remove('open')
-    document.getElementById('open-sandwiches-menu').classList.remove('open')
-    document
-      .getElementById('open-chicken-and-potato-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-tortilla-and-salads-menu')
-      .classList.remove('open')
-    document
-      .getElementById('open-drinks-and-desserts-menu')
-      .classList.add('open')
-  })
-// =======================================================================================================================
-
 async function getCustomerId() {
   window.data = []
   let response = await fetch('/data.json')
@@ -543,57 +275,55 @@ async function getCustomerId() {
   } else {
     const data = await response.json()
     window.data = data
+    setActiveCategory('sandwiches')
   }
   return window.data
 }
 
-//==========================================================================================================
-// var categorys = [
-//   'sandwiches',
-//   'drinks',
-//   'chicken',
-//   'salads',
-//   'shaurma',
-//   'pizza',
-//   'burgers',
-// ]
-// function allProduct(arrProduct) {
-//   arrProduct.forEach(element => {
-//     console.log(element)
-//   })
-// }
-// allProduct(categorys) //выдаёт все элементы
+const arrMenuItems = [
+  {
+    keyCategory: 'sandwiches',
+    nameCategory: 'Сендвичи',
+  },
+  {
+    keyCategory: 'burgers',
+    nameCategory: 'Бургеры',
+  },
+  {
+    keyCategory: 'pizza',
+    nameCategory: 'Пицца',
+  },
+  {
+    keyCategory: 'shaurma',
+    nameCategory: 'Шаурма',
+  },
+  {
+    keyCategory: 'salads',
+    nameCategory: 'Тортилья и Салаты',
+  },
+  {
+    keyCategory: 'chicken',
+    nameCategory: 'Курица и Картошка',
+  },
+  {
+    keyCategory: 'drinks',
+    nameCategory: 'Напитки и Десерт',
+  },
+]
 
-// function changeArray(someArray) {
-//   for (i = 0; i < someArray.length; ++i) {
-//     return someArray[i]
-//   }
-// }
-// console.log(changeArray(categorys)) //Выдаёт первый элемент
+const containerMenu = document.getElementById('products-menu')
+const menuArrayElements = arrMenuItems
+  .map(
+    element =>
+      `<li onClick="setActiveCategory('${element.keyCategory}')" class="menu-item" id="open-shawarma-menu">${element.nameCategory}</li>`
+  )
+  .join('')
+containerMenu.innerHTML = menuArrayElements
 
-// function changeArray(someArray) {
-//   var arrEmpty = []
-//   for (i = 0; i < someArray.length; ++i) {
-//     arrEmpty.push(someArray[i])
-//   }
-//   return arrEmpty
-// }
-// console.log(changeArray(categorys)) //выдаёт тот же массив
-
-// function allProduct(arrProduct) {
-//   arrProduct.forEach(element => {
-//     return element
-//   })
-// }
-// console.log(allProduct(categorys))
-
-function sendingDataToTheDesiredHtmlBlock(container, obj) {
-  container.innerHTML = convertingDataToHtml(obj, 'sandwiches')
-}
-
-function convertingDataToHtml(obj, category) {
-  let arrMenu = obj.menu
-  let cardsSandwiches = arrMenu
+const productsContainer = document.getElementById('productsContainer')
+function setActiveCategory(category) {
+  let arrMenu = data.menu
+  let arrProducts = arrMenu
     .filter(item => item.category == category)
     .map(
       item => `
@@ -621,106 +351,62 @@ function convertingDataToHtml(obj, category) {
     </div>`
     )
     .join('')
-  return cardsSandwiches
+  // console.log(arrProducts)
+
+  productsContainer.innerHTML = arrProducts
 }
+//=============================================================================================================
+// function drawingModalWindowElements(container, obj) {
+//   container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
+// }
 
-//=======================================================================================================
-// function createTree88(container, obj, label) {
-//   container.innerHTML = convertingDataToHtml(obj, label)
-//   } // пример помошника
-//=======================================================================================================
-function sendingDataToTheDesiredHtmlBlock1(container, obj) {
-  container.innerHTML = convertingDataToHtml(obj, 'drinks')
+const arrModalMenuItems = [
+  { keyCategory: 'sizes', nameCategory: 'Размер' },
+  { keyCategory: 'breads', nameCategory: 'Хлеб' },
+  { keyCategory: 'vegetables', nameCategory: 'Овощи' },
+  { keyCategory: 'sauces', nameCategory: 'Соусы' },
+  { keyCategory: 'fillings', nameCategory: 'Начинка' },
+  { keyCategory: 'ready', nameCategory: 'Готово' },
+]
+
+const containerModalMenu = document.getElementById('modal-menu')
+const arrModalMenu = arrModalMenuItems
+  .map(
+    item => `<button onClick="setFillingCategory('${item.keyCategory}')" class="item-modal-window-menu" id="open-size">
+${item.nameCategory}
+</button>`
+  )
+  .join('')
+containerModalMenu.innerHTML = arrModalMenu
+
+const cardContainer = document.getElementById('size-products')
+function setFillingCategory(category) {
+  fillingCategory = category
+  console.log(data.category)
+  // let arrModalMenu = Object.values(data.fillingCategory)
+  //   .map(
+  //     item => `
+  //       <button class="product-size-card-buttons">
+  //         <div class="opptions-background-little-bread">
+  //           <img class="img-filling" src="/img${item.image}" />
+  //         </div>
+  //         <div class="the-final-filling-in-the-product">${item.name}</div>
+  //         <div class="price-size-letters">
+  //           <div class="price-size-letters">Цена:</div>
+  //           <div class="price-filling">${item.price}</div>
+  //           <div class="price-size-letters">руб.</div>
+  //         </div>
+  //       </button>`
+  //   )
+  //   .join('')
+  // cardContainer.innerHTML = arrModalMenu
+  // let arrCards = Object.values(arrCategory).map()
 }
+//=============================================================================================================
+// function drawingModalWindowElements(container, obj) {
+//   container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
+// }
 
-//========================================================================================================
-
-function sendingDataToTheDesiredHtmlBlock2(container, obj) {
-  container.innerHTML = convertingDataToHtml(obj, 'chicken')
-}
-
-//========================================================================================================
-
-function sendingDataToTheDesiredHtmlBlock3(container, obj) {
-  container.innerHTML = convertingDataToHtml(obj, 'salads')
-}
-
-//========================================================================================================
-
-function sendingDataToTheDesiredHtmlBlock4(container, obj) {
-  container.innerHTML = convertingDataToHtml(obj, 'shaurma')
-}
-
-//========================================================================================================
-
-function sendingDataToTheDesiredHtmlBlock5(container, obj) {
-  container.innerHTML = convertingDataToHtml(obj, 'pizza')
-}
-//=======================================================================================================
-
-function sendingDataToTheDesiredHtmlBlock7(container, obj) {
-  container.innerHTML = convertingDataToHtml(obj, 'burgers')
-}
-
-//========================================================================================================
-
-function sendingDataToTheDesiredHtmlBlock6(container, obj) {
-  container.innerHTML = convertingDataToHtml6(obj)
-}
-
-function convertingDataToHtml6(obj) {
-  let arrMenu = obj.menu
-  let cardsSandwiches = arrMenu
-    .filter(item => item.category == 'pizza')
-    .map(
-      item => `
-      <div class="card-product">
-      <img class="subway" src="img/SUBWAY1.png" />
-      <img class="opptions-background-img" src="/img${item.image}" />
-      <div class="names">${item.name}</div>
-      <div class="ingredients">${item.description}</div>
-      <div class="price">Цена: ${item.price} руб.</div>
-      <div class="quantity">КОЛИЧЕСТВО</div>
-      <div class="buttons">
-        <img
-          class="minus"
-          src="/img/minus.svg"
-        />
-        <input value="1" maxlength="3" class="input" />
-        <img
-          class="plus"
-          src="/img/plus.svg"
-        />
-      </div>
-      <button class="in-basket" id="open-modal-btn-1">
-        В КОРЗИНУ
-      </button>
-    </div>`
-    )
-    .join('')
-  return cardsSandwiches
-}
-
-//================================================================================================================
-// function settingHtmlLayoutForRendering(obj) {
-//   var objFillings = obj.fillings
-//   for (let key in objFillings) {
-//     if (objFillings.hasOwnProperty(key)) {
-//       var text = ''
-//       text += `
-//         <button class="product-size-card-buttons">
-//           <div class="opptions-background-little-bread">
-//             <img class="little-bread" src="/img${objFillings[key].image}" />
-//           </div>
-//           <div class="size-bread">${objFillings[key].name}</div>
-//           <div class="price-bread">Цена:${objFillings[key].price}</div>
-//         </button>`
-//       // console.log(text)
-//     }
-//     return text
-//   }
-//}
-//===============================================================================================================
 function drawingModalWindowElements(container, obj) {
   container.innerHTML = settingHtmlLayoutForRendering(obj)
 }
@@ -728,15 +414,15 @@ function drawingModalWindowElements(container, obj) {
 function settingHtmlLayoutForRendering(objectInObject) {
   var result = Object.values(objectInObject)
     .map(
-      v => `
+      item => `
           <button class="product-size-card-buttons">
             <div class="opptions-background-little-bread">
-              <img class="img-filling" src="/img${v.image}" />
+              <img class="img-filling" src="/img${item.image}" />
             </div>
-            <div class="the-final-filling-in-the-product">${v.name}</div>
+            <div class="the-final-filling-in-the-product">${item.name}</div>
             <div class="price-size-letters">
               <div class="price-size-letters">Цена:</div>
-              <div class="price-filling">${v.price}</div>
+              <div class="price-filling">${item.price}</div>
               <div class="price-size-letters">руб.</div>
             </div>
           </button>`
@@ -818,55 +504,7 @@ function settingHtmlLayoutForRendering5(objectInObject) {
   //console.log(result)
 }
 
-//=============================================================================================================
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('size-bread')) {
-//     document.getElementById(
-//       'sizes-products'
-//     ).innerHTML = `Размер: ${e.target.innerHTML}`
-
-//     console.log(fergerge)
-//     console.log(e)
-//   }
-//   // else if (e.target.classList.contains('price-bread')) {
-//   //   document.getElementById('sizes-products').innerHTML = `Размер: ${fergerge}`
-//   //   console.log(fergerge)
-//   // }
-// })
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('type-of-bread')) {
-//     document.getElementById(
-//       'product-type'
-//     ).innerHTML = `Хлеб: ${e.target.innerHTML}`
-//   }
-// })
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('vegetables-of-your-choice')) {
-//     document.getElementById(
-//       'products-vegetable'
-//     ).innerHTML = `Овощи: ${e.target.innerHTML}`
-//     document.getElementById
-//   }
-// })
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('sauces-for-product-creation')) {
-//     document.getElementById(
-//       'products-sauces'
-//     ).innerHTML = `Соусы: ${e.target.innerHTML}`
-//   }
-// })
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('the-final-filling-in-the-product')) {
-//     document.getElementById(
-//       'products-stuffing'
-//     ).innerHTML = ` Начинка: ${e.target.innerHTML}`
-//   }
-// })
+//============================================================================================================
 //========================================================================================================
 var fullPrice = document.querySelector('.price-in-the-basket')
 //========================================================================================================
@@ -881,43 +519,11 @@ document.addEventListener('click', function (e) {
       price: card.querySelector('.price-size').innerText,
     }
 
-    // let selectedTd
-    // function highlight(td) {
-    //   if (selectedTd) {
-    //     selectedTd.classList.remove('open')
-    //   }
-    //   selectedTd = td
-    //   selectedTd.classList.add('open')
-    // }
-
-    // highlight(card)
-    // let cardSelection = false
-
-    // if (cardSelection === false) {
-    //   card.classList.add('open')
-    //   cardSelection = true
-    // } else if (cardSelection === true) {
-    //   card.classList.remove('open')
-    //   cardSelection = false
-    // }
-
     if (card.classList.contains('open')) {
       card.classList.remove('open')
     } else {
       card.classList.add('open')
     }
-
-    // console.log(cardSelection)
-    // var cardSelection = false
-    // if (cardSelection) {
-    //   document
-    //     .querySelector('.product-size-card-buttons')
-    //     .classList.remove('open')
-    //   cardSelection = false
-    // } else {
-    //   document.querySelector('.product-size-card-buttons').classList.add('open')
-    //   cardSelection = true
-    // }
 
     // console.log(productInfo.price)
     cartSize.innerHTML = `Размер: ${productInfo.name}.`
@@ -925,19 +531,6 @@ document.addEventListener('click', function (e) {
     sumProducts = parseInt(fullPrice.innerText) + 0
   }
 })
-
-// document
-//   .getElementById('size-products')
-//   .addEventListener('click', function (event) {
-//     let target = event.target
-//     // console.log(target)
-//     if (target.tagName != 'img') return
-//     highlight(target)
-//   })
-// function highlight(trt) {
-//   if (selectedTd) {
-//   }
-// }
 
 //========================================================================================================
 let cartBread = document.getElementById('product-type')
@@ -991,13 +584,6 @@ document.addEventListener('click', function (e) {
       )
       .join('')
     cartVegetables.innerHTML = lastArrayVegetables
-    // console.log(productInfo)
-    // let cartItemHTML = `
-    // <div
-    // class="products-in-line">
-    // ${productInfo.name}.
-    // </div>`
-    // cartVegetables.insertAdjacentHTML('beforeend', cartItemHTML)
     if (card.classList.contains('open')) {
       card.classList.remove('open')
     } else {
@@ -1060,24 +646,6 @@ document.addEventListener('click', function (e) {
       name: card.querySelector('.the-final-filling-in-the-product').innerText,
       price: card.querySelector('.price-filling').innerText,
     }
-    // if (arrayFilling.length <= 2) {
-    //   arrayFilling.push(productInfo.name)
-    // } else {
-    //   arrayFilling.shift()
-    //   arrayFilling.push(productInfo.name)
-    // }
-    // console.log(arrayFilling)
-    // let lastArrayFilling = arrayFilling
-    //   .map(
-    //     b => `
-    // <div
-    // class="products-in-line">
-    // ${b}.
-    // </div>`
-    //   )
-    //   .join('')
-    // console.log(lastArrayFilling)
-    // cartFilling.innerHTML = lastArrayFilling //максимум 3 элемента начинки
     let cartItemHTML = `
      <div
      class="products-in-line">
@@ -1126,30 +694,7 @@ document.addEventListener('click', function (e) {
     document.getElementById('body-id').classList.remove('modal-open')
   }
 })
-
-//========================================================================================================
-// let cartWrapper = document.querySelector('.name-of-final-products')
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('little-bread')) {
-//     let card = e.target.closest('.product-size-card-buttons')
-//     console.log(card)
-//     let productInfo = {
-//       name: card.querySelector('.size-bread').innerText,
-//       price: card.querySelector('.price-bread').innerText,
-//     }
-//     console.log(productInfo)
-//     let cartItemHTML = `
-//     <div
-//     class="size-of-the-final-product"
-//     id="sizes-products">
-//     Размер: ${productInfo.name}
-//   </div>`
-//     cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML)
-//   }
-// })
-
-//========================================================================================================
+//=============================================================================================================
 function drawingModalWindowElements(container, obj) {
   container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
 }
@@ -1167,43 +712,6 @@ function drawingModalWindowElements5(container, obj) {
 }
 //========================================================================================================
 getCustomerId().then(data => {
-  //=================================================================================
-  // categorys.forEach((item) => {
-  //   createTree88(document.getElementById('burger-menu-reveal-button'), data, item)
-  //   })
-  //=================================================================================
-  sendingDataToTheDesiredHtmlBlock7(
-    document.getElementById('burger-menu-reveal-button'),
-    data
-  )
-  sendingDataToTheDesiredHtmlBlock6(
-    document.getElementById('invisibilityOfTheInitialCardsWindow'),
-    data
-  )
-  sendingDataToTheDesiredHtmlBlock5(
-    document.getElementById('pizzaMenuRevealButton'),
-    data
-  )
-  sendingDataToTheDesiredHtmlBlock4(
-    document.getElementById('shawarmaMenuMevealButton'),
-    data
-  )
-  sendingDataToTheDesiredHtmlBlock3(
-    document.getElementById('tortillaAndSaladsMenuRevealButton'),
-    data
-  )
-  sendingDataToTheDesiredHtmlBlock2(
-    document.getElementById('chickenAndPotatoMenuRevealButton'),
-    data
-  )
-  sendingDataToTheDesiredHtmlBlock1(
-    document.getElementById('drinksAndDessertsMenuRevealButton'),
-    data
-  )
-  sendingDataToTheDesiredHtmlBlock(
-    document.getElementById('sandwichesMenuRevealButton'),
-    data
-  )
   drawingModalWindowElements(document.getElementById('stuffing-content'), data)
   drawingModalWindowElements2(document.getElementById('size-products'), data)
   drawingModalWindowElements3(
