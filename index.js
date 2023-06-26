@@ -25,29 +25,9 @@ document
   .getElementById('close-my-modal-btn')
   .addEventListener('click', function () {
     document.getElementById('my-modal').classList.remove('open')
-    document.getElementById('ready-menu').classList.remove('open')
-    document.getElementById('stuffing-menu').classList.remove('open')
-    document.getElementById('sauces-menu').classList.remove('open')
-    document.getElementById('vegetable-menu').classList.remove('open')
-    document.getElementById('bread-menu').classList.remove('open')
-    document.getElementById('size-menu').classList.remove('open')
-    document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
+    document.querySelector('p').textContent = 'Выберите размер сендвича'
     fullPrice.innerHTML = 0
     valueInputInModalWindow.innerHTML = 1
-    // document.getElementById('total-order-name').textContent = 'Название:'
-    // document.getElementById('total-order-quantity').textContent = 'Количество:'
-    // document.getElementById('id-final-purchase-price').textContent = '0'
-    // document.getElementById('sizes-products').textContent = 'Размер:'
-    // document.getElementById('product-type').textContent = 'Хлеб:'
-    // document.querySelector('.the-one-remaining-sections').textContent = 'Овощи:'
-    // document.querySelector('.the-two-remaining-sections').textContent = 'Соусы:'
-    // document.querySelector('.stuffing-final-product').textContent = 'Начинка:'
-    // document.getElementById('open-size').classList.remove('open')
-    // document.getElementById('is-open-bread-menu').classList.remove('open')
-    // document.getElementById('vegetable-open-menu').classList.remove('open')
-    // document.getElementById('sauces-open-menu').classList.remove('open')
-    // document.getElementById('stuffing-open-menu').classList.remove('open')
-    // document.getElementById('open-menu-ready').classList.remove('open')
     document.getElementById('body-id').classList.remove('modal-open')
     document
       .querySelector('.product-size-card-buttons')
@@ -176,6 +156,7 @@ async function getCustomerId() {
     window.data = data
     setActiveCategory('sandwiches')
     setActiveCards('sizes')
+    setActiveBtn(0)
   }
   return window.data
 }
@@ -256,10 +237,6 @@ function setActiveCategory(category) {
   productsContainer.innerHTML = arrProducts
 }
 //=============================================================================================================
-// function drawingModalWindowElements(container, obj) {
-//   container.innerHTML = settingHtmlLayoutForRendering(obj.fillings)
-// }
-
 const arrModalMenuItems = [
   { keyCategory: 'sizes', nameCategory: 'Размер' },
   { keyCategory: 'breads', nameCategory: 'Хлеб' },
@@ -275,15 +252,19 @@ const arrModalMenu = arrModalMenuItems
     (
       item,
       index
-    ) => `<button onClick="setActiveCards('${item.keyCategory}')" class="item-modal-window-menu" id="open-size">
-${item.nameCategory}${index}
+    ) => `<button onClick="setActiveCards('${item.keyCategory}'); setActiveBtn('${index}')" class="item-modal-window-menu" id="open-size">
+${item.nameCategory}
 </button>`
   )
   .join('')
+
 containerModalMenu.innerHTML = arrModalMenu
 setActiveCards
 const cardContainer = document.getElementById('size-products')
 function setActiveCards(category) {
+  // if (category = 'ready') {
+  //  let sectionReady =
+  // }
   let arrModalMenu = Object.values(data[category])
     .map(
       item => `
@@ -304,9 +285,68 @@ function setActiveCards(category) {
 }
 
 const btnContainer = document.getElementById('size-menu')
-let indexContainer = 0
-function setActiveBtn () {
+function setActiveBtn(indexCategory) {
+  console.log(indexCategory)
+  if (indexCategory == 0) {
+    document.getElementById('size-menu').classList.add('one-button')
+    btnContainer.innerHTML = `<button onClick="forwardNextCard('${
+      indexCategory + 1
+    }')" class="forward-button" id="go-to-sauce-block">
+      <div class="indent-for-word-forward">ВПЕРЕД${indexCategory}</div>
+      <img
+        class="arrow"
+        src="img/keyboard-right-arrow-button-1_icon-icons.com_72690.svg"
+      />
+    </button>`
+  } else if (indexCategory > 0) {
+    document.getElementById('size-menu').classList.remove('one-button')
+    btnContainer.innerHTML = `<button onClick="forwardNextCard('${indexCategory--}')" class="back-button" id="go-to-back-bread-block">
+      <img class="arrow" src="img/left_icon-icons.com_61213.svg" />
+      <div class="indent-for-word-back">НАЗАД</div>
+    </button>
+    <button onClick="forwardNextCard('${indexCategory++}')" class="forward-button" id="go-to-sauce-block">
+      <div class="indent-for-word-forward">ВПЕРЕД</div>
+      <img
+        class="arrow"
+        src="img/keyboard-right-arrow-button-1_icon-icons.com_72690.svg"
+      />
+    </button>`
+  }
+  // if (indexCategory == 1) {
+  //   document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
+  // } else if (indexCategory == 2) {
+  //   document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
+  // } else if (indexCategory == 3) {
+  //   document.querySelector('p').textContent =
+  //     'Выберите 3 бесплатных соуса по вкусу'
+  // } else if (indexCategory == 4) {
+  //   document.querySelector('p').textContent = 'Добавьте начинку по вкусу'
+  // } else if (indexCategory == 5) {
+  //   document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
+  // }
+}
 
+function forwardNextCard(indexCardMenu) {
+  if (indexCardMenu == 0) {
+    document.querySelector('p').textContent = 'Выберите размер сендвича'
+    setActiveCards('sizes')
+  } else if (indexCardMenu == 1) {
+    document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
+    setActiveCards('breads')
+  } else if (indexCardMenu == 2) {
+    document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
+    setActiveCards('vegetables')
+  } else if (indexCardMenu == 3) {
+    document.querySelector('p').textContent =
+      'Выберите 3 бесплатных соуса по вкусу'
+    setActiveCards('')
+  } else if (indexCardMenu == 4) {
+    document.querySelector('p').textContent = 'Добавьте начинку по вкусу'
+    setActiveCards('')
+  } else if (indexCardMenu == 5) {
+    document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
+    setActiveCards('')
+  }
 }
 //========================================================================================================
 var fullPrice = document.querySelector('.price-in-the-basket')
@@ -316,7 +356,7 @@ let cartSize = document.getElementById('sizes-products')
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('img-size')) {
     let card = e.target.closest('.product-size-card-buttons')
-    // console.log(card)
+    console.log(card)
     let productInfo = {
       name: card.querySelector('.size-bread').innerText,
       price: card.querySelector('.price-size').innerText,

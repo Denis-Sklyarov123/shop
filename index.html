@@ -13,9 +13,11 @@
 
   <body class="body-style" id="body-id">
     <h1>CДЕЛАЙТЕ ЗАКАЗ НАПРЯМУЮ ИЗ РЕСТОРАНА</h1>
+
     <main class="basis">
       <nav>
         <ul id="products-menu" class="menu"></ul>
+
         <aside class="basket">
           <div class="basket-icon">
             <img class="icon" src="img/krytaia-korzinka.png" />Корзина
@@ -39,9 +41,11 @@
 
           <div class="total">
             <div class="final-purchase-price">Итого:</div>
+
             <div class="final-purchase-price" id="id-final-purchase-price">
               0
             </div>
+
             <div class="final-purchase-price">руб.</div>
           </div>
 
@@ -50,10 +54,12 @@
           </div>
         </aside>
       </nav>
+
       <div>
         <section class="all-product-card-windows">
           <div class="main-pancakes-content" id="productsContainer"></div>
         </section>
+
         <div class="modal" id="my-modal">
           <div class="modal-box">
             <button class="modal-close-btn" id="close-my-modal-btn">
@@ -62,51 +68,45 @@
                 src="img/4115230-cancel-close-cross-delete_114048.png"
               />
             </button>
-            <p class="modal-window-text">Проверьте и добавьте в корзину</p>
+
+            <p class="modal-window-text">Выберите размер сендвича</p>
+
             <div class="modal-window-menu">
               <div class="items-menu" id="modal-menu"></div>
 
-              <div class="menu-products" id="size-menu">
-                <button class="back-button" id="go-to-back-bread-block">
-                  <img class="arrow" src="img/left_icon-icons.com_61213.svg" />
-                  <div class="indent-for-word-back">НАЗАД</div>
-                </button>
-                <button class="forward-button" id="go-to-sauce-block">
-                  <div class="indent-for-word-forward">ВПЕРЕД</div>
-                  <img
-                    class="arrow"
-                    src="img/keyboard-right-arrow-button-1_icon-icons.com_72690.svg"
-                  />
-                </button>
-              </div>
+              <div class="menu-products" id="size-menu"></div>
 
               <div class="size-cards" id="size-products"></div>
-              <div class="price-quantity-in-basket">
-                <div class="buttons-and-quantity">
-                  <div class="quantity-in-modal">КОЛИЧЕСТВО</div>
+            </div>
 
-                  <div class="price-buttons">
-                    <img class="minus-in-modal-window" src="img/minus.svg" />
+            <div class="price-quantity-in-basket">
+              <div class="buttons-and-quantity">
+                <div class="quantity-in-modal">КОЛИЧЕСТВО</div>
 
-                    <div class="input-in-modal-window">1</div>
+                <div class="price-buttons">
+                  <img class="minus-in-modal-window" src="img/minus.svg" />
 
-                    <img class="plus-in-modal-window" src="img/plus.svg" />
-                  </div>
+                  <div class="input-in-modal-window">1</div>
+
+                  <img class="plus-in-modal-window" src="img/plus.svg" />
+                </div>
+              </div>
+
+              <div class="price-and-basket">
+                <div class="price-in-basket-letters">Цена:</div>
+
+                <div
+                  class="price-in-the-basket"
+                  id="the-final-price-of-the-product-in-the-modal-window"
+                >
+                  0
                 </div>
 
-                <div class="price-and-basket">
-                  <div class="price-in-basket-letters">Цена:</div>
-                  <div
-                    class="price-in-the-basket"
-                    id="the-final-price-of-the-product-in-the-modal-window"
-                  >
-                    0
-                  </div>
-                  <div class="price-in-basket-letters">руб.</div>
-                  <button class="add-to-final-price" id="id-add-to-final-price">
-                    В КОРЗИНУ
-                  </button>
-                </div>
+                <div class="price-in-basket-letters">руб.</div>
+
+                <button class="add-to-final-price" id="id-add-to-final-price">
+                  В КОРЗИНУ
+                </button>
               </div>
             </div>
             <!-- <div class="carousel">
