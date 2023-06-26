@@ -717,3 +717,12 @@
 
 // console.log(sumTo(29))
 
+// Написать кнопку которая выводит 1, 2, 3, 4, 5 и тд...
+
+// let btn = document.getElementsByTagName('button')[0]
+
+// let y = 0
+
+// btn.addEventListener('click', function () {
+//   console.log(y++)
+// })
