@@ -25,13 +25,7 @@ document
   .getElementById('close-my-modal-btn')
   .addEventListener('click', function () {
     document.getElementById('my-modal').classList.remove('open')
-    document.querySelector('p').textContent = 'Выберите размер сендвича'
-    fullPrice.innerHTML = 0
-    valueInputInModalWindow.innerHTML = 1
     document.getElementById('body-id').classList.remove('modal-open')
-    document
-      .querySelector('.product-size-card-buttons')
-      .classList.remove('open')
   })
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
@@ -173,38 +167,38 @@ function setActiveCards(category) {
   if (category === 'ready') {
     let sectionReady = `<div class="selection-columns">
    <div class="your-product-is-ready">Ваш сендвич готов!</div>
-   <div class="name-of-final-products">
+   <div class="name-of-final-products" id="container-category">
      <div
        class="size-of-the-final-product"
        id="sizes-products"
      >
-       Размер:
+       Размер: 
      </div>
      <div
        class="the-bread-remaining-sections"
        id="product-type"
      >
-       Хлеб:
+       Хлеб: 
      </div>
      <div
        class="the-one-remaining-sections"
        id="products-vegetable"
      >
-       Овощи:
+       Овощи: 
        <div class="space-for-array-vegetables"></div>
      </div>
      <div
        class="the-two-remaining-sections"
        id="products-sauces"
      >
-       Соусы:
+       Соусы: 
        <div class="space-for-array-sauces"></div>
      </div>
      <div
        class="stuffing-final-product"
        id="products-stuffing"
      >
-       Начинка:
+       Начинка: 
        <div class="space-for-array-stuffing"></div>
      </div>
    </div>
@@ -216,11 +210,47 @@ function setActiveCards(category) {
    </div>
  </div>`
     cardContainer.innerHTML = sectionReady
+
+    let listItemsCart = Object.values(arrNameInBasket)
+      .map(item => {
+        console.log(item)
+        if (item.fillings) {
+          if (item.fillings.length) {
+            return item.fillings.map(aaa => {
+              return `<div
+              class="size-of-the-final-product"
+              id="sizes-products"
+              >
+              ${aaa.nameСhapter}: ${aaa.name}
+              </div>`
+            })
+          } else {
+            return `<div
+            class="size-of-the-final-product"
+            id="sizes-products"
+            >
+            ${item.nameСhapter}: Не выбран
+            </div>`
+          }
+        } else {
+          return `<div
+          class="size-of-the-final-product"
+          id="sizes-products"
+          >
+          ${item.nameСhapter}: ${item.name}
+          </div>`
+        }
+      })
+      .join('')
+
+    const containerCategoryElement =
+      document.getElementById('container-category')
+    containerCategoryElement.innerHTML = listItemsCart
   } else {
     let arrModalMenu = Object.values(data[category])
       .map(
         item => `
-        <button onClick="itemAddCart('${item.name}')" class="product-size-card-buttons">
+        <button onClick="itemAddCart('${item.name}',${item.price})" class="product-size-card-buttons">
           <div class="opptions-background-little-bread">
             <img class="img-filling" src="/img${item.image}" />
           </div>
@@ -237,24 +267,61 @@ function setActiveCards(category) {
   }
 }
 
-let arrNameInBasket = [
-  { sizesProduct: 'Размер' },
-  { bread: 'Хлеб' },
-  { vegetable: 'Овощи' },
-  { souce: 'Соусы' },
-  { filling: 'Начинка' },
-]
-let containerCategory
-function itemAddCart(nameProduct) {
-  const sizeContainer = document.getElementById('sizes-products')
-  console.log(containerCategory + '')
-  console.log(nameProduct)
-
-  if (containerCategory === 'sizes') {
-    console.log(arrNameInBasket)
-  }
+let arrNameInBasket = {
+  sizes: { name: '', price: 0, nameСhapter: 'Размер' },
+  breads: { name: '', price: 0, nameСhapter: 'Хлеб' },
+  vegetables: { nameСhapter: 'aaaa', fillings: [{ name: '', price: 0 }] },
+  // sauces: [],
+  fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
 }
 
+let containerCategory
+function itemAddCart(nameProduct, priceProduct) {
+  switch (containerCategory) {
+    case 'sizes':
+      arrNameInBasket.sizes.name = nameProduct
+      arrNameInBasket.sizes.price = priceProduct
+      break
+    case 'breads':
+      arrNameInBasket.breads.name = nameProduct
+      arrNameInBasket.breads.price = priceProduct
+      break
+    case 'vegetables':
+      arrNameInBasket.vegetables.push({
+        name: nameProduct,
+        price: priceProduct,
+        nameСhapter: 'Овощи',
+      })
+      if (arrNameInBasket.vegetables.length > 3) {
+        arrNameInBasket.vegetables.shift()
+      }
+      break
+    case 'sauces':
+      arrNameInBasket.sauces.push({
+        name: nameProduct,
+        price: priceProduct,
+        nameСhapter: 'Соусы',
+      })
+      if (arrNameInBasket.sauces.length > 3) {
+        arrNameInBasket.sauces.shift()
+      }
+      break
+    case 'fillings':
+      arrNameInBasket.fillings.name = nameProduct
+      arrNameInBasket.fillings.price = priceProduct
+      break
+  }
+  console.log(arrNameInBasket)
+}
+
+const titleList = {
+  0: 'Выберите размер сендвича',
+  1: 'Хлеб для сендвича на выбор',
+  2: 'Дополнительные овощи бесплатно',
+  3: 'Выберите 3 бесплатных соуса по вкусу',
+  4: 'Добавьте начинку по вкусу',
+  5: 'Проверьте и добавьте в корзину',
+}
 let containerIndex = 0
 const btnContainer = document.getElementById('size-menu')
 function setActiveBtn(indexCategory) {
@@ -288,25 +355,7 @@ function setActiveBtn(indexCategory) {
       <div class="indent-for-word-back">НАЗАД</div>
     </button>`
   }
-
-  switch (indexCategory) {
-    case 1:
-      document.querySelector('p').textContent = 'Хлеб для сендвича на выбор'
-      break
-    case 2:
-      document.querySelector('p').textContent = 'Дополнительные овощи бесплатно'
-      break
-    case 3:
-      document.querySelector('p').textContent =
-        'Выберите 3 бесплатных соуса по вкусу'
-      break
-    case 4:
-      document.querySelector('p').textContent = 'Добавьте начинку по вкусу'
-      break
-    case 5:
-      document.querySelector('p').textContent = 'Проверьте и добавьте в корзину'
-      break
-  }
+  document.querySelector('p').textContent = titleList[indexCategory]
 }
 
 function BackAndForth(type) {
@@ -344,169 +393,6 @@ function BackAndForth(type) {
 //     cartSize.innerHTML = `Размер: ${productInfo.name}.`
 //     fullPrice.innerHTML = parseInt(productInfo.price)
 //     sumProducts = parseInt(fullPrice.innerText) + 0
-//   }
-// })
-
-// //========================================================================================================
-// let cartBread = document.getElementById('product-type')
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('img-bread')) {
-//     let card = e.target.closest('.product-size-card-buttons')
-//     // console.log(card)
-//     let productInfo = {
-//       name: card.querySelector('.type-of-bread').innerText,
-//       price: card.querySelector('.price-bread').innerText,
-//     }
-//     // console.log(productInfo)
-//     cartBread.innerHTML = `Хлеб: ${productInfo.name}.`
-//     if (card.classList.contains('open')) {
-//       card.classList.remove('open')
-//     } else {
-//       card.classList.add('open')
-//     }
-//   }
-// })
-
-// //========================================================================================================
-// // let cartVegetables = document.querySelector('.the-one-remaining-sections')
-// let cartVegetables = document.querySelector('.space-for-array-vegetables')
-
-// var arrayVegetables = []
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('img-vegetables')) {
-//     let card = e.target.closest('.product-size-card-buttons')
-//     // console.log(card)
-//     let productInfo = {
-//       name: card.querySelector('.vegetables-of-your-choice').innerText,
-//       price: card.querySelector('.price-vegetables').innerText,
-//     }
-//     if (arrayVegetables.length <= 2) {
-//       arrayVegetables.push(productInfo.name)
-//     } else {
-//       arrayVegetables.shift()
-//       arrayVegetables.push(productInfo.name)
-//     }
-//     // console.log(arrayVegetables)
-//     let lastArrayVegetables = arrayVegetables
-//       .map(
-//         b => `
-//     <div
-//     class="products-in-line">
-//     ${b}.
-//     </div>`
-//       )
-//       .join('')
-//     cartVegetables.innerHTML = lastArrayVegetables
-//     if (card.classList.contains('open')) {
-//       card.classList.remove('open')
-//     } else {
-//       card.classList.add('open')
-//     }
-//   }
-// })
-
-// //========================================================================================================
-// let cartSauces = document.querySelector('.space-for-array-sauces')
-
-// var arraySauces = []
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('img-sauce')) {
-//     let card = e.target.closest('.product-size-card-buttons')
-//     // console.log(card)
-//     let productInfo = {
-//       name: card.querySelector('.sauces-for-product-creation').innerText,
-//       price: card.querySelector('.price-sauces').innerText,
-//     }
-//     if (arraySauces.length <= 2) {
-//       arraySauces.push(productInfo.name)
-//     } else {
-//       arraySauces.shift()
-//       arraySauces.push(productInfo.name)
-//     }
-//     // console.log(arraySauces)
-//     let lastArraySauces = arraySauces
-//       .map(
-//         b => `
-//     <div
-//     class="products-in-line">
-//     ${b}.
-//     </div>`
-//       )
-//       .join('')
-//     cartSauces.innerHTML = lastArraySauces
-//     if (card.classList.contains('open')) {
-//       card.classList.remove('open')
-//     } else {
-//       card.classList.add('open')
-//     }
-//   }
-// })
-// //========================================================================================================
-
-// var sumProducts = 0
-
-// let cartFilling = document.querySelector('.space-for-array-stuffing')
-// var placeInsert = document.querySelector('.place-to-insert')
-
-// var arrayFilling = []
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('img-filling')) {
-//     let card = e.target.closest('.product-size-card-buttons')
-//     // console.log(card)
-//     let productInfo = {
-//       name: card.querySelector('.the-final-filling-in-the-product').innerText,
-//       price: card.querySelector('.price-filling').innerText,
-//     }
-//     let cartItemHTML = `
-//      <div
-//      class="products-in-line">
-//      ${productInfo.name}.
-//      </div>`
-//     cartFilling.insertAdjacentHTML('beforeend', cartItemHTML)
-//     fullPrice.innerHTML =
-//       parseInt(fullPrice.innerText) + parseInt(productInfo.price)
-//     sumProducts = parseInt(fullPrice.innerText) + 0
-//     if (card.classList.contains('open')) {
-//       card.classList.remove('open')
-//     } else {
-//       card.classList.add('open')
-//     }
-//   }
-// })
-
-// //========================================================================================================
-// let totalName = document.querySelector('.names-is-products-in-final-block')
-// var totalPrice = document.getElementById('id-final-purchase-price')
-// var totalNameOrder = document.getElementById('total-order-name')
-// var valueInputInModalWindow = document.querySelector('.input-in-modal-window')
-// var finalNumberOfProducts = document.getElementById('total-order-quantity')
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('plus-in-modal-window')) {
-//     fullPrice.innerHTML = parseInt(fullPrice.innerText) + parseInt(sumProducts)
-//   }
-// })
-
-// document.addEventListener('click', function (e) {
-//   if (
-//     e.target.classList.contains('minus-in-modal-window') &&
-//     parseInt(fullPrice.innerText) > parseInt(sumProducts)
-//   ) {
-//     fullPrice.innerHTML = parseInt(fullPrice.innerText) - parseInt(sumProducts)
-//   }
-// })
-
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('add-to-final-price')) {
-//     totalPrice.innerHTML = fullPrice.innerText
-//     totalNameOrder.innerHTML = totalName.textContent
-//     finalNumberOfProducts.innerHTML = `${valueInputInModalWindow.innerText} шт`
-//     document.getElementById('my-modal').classList.remove('open')
-//     document.getElementById('body-id').classList.remove('modal-open')
 //   }
 // })
 
