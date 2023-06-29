@@ -381,6 +381,16 @@
   margin: 10px 0px 0px 0px;
 }
 
+.opptions-background-img-card {
+  background: white;
+  width: 125px;
+  height: 125px;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 10px solid gold;
+  margin: 10px 0px 0px 0px;
+}
+
 .img-bread {
   margin: 30px 0px 0px 0px;
   width: 100px;
@@ -395,6 +405,12 @@
 
 .img-filling {
   margin: 30px 0px 0px 0px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.img-filling-final {
+  margin: 17px 0px 0px 15px;
   width: 100px;
   border-radius: 50%;
 }
@@ -687,12 +703,14 @@
 }
 
 .selection-columns {
-  width: 400px;
-  margin: 0px 0px 53px 60px;
+  width: 800px;
+  /* margin: 0px 0px 53px 60px; */
+  display: flex;
 }
 
 .name-of-final-products {
   width: 400px;
+  margin-bottom: 20px;
 }
 
 .your-product-is-ready {
@@ -700,8 +718,21 @@
   border-bottom: 2px solid;
   font-size: 20px;
   font-weight: 600;
-  width: 400px;
+  width: 350px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.name-final-product {
+  padding: 22px 33px 22px 0px;
+  border-top: 2px solid;
+  font-size: 20px;
+  font-weight: 600;
+  width: 350px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-img {
+  padding: 30px 30px 0px 0px;
 }
 
 .stuffing-final-product {
