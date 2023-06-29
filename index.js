@@ -165,63 +165,33 @@ const cardContainer = document.getElementById('size-products')
 function setActiveCards(category) {
   containerCategory = category
   if (category === 'ready') {
-    let sectionReady = `<div class="selection-columns">
-   <div class="your-product-is-ready">Ваш сендвич готов!</div>
-   <div class="name-of-final-products" id="container-category">
-     <div
-       class="size-of-the-final-product"
-       id="sizes-products"
-     >
-       Размер: 
-     </div>
-     <div
-       class="the-bread-remaining-sections"
-       id="product-type"
-     >
-       Хлеб: 
-     </div>
-     <div
-       class="the-one-remaining-sections"
-       id="products-vegetable"
-     >
-       Овощи: 
-       <div class="space-for-array-vegetables"></div>
-     </div>
-     <div
-       class="the-two-remaining-sections"
-       id="products-sauces"
-     >
-       Соусы: 
-       <div class="space-for-array-sauces"></div>
-     </div>
-     <div
-       class="stuffing-final-product"
-       id="products-stuffing"
-     >
-       Начинка: 
-       <div class="space-for-array-stuffing"></div>
-     </div>
-   </div>
-   <div
-     class="names-is-products-in-final-block"
-     id="products-names"
-   >
-     Овощной
-   </div>
- </div>`
+    let sectionReady = `
+    <div class="selection-columns">
+      <div class="container-img">
+        <div class="opptions-background-img-card">
+          <img class="img-filling-final" src="img/i/result_sandwich.jpg" </img>
+        </div>
+      </div>
+      <div class="selection-columns-in-modal">
+      <div class="your-product-is-ready">Ваш сендвич готов!</div>
+      <div class="name-of-final-products" id="container-category"></div>
+      <div class="name-final-product">Овощной</div>
+      </div>
+    </div>`
     cardContainer.innerHTML = sectionReady
-
+    
     let listItemsCart = Object.values(arrNameInBasket)
       .map(item => {
-        console.log(item)
-        if (item.fillings) {
-          if (item.fillings.length) {
-            return item.fillings.map(aaa => {
+        // console.log(item)
+        if (item.stuffing) {
+          const category = item.nameСhapter
+          if (item.stuffing.length) {
+            return item.stuffing.map(aaa => {
               return `<div
               class="size-of-the-final-product"
               id="sizes-products"
               >
-              ${aaa.nameСhapter}: ${aaa.name}
+              ${category}: ${aaa.name}
               </div>`
             })
           } else {
@@ -229,7 +199,7 @@ function setActiveCards(category) {
             class="size-of-the-final-product"
             id="sizes-products"
             >
-            ${item.nameСhapter}: Не выбран
+            ${category}: Не выбран
             </div>`
           }
         } else {
@@ -270,8 +240,8 @@ function setActiveCards(category) {
 let arrNameInBasket = {
   sizes: { name: '', price: 0, nameСhapter: 'Размер' },
   breads: { name: '', price: 0, nameСhapter: 'Хлеб' },
-  vegetables: { nameСhapter: 'aaaa', fillings: [{ name: '', price: 0 }] },
-  // sauces: [],
+  vegetables: { nameСhapter: 'Овощи', stuffing: [] },
+  sauces: { nameСhapter: 'Соусы', stuffing: [] },
   fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
 }
 
@@ -287,23 +257,21 @@ function itemAddCart(nameProduct, priceProduct) {
       arrNameInBasket.breads.price = priceProduct
       break
     case 'vegetables':
-      arrNameInBasket.vegetables.push({
+      arrNameInBasket.vegetables.stuffing.push({
         name: nameProduct,
         price: priceProduct,
-        nameСhapter: 'Овощи',
       })
-      if (arrNameInBasket.vegetables.length > 3) {
-        arrNameInBasket.vegetables.shift()
+      if (arrNameInBasket.vegetables.stuffing.length > 3) {
+        arrNameInBasket.vegetables.stuffing.shift()
       }
       break
     case 'sauces':
-      arrNameInBasket.sauces.push({
+      arrNameInBasket.sauces.stuffing.push({
         name: nameProduct,
         price: priceProduct,
-        nameСhapter: 'Соусы',
       })
-      if (arrNameInBasket.sauces.length > 3) {
-        arrNameInBasket.sauces.shift()
+      if (arrNameInBasket.sauces.stuffing.length > 3) {
+        arrNameInBasket.sauces.stuffing.shift()
       }
       break
     case 'fillings':
@@ -311,6 +279,7 @@ function itemAddCart(nameProduct, priceProduct) {
       arrNameInBasket.fillings.price = priceProduct
       break
   }
+  //
   console.log(arrNameInBasket)
 }
 
