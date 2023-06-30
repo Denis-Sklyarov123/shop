@@ -23,32 +23,33 @@
             <img class="icon" src="img/krytaia-korzinka.png" />Корзина
           </div>
 
-          <div class="order-name-and-quantity" id="total-order-name">
-            Название:
-            <div
-              class="order-name-and-quantit-value"
-              id="total-order-name-value"
-            ></div>
-          </div>
-
-          <div class="order-name-and-quantity" id="total-order-quantity">
-            Количество:
-            <div
-              class="order-name-and-quantity-value"
-              id="total-order-quantity-value"
-            ></div>
-          </div>
-
-          <div class="total">
-            <div class="final-purchase-price">Итого:</div>
-
-            <div class="final-purchase-price" id="id-final-purchase-price">
-              0
+          <div class="container-values-basket" id="container-final-values">
+            <div class="order-name-and-quantity" id="total-order-name">
+              <div id="main-name-product">Название:</div>
+              <div
+                class="order-name-and-quantit-value"
+                id="total-order-name-value"
+              ></div>
             </div>
 
-            <div class="final-purchase-price">руб.</div>
-          </div>
+            <div class="order-name-and-quantity" id="total-order-quantity">
+              Количество:
+              <div
+                class="order-name-and-quantity-value"
+                id="total-order-quantity-value"
+              ></div>
+            </div>
+            <div id="name-and-value-id"></div>
+            <div class="total">
+              <div class="final-purchase-price">Итого:</div>
 
+              <div class="final-purchase-price" id="id-final-purchase-price">
+                0
+              </div>
+
+              <div class="final-purchase-price">руб.</div>
+            </div>
+          </div>
           <div class="order-button">
             <button class="ordering-food">ОФОРМИТЬ ЗАКАЗ</button>
           </div>
@@ -84,11 +85,19 @@
                 <div class="quantity-in-modal">КОЛИЧЕСТВО</div>
 
                 <div class="price-buttons">
-                  <img class="minus-in-modal-window" src="img/minus.svg" />
+                  <img
+                    onclick="plusAndMinus('minus')"
+                    class="minus-in-modal-window"
+                    src="img/minus.svg"
+                  />
 
                   <div class="input-in-modal-window">1</div>
 
-                  <img class="plus-in-modal-window" src="img/plus.svg" />
+                  <img
+                    onclick="plusAndMinus('plus')"
+                    class="plus-in-modal-window"
+                    src="img/plus.svg"
+                  />
                 </div>
               </div>
 
@@ -104,7 +113,11 @@
 
                 <div class="price-in-basket-letters">руб.</div>
 
-                <button class="add-to-final-price" id="id-add-to-final-price">
+                <button
+                  onclick="finalBtnModal()"
+                  class="add-to-final-price"
+                  id="id-add-to-final-price"
+                >
                   В КОРЗИНУ
                 </button>
               </div>

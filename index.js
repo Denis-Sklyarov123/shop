@@ -5,27 +5,10 @@ document.addEventListener('click', function (e) {
   }
 })
 //=====================================================================================================
-let counter = document.querySelector('.input-in-modal-window')
-
-document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('plus-in-modal-window')) {
-    counter.innerText = ++counter.innerText
-  }
-})
-document.addEventListener('click', function (e) {
-  if (
-    e.target.classList.contains('minus-in-modal-window') &&
-    parseInt(counter.innerText) > 1
-  ) {
-    counter.innerText = --counter.innerText
-  }
-})
-//=====================================================================================================
 document
   .getElementById('close-my-modal-btn')
   .addEventListener('click', function () {
-    document.getElementById('my-modal').classList.remove('open')
-    document.getElementById('body-id').classList.remove('modal-open')
+    initialDataSetting()
   })
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
@@ -44,7 +27,7 @@ document.getElementById('my-modal').addEventListener('click', event => {
   event.currentTarget.classList.remove('open')
   document.getElementById('body-id').classList.remove('modal-open')
 })
-//=============================================================================================================
+
 async function getCustomerId() {
   window.data = []
   let response = await fetch('/data.json')
@@ -133,11 +116,10 @@ function setActiveCategory(category) {
     </div>`
     )
     .join('')
-  // console.log(arrProducts)
 
   productsContainer.innerHTML = arrProducts
 }
-//=============================================================================================================
+
 const arrModalMenuItems = [
   { keyCategory: 'sizes', nameCategory: 'Размер' },
   { keyCategory: 'breads', nameCategory: 'Хлеб' },
@@ -159,64 +141,67 @@ ${item.nameCategory}
   )
   .join('')
 
+function renderReady() {
+  let sectionReady = `
+  <div class="selection-columns">
+    <div class="container-img">
+      <div class="opptions-background-img-card">
+        <img class="img-filling-final" src="img/i/result_sandwich.jpg" </img>
+      </div>
+    </div>
+    <div class="selection-columns-in-modal">
+    <div class="your-product-is-ready">Ваш сендвич готов!</div>
+    <div class="name-of-final-products" id="container-category"></div>
+    <div class="name-final-product">Овощной</div>
+    </div>
+  </div>`
+  cardContainer.innerHTML = sectionReady
+
+  let listItemsCart = Object.values(arrNameInBasket)
+    .map(item => {
+      // console.log(item)
+      if (item.stuffing) {
+        const category = item.nameСhapter
+        if (item.stuffing.length) {
+          const arrName = item.stuffing.map(element => {
+            return element.name
+          })
+          return `<div
+              class="size-of-the-final-product"
+              >
+              ${category}: ${arrName.join(', ')}
+              </div>`
+        } else {
+          return `<div
+          class="size-of-the-final-product"
+          id="sizes-products"
+          >
+          ${category}: Не выбран
+          </div>`
+        }
+      } else {
+        return `<div
+        class="size-of-the-final-product"
+        id="sizes-products"
+        >
+        ${item.nameСhapter}: ${item.name}
+        </div>`
+      }
+    })
+    .join('')
+
+  const containerCategoryElement = document.getElementById('container-category')
+  containerCategoryElement.innerHTML = listItemsCart
+}
 containerModalMenu.innerHTML = arrModalMenu
 setActiveCards
 const cardContainer = document.getElementById('size-products')
 function setActiveCards(category) {
   containerCategory = category
   if (category === 'ready') {
-    let sectionReady = `
-    <div class="selection-columns">
-      <div class="container-img">
-        <div class="opptions-background-img-card">
-          <img class="img-filling-final" src="img/i/result_sandwich.jpg" </img>
-        </div>
-      </div>
-      <div class="selection-columns-in-modal">
-      <div class="your-product-is-ready">Ваш сендвич готов!</div>
-      <div class="name-of-final-products" id="container-category"></div>
-      <div class="name-final-product">Овощной</div>
-      </div>
-    </div>`
-    cardContainer.innerHTML = sectionReady
-    
-    let listItemsCart = Object.values(arrNameInBasket)
-      .map(item => {
-        // console.log(item)
-        if (item.stuffing) {
-          const category = item.nameСhapter
-          if (item.stuffing.length) {
-            return item.stuffing.map(aaa => {
-              return `<div
-              class="size-of-the-final-product"
-              id="sizes-products"
-              >
-              ${category}: ${aaa.name}
-              </div>`
-            })
-          } else {
-            return `<div
-            class="size-of-the-final-product"
-            id="sizes-products"
-            >
-            ${category}: Не выбран
-            </div>`
-          }
-        } else {
-          return `<div
-          class="size-of-the-final-product"
-          id="sizes-products"
-          >
-          ${item.nameСhapter}: ${item.name}
-          </div>`
-        }
-      })
-      .join('')
-
-    const containerCategoryElement =
-      document.getElementById('container-category')
-    containerCategoryElement.innerHTML = listItemsCart
+    renderReady()
   } else {
+    console.log(data[category])
     let arrModalMenu = Object.values(data[category])
       .map(
         item => `
@@ -237,15 +222,20 @@ function setActiveCards(category) {
   }
 }
 
+const containerSum = document.getElementById(
+  'the-final-price-of-the-product-in-the-modal-window'
+)
+
 let arrNameInBasket = {
   sizes: { name: '', price: 0, nameСhapter: 'Размер' },
   breads: { name: '', price: 0, nameСhapter: 'Хлеб' },
-  vegetables: { nameСhapter: 'Овощи', stuffing: [] },
-  sauces: { nameСhapter: 'Соусы', stuffing: [] },
+  vegetables: { nameСhapter: 'Овощи', id: '0', stuffing: [] },
+  sauces: { nameСhapter: 'Соусы', id: '1', stuffing: [] },
   fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
 }
 
 let containerCategory
+let sumProducts
 function itemAddCart(nameProduct, priceProduct) {
   switch (containerCategory) {
     case 'sizes':
@@ -279,8 +269,18 @@ function itemAddCart(nameProduct, priceProduct) {
       arrNameInBasket.fillings.price = priceProduct
       break
   }
-  //
+
+  sumPricesProduct()
   console.log(arrNameInBasket)
+}
+
+let productount = 1
+let price = 0
+function sumPricesProduct() {
+  let priceSize = arrNameInBasket.sizes.price
+  const finalSum = (priceSize + arrNameInBasket.fillings.price) * productount
+  containerSum.innerHTML = finalSum
+  price = finalSum
 }
 
 const titleList = {
@@ -338,32 +338,54 @@ function BackAndForth(type) {
   setActiveCards(category)
 }
 
-//========================================================================================================
-// var fullPrice = document.querySelector('.price-in-the-basket')
-// //========================================================================================================
-// let cartSize = document.getElementById('sizes-products')
+let counter = document.querySelector('.input-in-modal-window')
+function plusAndMinus(action) {
+  if (action === 'minus' && productount > 1) {
+    productount = --productount
+  } else if (action != 'minus') {
+    productount = ++productount
+  }
+  sumPricesProduct()
+  counter.innerHTML = productount
+}
 
-// document.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('img-size')) {
-//     let card = e.target.closest('.product-size-card-buttons')
-//     console.log(card)
-//     let productInfo = {
-//       name: card.querySelector('.size-bread').innerText,
-//       price: card.querySelector('.price-size').innerText,
-//     }
+let arrFinalBasket = []
+function finalBtnModal() {
+  arrFinalBasket.push({ name: 'Овощной', price, count: productount })
+  let finalsUM = 0
+  let lastArrBasket = arrFinalBasket
+    .map(element => {
+      finalsUM += element.price
+      return `<div class="quantity-and-name-one-product">
+        <div class="main-name-product" id="main-name-product-id">${element.name}</div>
+        <div class="order-name-and-quantity" id="total-order-quantity">
+          ${element.count}
+        </div>
+        </div>
+             `
+    })
+    .join('')
+  const containerValueBasket = document.getElementById('name-and-value-id')
+  containerValueBasket.innerHTML = lastArrBasket
+  document.getElementById('id-final-purchase-price').innerHTML = finalsUM
+  initialDataSetting()
+}
 
-//     if (card.classList.contains('open')) {
-//       card.classList.remove('open')
-//     } else {
-//       card.classList.add('open')
-//     }
-
-//     // console.log(productInfo.price)
-//     cartSize.innerHTML = `Размер: ${productInfo.name}.`
-//     fullPrice.innerHTML = parseInt(productInfo.price)
-//     sumProducts = parseInt(fullPrice.innerText) + 0
-//   }
-// })
-
+function initialDataSetting() {
+  document.getElementById('my-modal').classList.remove('open')
+  document.getElementById('body-id').classList.remove('modal-open')
+  arrNameInBasket = {
+    sizes: { name: '', price: 0, nameСhapter: 'Размер' },
+    breads: { name: '', price: 0, nameСhapter: 'Хлеб' },
+    vegetables: { nameСhapter: 'Овощи', id: '0', stuffing: [] },
+    sauces: { nameСhapter: 'Соусы', id: '1', stuffing: [] },
+    fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
+  }
+  productount = 1
+  setActiveBtn(0)
+  sumPricesProduct()
+  setActiveCards('sizes')
+  counter.innerHTML = productount
+}
 //========================================================================================================
 getCustomerId()
