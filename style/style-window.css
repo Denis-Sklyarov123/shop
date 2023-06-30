@@ -714,7 +714,7 @@
 }
 
 .your-product-is-ready {
-  padding: 22px 33px 0px 0px;
+  padding: 0px 33px 0px 0px;
   border-bottom: 2px solid;
   font-size: 20px;
   font-weight: 600;
@@ -723,7 +723,7 @@
 }
 
 .name-final-product {
-  padding: 22px 33px 22px 0px;
+  padding: 20px 33px 22px 0px;
   border-top: 2px solid;
   font-size: 20px;
   font-weight: 600;
@@ -732,7 +732,7 @@
 }
 
 .container-img {
-  padding: 30px 30px 0px 0px;
+  padding: 0px 30px 0px 0px;
 }
 
 .stuffing-final-product {
@@ -804,4 +804,21 @@
   border: solid transparent;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.quantity-and-name-one-product {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-name-product {
+  background: yellow;
+  color: black;
+  display: inline-block;
+  text-align: center;
+  height: 40px;
+  width: 114px;
+  line-height: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 633;
 }
