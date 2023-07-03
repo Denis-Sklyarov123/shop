@@ -176,7 +176,7 @@ function renderReady() {
           class="size-of-the-final-product"
           id="sizes-products"
           >
-          ${category}: Не выбран
+          ${category}:
           </div>`
         }
       } else {
@@ -201,6 +201,8 @@ function setActiveCards(category) {
   if (category === 'ready') {
     renderReady()
   } else {
+    // console.log(data.menu);
+    // let arrNameProducts =
     console.log(data[category])
     let arrModalMenu = Object.values(data[category])
       .map(

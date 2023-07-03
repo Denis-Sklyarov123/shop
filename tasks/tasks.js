@@ -723,6 +723,43 @@
 
 // let y = 0
 
+// let containerNumbers = document.getElementById('container-numbers-id')
+
 // btn.addEventListener('click', function () {
-//   console.log(y++)
+//   containerNumbers.innerHTML = y++
 // })
+
+class Button {
+  constructor() {
+    this.count = 1
+  }
+
+  render() {
+    return `<button onclick="setCount()" id="container-numbers-id">${this.count}</button>`
+  }
+
+  setNewCount() {
+    this.count = ++this.count
+    this.render()
+  }
+}
+
+export default Button
+
+// let myButton = new Button({
+//   count: 1,
+// })
+
+// class NextNumber extends Button {
+//   get numberPlus() {
+//     return (this.count = ++this.count)
+//   }
+// }
+
+// const myNewButton = new NextNumber({
+//   count: 1,
+// })
+
+// function setCount() {
+//   console.log(myButton.numberPlus)
+// }
