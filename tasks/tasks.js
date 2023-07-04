@@ -730,21 +730,60 @@
 // })
 
 class Button {
-  constructor() {
-    this.count = 1
-  }
+      state = {
+        count: 1,
+      }
+    
+      setState(newState) {
+        this.state = {
+          // spread operator
+          ...this.state,
+          ...newState, 
+        }
+        this.render()
+      }
+    
+      constructor(parentNode) {
+        // this.count = 1
+        this.element = document.createElement('button')
+    
+        this.element.addEventListener('click', () => {
+          this.incrementValue()
+          // this.updateButtonText()
+        })
+    
+        this.render()
+    
+        // this.updateButtonText()
+      }
+    
+      incrementValue() {
+        this.setState({
+          count: this.state.count + 1,
+        })
+      }
+    
+      addListeners() {
+    
+      }
+    
+      render() {
+        const html = `
+        <button>${this.state.count}</button>
+        `;
+    
+        // add to parent
+        // add listeners
+    
+      }
+    }
+    
+    export default Button
 
-  render() {
-    return `<button onclick="setCount()" id="container-numbers-id">${this.count}</button>`
-  }
+// const button = new Button()
 
-  setNewCount() {
-    this.count = ++this.count
-    this.render()
-  }
-}
-
-export default Button
+// const container = document.getElementById('container')
+// container.appendChild(button.element)
 
 // let myButton = new Button({
 //   count: 1,
@@ -752,6 +791,7 @@ export default Button
 
 // class NextNumber extends Button {
 //   get numberPlus() {
+//        super.render()
 //     return (this.count = ++this.count)
 //   }
 // }
@@ -763,3 +803,56 @@ export default Button
 // function setCount() {
 //   console.log(myButton.numberPlus)
 // }
+
+
+
+// class Button {
+//     state = {
+//       count: 1,
+//     }
+  
+//     setState(newState) {
+//       this.state = {
+//         // spread operator
+//         ...this.state,
+//         ...newState,
+//       }
+//       this.render()
+//     }
+  
+//     constructor(parentNode) {
+//       // this.count = 1
+//       this.element = document.createElement('button')
+  
+//       this.element.addEventListener('click', () => {
+//         this.incrementValue()
+//         // this.updateButtonText()
+//       })
+  
+//       this.render()
+  
+//       // this.updateButtonText()
+//     }
+  
+//     incrementValue() {
+//       this.setState({
+//         count: this.state.count + 1,
+//       })
+//     }
+  
+//     addListeners() {
+  
+//     }
+  
+//     render() {
+//       const html = `
+//       <button>${this.state.count}</button>
+//       `;
+  
+//       // add to parent
+//       // add listeners
+  
+//     }
+//   }
+  
+//   export default Button

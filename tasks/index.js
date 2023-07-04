@@ -1,13 +1,10 @@
 import Button from './tasks'
 
-const myButton = new Button().render()
-document.body.innerHTML = myButton
+const button = new Button()
 
-// function setCount() {
-//   myButton.setNewCount()
-// }
 
-// let myButton = new Button({
-//   count: 1,
-// })
-// document.body.innerHTML = myButton.render
+const container = document.getElementById('container')
+container.appendChild(button.element)
+
+
+
