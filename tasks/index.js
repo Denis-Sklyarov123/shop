@@ -1,10 +1,13 @@
 import Button from './tasks'
 
-const button = new Button()
+// const buttonTwo = new Button()
+// const buttonThree = new Button()
 
+const containerTwo = document.getElementById('containerTwo')
 
 const container = document.getElementById('container')
-container.appendChild(button.element)
+// const button = new Button(container, 12321)
 
-
-
+// container.appendChild(button.element)
+// container.appendChild(buttonTwo.element)
+// containerTwo.appendChild(buttonThree.element)

@@ -1,3 +1,7 @@
+import Button from './components/mainMenu'
+import Card from './components/cards'
+import { arrMenuItems, arrModalMenuItems } from './constants'
+
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
     document.getElementById('my-modal').classList.add('open')
@@ -28,9 +32,10 @@ document.getElementById('my-modal').addEventListener('click', event => {
   document.getElementById('body-id').classList.remove('modal-open')
 })
 
+// Парсинг
 async function getCustomerId() {
   window.data = []
-  let response = await fetch('/data.json')
+  let response = await fetch('./data.json')
   if (response.status !== 200) {
     console.log(
       'Looks like there was a problem. Status Code: ' + response.status
@@ -45,90 +50,31 @@ async function getCustomerId() {
   return window.data
 }
 
-const arrMenuItems = [
-  {
-    keyCategory: 'sandwiches',
-    nameCategory: 'Сендвичи',
-  },
-  {
-    keyCategory: 'burgers',
-    nameCategory: 'Бургеры',
-  },
-  {
-    keyCategory: 'pizza',
-    nameCategory: 'Пицца',
-  },
-  {
-    keyCategory: 'shaurma',
-    nameCategory: 'Шаурма',
-  },
-  {
-    keyCategory: 'salads',
-    nameCategory: 'Тортилья и Салаты',
-  },
-  {
-    keyCategory: 'chicken',
-    nameCategory: 'Курица и Картошка',
-  },
-  {
-    keyCategory: 'drinks',
-    nameCategory: 'Напитки и Десерт',
-  },
-]
-
+// Главное меню
 const containerMenu = document.getElementById('products-menu')
-const menuArrayElements = arrMenuItems
-  .map(
-    element =>
-      `<li onClick="setActiveCategory('${element.keyCategory}')" class="menu-item" id="open-shawarma-menu">${element.nameCategory}</li>`
-  )
-  .join('')
-containerMenu.innerHTML = menuArrayElements
 
+arrMenuItems.map(element => {
+  new Button(containerMenu, element.nameCategory, () => {
+    productsContainer.innerHTML = ''
+    setActiveCategory(element.keyCategory)
+  })
+})
+
+// Отрисовка карточек
 const productsContainer = document.getElementById('productsContainer')
 function setActiveCategory(category) {
   let arrMenu = data.menu
-  let arrProducts = arrMenu
+  arrMenu
     .filter(item => item.category == category)
-    .map(
-      item => `
-      <div class="card-product">
-      <img class="subway" src="img/SUBWAY1.png" />
-      <img class="opptions-background-img" src="/img${item.image}" />
-      <div class="names">${item.name}</div>
-      <div class="ingredients">${item.description}</div>
-      <div class="price">Цена: ${item.price} руб.</div>
-      <div class="quantity">КОЛИЧЕСТВО</div>
-      <div class="buttons">
-        <img
-          class="minus"
-          src="/img/minus.svg"
-        />
-        <input value="1" maxlength="3" class="input" />
-        <img
-          class="plus"
-          src="/img/plus.svg"
-        />
-      </div>
-      <button class="in-basket">
-        В КОРЗИНУ
-      </button>
-    </div>`
-    )
-    .join('')
-
-  productsContainer.innerHTML = arrProducts
+    .map(item => {
+      new Card(
+        productsContainer,
+        item,
+      )
+    })
 }
 
-const arrModalMenuItems = [
-  { keyCategory: 'sizes', nameCategory: 'Размер' },
-  { keyCategory: 'breads', nameCategory: 'Хлеб' },
-  { keyCategory: 'vegetables', nameCategory: 'Овощи' },
-  { keyCategory: 'sauces', nameCategory: 'Соусы' },
-  { keyCategory: 'fillings', nameCategory: 'Начинка' },
-  { keyCategory: 'ready', nameCategory: 'Готово' },
-]
-
+// Меню модальное окна
 const containerModalMenu = document.getElementById('modal-menu')
 const arrModalMenu = arrModalMenuItems
   .map(
@@ -141,6 +87,7 @@ ${item.nameCategory}
   )
   .join('')
 
+//Функция отрисовки окна 'Готово'
 function renderReady() {
   let sectionReady = `
   <div class="selection-columns">
@@ -193,8 +140,10 @@ function renderReady() {
   const containerCategoryElement = document.getElementById('container-category')
   containerCategoryElement.innerHTML = listItemsCart
 }
+
+//Отрисовка карточек в модальном окне
 containerModalMenu.innerHTML = arrModalMenu
-setActiveCards
+// setActiveCards
 const cardContainer = document.getElementById('size-products')
 function setActiveCards(category) {
   containerCategory = category
