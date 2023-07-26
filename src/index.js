@@ -1,6 +1,14 @@
 import Button from './components/mainMenu'
 import Card from './components/cards'
-import { arrMenuItems, arrModalMenuItems } from './constants'
+import {
+  arrMenuItems,
+  arrModalMenuItems,
+  arrNameInBasket,
+  titleList,
+} from './constants'
+import ModalMenu from './components/modalWindowMenu'
+import ModalCard from './components/modalWindowCards'
+// import BtnBackAndForward from './components/btnBackAndForward'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -67,25 +75,18 @@ function setActiveCategory(category) {
   arrMenu
     .filter(item => item.category == category)
     .map(item => {
-      new Card(
-        productsContainer,
-        item,
-      )
+      new Card(productsContainer, item)
     })
 }
 
 // Меню модальное окна
 const containerModalMenu = document.getElementById('modal-menu')
-const arrModalMenu = arrModalMenuItems
-  .map(
-    (
-      item,
-      index
-    ) => `<button onClick="setActiveCards('${item.keyCategory}'); setActiveBtn('${index}')" class="item-modal-window-menu" id="open-size">
-${item.nameCategory}
-</button>`
-  )
-  .join('')
+arrModalMenuItems.map(item => {
+  new ModalMenu(containerModalMenu, item.nameCategory, () => {
+    cardContainer.innerHTML = ''
+    setActiveCards(item.keyCategory)
+  })
+})
 
 //Функция отрисовки окна 'Готово'
 function renderReady() {
@@ -142,48 +143,25 @@ function renderReady() {
 }
 
 //Отрисовка карточек в модальном окне
-containerModalMenu.innerHTML = arrModalMenu
-// setActiveCards
+// containerModalMenu.innerHTML = arrModalMenu
 const cardContainer = document.getElementById('size-products')
 function setActiveCards(category) {
   containerCategory = category
   if (category === 'ready') {
     renderReady()
   } else {
-    // console.log(data.menu);
-    // let arrNameProducts =
-    console.log(data[category])
-    let arrModalMenu = Object.values(data[category])
-      .map(
-        item => `
-        <button onClick="itemAddCart('${item.name}',${item.price})" class="product-size-card-buttons">
-          <div class="opptions-background-little-bread">
-            <img class="img-filling" src="/img${item.image}" />
-          </div>
-          <div class="the-final-filling-in-the-product">${item.name}</div>
-          <div class="price-size-letters">
-            <div class="price-size-letters">Цена:</div>
-            <div class="price-filling">${item.price}</div>
-            <div class="price-size-letters">руб.</div>
-          </div>
-        </button>`
-      )
-      .join('')
-    cardContainer.innerHTML = arrModalMenu
+    Object.values(data[category]).map(
+      item =>
+        new ModalCard(cardContainer, item, () => {
+          itemAddCart(item.name, item.price)
+        })
+    )
   }
 }
 
 const containerSum = document.getElementById(
   'the-final-price-of-the-product-in-the-modal-window'
 )
-
-let arrNameInBasket = {
-  sizes: { name: '', price: 0, nameСhapter: 'Размер' },
-  breads: { name: '', price: 0, nameСhapter: 'Хлеб' },
-  vegetables: { nameСhapter: 'Овощи', id: '0', stuffing: [] },
-  sauces: { nameСhapter: 'Соусы', id: '1', stuffing: [] },
-  fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
-}
 
 let containerCategory
 let sumProducts
@@ -234,14 +212,6 @@ function sumPricesProduct() {
   price = finalSum
 }
 
-const titleList = {
-  0: 'Выберите размер сендвича',
-  1: 'Хлеб для сендвича на выбор',
-  2: 'Дополнительные овощи бесплатно',
-  3: 'Выберите 3 бесплатных соуса по вкусу',
-  4: 'Добавьте начинку по вкусу',
-  5: 'Проверьте и добавьте в корзину',
-}
 let containerIndex = 0
 const btnContainer = document.getElementById('size-menu')
 function setActiveBtn(indexCategory) {
