@@ -8,7 +8,7 @@ import {
 } from './constants'
 import ModalMenu from './components/modalWindowMenu'
 import ModalCard from './components/modalWindowCards'
-// import BtnBackAndForward from './components/btnBackAndForward'
+import BtnBackAndForward from './components/btnBackAndForward'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -53,7 +53,7 @@ async function getCustomerId() {
     window.data = data
     setActiveCategory('sandwiches')
     setActiveCards('sizes')
-    setActiveBtn(0)
+    // setActiveBtn(0)
   }
   return window.data
 }
@@ -81,10 +81,12 @@ function setActiveCategory(category) {
 
 // Меню модальное окна
 const containerModalMenu = document.getElementById('modal-menu')
-arrModalMenuItems.map(item => {
+const btnContainer = document.getElementById('size-menu')
+arrModalMenuItems.map((item, index) => {
   new ModalMenu(containerModalMenu, item.nameCategory, () => {
     cardContainer.innerHTML = ''
-    setActiveCards(item.keyCategory)
+    setActiveCards(item.keyCategory, index)
+    document.querySelector('p').textContent = titleList[index]
   })
 })
 
@@ -107,7 +109,6 @@ function renderReady() {
 
   let listItemsCart = Object.values(arrNameInBasket)
     .map(item => {
-      // console.log(item)
       if (item.stuffing) {
         const category = item.nameСhapter
         if (item.stuffing.length) {
@@ -145,20 +146,40 @@ function renderReady() {
 //Отрисовка карточек в модальном окне
 // containerModalMenu.innerHTML = arrModalMenu
 const cardContainer = document.getElementById('size-products')
-function setActiveCards(category) {
+function setActiveCards(category, index) {
   containerCategory = category
   if (category === 'ready') {
+    new BtnBackAndForward(btnContainer, index, BackAndForth)
     renderReady()
   } else {
-    Object.values(data[category]).map(
-      item =>
-        new ModalCard(cardContainer, item, () => {
-          itemAddCart(item.name, item.price)
-        })
-    )
+    Object.values(data[category]).map(item => {
+      new BtnBackAndForward(btnContainer, index, BackAndForth)
+      return new ModalCard(cardContainer, item, () => {
+        itemAddCart(item.name, item.price)
+      })
+    })
   }
 }
 
+let containerIndex = 0
+function BackAndForth(type) {
+  cardContainer.innerHTML = ''
+  if (type === 'forward') {
+    containerIndex = ++containerIndex
+  } else {
+    containerIndex = --containerIndex
+  }
+
+  console.log('containerIndex', containerIndex)
+
+  if (containerIndex < 0 || containerIndex > arrModalMenuItems.length - 1)
+    return
+
+  const category = arrModalMenuItems[containerIndex].keyCategory
+  setActiveCards(category, containerIndex)
+}
+
+// Сумма цен ингридиентов
 const containerSum = document.getElementById(
   'the-final-price-of-the-product-in-the-modal-window'
 )
@@ -200,7 +221,6 @@ function itemAddCart(nameProduct, priceProduct) {
   }
 
   sumPricesProduct()
-  console.log(arrNameInBasket)
 }
 
 let productount = 1
@@ -212,52 +232,7 @@ function sumPricesProduct() {
   price = finalSum
 }
 
-let containerIndex = 0
-const btnContainer = document.getElementById('size-menu')
-function setActiveBtn(indexCategory) {
-  containerIndex = indexCategory
 
-  if (indexCategory == 0) {
-    document.getElementById('size-menu').classList.add('one-button')
-    btnContainer.innerHTML = `<button onClick="BackAndForth('forward')" class="forward-button" id="go-to-sauce-block">
-      <div class="indent-for-word-forward">ВПЕРЕД</div>
-      <img
-        class="arrow"
-        src="img/keyboard-right-arrow-button-1_icon-icons.com_72690.svg"
-      />
-    </button>`
-  } else if (indexCategory > 0 && indexCategory < 5) {
-    document.getElementById('size-menu').classList.remove('one-button')
-    btnContainer.innerHTML = `<button onClick="BackAndForth('back')" class="back-button" id="go-to-back-bread-block">
-      <img class="arrow" src="img/left_icon-icons.com_61213.svg" />
-      <div class="indent-for-word-back">НАЗАД</div>
-    </button>
-    <button onClick="BackAndForth('forward')" class="forward-button" id="go-to-sauce-block">
-      <div class="indent-for-word-forward">ВПЕРЕД</div>
-      <img
-        class="arrow"
-        src="img/keyboard-right-arrow-button-1_icon-icons.com_72690.svg"
-      />
-    </button>`
-  } else if (indexCategory == 5) {
-    btnContainer.innerHTML = `<button onClick="BackAndForth('back')" class="back-button" id="go-to-back-bread-block">
-      <img class="arrow" src="img/left_icon-icons.com_61213.svg" />
-      <div class="indent-for-word-back">НАЗАД</div>
-    </button>`
-  }
-  document.querySelector('p').textContent = titleList[indexCategory]
-}
-
-function BackAndForth(type) {
-  if (type === 'forward') {
-    containerIndex = ++containerIndex
-  } else {
-    containerIndex = --containerIndex
-  }
-  const category = arrModalMenuItems[containerIndex].keyCategory
-  setActiveBtn(containerIndex)
-  setActiveCards(category)
-}
 
 let counter = document.querySelector('.input-in-modal-window')
 function plusAndMinus(action) {
@@ -303,7 +278,7 @@ function initialDataSetting() {
     fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
   }
   productount = 1
-  setActiveBtn(0)
+  // setActiveBtn(0)
   sumPricesProduct()
   setActiveCards('sizes')
   counter.innerHTML = productount

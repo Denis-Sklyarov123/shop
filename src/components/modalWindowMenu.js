@@ -8,17 +8,17 @@ class ModalMenu {
   }
 
   constructor(container, label, onClick) {
-    if (label) {
-      this.state.label = label
-    }
     if (container) {
       this.state.container = container
+    }
+    if (label) {
+      this.state.label = label
     }
     if (onClick) {
       this.state.onClick = onClick
     }
 
-    console.log(this.state.label);
+    console.log(this.state.label)
     this.render()
   }
 
