@@ -9,6 +9,7 @@ import {
 import ModalMenu from './components/modalWindowMenu'
 import ModalCard from './components/modalWindowCards'
 import BtnBackAndForward from './components/btnBackAndForward'
+import PlusAndMinus from './components/btnPlusAndMinus'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -144,7 +145,6 @@ function renderReady() {
 }
 
 //Отрисовка карточек в модальном окне
-// containerModalMenu.innerHTML = arrModalMenu
 const cardContainer = document.getElementById('size-products')
 function setActiveCards(category, index) {
   containerCategory = category
@@ -161,22 +161,18 @@ function setActiveCards(category, index) {
   }
 }
 
-let containerIndex = 0
-function BackAndForth(type) {
+function BackAndForth(type, index) {
   cardContainer.innerHTML = ''
   if (type === 'forward') {
-    containerIndex = ++containerIndex
+    index = ++index
   } else {
-    containerIndex = --containerIndex
+    index = --index
   }
 
-  console.log('containerIndex', containerIndex)
+  if (index < 0 || index > arrModalMenuItems.length - 1) return
 
-  if (containerIndex < 0 || containerIndex > arrModalMenuItems.length - 1)
-    return
-
-  const category = arrModalMenuItems[containerIndex].keyCategory
-  setActiveCards(category, containerIndex)
+  const category = arrModalMenuItems[index].keyCategory
+  setActiveCards(category, index)
 }
 
 // Сумма цен ингридиентов
@@ -185,7 +181,7 @@ const containerSum = document.getElementById(
 )
 
 let containerCategory
-let sumProducts
+// let sumProducts
 function itemAddCart(nameProduct, priceProduct) {
   switch (containerCategory) {
     case 'sizes':
@@ -223,7 +219,8 @@ function itemAddCart(nameProduct, priceProduct) {
   sumPricesProduct()
 }
 
-let productount = 1
+const containerPlusAndMinus = document.getElementById('id-buttons-and-quantity')
+
 let price = 0
 function sumPricesProduct() {
   let priceSize = arrNameInBasket.sizes.price
@@ -231,19 +228,20 @@ function sumPricesProduct() {
   containerSum.innerHTML = finalSum
   price = finalSum
 }
-
-
-
+let productount = 1
 let counter = document.querySelector('.input-in-modal-window')
 function plusAndMinus(action) {
+  let counterPAM = document.querySelector('.input-in-modal-window')
   if (action === 'minus' && productount > 1) {
     productount = --productount
   } else if (action != 'minus') {
     productount = ++productount
   }
   sumPricesProduct()
-  counter.innerHTML = productount
+  counterPAM.innerHTML = productount
 }
+
+new PlusAndMinus(containerPlusAndMinus, plusAndMinus)
 
 let arrFinalBasket = []
 function finalBtnModal() {
@@ -277,8 +275,7 @@ function initialDataSetting() {
     sauces: { nameСhapter: 'Соусы', id: '1', stuffing: [] },
     fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
   }
-  productount = 1
-  // setActiveBtn(0)
+  let productount = 1
   sumPricesProduct()
   setActiveCards('sizes')
   counter.innerHTML = productount
