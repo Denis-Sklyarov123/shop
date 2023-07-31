@@ -10,6 +10,8 @@ import ModalMenu from './components/modalWindowMenu'
 import ModalCard from './components/modalWindowCards'
 import BtnBackAndForward from './components/btnBackAndForward'
 import PlusAndMinus from './components/btnPlusAndMinus'
+import LastBtnInModalWin from './components/lastBtnInModalWin'
+import resultSum from './components/resultSum'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -181,7 +183,6 @@ const containerSum = document.getElementById(
 )
 
 let containerCategory
-// let sumProducts
 function itemAddCart(nameProduct, priceProduct) {
   switch (containerCategory) {
     case 'sizes':
@@ -228,8 +229,9 @@ function sumPricesProduct() {
   containerSum.innerHTML = finalSum
   price = finalSum
 }
+
+//Кноки плюс и минус
 let productount = 1
-let counter = document.querySelector('.input-in-modal-window')
 function plusAndMinus(action) {
   let counterPAM = document.querySelector('.input-in-modal-window')
   if (action === 'minus' && productount > 1) {
@@ -243,28 +245,28 @@ function plusAndMinus(action) {
 
 new PlusAndMinus(containerPlusAndMinus, plusAndMinus)
 
+//Кнопка добавления заказа из модального окна на основную страницу
+const containerValueBasket = document.getElementById('name-and-value-id')
 let arrFinalBasket = []
 function finalBtnModal() {
-  arrFinalBasket.push({ name: 'Овощной', price, count: productount })
+  containerValueBasket.innerHTML = ''
+  let newArrFinalBasket = arrFinalBasket
+  newArrFinalBasket.push({ name: 'Овощной', price, count: productount })
   let finalsUM = 0
-  let lastArrBasket = arrFinalBasket
-    .map(element => {
-      finalsUM += element.price
-      return `<div class="quantity-and-name-one-product">
-        <div class="main-name-product" id="main-name-product-id">${element.name}</div>
-        <div class="order-name-and-quantity" id="total-order-quantity">
-          ${element.count}
-        </div>
-        </div>
-             `
-    })
-    .join('')
-  const containerValueBasket = document.getElementById('name-and-value-id')
-  containerValueBasket.innerHTML = lastArrBasket
+  newArrFinalBasket.map(element => {
+    finalsUM += element.price
+    return new resultSum(containerValueBasket, element)
+  })
   document.getElementById('id-final-purchase-price').innerHTML = finalsUM
   initialDataSetting()
 }
 
+const containerPriceAndBtnBasket = document.getElementById(
+  'id-price-and-basket'
+)
+new LastBtnInModalWin(containerPriceAndBtnBasket, finalBtnModal)
+
+//Кнопка выхода из модального окна и его обновление
 function initialDataSetting() {
   document.getElementById('my-modal').classList.remove('open')
   document.getElementById('body-id').classList.remove('modal-open')
@@ -275,10 +277,14 @@ function initialDataSetting() {
     sauces: { nameСhapter: 'Соусы', id: '1', stuffing: [] },
     fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
   }
-  let productount = 1
-  sumPricesProduct()
-  setActiveCards('sizes')
-  counter.innerHTML = productount
+  let newSum = 0
+  productount = 1
+  let counterFinal = document.querySelector('.input-in-modal-window')
+  let newFinalSum = document.getElementById(
+    'the-final-price-of-the-product-in-the-modal-window'
+  )
+  counterFinal.innerHTML = productount
+  newFinalSum.innerHTML = newSum
 }
 //========================================================================================================
 getCustomerId()
