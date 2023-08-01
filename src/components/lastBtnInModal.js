@@ -1,4 +1,4 @@
-class LastBtnInModalWin {
+class LastBtnInModal {
   state = {
     label: '',
     container: undefined,
@@ -34,4 +34,4 @@ class LastBtnInModalWin {
   }
 }
 
-export default LastBtnInModalWin
+export default LastBtnInModal

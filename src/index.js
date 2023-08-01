@@ -1,17 +1,17 @@
-import Button from './components/mainMenu'
-import Card from './components/cards'
+import MainMenu from './components/mainMenu'
+import Card from './components/card'
 import {
   arrMenuItems,
   arrModalMenuItems,
   arrNameInBasket,
   titleList,
 } from './constants'
-import ModalMenu from './components/modalWindowMenu'
-import ModalCard from './components/modalWindowCards'
+import ModalMenu from './components/modalMenu'
+import ModalCard from './components/modalCards'
 import BtnBackAndForward from './components/btnBackAndForward'
-import PlusAndMinus from './components/btnPlusAndMinus'
-import LastBtnInModalWin from './components/lastBtnInModalWin'
-import resultSum from './components/resultSum'
+import PlusAndMinus from './components/plusAndMinus'
+import LastBtnInModal from './components/lastBtnInModal'
+import ResultSum from './components/resultSum'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -65,7 +65,7 @@ async function getCustomerId() {
 const containerMenu = document.getElementById('products-menu')
 
 arrMenuItems.map(element => {
-  new Button(containerMenu, element.nameCategory, () => {
+  new MainMenu(containerMenu, element.nameCategory, () => {
     productsContainer.innerHTML = ''
     setActiveCategory(element.keyCategory)
   })
@@ -255,7 +255,7 @@ function finalBtnModal() {
   let finalsUM = 0
   newArrFinalBasket.map(element => {
     finalsUM += element.price
-    return new resultSum(containerValueBasket, element)
+    return new ResultSum(containerValueBasket, element)
   })
   document.getElementById('id-final-purchase-price').innerHTML = finalsUM
   initialDataSetting()
@@ -264,7 +264,7 @@ function finalBtnModal() {
 const containerPriceAndBtnBasket = document.getElementById(
   'id-price-and-basket'
 )
-new LastBtnInModalWin(containerPriceAndBtnBasket, finalBtnModal)
+new LastBtnInModal(containerPriceAndBtnBasket, finalBtnModal)
 
 //Кнопка выхода из модального окна и его обновление
 function initialDataSetting() {
@@ -285,6 +285,9 @@ function initialDataSetting() {
   )
   counterFinal.innerHTML = productount
   newFinalSum.innerHTML = newSum
+  let containerLastNewCards = document.getElementById('size-products')
+  containerLastNewCards.innerHTML = ''
+  setActiveCards('sizes', '0')
 }
 //========================================================================================================
 getCustomerId()

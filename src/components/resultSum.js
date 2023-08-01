@@ -1,4 +1,4 @@
-class resultSum {
+class ResultSum {
   state = {
     container: undefined,
   }
@@ -31,4 +31,4 @@ class resultSum {
   }
 }
 
-export default resultSum
+export default ResultSum

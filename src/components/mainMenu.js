@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
-class Button {
+class MainMenu {
   id = uuidv4()
   state = {
     label: '',
@@ -37,4 +37,4 @@ class Button {
   }
 }
 
-export default Button
+export default MainMenu
