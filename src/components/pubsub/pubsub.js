@@ -1,32 +1,20 @@
 let subscribers = {}
 
 module.exports = {
-  publish(event, data) {
-    if (!subscribers[event]) return
-    subscribers[event].forEach(subscriberCallback => subscriberCallback(data))
-    // Сначала мы проверяем, есть ли подписчики, которые зарегистрировались.
-    // Если нет, мы уходим из метода publish, так как у нас нет подписчиков с обратными вызовами для вызова.
-    // Если есть подписчики, мы перебираем массив событий и вызываем каждый обратный вызов подписчика,
-    // который был помещен в массив событий. Мы также передаем любые данные, которые могли быть предоставлены
-    // для каждого из обратных вызовов.
-    // Обратите внимание, что параметр данных является необязательным.
-  },
   subscribe(event, callback) {
     let index
     if (!subscribers[event]) {
       subscribers[event] = []
     }
     index = subscribers[event].push(callback) - 1
-    console.log(subscribers)
-    // Мы сначала проверяем, было ли указанное событие зарегистрировано в объекте subscribers.
-    // Если событие не существует в объекте subscribers, мы знаем, что оно не было зарегистрировано,
-    // и поэтому мы регистрируем его, используя имя события в качестве ключа, и инициализируем значение
-    // пустым массивом. Наконец, мы вставим обратный вызов подписчика в массив событий.
-
     return {
       unsubscribe() {
         subscribers[event].splice(index, 1)
       },
     }
+  },
+  publish(event, data) {
+    if (!subscribers[event]) return
+    subscribers[event].forEach(subscriberCallback => subscriberCallback(data))
   },
 }

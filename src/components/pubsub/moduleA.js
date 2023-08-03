@@ -1,4 +1,4 @@
-import {arrMenuItems} from '/src/constants/index'
+import { arrMenuItems } from '/src/constants/index'
 
 const pubSub = require('./pubsub')
 
