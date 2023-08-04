@@ -12,6 +12,8 @@ import BtnBackAndForward from './components/btnBackAndForward'
 import PlusAndMinus from './components/plusAndMinus'
 import LastBtnInModal from './components/lastBtnInModal'
 import ResultSum from './components/resultSum'
+import AutoNews from './store'
+import Jack from './store/jack'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -19,7 +21,7 @@ document.addEventListener('click', function (e) {
     document.getElementById('body-id').classList.add('modal-open')
   }
 })
-//=====================================================================================================
+
 document
   .getElementById('close-my-modal-btn')
   .addEventListener('click', function () {
@@ -64,12 +66,34 @@ async function getCustomerId() {
 // Главное меню
 const containerMenu = document.getElementById('products-menu')
 
-arrMenuItems.map(element => {
-  new MainMenu(containerMenu, element.nameCategory, () => {
-    productsContainer.innerHTML = ''
-    setActiveCategory(element.keyCategory)
-  })
-})
+//===============================================================
+
+
+const autoNews = new AutoNews()
+
+
+// class Jack {
+//   inform(message) {
+//     message.news.map(element => {
+//       new MainMenu(containerMenu, element.nameCategory, () => {
+//         productsContainer.innerHTML = ''
+//         setActiveCategory(element.keyCategory)
+//       })
+//     })
+//   }
+// }
+
+autoNews.register(new Jack(containerMenu , element.nameCategory , productsContainer, setActiveCategory))
+
+autoNews.setState('news', arrMenuItems)
+//===============================================================
+
+// arrMenuItems.map(element => {
+//   new MainMenu(containerMenu, element.nameCategory, () => {
+//     productsContainer.innerHTML = ''
+//     setActiveCategory(element.keyCategory)
+//   })
+// })
 
 // Отрисовка карточек
 const productsContainer = document.getElementById('productsContainer')

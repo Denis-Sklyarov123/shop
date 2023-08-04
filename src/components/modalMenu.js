@@ -18,7 +18,6 @@ class ModalMenu {
       this.state.onClick = onClick
     }
 
-    console.log(this.state.label)
     this.render()
   }
 

@@ -25,7 +25,6 @@ class BtnBackAndForward {
   }
 
   render(indexCategory) {
-    console.log('indexCategory', indexCategory)
     if (indexCategory == 0) {
       document.getElementById('size-menu').classList.add('one-button')
       this.state.container.innerHTML = `<button class="forward-button" id="go-to-sauce-block">
