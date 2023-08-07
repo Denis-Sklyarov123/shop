@@ -1,4 +1,4 @@
-class AutoNews {
+class Store {
   constructor() {
     this.state = {
       news: [],
@@ -28,4 +28,4 @@ class AutoNews {
   }
 }
 
-export default AutoNews
+export default Store

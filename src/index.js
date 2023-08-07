@@ -1,5 +1,3 @@
-import MainMenu from './components/mainMenu'
-import Card from './components/card'
 import {
   arrMenuItems,
   arrModalMenuItems,
@@ -12,8 +10,11 @@ import BtnBackAndForward from './components/btnBackAndForward'
 import PlusAndMinus from './components/plusAndMinus'
 import LastBtnInModal from './components/lastBtnInModal'
 import ResultSum from './components/resultSum'
-import AutoNews from './store'
-import Jack from './store/jack'
+import Store from './store'
+import ActionMainMenu from './store/actionMainMenu'
+import Fetch from './components/fetch'
+import ActiveCategory from './components/activeCategory'
+import ActionModalMenu from './store/actionModalMenu'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -45,47 +46,71 @@ document.getElementById('my-modal').addEventListener('click', event => {
   document.getElementById('body-id').classList.remove('modal-open')
 })
 
-// Парсинг
-async function getCustomerId() {
-  window.data = []
-  let response = await fetch('./data.json')
-  if (response.status !== 200) {
-    console.log(
-      'Looks like there was a problem. Status Code: ' + response.status
-    )
-  } else {
-    const data = await response.json()
-    window.data = data
-    setActiveCategory('sandwiches')
-    setActiveCards('sizes')
-    // setActiveBtn(0)
-  }
-  return window.data
-}
-
-// Главное меню
 const containerMenu = document.getElementById('products-menu')
+const productsContainer = document.getElementById('productsContainer')
+const containerModalMenu = document.getElementById('modal-menu')
+const btnContainer = document.getElementById('size-menu')
+const cardContainer = document.getElementById('size-products')
 
-//===============================================================
+export const autoNews = new Store()
+export const autoNewsModal = new Store()
+export const autoData = new Store()
+const activeCategory = new ActiveCategory()
+const fetch = new Fetch()
 
+fetch.getCustomerId(autoData).then(() => {
+  activeCategory.setActiveCategory('sandwiches')
+})
 
-const autoNews = new AutoNews()
+autoNews.register(
+  new ActionMainMenu(
+    containerMenu,
+    productsContainer,
+    activeCategory.setActiveCategory
+  )
+)
 
+autoNewsModal.register(new ActionModalMenu(containerModalMenu, cardContainer, activeCategory.setActiveCards))
 
-// class Jack {
-//   inform(message) {
-//     message.news.map(element => {
-//       new MainMenu(containerMenu, element.nameCategory, () => {
-//         productsContainer.innerHTML = ''
-//         setActiveCategory(element.keyCategory)
-//       })
+autoNews.setState('news', arrMenuItems)
+autoNewsModal.setState('news', arrModalMenuItems)
+// function setActiveCategory(category, data) {
+//   console.log('data', data)
+//   let arrMenu = data.menu
+//   arrMenu
+//     .filter(item => item.category == category)
+//     .map(item => {
+//       new Card(productsContainer, item)
 //     })
+// }
+
+// Парсинг
+// async function getCustomerId(autoData) {
+//   window.data = []
+//   let response = await fetch('./data.json')
+//   if (response.status !== 200) {
+//     console.log(
+//       'Looks like there was a problem. Status Code: ' + response.status
+//     )
+//   } else {
+//     const data = await response.json()
+//     // window.data = data
+//     autoData.setState('data', data)
+//     setActiveCategory('sandwiches')
+//     setActiveCards('sizes')
 //   }
 // }
 
-autoNews.register(new Jack(containerMenu , element.nameCategory , productsContainer, setActiveCategory))
+// getCustomerId()
 
-autoNews.setState('news', arrMenuItems)
+// Главное меню
+// const containerMenu = document.getElementById('products-menu')
+// const productsContainer = document.getElementById('productsContainer')
+//===============================================================
+// autoNews.register(
+//   new ActionMainMenu(containerMenu, productsContainer, setActiveCategory)
+// )
+// autoNews.setState('news', arrMenuItems)
 //===============================================================
 
 // arrMenuItems.map(element => {
@@ -94,28 +119,18 @@ autoNews.setState('news', arrMenuItems)
 //     setActiveCategory(element.keyCategory)
 //   })
 // })
-
 // Отрисовка карточек
-const productsContainer = document.getElementById('productsContainer')
-function setActiveCategory(category) {
-  let arrMenu = data.menu
-  arrMenu
-    .filter(item => item.category == category)
-    .map(item => {
-      new Card(productsContainer, item)
-    })
-}
 
 // Меню модальное окна
-const containerModalMenu = document.getElementById('modal-menu')
-const btnContainer = document.getElementById('size-menu')
-arrModalMenuItems.map((item, index) => {
-  new ModalMenu(containerModalMenu, item.nameCategory, () => {
-    cardContainer.innerHTML = ''
-    setActiveCards(item.keyCategory, index)
-    document.querySelector('p').textContent = titleList[index]
-  })
-})
+// const containerModalMenu = document.getElementById('modal-menu')
+// const btnContainer = document.getElementById('size-menu')
+// arrModalMenuItems.map((item, index) => {
+//   new ModalMenu(containerModalMenu, item.nameCategory, () => {
+//     cardContainer.innerHTML = ''
+//     setActiveCards(item.keyCategory, index)
+//     document.querySelector('p').textContent = titleList[index]
+//   })
+// })
 
 //Функция отрисовки окна 'Готово'
 function renderReady() {
@@ -171,8 +186,8 @@ function renderReady() {
 }
 
 //Отрисовка карточек в модальном окне
-const cardContainer = document.getElementById('size-products')
-function setActiveCards(category, index) {
+// const cardContainer = document.getElementById('size-products')
+function setActiveCards(category, index, data) {
   containerCategory = category
   if (category === 'ready') {
     new BtnBackAndForward(btnContainer, index, BackAndForth)
@@ -314,4 +329,3 @@ function initialDataSetting() {
   setActiveCards('sizes', '0')
 }
 //========================================================================================================
-getCustomerId()
