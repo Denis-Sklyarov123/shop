@@ -1,12 +1,7 @@
-import {
-  arrMenuItems,
-  arrModalMenuItems,
-  arrNameInBasket,
-  titleList,
-} from './constants'
-import ModalMenu from './components/modalMenu'
-import ModalCard from './components/modalCards'
-import BtnBackAndForward from './components/btnBackAndForward'
+import { arrMenuItems, arrModalMenuItems, arrNameInBasket } from './constants'
+// import ModalMenu from './components/modalMenu'
+// import ModalCard from './components/modalCards'
+// import BtnBackAndForward from './components/btnBackAndForward'
 import PlusAndMinus from './components/plusAndMinus'
 import LastBtnInModal from './components/lastBtnInModal'
 import ResultSum from './components/resultSum'
@@ -15,6 +10,7 @@ import ActionMainMenu from './store/actionMainMenu'
 import Fetch from './components/fetch'
 import ActiveCategory from './components/activeCategory'
 import ActionModalMenu from './store/actionModalMenu'
+import TypePlusAndMinus from './components/typePlusAndMinus'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -49,17 +45,18 @@ document.getElementById('my-modal').addEventListener('click', event => {
 const containerMenu = document.getElementById('products-menu')
 const productsContainer = document.getElementById('productsContainer')
 const containerModalMenu = document.getElementById('modal-menu')
-const btnContainer = document.getElementById('size-menu')
-const cardContainer = document.getElementById('size-products')
+export const btnContainer = document.getElementById('size-menu')
+export const cardContainer = document.getElementById('size-products')
 
 export const autoNews = new Store()
 export const autoNewsModal = new Store()
 export const autoData = new Store()
-const activeCategory = new ActiveCategory()
+export const activeCategory = new ActiveCategory()
 const fetch = new Fetch()
 
 fetch.getCustomerId(autoData).then(() => {
   activeCategory.setActiveCategory('sandwiches')
+  activeCategory.setActiveCards('sizes', 0)
 })
 
 autoNews.register(
@@ -70,7 +67,13 @@ autoNews.register(
   )
 )
 
-autoNewsModal.register(new ActionModalMenu(containerModalMenu, cardContainer, activeCategory.setActiveCards))
+autoNewsModal.register(
+  new ActionModalMenu(
+    containerModalMenu,
+    cardContainer,
+    activeCategory.setActiveCards
+  )
+)
 
 autoNews.setState('news', arrMenuItems)
 autoNewsModal.setState('news', arrModalMenuItems)
@@ -133,156 +136,156 @@ autoNewsModal.setState('news', arrModalMenuItems)
 // })
 
 //Функция отрисовки окна 'Готово'
-function renderReady() {
-  let sectionReady = `
-  <div class="selection-columns">
-    <div class="container-img">
-      <div class="opptions-background-img-card">
-        <img class="img-filling-final" src="img/i/result_sandwich.jpg" </img>
-      </div>
-    </div>
-    <div class="selection-columns-in-modal">
-    <div class="your-product-is-ready">Ваш сендвич готов!</div>
-    <div class="name-of-final-products" id="container-category"></div>
-    <div class="name-final-product">Овощной</div>
-    </div>
-  </div>`
-  cardContainer.innerHTML = sectionReady
+// function renderReady() {
+//   let sectionReady = `
+//   <div class="selection-columns">
+//     <div class="container-img">
+//       <div class="opptions-background-img-card">
+//         <img class="img-filling-final" src="img/i/result_sandwich.jpg" </img>
+//       </div>
+//     </div>
+//     <div class="selection-columns-in-modal">
+//     <div class="your-product-is-ready">Ваш сендвич готов!</div>
+//     <div class="name-of-final-products" id="container-category"></div>
+//     <div class="name-final-product">Овощной</div>
+//     </div>
+//   </div>`
+//   cardContainer.innerHTML = sectionReady
 
-  let listItemsCart = Object.values(arrNameInBasket)
-    .map(item => {
-      if (item.stuffing) {
-        const category = item.nameСhapter
-        if (item.stuffing.length) {
-          const arrName = item.stuffing.map(element => {
-            return element.name
-          })
-          return `<div
-              class="size-of-the-final-product"
-              >
-              ${category}: ${arrName.join(', ')}
-              </div>`
-        } else {
-          return `<div
-          class="size-of-the-final-product"
-          id="sizes-products"
-          >
-          ${category}:
-          </div>`
-        }
-      } else {
-        return `<div
-        class="size-of-the-final-product"
-        id="sizes-products"
-        >
-        ${item.nameСhapter}: ${item.name}
-        </div>`
-      }
-    })
-    .join('')
+//   let listItemsCart = Object.values(arrNameInBasket)
+//     .map(item => {
+//       if (item.stuffing) {
+//         const category = item.nameСhapter
+//         if (item.stuffing.length) {
+//           const arrName = item.stuffing.map(element => {
+//             return element.name
+//           })
+//           return `<div
+//               class="size-of-the-final-product"
+//               >
+//               ${category}: ${arrName.join(', ')}
+//               </div>`
+//         } else {
+//           return `<div
+//           class="size-of-the-final-product"
+//           id="sizes-products"
+//           >
+//           ${category}:
+//           </div>`
+//         }
+//       } else {
+//         return `<div
+//         class="size-of-the-final-product"
+//         id="sizes-products"
+//         >
+//         ${item.nameСhapter}: ${item.name}
+//         </div>`
+//       }
+//     })
+//     .join('')
 
-  const containerCategoryElement = document.getElementById('container-category')
-  containerCategoryElement.innerHTML = listItemsCart
-}
+//   const containerCategoryElement = document.getElementById('container-category')
+//   containerCategoryElement.innerHTML = listItemsCart
+// }
 
 //Отрисовка карточек в модальном окне
 // const cardContainer = document.getElementById('size-products')
-function setActiveCards(category, index, data) {
-  containerCategory = category
-  if (category === 'ready') {
-    new BtnBackAndForward(btnContainer, index, BackAndForth)
-    renderReady()
-  } else {
-    Object.values(data[category]).map(item => {
-      new BtnBackAndForward(btnContainer, index, BackAndForth)
-      return new ModalCard(cardContainer, item, () => {
-        itemAddCart(item.name, item.price)
-      })
-    })
-  }
-}
+// function setActiveCards(category, index, data) {
+//   containerCategory = category
+//   if (category === 'ready') {
+//     new BtnBackAndForward(btnContainer, index, BackAndForth)
+//     renderReady()
+//   } else {
+//     Object.values(data[category]).map(item => {
+//       new BtnBackAndForward(btnContainer, index, BackAndForth)
+//       return new ModalCard(cardContainer, item, () => {
+//         itemAddCart(item.name, item.price)
+//       })
+//     })
+//   }
+// }
 
-function BackAndForth(type, index) {
-  cardContainer.innerHTML = ''
-  if (type === 'forward') {
-    index = ++index
-  } else {
-    index = --index
-  }
+// function BackAndForth(type, index) {
+//   cardContainer.innerHTML = ''
+//   if (type === 'forward') {
+//     index = ++index
+//   } else {
+//     index = --index
+//   }
 
-  if (index < 0 || index > arrModalMenuItems.length - 1) return
+//   if (index < 0 || index > arrModalMenuItems.length - 1) return
 
-  const category = arrModalMenuItems[index].keyCategory
-  setActiveCards(category, index)
-}
+//   const category = arrModalMenuItems[index].keyCategory
+//   setActiveCards(category, index)
+// }
 
 // Сумма цен ингридиентов
-const containerSum = document.getElementById(
+export const containerSum = document.getElementById(
   'the-final-price-of-the-product-in-the-modal-window'
 )
 
-let containerCategory
-function itemAddCart(nameProduct, priceProduct) {
-  switch (containerCategory) {
-    case 'sizes':
-      arrNameInBasket.sizes.name = nameProduct
-      arrNameInBasket.sizes.price = priceProduct
-      break
-    case 'breads':
-      arrNameInBasket.breads.name = nameProduct
-      arrNameInBasket.breads.price = priceProduct
-      break
-    case 'vegetables':
-      arrNameInBasket.vegetables.stuffing.push({
-        name: nameProduct,
-        price: priceProduct,
-      })
-      if (arrNameInBasket.vegetables.stuffing.length > 3) {
-        arrNameInBasket.vegetables.stuffing.shift()
-      }
-      break
-    case 'sauces':
-      arrNameInBasket.sauces.stuffing.push({
-        name: nameProduct,
-        price: priceProduct,
-      })
-      if (arrNameInBasket.sauces.stuffing.length > 3) {
-        arrNameInBasket.sauces.stuffing.shift()
-      }
-      break
-    case 'fillings':
-      arrNameInBasket.fillings.name = nameProduct
-      arrNameInBasket.fillings.price = priceProduct
-      break
-  }
+export let containerCategory
+// function itemAddCart(nameProduct, priceProduct) {
+//   switch (containerCategory) {
+//     case 'sizes':
+//       arrNameInBasket.sizes.name = nameProduct
+//       arrNameInBasket.sizes.price = priceProduct
+//       break
+//     case 'breads':
+//       arrNameInBasket.breads.name = nameProduct
+//       arrNameInBasket.breads.price = priceProduct
+//       break
+//     case 'vegetables':
+//       arrNameInBasket.vegetables.stuffing.push({
+//         name: nameProduct,
+//         price: priceProduct,
+//       })
+//       if (arrNameInBasket.vegetables.stuffing.length > 3) {
+//         arrNameInBasket.vegetables.stuffing.shift()
+//       }
+//       break
+//     case 'sauces':
+//       arrNameInBasket.sauces.stuffing.push({
+//         name: nameProduct,
+//         price: priceProduct,
+//       })
+//       if (arrNameInBasket.sauces.stuffing.length > 3) {
+//         arrNameInBasket.sauces.stuffing.shift()
+//       }
+//       break
+//     case 'fillings':
+//       arrNameInBasket.fillings.name = nameProduct
+//       arrNameInBasket.fillings.price = priceProduct
+//       break
+//   }
 
-  sumPricesProduct()
-}
+//   sumPricesProduct()
+// }
 
-const containerPlusAndMinus = document.getElementById('id-buttons-and-quantity')
-
-let price = 0
-function sumPricesProduct() {
-  let priceSize = arrNameInBasket.sizes.price
-  const finalSum = (priceSize + arrNameInBasket.fillings.price) * productount
-  containerSum.innerHTML = finalSum
-  price = finalSum
-}
+// let price = 0
+// function sumPricesProduct() {
+//   let priceSize = arrNameInBasket.sizes.price
+//   const finalSum = (priceSize + arrNameInBasket.fillings.price) * productount
+//   containerSum.innerHTML = finalSum
+//   price = finalSum
+// }
 
 //Кноки плюс и минус
-let productount = 1
-function plusAndMinus(action) {
-  let counterPAM = document.querySelector('.input-in-modal-window')
-  if (action === 'minus' && productount > 1) {
-    productount = --productount
-  } else if (action != 'minus') {
-    productount = ++productount
-  }
-  sumPricesProduct()
-  counterPAM.innerHTML = productount
-}
+const containerPlusAndMinus = document.getElementById('id-buttons-and-quantity')
+export let productount = 1
+// function plusAndMinus(action) {
+//   let counterPAM = document.querySelector('.input-in-modal-window')
+//   if (action === 'minus' && productount > 1) {
+//     productount = --productount
+//   } else if (action != 'minus') {
+//     productount = ++productount
+//   }
+//   sumPricesProduct()
+//   counterPAM.innerHTML = productount
+// }
+const typePlusAndMinus = new TypePlusAndMinus()
 
-new PlusAndMinus(containerPlusAndMinus, plusAndMinus)
+new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
 
 //Кнопка добавления заказа из модального окна на основную страницу
 const containerValueBasket = document.getElementById('name-and-value-id')

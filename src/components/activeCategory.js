@@ -2,6 +2,12 @@ import { autoData } from '..'
 import Card from './card'
 import BtnBackAndForward from './btnBackAndForward'
 import ModalCard from './modalCards'
+import RenderReady from './renderReady'
+import { btnContainer } from '..'
+import ItemAddCart from './itemAddCart'
+import { cardContainer } from '..'
+import BtnTypeBackandForward from './btnTypeBackandForward'
+import { containerCategory } from '..'
 
 class ActiveCategory {
   setActiveCategory(category) {
@@ -13,15 +19,17 @@ class ActiveCategory {
       })
   }
 
-  setActiveCards(category, index, data) {
+  setActiveCards(category, index) {
+    const test = new BtnTypeBackandForward()
+    containerCategory = category
     if (category === 'ready') {
-      new BtnBackAndForward(btnContainer, index, BackAndForth)
-      renderReady()
+      new BtnBackAndForward(btnContainer, index, test.BackAndForth())
+      new RenderReady(cardContainer)
     } else {
-      Object.values(data[category]).map(item => {
-        new BtnBackAndForward(btnContainer, index, BackAndForth)
+      Object.values(autoData.state.data[category]).map(item => {
+        new BtnBackAndForward(btnContainer, index, test.BackAndForth())
         return new ModalCard(cardContainer, item, () => {
-          itemAddCart(item.name, item.price)
+          new ItemAddCart(item.name, item.price)
         })
       })
     }
