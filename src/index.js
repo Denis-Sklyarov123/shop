@@ -1,7 +1,4 @@
-import { arrMenuItems, arrModalMenuItems, arrNameInBasket } from './constants'
-// import ModalMenu from './components/modalMenu'
-// import ModalCard from './components/modalCards'
-// import BtnBackAndForward from './components/btnBackAndForward'
+import { arrMenuItems, arrModalMenuItems } from './constants'
 import PlusAndMinus from './components/plusAndMinus'
 import LastBtnInModal from './components/lastBtnInModal'
 import ResultSum from './components/resultSum'
@@ -11,6 +8,7 @@ import Fetch from './components/fetch'
 import ActiveCategory from './components/activeCategory'
 import ActionModalMenu from './store/actionModalMenu'
 import TypePlusAndMinus from './components/typePlusAndMinus'
+import FinalBtnModal from './components/finalBtnModal'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -270,6 +268,8 @@ export let containerCategory
 //   price = finalSum
 // }
 
+export let varPrice = 0
+
 //Кноки плюс и минус
 const containerPlusAndMinus = document.getElementById('id-buttons-and-quantity')
 export let productount = 1
@@ -288,25 +288,31 @@ const typePlusAndMinus = new TypePlusAndMinus()
 new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
 
 //Кнопка добавления заказа из модального окна на основную страницу
-const containerValueBasket = document.getElementById('name-and-value-id')
-let arrFinalBasket = []
-function finalBtnModal() {
-  containerValueBasket.innerHTML = ''
-  let newArrFinalBasket = arrFinalBasket
-  newArrFinalBasket.push({ name: 'Овощной', price, count: productount })
-  let finalsUM = 0
-  newArrFinalBasket.map(element => {
-    finalsUM += element.price
-    return new ResultSum(containerValueBasket, element)
-  })
-  document.getElementById('id-final-purchase-price').innerHTML = finalsUM
-  initialDataSetting()
-}
+export const containerValueBasket = document.getElementById('name-and-value-id')
+export let arrFinalBasket = []
+
+const lastFinalBtnModal = new FinalBtnModal()
+
+// function finalBtnModal() {
+//   containerValueBasket.innerHTML = ''
+//   let newArrFinalBasket = arrFinalBasket
+//   newArrFinalBasket.push({ name: 'Овощной', price, count: productount })
+//   let finalsUM = 0
+//   newArrFinalBasket.map(element => {
+//     finalsUM += element.price
+//     return new ResultSum(containerValueBasket, element)
+//   })
+//   document.getElementById('id-final-purchase-price').innerHTML = finalsUM
+//   initialDataSetting()
+// }
 
 const containerPriceAndBtnBasket = document.getElementById(
   'id-price-and-basket'
 )
-new LastBtnInModal(containerPriceAndBtnBasket, finalBtnModal)
+new LastBtnInModal(
+  containerPriceAndBtnBasket,
+  lastFinalBtnModal.colculFinalBtnModal
+)
 
 //Кнопка выхода из модального окна и его обновление
 function initialDataSetting() {

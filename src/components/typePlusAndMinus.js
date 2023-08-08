@@ -1,5 +1,6 @@
 import { containerSum, productount } from '..'
 import { arrNameInBasket } from '../constants'
+import { varPrice } from '..'
 
 class TypePlusAndMinus {
   plusAndMinus() {
@@ -15,6 +16,7 @@ class TypePlusAndMinus {
         (priceSize + arrNameInBasket.fillings.price) * productount
       containerSum.innerHTML = finalSum
       this.price = finalSum
+      varPrice = this.price
       counterPAM.innerHTML = productount
     }
   }
