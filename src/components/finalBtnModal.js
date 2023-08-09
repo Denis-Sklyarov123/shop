@@ -1,6 +1,7 @@
 import { containerValueBasket, arrFinalBasket } from '..'
 import ResultSum from './resultSum'
 import { varPrice, productount } from '..'
+import { now } from '..'
 
 class FinalBtnModal {
   colculFinalBtnModal() {
@@ -13,7 +14,7 @@ class FinalBtnModal {
       return new ResultSum(containerValueBasket, element)
     })
     document.getElementById('id-final-purchase-price').innerHTML = finalsUM
-    // initialDataSetting()====================
+    now.useInitialDataSetting()
   }
 }
 

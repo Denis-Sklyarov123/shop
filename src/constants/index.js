@@ -54,3 +54,9 @@ export const titleList = {
   4: 'Добавьте начинку по вкусу',
   5: 'Проверьте и добавьте в корзину',
 }
+
+export const containerMenu = document.getElementById('products-menu')
+export const productsContainer = document.getElementById('productsContainer')
+export const containerModalMenu = document.getElementById('modal-menu')
+export const btnContainer = document.getElementById('size-menu')
+export const cardContainer = document.getElementById('size-products')

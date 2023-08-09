@@ -1,4 +1,4 @@
-import { cardContainer } from '..'
+import { cardContainer } from '../constants'
 import { activeCategory } from '..'
 import { arrModalMenuItems } from '../constants'
 

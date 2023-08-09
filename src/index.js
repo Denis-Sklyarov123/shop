@@ -1,7 +1,13 @@
-import { arrMenuItems, arrModalMenuItems } from './constants'
+import {
+  arrMenuItems,
+  arrModalMenuItems,
+  containerMenu,
+  productsContainer,
+  containerModalMenu,
+  cardContainer,
+} from './constants'
 import PlusAndMinus from './components/plusAndMinus'
 import LastBtnInModal from './components/lastBtnInModal'
-import ResultSum from './components/resultSum'
 import Store from './store'
 import ActionMainMenu from './store/actionMainMenu'
 import Fetch from './components/fetch'
@@ -9,6 +15,7 @@ import ActiveCategory from './components/activeCategory'
 import ActionModalMenu from './store/actionModalMenu'
 import TypePlusAndMinus from './components/typePlusAndMinus'
 import FinalBtnModal from './components/finalBtnModal'
+import InitialDataSetting from './components/initialDataSetting'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -20,7 +27,7 @@ document.addEventListener('click', function (e) {
 document
   .getElementById('close-my-modal-btn')
   .addEventListener('click', function () {
-    initialDataSetting()
+    now.useInitialDataSetting()
   })
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
@@ -40,17 +47,11 @@ document.getElementById('my-modal').addEventListener('click', event => {
   document.getElementById('body-id').classList.remove('modal-open')
 })
 
-const containerMenu = document.getElementById('products-menu')
-const productsContainer = document.getElementById('productsContainer')
-const containerModalMenu = document.getElementById('modal-menu')
-export const btnContainer = document.getElementById('size-menu')
-export const cardContainer = document.getElementById('size-products')
-
 export const autoNews = new Store()
 export const autoNewsModal = new Store()
 export const autoData = new Store()
 export const activeCategory = new ActiveCategory()
-const fetch = new Fetch()
+export const fetch = new Fetch()
 
 fetch.getCustomerId(autoData).then(() => {
   activeCategory.setActiveCategory('sandwiches')
@@ -75,147 +76,6 @@ autoNewsModal.register(
 
 autoNews.setState('news', arrMenuItems)
 autoNewsModal.setState('news', arrModalMenuItems)
-// function setActiveCategory(category, data) {
-//   console.log('data', data)
-//   let arrMenu = data.menu
-//   arrMenu
-//     .filter(item => item.category == category)
-//     .map(item => {
-//       new Card(productsContainer, item)
-//     })
-// }
-
-// Парсинг
-// async function getCustomerId(autoData) {
-//   window.data = []
-//   let response = await fetch('./data.json')
-//   if (response.status !== 200) {
-//     console.log(
-//       'Looks like there was a problem. Status Code: ' + response.status
-//     )
-//   } else {
-//     const data = await response.json()
-//     // window.data = data
-//     autoData.setState('data', data)
-//     setActiveCategory('sandwiches')
-//     setActiveCards('sizes')
-//   }
-// }
-
-// getCustomerId()
-
-// Главное меню
-// const containerMenu = document.getElementById('products-menu')
-// const productsContainer = document.getElementById('productsContainer')
-//===============================================================
-// autoNews.register(
-//   new ActionMainMenu(containerMenu, productsContainer, setActiveCategory)
-// )
-// autoNews.setState('news', arrMenuItems)
-//===============================================================
-
-// arrMenuItems.map(element => {
-//   new MainMenu(containerMenu, element.nameCategory, () => {
-//     productsContainer.innerHTML = ''
-//     setActiveCategory(element.keyCategory)
-//   })
-// })
-// Отрисовка карточек
-
-// Меню модальное окна
-// const containerModalMenu = document.getElementById('modal-menu')
-// const btnContainer = document.getElementById('size-menu')
-// arrModalMenuItems.map((item, index) => {
-//   new ModalMenu(containerModalMenu, item.nameCategory, () => {
-//     cardContainer.innerHTML = ''
-//     setActiveCards(item.keyCategory, index)
-//     document.querySelector('p').textContent = titleList[index]
-//   })
-// })
-
-//Функция отрисовки окна 'Готово'
-// function renderReady() {
-//   let sectionReady = `
-//   <div class="selection-columns">
-//     <div class="container-img">
-//       <div class="opptions-background-img-card">
-//         <img class="img-filling-final" src="img/i/result_sandwich.jpg" </img>
-//       </div>
-//     </div>
-//     <div class="selection-columns-in-modal">
-//     <div class="your-product-is-ready">Ваш сендвич готов!</div>
-//     <div class="name-of-final-products" id="container-category"></div>
-//     <div class="name-final-product">Овощной</div>
-//     </div>
-//   </div>`
-//   cardContainer.innerHTML = sectionReady
-
-//   let listItemsCart = Object.values(arrNameInBasket)
-//     .map(item => {
-//       if (item.stuffing) {
-//         const category = item.nameСhapter
-//         if (item.stuffing.length) {
-//           const arrName = item.stuffing.map(element => {
-//             return element.name
-//           })
-//           return `<div
-//               class="size-of-the-final-product"
-//               >
-//               ${category}: ${arrName.join(', ')}
-//               </div>`
-//         } else {
-//           return `<div
-//           class="size-of-the-final-product"
-//           id="sizes-products"
-//           >
-//           ${category}:
-//           </div>`
-//         }
-//       } else {
-//         return `<div
-//         class="size-of-the-final-product"
-//         id="sizes-products"
-//         >
-//         ${item.nameСhapter}: ${item.name}
-//         </div>`
-//       }
-//     })
-//     .join('')
-
-//   const containerCategoryElement = document.getElementById('container-category')
-//   containerCategoryElement.innerHTML = listItemsCart
-// }
-
-//Отрисовка карточек в модальном окне
-// const cardContainer = document.getElementById('size-products')
-// function setActiveCards(category, index, data) {
-//   containerCategory = category
-//   if (category === 'ready') {
-//     new BtnBackAndForward(btnContainer, index, BackAndForth)
-//     renderReady()
-//   } else {
-//     Object.values(data[category]).map(item => {
-//       new BtnBackAndForward(btnContainer, index, BackAndForth)
-//       return new ModalCard(cardContainer, item, () => {
-//         itemAddCart(item.name, item.price)
-//       })
-//     })
-//   }
-// }
-
-// function BackAndForth(type, index) {
-//   cardContainer.innerHTML = ''
-//   if (type === 'forward') {
-//     index = ++index
-//   } else {
-//     index = --index
-//   }
-
-//   if (index < 0 || index > arrModalMenuItems.length - 1) return
-
-//   const category = arrModalMenuItems[index].keyCategory
-//   setActiveCards(category, index)
-// }
 
 // Сумма цен ингридиентов
 export const containerSum = document.getElementById(
@@ -223,66 +83,13 @@ export const containerSum = document.getElementById(
 )
 
 export let containerCategory
-// function itemAddCart(nameProduct, priceProduct) {
-//   switch (containerCategory) {
-//     case 'sizes':
-//       arrNameInBasket.sizes.name = nameProduct
-//       arrNameInBasket.sizes.price = priceProduct
-//       break
-//     case 'breads':
-//       arrNameInBasket.breads.name = nameProduct
-//       arrNameInBasket.breads.price = priceProduct
-//       break
-//     case 'vegetables':
-//       arrNameInBasket.vegetables.stuffing.push({
-//         name: nameProduct,
-//         price: priceProduct,
-//       })
-//       if (arrNameInBasket.vegetables.stuffing.length > 3) {
-//         arrNameInBasket.vegetables.stuffing.shift()
-//       }
-//       break
-//     case 'sauces':
-//       arrNameInBasket.sauces.stuffing.push({
-//         name: nameProduct,
-//         price: priceProduct,
-//       })
-//       if (arrNameInBasket.sauces.stuffing.length > 3) {
-//         arrNameInBasket.sauces.stuffing.shift()
-//       }
-//       break
-//     case 'fillings':
-//       arrNameInBasket.fillings.name = nameProduct
-//       arrNameInBasket.fillings.price = priceProduct
-//       break
-//   }
-
-//   sumPricesProduct()
-// }
-
-// let price = 0
-// function sumPricesProduct() {
-//   let priceSize = arrNameInBasket.sizes.price
-//   const finalSum = (priceSize + arrNameInBasket.fillings.price) * productount
-//   containerSum.innerHTML = finalSum
-//   price = finalSum
-// }
 
 export let varPrice = 0
 
 //Кноки плюс и минус
 const containerPlusAndMinus = document.getElementById('id-buttons-and-quantity')
 export let productount = 1
-// function plusAndMinus(action) {
-//   let counterPAM = document.querySelector('.input-in-modal-window')
-//   if (action === 'minus' && productount > 1) {
-//     productount = --productount
-//   } else if (action != 'minus') {
-//     productount = ++productount
-//   }
-//   sumPricesProduct()
-//   counterPAM.innerHTML = productount
-// }
+
 const typePlusAndMinus = new TypePlusAndMinus()
 
 new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
@@ -293,19 +100,6 @@ export let arrFinalBasket = []
 
 const lastFinalBtnModal = new FinalBtnModal()
 
-// function finalBtnModal() {
-//   containerValueBasket.innerHTML = ''
-//   let newArrFinalBasket = arrFinalBasket
-//   newArrFinalBasket.push({ name: 'Овощной', price, count: productount })
-//   let finalsUM = 0
-//   newArrFinalBasket.map(element => {
-//     finalsUM += element.price
-//     return new ResultSum(containerValueBasket, element)
-//   })
-//   document.getElementById('id-final-purchase-price').innerHTML = finalsUM
-//   initialDataSetting()
-// }
-
 const containerPriceAndBtnBasket = document.getElementById(
   'id-price-and-basket'
 )
@@ -313,28 +107,6 @@ new LastBtnInModal(
   containerPriceAndBtnBasket,
   lastFinalBtnModal.colculFinalBtnModal
 )
+export const now = new InitialDataSetting()
 
-//Кнопка выхода из модального окна и его обновление
-function initialDataSetting() {
-  document.getElementById('my-modal').classList.remove('open')
-  document.getElementById('body-id').classList.remove('modal-open')
-  arrNameInBasket = {
-    sizes: { name: '', price: 0, nameСhapter: 'Размер' },
-    breads: { name: '', price: 0, nameСhapter: 'Хлеб' },
-    vegetables: { nameСhapter: 'Овощи', id: '0', stuffing: [] },
-    sauces: { nameСhapter: 'Соусы', id: '1', stuffing: [] },
-    fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
-  }
-  let newSum = 0
-  productount = 1
-  let counterFinal = document.querySelector('.input-in-modal-window')
-  let newFinalSum = document.getElementById(
-    'the-final-price-of-the-product-in-the-modal-window'
-  )
-  counterFinal.innerHTML = productount
-  newFinalSum.innerHTML = newSum
-  let containerLastNewCards = document.getElementById('size-products')
-  containerLastNewCards.innerHTML = ''
-  setActiveCards('sizes', '0')
-}
-//========================================================================================================
+now.useInitialDataSetting()
