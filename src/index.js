@@ -5,6 +5,8 @@ import {
   productsContainer,
   containerModalMenu,
   cardContainer,
+  containerPlusAndMinus,
+  containerPriceAndBtnBasket,
 } from './constants'
 import PlusAndMinus from './components/plusAndMinus'
 import LastBtnInModal from './components/lastBtnInModal'
@@ -52,6 +54,10 @@ export const autoNewsModal = new Store()
 export const autoData = new Store()
 export const activeCategory = new ActiveCategory()
 export const fetch = new Fetch()
+export const now = new InitialDataSetting()
+
+const typePlusAndMinus = new TypePlusAndMinus()
+const lastFinalBtnModal = new FinalBtnModal()
 
 fetch.getCustomerId(autoData).then(() => {
   activeCategory.setActiveCategory('sandwiches')
@@ -77,36 +83,9 @@ autoNewsModal.register(
 autoNews.setState('news', arrMenuItems)
 autoNewsModal.setState('news', arrModalMenuItems)
 
-// Сумма цен ингридиентов
-export const containerSum = document.getElementById(
-  'the-final-price-of-the-product-in-the-modal-window'
-)
-
-export let containerCategory
-
-export let varPrice = 0
-
-//Кноки плюс и минус
-const containerPlusAndMinus = document.getElementById('id-buttons-and-quantity')
-export let productount = 1
-
-const typePlusAndMinus = new TypePlusAndMinus()
-
 new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
 
-//Кнопка добавления заказа из модального окна на основную страницу
-export const containerValueBasket = document.getElementById('name-and-value-id')
-export let arrFinalBasket = []
-
-const lastFinalBtnModal = new FinalBtnModal()
-
-const containerPriceAndBtnBasket = document.getElementById(
-  'id-price-and-basket'
-)
 new LastBtnInModal(
   containerPriceAndBtnBasket,
   lastFinalBtnModal.colculFinalBtnModal
 )
-export const now = new InitialDataSetting()
-
-now.useInitialDataSetting()

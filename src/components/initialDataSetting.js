@@ -1,5 +1,4 @@
-import { arrNameInBasket } from '../constants'
-import { productount } from '..'
+import { arrNameInBasket, productount } from '../constants'
 import { fetch, autoData } from '..'
 import { activeCategory } from '..'
 

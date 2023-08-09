@@ -1,7 +1,11 @@
-import { containerValueBasket, arrFinalBasket } from '..'
 import ResultSum from './resultSum'
-import { varPrice, productount } from '..'
 import { now } from '..'
+import {
+  varPrice,
+  productount,
+  containerValueBasket,
+  arrFinalBasket,
+} from '../constants'
 
 class FinalBtnModal {
   colculFinalBtnModal() {

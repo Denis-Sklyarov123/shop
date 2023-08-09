@@ -1,6 +1,5 @@
-import { containerSum, productount } from '..'
-import { arrNameInBasket } from '../constants'
-import { varPrice } from '..'
+
+import { arrNameInBasket, containerSum, varPrice, productount } from '../constants'
 
 class TypePlusAndMinus {
   plusAndMinus() {

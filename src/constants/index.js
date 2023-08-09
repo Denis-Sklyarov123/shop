@@ -60,3 +60,17 @@ export const productsContainer = document.getElementById('productsContainer')
 export const containerModalMenu = document.getElementById('modal-menu')
 export const btnContainer = document.getElementById('size-menu')
 export const cardContainer = document.getElementById('size-products')
+export const containerSum = document.getElementById(
+  'the-final-price-of-the-product-in-the-modal-window'
+)
+export let containerCategory
+export let varPrice = 0
+export let productount = 1
+export const containerValueBasket = document.getElementById('name-and-value-id')
+export let arrFinalBasket = []
+export const containerPlusAndMinus = document.getElementById(
+  'id-buttons-and-quantity'
+)
+export const containerPriceAndBtnBasket = document.getElementById(
+  'id-price-and-basket'
+)

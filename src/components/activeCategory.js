@@ -7,7 +7,7 @@ import { btnContainer } from '../constants'
 import ItemAddCart from './itemAddCart'
 import { cardContainer } from '../constants'
 import BtnTypeBackandForward from './btnTypeBackandForward'
-import { containerCategory } from '..'
+import { containerCategory } from '../constants'
 
 class ActiveCategory {
   setActiveCategory(category) {

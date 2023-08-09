@@ -1,6 +1,9 @@
-import { arrNameInBasket } from '../constants'
-import { productount, containerSum } from '..'
-import { containerCategory } from '..'
+import {
+  arrNameInBasket,
+  containerSum,
+  productount,
+  containerCategory,
+} from '../constants'
 
 class ItemAddCart {
   price = 0

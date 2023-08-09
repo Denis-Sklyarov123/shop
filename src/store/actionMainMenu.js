@@ -1,5 +1,4 @@
 import MainMenu from '../components/mainMenu'
-// import SetActiveCategory from '../components/setActiveCategory'
 
 class ActionMainMenu {
   constructor(container, prodContainer, setActiveCategory) {
