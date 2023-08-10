@@ -1,13 +1,13 @@
-import { autoData } from '..'
-import Card from './card'
-import BtnBackAndForward from './btnBackAndForward'
-import ModalCard from './modalCards'
-import RenderReady from './renderReady'
-import { btnContainer } from '../constants'
-import ItemAddCart from './itemAddCart'
-import { cardContainer } from '../constants'
-import BtnTypeBackandForward from './btnTypeBackandForward'
-import { containerCategory } from '../constants'
+import { autoData } from '../..'
+import Card from '../allCards/card'
+import BtnBackAndForward from '../buttons/btnBack&Forward/btnBackAndForward'
+import ModalCard from '../allCards/modalCards'
+import RenderReady from '../menu/renderReady'
+import { btnContainer } from '../../constants'
+import ItemAddCart from '../allCards/itemAddCart'
+import { cardContainer } from '../../constants'
+import BtnTypeBackandForward from '../buttons/btnBack&Forward/btnTypeBackandForward'
+import { containerCategory } from '../../constants'
 
 class ActiveCategory {
   setActiveCategory(category) {

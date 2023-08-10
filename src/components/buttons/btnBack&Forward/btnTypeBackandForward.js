@@ -1,6 +1,6 @@
-import { cardContainer } from '../constants'
-import { activeCategory } from '..'
-import { arrModalMenuItems } from '../constants'
+import { cardContainer } from '../../../constants'
+import { activeCategory } from '../../..'
+import { arrModalMenuItems } from '../../../constants'
 
 class BtnTypeBackandForward {
   BackAndForth() {

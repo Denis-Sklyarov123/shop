@@ -1,5 +1,5 @@
-import ModalMenu from '../components/modalMenu'
-import { titleList } from '../constants/index'
+import ModalMenu from '../../components/menu/modalMenu'
+import { titleList } from '../../constants/index'
 
 class ActionModalMenu {
   constructor(container, prodContainer, setActiveCards) {

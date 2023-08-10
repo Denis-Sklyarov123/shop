@@ -1,4 +1,4 @@
-import MainMenu from '../components/mainMenu'
+import MainMenu from '../../components/menu/mainMenu'
 
 class ActionMainMenu {
   constructor(container, prodContainer, setActiveCategory) {

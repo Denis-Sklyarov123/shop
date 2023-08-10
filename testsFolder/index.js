@@ -1,4 +1,4 @@
-import Button from './tasks'
+import Button from './task'
 
 // const buttonTwo = new Button()
 // const buttonThree = new Button()

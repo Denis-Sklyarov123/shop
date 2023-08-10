@@ -8,15 +8,15 @@ import {
   containerPlusAndMinus,
   containerPriceAndBtnBasket,
 } from './constants'
-import PlusAndMinus from './components/plusAndMinus'
-import LastBtnInModal from './components/lastBtnInModal'
+import PlusAndMinus from './components/buttons/btnPlus&Minus/plusAndMinus'
+import LastBtnInModal from './components/buttons/btnLastInModal/lastBtnInModal'
 import Store from './store'
-import ActionMainMenu from './store/actionMainMenu'
-import Fetch from './components/fetch'
-import ActiveCategory from './components/activeCategory'
-import ActionModalMenu from './store/actionModalMenu'
-import TypePlusAndMinus from './components/typePlusAndMinus'
-import FinalBtnModal from './components/finalBtnModal'
+import ActionMainMenu from './store/actions/actionMainMenu'
+import Fetch from './components/dataActive/fetch'
+import ActiveCategory from './components/dataActive/activeCategory'
+import ActionModalMenu from './store/actions/actionModalMenu'
+import TypePlusAndMinus from './components/buttons/btnPlus&Minus/typePlusAndMinus'
+import FinalBtnModal from './components/buttons/btnLastInModal/finalBtnModal'
 import InitialDataSetting from './components/initialDataSetting'
 
 document.addEventListener('click', function (e) {

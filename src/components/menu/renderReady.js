@@ -1,4 +1,4 @@
-import { arrNameInBasket } from '../constants'
+import { arrNameInBasket } from '../../constants'
 
 class RenderReady {
   constructor(container) {

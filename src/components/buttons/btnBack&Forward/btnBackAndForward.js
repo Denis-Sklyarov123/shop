@@ -1,9 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
-import { titleList } from '../constants'
-
+import { titleList } from '../../../constants'
 
 class BtnBackAndForward {
-  
   list = titleList
   id = uuidv4()
   state = {

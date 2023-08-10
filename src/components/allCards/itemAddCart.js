@@ -4,7 +4,7 @@ import {
   productount,
   containerCategory,
   varPrice,
-} from '../constants'
+} from '../../constants'
 
 class ItemAddCart {
   price = 0

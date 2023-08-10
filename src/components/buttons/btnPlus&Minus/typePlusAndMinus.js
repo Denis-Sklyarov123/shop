@@ -1,5 +1,9 @@
-
-import { arrNameInBasket, containerSum, varPrice, productount } from '../constants'
+import {
+  arrNameInBasket,
+  containerSum,
+  varPrice,
+  productount,
+} from '../../../constants'
 
 class TypePlusAndMinus {
   plusAndMinus() {
