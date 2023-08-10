@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from 'uuid'
 import { titleList } from '../constants'
-import { arrModalMenuItems } from '../constants'
+
 
 class BtnBackAndForward {
-  arrModal = arrModalMenuItems
+  
   list = titleList
   id = uuidv4()
   state = {

@@ -3,6 +3,7 @@ import {
   containerSum,
   productount,
   containerCategory,
+  varPrice,
 } from '../constants'
 
 class ItemAddCart {
@@ -47,10 +48,13 @@ class ItemAddCart {
         arrNameInBasket.fillings.price = this.priceProduct
         break
     }
+    let counterPAM = document.querySelector('.input-in-modal-window')
     let priceSize = arrNameInBasket.sizes.price
     const finalSum = (priceSize + arrNameInBasket.fillings.price) * productount
     containerSum.innerHTML = finalSum
     this.price = finalSum
+    varPrice = this.price
+    counterPAM.innerHTML = productount
   }
 }
 
