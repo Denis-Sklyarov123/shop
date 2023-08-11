@@ -6,16 +6,16 @@ import {
   varPrice,
 } from '../../constants'
 
-class ItemAddCart {
+class ItemAddCard {
   price = 0
 
   constructor(nameProduct, priceProduct) {
     this.nameProduct = nameProduct
     this.priceProduct = priceProduct
-    this.itemAddCart(this.nameProduct, this.priceProduct)
+    this.itemAddCard()
   }
 
-  itemAddCart() {
+  itemAddCard() {
     switch (containerCategory) {
       case 'sizes':
         arrNameInBasket.sizes.name = this.nameProduct
@@ -58,4 +58,4 @@ class ItemAddCart {
   }
 }
 
-export default ItemAddCart
+export default ItemAddCard

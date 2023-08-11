@@ -4,7 +4,7 @@ import BtnBackAndForward from '../buttons/btnBack&Forward/btnBackAndForward'
 import ModalCard from '../allCards/modalCards'
 import RenderReady from '../menu/renderReady'
 import { btnContainer } from '../../constants'
-import ItemAddCart from '../allCards/itemAddCart'
+import ItemAddCard from '../allCards/itemAddCard'
 import { cardContainer } from '../../constants'
 import BtnTypeBackandForward from '../buttons/btnBack&Forward/btnTypeBackandForward'
 import { containerCategory } from '../../constants'
@@ -29,7 +29,7 @@ class ActiveCategory {
       Object.values(autoData.state.data[category]).map(item => {
         new BtnBackAndForward(btnContainer, index, test.BackAndForth())
         return new ModalCard(cardContainer, item, () => {
-          new ItemAddCart(item.name, item.price)
+          new ItemAddCard(item.name, item.price)
         })
       })
     }
