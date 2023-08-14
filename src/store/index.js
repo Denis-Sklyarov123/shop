@@ -1,7 +1,7 @@
 class Store {
-  constructor() {
+  constructor(initState = {}) {
     this.state = {
-      news: [],
+      ...initState,
     }
 
     this.actions = []

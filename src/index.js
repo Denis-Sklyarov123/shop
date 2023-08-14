@@ -12,7 +12,7 @@ import PlusAndMinus from './components/buttons/btnPlus&Minus/plusAndMinus'
 import LastBtnInModal from './components/buttons/btnLastInModal/lastBtnInModal'
 import Store from './store'
 import ActionMainMenu from './store/actions/actionMainMenu'
-import Fetch from './components/dataActive/fetch'
+import Api from './api/api'
 import ActiveCategory from './components/dataActive/activeCategory'
 import ActionModalMenu from './store/actions/actionModalMenu'
 import TypePlusAndMinus from './components/buttons/btnPlus&Minus/typePlusAndMinus'
@@ -52,14 +52,16 @@ document.getElementById('my-modal').addEventListener('click', event => {
 export const autoNews = new Store()
 export const autoNewsModal = new Store()
 export const autoData = new Store()
+
 export const activeCategory = new ActiveCategory()
-export const fetch = new Fetch()
+export const fetch = new Api()
 export const now = new InitialDataSetting()
 
 const typePlusAndMinus = new TypePlusAndMinus()
 const lastFinalBtnModal = new FinalBtnModal()
 
-fetch.getCustomerId(autoData).then(() => {
+fetch.getCustomerId().then((data) => {
+  autoData.setState('data',data)
   activeCategory.setActiveCategory('sandwiches')
   activeCategory.setActiveCards('sizes', 0)
 })

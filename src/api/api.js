@@ -1,5 +1,5 @@
-class Fetch {
-  async getCustomerId(store) {
+class Api {
+  async getCustomerId() {
     let data
     let response = await fetch('./data.json')
     if (response.status !== 200) {
@@ -8,11 +8,10 @@ class Fetch {
       )
     } else {
       data = await response.json()
-      store.setState('data', data)
     }
 
     return data
   }
 }
 
-export default Fetch
+export default Api
