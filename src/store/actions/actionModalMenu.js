@@ -14,7 +14,7 @@ class ActionModalMenu {
     }
   }
 
-  inform(message) {
+  render(message) {
     message.news.map((item, index) => {
       new ModalMenu(this.container, item.nameCategory, () => {
         this.prodContainer.innerHTML = ''

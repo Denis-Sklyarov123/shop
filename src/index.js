@@ -54,13 +54,13 @@ export const autoNewsModal = new Store()
 export const autoData = new Store()
 
 export const activeCategory = new ActiveCategory()
-export const fetch = new Api()
+export const api = new Api()
 export const now = new InitialDataSetting()
 
 const typePlusAndMinus = new TypePlusAndMinus()
 const lastFinalBtnModal = new FinalBtnModal()
 
-fetch.getCustomerId().then((data) => {
+api.getCustomerId().then((data) => {
   autoData.setState('data',data)
   activeCategory.setActiveCategory('sandwiches')
   activeCategory.setActiveCards('sizes', 0)

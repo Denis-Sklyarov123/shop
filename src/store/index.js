@@ -16,7 +16,7 @@ class Store {
   }
 
   notifyAll() {
-    return this.actions.forEach(subs => subs.inform?.({ ...this.state }))
+    return this.actions.forEach(subs => subs.render?.({ ...this.state }))
   }
 
   register(observer) {

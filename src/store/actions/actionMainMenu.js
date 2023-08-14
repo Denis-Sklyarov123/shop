@@ -11,10 +11,21 @@ class ActionMainMenu {
     if (setActiveCategory) {
       this.setActiveCategory = setActiveCategory
     }
+
+
+    autoNews.register((store) => {
+
+      this.state.items = store.items;
+      // 
+
+      this.render()
+
+    })
+
   }
 
-  inform(message) {
-    message.news.map(element => {
+  render() {
+    this.state.items.map(element => {
       new MainMenu(this.container, element.nameCategory, () => {
         this.prodContainer.innerHTML = ''
         this.setActiveCategory(element.keyCategory)
