@@ -10,8 +10,8 @@ import {
 } from './constants'
 import PlusAndMinus from './components/buttons/btnPlus&Minus/plusAndMinus'
 import LastBtnInModal from './components/buttons/btnLastInModal/lastBtnInModal'
-import Store from './store'
-import ActionMainMenu from './store/actions/actionMainMenu'
+import Store from './store/index'
+import MainMenu from './components/menu/mainMenu'
 import Api from './api/api'
 import ActiveCategory from './components/dataActive/activeCategory'
 import ActionModalMenu from './store/actions/actionModalMenu'
@@ -49,9 +49,7 @@ document.getElementById('my-modal').addEventListener('click', event => {
   document.getElementById('body-id').classList.remove('modal-open')
 })
 
-export const autoNews = new Store()
-export const autoNewsModal = new Store()
-export const autoData = new Store()
+export const store = new Store()
 
 export const activeCategory = new ActiveCategory()
 export const api = new Api()
@@ -60,30 +58,22 @@ export const now = new InitialDataSetting()
 const typePlusAndMinus = new TypePlusAndMinus()
 const lastFinalBtnModal = new FinalBtnModal()
 
-api.getCustomerId().then((data) => {
-  autoData.setState('data',data)
-  activeCategory.setActiveCategory('sandwiches')
-  activeCategory.setActiveCards('sizes', 0)
+api.getCustomerId().then(data => {
+  store.publish({
+    item: arrMenuItems,
+    modalItem: arrModalMenuItems,
+    setData: data,
+    afterCategory: 'sandwiches',
+  })
+  // activeCategory.setActiveCategory('sandwiches')
+  // activeCategory.setActiveCards('sizes', 0)
 })
 
-autoNews.register(
-  new ActionMainMenu(
-    containerMenu,
-    productsContainer,
-    activeCategory.setActiveCategory
-  )
-)
+new MainMenu(containerMenu, productsContainer)
 
-autoNewsModal.register(
-  new ActionModalMenu(
-    containerModalMenu,
-    cardContainer,
-    activeCategory.setActiveCards
-  )
-)
+new ActiveCategory()
 
-autoNews.setState('news', arrMenuItems)
-autoNewsModal.setState('news', arrModalMenuItems)
+new ActionModalMenu(containerModalMenu, cardContainer, activeCategory)
 
 new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
 

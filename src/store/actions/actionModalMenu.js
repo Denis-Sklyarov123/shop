@@ -1,5 +1,7 @@
 import ModalMenu from '../../components/menu/modalMenu'
 import { titleList } from '../../constants/index'
+import { store } from '../..'
+import ActiveCards from '../../components/dataActive/activeCards'
 
 class ActionModalMenu {
   constructor(container, prodContainer, setActiveCards) {
@@ -12,13 +14,17 @@ class ActionModalMenu {
     if (setActiveCards) {
       this.setActiveCards = setActiveCards
     }
+
+    store.subscribe(payload => {
+      this.render(payload.modalItem)
+    })
   }
 
   render(message) {
-    message.news.map((item, index) => {
+    message.map((item, index) => {
       new ModalMenu(this.container, item.nameCategory, () => {
         this.prodContainer.innerHTML = ''
-        this.setActiveCards(item.keyCategory, index)
+        new ActiveCards(item.keyCategory, index)
         document.querySelector('p').textContent = titleList[index]
       })
     })
