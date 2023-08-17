@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
-    <link rel="stylesheet" href="style/main.css" />
+    <link rel="stylesheet" href="./style/main.css" />
     <link rel="shortcut icon" href="img/2088955.png" type="image/x-icon" />
     <script defer src="index.js"></script>
   </head>
@@ -80,28 +80,8 @@
               <div class="size-cards" id="size-products"></div>
             </div>
 
-            <div class="price-quantity-in-basket">
-              <div class="buttons-and-quantity">
-                <div class="quantity-in-modal">КОЛИЧЕСТВО</div>
-
-                <div class="price-buttons">
-                  <img
-                    onclick="plusAndMinus('minus')"
-                    class="minus-in-modal-window"
-                    src="img/minus.svg"
-                  />
-
-                  <div class="input-in-modal-window">1</div>
-
-                  <img
-                    onclick="plusAndMinus('plus')"
-                    class="plus-in-modal-window"
-                    src="img/plus.svg"
-                  />
-                </div>
-              </div>
-
-              <div class="price-and-basket">
+            <div class="price-quantity-in-basket" id="id-buttons-and-quantity">
+              <div class="price-and-basket" id="id-price-and-basket">
                 <div class="price-in-basket-letters">Цена:</div>
 
                 <div
@@ -112,14 +92,6 @@
                 </div>
 
                 <div class="price-in-basket-letters">руб.</div>
-
-                <button
-                  onclick="finalBtnModal()"
-                  class="add-to-final-price"
-                  id="id-add-to-final-price"
-                >
-                  В КОРЗИНУ
-                </button>
               </div>
             </div>
           </div>
