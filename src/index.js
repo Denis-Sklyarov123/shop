@@ -49,7 +49,7 @@ document.getElementById('my-modal').addEventListener('click', event => {
   document.getElementById('body-id').classList.remove('modal-open')
 })
 
-export const autoNews = new Store()
+export const store = new Store()
 export const autoNewsModal = new Store()
 export const autoData = new Store()
 
@@ -60,19 +60,19 @@ export const now = new InitialDataSetting()
 const typePlusAndMinus = new TypePlusAndMinus()
 const lastFinalBtnModal = new FinalBtnModal()
 
-api.getCustomerId().then((data) => {
-  autoData.setState('data',data)
+api.getCustomerId().then(data => {
+  autoData.setState('data', data)
   activeCategory.setActiveCategory('sandwiches')
   activeCategory.setActiveCards('sizes', 0)
 })
 
-autoNews.register(
-  new ActionMainMenu(
-    containerMenu,
-    productsContainer,
-    activeCategory.setActiveCategory
-  )
-)
+// autoNews.register(
+//   new ActionMainMenu(
+//     containerMenu,
+//     productsContainer,
+//     activeCategory.setActiveCategory
+//   )
+// )
 
 autoNewsModal.register(
   new ActionModalMenu(
@@ -82,7 +82,7 @@ autoNewsModal.register(
   )
 )
 
-autoNews.setState('news', arrMenuItems)
+store.setState('news', arrMenuItems)
 autoNewsModal.setState('news', arrModalMenuItems)
 
 new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())

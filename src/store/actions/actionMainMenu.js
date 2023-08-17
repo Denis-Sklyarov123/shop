@@ -1,3 +1,4 @@
+import { store } from '../..'
 import MainMenu from '../../components/menu/mainMenu'
 
 class ActionMainMenu {
@@ -12,19 +13,17 @@ class ActionMainMenu {
       this.setActiveCategory = setActiveCategory
     }
 
-
-    autoNews.register((store) => {
-
-      this.state.items = store.items;
-      // 
+    store.register(store => {
+      // this.state.items = store.items
+      //
 
       this.render()
-
     })
-
   }
 
   render() {
+    const items = store.state.items
+    console.log('items', items)
     this.state.items.map(element => {
       new MainMenu(this.container, element.nameCategory, () => {
         this.prodContainer.innerHTML = ''

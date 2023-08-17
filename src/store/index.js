@@ -7,6 +7,10 @@ class Store {
     this.actions = []
   }
 
+  get state() {
+    return { ...this.state }
+  }
+
   setState(key, value) {
     this.state = {
       ...this.state,
