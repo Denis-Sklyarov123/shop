@@ -20,8 +20,13 @@ class ActionModalMenu {
     })
   }
 
+<<<<<<< HEAD
   render(message) {
     message.map((item, index) => {
+=======
+  inform(message) {
+    message.news.map((item, index) => {
+>>>>>>> parent of a419347 (working with classes)
       new ModalMenu(this.container, item.nameCategory, () => {
         this.prodContainer.innerHTML = ''
         new ActiveCards(item.keyCategory, index)

@@ -7,8 +7,13 @@ class Store {
     this.subscribers = [...this.subscribers, subscriber]
   }
 
+<<<<<<< HEAD
   unsubscribe(subscriber) {
     this.subscribers = this.subscribers.filter(sub => sub !== subscriber)
+=======
+  notifyAll() {
+    return this.actions.forEach(subs => subs.inform?.({ ...this.state }))
+>>>>>>> parent of a419347 (working with classes)
   }
 
   publish(payload) {

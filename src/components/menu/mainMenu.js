@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import MainMenuItems from './mainMenuItems'
 import { store } from '../..'
 import { containerMenu } from '../../constants'
+=======
+import { v4 as uuidv4 } from 'uuid'
+
+>>>>>>> parent of a419347 (working with classes)
 class MainMenu {
   constructor(container, prodContainer) {
     if (container) {
