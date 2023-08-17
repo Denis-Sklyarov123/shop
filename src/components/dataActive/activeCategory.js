@@ -11,6 +11,7 @@ class ActiveCategory {
   }
 
   setActiveCategory(category, data) {
+    productsContainer.innerHTML = ''
     data.menu
       .filter(item => item.category == category)
       .map(item => {

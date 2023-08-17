@@ -65,8 +65,6 @@ api.getCustomerId().then(data => {
     setData: data,
     afterCategory: 'sandwiches',
   })
-  // activeCategory.setActiveCategory('sandwiches')
-  // activeCategory.setActiveCards('sizes', 0)
 })
 
 new MainMenu(containerMenu, productsContainer)
