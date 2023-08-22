@@ -1,5 +1,5 @@
 import { cardContainer } from '../../../constants'
-import { activeCategory } from '../../..'
+import ActiveCards from '../../dataActive/activeCards'
 import { arrModalMenuItems } from '../../../constants'
 
 class BtnTypeBackandForward {
@@ -15,7 +15,7 @@ class BtnTypeBackandForward {
       if (index < 0 || index > arrModalMenuItems.length - 1) return
 
       const category = arrModalMenuItems[index].keyCategory
-      activeCategory.setActiveCards(category, index)
+      new ActiveCards(category, index)
     }
   }
 }

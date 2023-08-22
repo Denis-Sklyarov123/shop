@@ -1,6 +1,7 @@
 import { arrNameInBasket, productount } from '../constants'
-import { api, autoData } from '..'
-import { activeCategory } from '..'
+import { store } from '..'
+import { api } from '..'
+import ActiveCards from './dataActive/activeCards'
 
 class InitialDataSetting {
   useInitialDataSetting() {
@@ -23,8 +24,8 @@ class InitialDataSetting {
     newFinalSum.innerHTML = newSum
     let containerLastNewCards = document.getElementById('size-products')
     containerLastNewCards.innerHTML = ''
-    api.getCustomerId(autoData).then(() => {
-      activeCategory.setActiveCards('sizes', 0)
+    api.getCustomerId(store).then(() => {
+      new ActiveCards('sizes', 0)
     })
   }
 }

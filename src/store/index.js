@@ -7,9 +7,15 @@ class Store {
     this.actions = []
   }
 
-  get state() {
+  getState() {
     return { ...this.state }
   }
+
+  // changingСategoryСards(category) {
+  //   let stateData = { ...this.state }
+  //   stateData.afterCategory = category
+  //   return stateData
+  // }
 
   setState(key, value) {
     this.state = {

@@ -1,40 +1,31 @@
-import { v4 as uuidv4 } from 'uuid'
-import { autoNews } from '../..'
+import { store } from '../..'
+import { containerMenu } from '../../constants'
+import ActiveCategory from '../dataActive/activeCategory'
+import ItemMainMenu from './ItemMainMenu'
 
 class MainMenu {
-  id = uuidv4()
-  state = {
-    label: '',
-    container: undefined,
-  }
-
-  constructor(container, label, onClick) {
-    if (label) {
-      this.state.label = label
-    }
+  constructor(container, prodContainer) {
     if (container) {
-      this.state.container = container
+      this.container = container
     }
-    if (onClick) {
-      this.state.onClick = onClick
+    if (prodContainer) {
+      this.prodContainer = prodContainer
     }
 
-    this.render()
+    store.register(this.render())
   }
 
   render() {
-    const html = `<button class="menu-item" id="${this.id}">
-        ${this.state.label}
-      </button>`
-
-    this.state.container.insertAdjacentHTML('beforeend', html)
-
-    if (this.state.onClick) {
-      this.element = document.getElementById(this.id)
-      this.element.addEventListener('click', () => {
-        this.state.onClick()
+    const items = store.getState()
+    console.log('items', items)
+    items.arrMenuItems.map(element => {
+      new ItemMainMenu(this.container, element.nameCategory, () => {
+        // containerMenu.innerHTML = ''
+        // this.prodContainer.innerHTML = ''
+        // store.changingСategoryСards(element.keyCategory)
+        store.setState('afterCategory', element.keyCategory)
       })
-    }
+    })
   }
 }
 

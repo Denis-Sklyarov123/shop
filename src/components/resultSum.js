@@ -14,7 +14,7 @@ class ResultSum {
     //   this.state.finalSum = finalSum
     // }
 
-    this.render()
+    // this.render()
   }
 
   render() {

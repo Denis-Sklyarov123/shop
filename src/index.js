@@ -10,14 +10,13 @@ import {
 } from './constants'
 import PlusAndMinus from './components/buttons/btnPlus&Minus/plusAndMinus'
 import LastBtnInModal from './components/buttons/btnLastInModal/lastBtnInModal'
-import Store from './store'
-import ActionMainMenu from './store/actions/actionMainMenu'
 import Api from './api/api'
 import ActiveCategory from './components/dataActive/activeCategory'
-import ActionModalMenu from './store/actions/actionModalMenu'
 import TypePlusAndMinus from './components/buttons/btnPlus&Minus/typePlusAndMinus'
 import FinalBtnModal from './components/buttons/btnLastInModal/finalBtnModal'
 import InitialDataSetting from './components/initialDataSetting'
+import Store from './store/index'
+import MainMenu from './components/menu/mainMenu'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -50,10 +49,10 @@ document.getElementById('my-modal').addEventListener('click', event => {
 })
 
 export const store = new Store()
-export const autoNewsModal = new Store()
-export const autoData = new Store()
+// export const autoNewsModal = new Store()
+// export const autoData = new Store()
 
-export const activeCategory = new ActiveCategory()
+// export const activeCategory = new ActiveCategory()
 export const api = new Api()
 export const now = new InitialDataSetting()
 
@@ -61,9 +60,23 @@ const typePlusAndMinus = new TypePlusAndMinus()
 const lastFinalBtnModal = new FinalBtnModal()
 
 api.getCustomerId().then(data => {
-  autoData.setState('data', data)
-  activeCategory.setActiveCategory('sandwiches')
-  activeCategory.setActiveCards('sizes', 0)
+  store.setState('data', data)
+
+  console.log('arrMenuItems', arrMenuItems)
+  store.setState('arrMenuItems', arrMenuItems)
+  store.setState('afterCategory', 'sandwiches')
+  store.setState('arrModalMenuItems', arrModalMenuItems)
+
+  new MainMenu(containerMenu, productsContainer)
+
+  new ActiveCategory()
+
+  new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
+
+  new LastBtnInModal(
+    containerPriceAndBtnBasket,
+    lastFinalBtnModal.colculFinalBtnModal
+  )
 })
 
 // autoNews.register(
@@ -74,20 +87,25 @@ api.getCustomerId().then(data => {
 //   )
 // )
 
-autoNewsModal.register(
-  new ActionModalMenu(
-    containerModalMenu,
-    cardContainer,
-    activeCategory.setActiveCards
-  )
-)
+// autoNewsModal.register(
+//   new ActionModalMenu(
+//     containerModalMenu,
+//     cardContainer,
+//     activeCategory.setActiveCards
+//   )
+// )
+// console.log('arrMenuItems', arrMenuItems)
+// store.setState('arrMenuItems', arrMenuItems)
+// store.setState('afterCategory', 'sandwiches')
+// store.setState('arrModalMenuItems', arrModalMenuItems)
 
-store.setState('news', arrMenuItems)
-autoNewsModal.setState('news', arrModalMenuItems)
+// new MainMenu(containerMenu, productsContainer)
 
-new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
+// // console.log('12123', store.getState())
 
-new LastBtnInModal(
-  containerPriceAndBtnBasket,
-  lastFinalBtnModal.colculFinalBtnModal
-)
+// new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
+
+// new LastBtnInModal(
+//   containerPriceAndBtnBasket,
+//   lastFinalBtnModal.colculFinalBtnModal
+// )
