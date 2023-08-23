@@ -17,11 +17,13 @@ import { store } from '../..'
 
 class ActiveCategory {
   constructor() {
-    store.register(this.render())
+    // store.unregister(this.setActiveCategory)
+    store.register(this.setActiveCategory())
   }
 
-  render() {
+  setActiveCategory() {
     const items = store.getState()
+    console.log('itemsinActiveCategory', items)
     items.data.menu
       .filter(item => item.category == items.afterCategory)
       .map(item => {

@@ -74,3 +74,5 @@ export const containerPlusAndMinus = document.getElementById(
 export const containerPriceAndBtnBasket = document.getElementById(
   'id-price-and-basket'
 )
+
+export let gta = 'sandwiches'

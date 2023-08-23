@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import ActiveCategory from '../dataActive/activeCategory'
 
 class ItemMainMenu {
   id = uuidv4()
@@ -22,6 +23,7 @@ class ItemMainMenu {
   }
 
   render() {
+    // new ActiveCategory()
     const html = `<button class="menu-item" id="${this.id}">
         ${this.state.label}
       </button>`
@@ -31,6 +33,7 @@ class ItemMainMenu {
     if (this.state.onClick) {
       this.element = document.getElementById(this.id)
       this.element.addEventListener('click', () => {
+        // new ActiveCategory()
         this.state.onClick()
       })
     }

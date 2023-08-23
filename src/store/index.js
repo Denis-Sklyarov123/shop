@@ -11,11 +11,18 @@ class Store {
     return { ...this.state }
   }
 
-  // changingСategoryСards(category) {
-  //   let stateData = { ...this.state }
-  //   stateData.afterCategory = category
-  //   return stateData
-  // }
+  deleteСategory(items) {
+    delete items.afterCategory
+    this.state = items
+    return items
+  }
+
+  swapCategory(items, category) {
+    items.afterCategory = category
+    this.state = items
+    // this.notifyAll()
+    return items
+  }
 
   setState(key, value) {
     this.state = {

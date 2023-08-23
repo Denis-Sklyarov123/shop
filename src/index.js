@@ -7,6 +7,7 @@ import {
   cardContainer,
   containerPlusAndMinus,
   containerPriceAndBtnBasket,
+  gta,
 } from './constants'
 import PlusAndMinus from './components/buttons/btnPlus&Minus/plusAndMinus'
 import LastBtnInModal from './components/buttons/btnLastInModal/lastBtnInModal'
@@ -49,10 +50,6 @@ document.getElementById('my-modal').addEventListener('click', event => {
 })
 
 export const store = new Store()
-// export const autoNewsModal = new Store()
-// export const autoData = new Store()
-
-// export const activeCategory = new ActiveCategory()
 export const api = new Api()
 export const now = new InitialDataSetting()
 
@@ -67,10 +64,10 @@ api.getCustomerId().then(data => {
   store.setState('afterCategory', 'sandwiches')
   store.setState('arrModalMenuItems', arrModalMenuItems)
 
-  new MainMenu(containerMenu, productsContainer)
-
   new ActiveCategory()
 
+  new MainMenu(containerMenu, productsContainer)
+  // store.setState('afterCategory', gta)
   new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
 
   new LastBtnInModal(
@@ -78,34 +75,3 @@ api.getCustomerId().then(data => {
     lastFinalBtnModal.colculFinalBtnModal
   )
 })
-
-// autoNews.register(
-//   new ActionMainMenu(
-//     containerMenu,
-//     productsContainer,
-//     activeCategory.setActiveCategory
-//   )
-// )
-
-// autoNewsModal.register(
-//   new ActionModalMenu(
-//     containerModalMenu,
-//     cardContainer,
-//     activeCategory.setActiveCards
-//   )
-// )
-// console.log('arrMenuItems', arrMenuItems)
-// store.setState('arrMenuItems', arrMenuItems)
-// store.setState('afterCategory', 'sandwiches')
-// store.setState('arrModalMenuItems', arrModalMenuItems)
-
-// new MainMenu(containerMenu, productsContainer)
-
-// // console.log('12123', store.getState())
-
-// new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
-
-// new LastBtnInModal(
-//   containerPriceAndBtnBasket,
-//   lastFinalBtnModal.colculFinalBtnModal
-// )
