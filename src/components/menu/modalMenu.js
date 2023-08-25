@@ -1,39 +1,31 @@
-import { v4 as uuidv4 } from 'uuid'
+import ModalMenuItem from './modalMenuItem'
+import { titleList } from '../../constants/index'
+import { store } from '../..'
 
 class ModalMenu {
-  id = uuidv4()
-  state = {
-    label: '',
-    container: undefined,
-  }
-
-  constructor(container, label, onClick) {
+  constructor(container, prodContainer) {
     if (container) {
-      this.state.container = container
+      this.container = container
     }
-    if (label) {
-      this.state.label = label
-    }
-    if (onClick) {
-      this.state.onClick = onClick
+    if (prodContainer) {
+      this.prodContainer = prodContainer
     }
 
     this.render()
   }
 
   render() {
-    const html = `<button class="item-modal-window-menu" id="${this.id}">
-    ${this.state.label}
-    </button>`
-
-    this.state.container.insertAdjacentHTML('beforeend', html)
-
-    if (this.state.onClick) {
-      this.element = document.getElementById(this.id)
-      this.element.addEventListener('click', () => {
-        this.state.onClick()
+    const items = store.getState()
+    items.arrModalMenuItems.map((item, index) => {
+      new ModalMenuItem(this.container, item.nameCategory, () => {
+        this.prodContainer.innerHTML = ''
+        document.querySelector('p').textContent = titleList[index]
+        // this.setActiveCards(item.keyCategory, index)
+        store.setState('indexName', index)
+        store.setState('currentCattegoryModal', item.keyCategory)
+        console.log('items', items)
       })
-    }
+    })
   }
 }
 

@@ -3,17 +3,27 @@ import RenderReady from '../menu/renderReady'
 import BtnTypeBackandForward from '../buttons/btnBack&Forward/btnTypeBackandForward'
 import ModalCard from '../allCards/modalCards'
 import ItemAddCard from '../allCards/itemAddCard'
+import { store } from '../..'
+import { btnContainer, cardContainer } from '../../constants'
 
 class ActiveCards {
-  constructor(category, index) {
+  constructor() {
+    store.register(this.render)
+  }
+
+  render() {
+    const items = store.getState()
     const test = new BtnTypeBackandForward()
-    containerCategory = category
-    if (category === 'ready') {
-      new BtnBackAndForward(btnContainer, index, test.BackAndForth())
+    if (items.currentCattegoryModal === 'ready') {
+      new BtnBackAndForward(btnContainer, items.indexName, test.BackAndForth())
       new RenderReady(cardContainer)
     } else {
-      Object.values(store.state.data[category]).map(item => {
-        new BtnBackAndForward(btnContainer, index, test.BackAndForth())
+      Object.values(items.data[items.currentCattegoryModal]).map(item => {
+        new BtnBackAndForward(
+          btnContainer,
+          items.indexName,
+          test.BackAndForth()
+        )
         return new ModalCard(cardContainer, item, () => {
           new ItemAddCard(item.name, item.price)
         })

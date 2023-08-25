@@ -12,15 +12,8 @@ class Store {
   }
 
   deleteСategory(items) {
-    delete items.afterCategory
+    delete items.currentCattegory
     this.state = items
-    return items
-  }
-
-  swapCategory(items, category) {
-    items.afterCategory = category
-    this.state = items
-    // this.notifyAll()
     return items
   }
 
@@ -33,7 +26,8 @@ class Store {
   }
 
   notifyAll() {
-    return this.actions.forEach(subs => subs.render?.({ ...this.state }))
+    console.log('this.actions', this.actions)
+    return this.actions.forEach(action => action())
   }
 
   register(observer) {

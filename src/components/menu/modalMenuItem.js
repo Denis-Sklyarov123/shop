@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
-import ActiveCategory from '../dataActive/activeCategory'
 
-class ItemMainMenu {
+class ModalMenuItem {
   id = uuidv4()
   state = {
     label: '',
@@ -9,11 +8,11 @@ class ItemMainMenu {
   }
 
   constructor(container, label, onClick) {
-    if (label) {
-      this.state.label = label
-    }
     if (container) {
       this.state.container = container
+    }
+    if (label) {
+      this.state.label = label
     }
     if (onClick) {
       this.state.onClick = onClick
@@ -23,9 +22,9 @@ class ItemMainMenu {
   }
 
   render() {
-    const html = `<button class="menu-item" id="${this.id}">
-        ${this.state.label}
-      </button>`
+    const html = `<button class="item-modal-window-menu" id="${this.id}">
+    ${this.state.label}
+    </button>`
 
     this.state.container.insertAdjacentHTML('beforeend', html)
 
@@ -38,4 +37,4 @@ class ItemMainMenu {
   }
 }
 
-export default ItemMainMenu
+export default ModalMenuItem

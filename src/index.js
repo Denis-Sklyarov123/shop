@@ -7,7 +7,6 @@ import {
   cardContainer,
   containerPlusAndMinus,
   containerPriceAndBtnBasket,
-  gta,
 } from './constants'
 import PlusAndMinus from './components/buttons/btnPlus&Minus/plusAndMinus'
 import LastBtnInModal from './components/buttons/btnLastInModal/lastBtnInModal'
@@ -18,6 +17,8 @@ import FinalBtnModal from './components/buttons/btnLastInModal/finalBtnModal'
 import InitialDataSetting from './components/initialDataSetting'
 import Store from './store/index'
 import MainMenu from './components/menu/mainMenu'
+import ActiveCards from './components/dataActive/activeCards'
+import ModalMenu from './components/menu/modalMenu'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -58,20 +59,24 @@ const lastFinalBtnModal = new FinalBtnModal()
 
 api.getCustomerId().then(data => {
   store.setState('data', data)
-
-  console.log('arrMenuItems', arrMenuItems)
   store.setState('arrMenuItems', arrMenuItems)
-  store.setState('afterCategory', 'sandwiches')
+  store.setState('currentCattegory', 'sandwiches')
   store.setState('arrModalMenuItems', arrModalMenuItems)
 
   new ActiveCategory()
-
   new MainMenu(containerMenu, productsContainer)
-  // store.setState('afterCategory', gta)
+
+  store.setState('currentCattegoryModal', 'sizes')
+
+  new ActiveCards()
+  new ModalMenu(containerModalMenu, cardContainer)
+
   new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
 
   new LastBtnInModal(
     containerPriceAndBtnBasket,
     lastFinalBtnModal.colculFinalBtnModal
   )
+
+  store.setState()
 })

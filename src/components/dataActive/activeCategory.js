@@ -2,30 +2,15 @@ import Card from '../allCards/card'
 import { productsContainer } from '../../constants'
 import { store } from '../..'
 
-// class ActiveCategory {
-//   constructor(category) {
-//     const arrMenu = store.state.data.menu
-//     arrMenu
-//       .filter(item => item.category == category)
-//       .map(item => {
-//         new Card(productsContainer, item)
-//       })
-//   }
-// }
-
-// export default ActiveCategory
-
 class ActiveCategory {
   constructor() {
-    // store.unregister(this.setActiveCategory)
-    store.register(this.setActiveCategory())
+    store.register(this.render)
   }
 
-  setActiveCategory() {
+  render() {
     const items = store.getState()
-    console.log('itemsinActiveCategory', items)
     items.data.menu
-      .filter(item => item.category == items.afterCategory)
+      .filter(item => item.category == items.currentCattegory)
       .map(item => {
         new Card(productsContainer, item)
       })

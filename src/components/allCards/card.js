@@ -48,6 +48,7 @@ class Card {
     this.element.addEventListener('click', () => {
       document.getElementById('my-modal').classList.add('open')
       document.getElementById('body-id').classList.add('modal-open')
+      document.querySelector('p').textContent = 'Выберите размер сендвича'
     })
   }
 }
