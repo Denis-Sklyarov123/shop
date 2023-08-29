@@ -1,9 +1,9 @@
+import { store } from '../..'
 import {
   arrNameInBasket,
   containerSum,
+  objBasketData,
   productount,
-  containerCategory,
-  varPrice,
 } from '../../constants'
 
 class ItemAddCard {
@@ -16,7 +16,8 @@ class ItemAddCard {
   }
 
   itemAddCard() {
-    switch (containerCategory) {
+    const items = store.getState()
+    switch (items.currentCattegoryModal) {
       case 'sizes':
         arrNameInBasket.sizes.name = this.nameProduct
         arrNameInBasket.sizes.price = this.priceProduct
@@ -53,8 +54,14 @@ class ItemAddCard {
     const finalSum = (priceSize + arrNameInBasket.fillings.price) * productount
     containerSum.innerHTML = finalSum
     this.price = finalSum
-    varPrice = this.price
     counterPAM.innerHTML = productount
+    let finalPriceInBasket =
+      items.arrFinalBasket.keyFinalPriceInBasket + this.price
+    objBasketData = {
+      name: 'Овощной',
+      keyFinalPriceInBasket: finalPriceInBasket,
+      count: productount,
+    }
   }
 }
 

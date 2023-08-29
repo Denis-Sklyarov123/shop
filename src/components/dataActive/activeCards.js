@@ -13,7 +13,7 @@ class ActiveCards {
 
   render() {
     const items = store.getState()
-    const test = new BtnTypeBackandForward()
+    let test = new BtnTypeBackandForward()
     if (items.currentCattegoryModal === 'ready') {
       new BtnBackAndForward(btnContainer, items.indexName, test.BackAndForth())
       new RenderReady(cardContainer)
@@ -24,7 +24,7 @@ class ActiveCards {
           items.indexName,
           test.BackAndForth()
         )
-        return new ModalCard(cardContainer, item, () => {
+        new ModalCard(cardContainer, item, () => {
           new ItemAddCard(item.name, item.price)
         })
       })

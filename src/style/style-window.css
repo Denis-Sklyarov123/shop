@@ -123,14 +123,14 @@
   border: 0;
 }
 
-.item-modal-window-menu.open {
-  /* width: 100%;
+/* .item-modal-window-menu.open {
+  width: 100%;
   border: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 17px;
   font-weight: 600;
-  background: rgb(224, 116, 116); */
-}
+  background: rgb(224, 116, 116);
+} */
 
 .item-modal-window-menu:hover {
   background: rgb(224, 116, 116);
@@ -810,5 +810,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-

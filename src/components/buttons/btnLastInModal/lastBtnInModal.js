@@ -1,3 +1,5 @@
+import { containerValueBasket } from '../../../constants'
+
 class LastBtnInModal {
   state = {
     label: '',

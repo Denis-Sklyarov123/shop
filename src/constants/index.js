@@ -63,16 +63,25 @@ export const cardContainer = document.getElementById('size-products')
 export const containerSum = document.getElementById(
   'the-final-price-of-the-product-in-the-modal-window'
 )
-export let containerCategory
-export let varPrice = 0
+
 export let productount = 1
-export const containerValueBasket = document.getElementById('name-and-value-id')
-export let arrFinalBasket = []
+export let objBasketData = (objBasketData = {
+  name: 'Овощной',
+  keyFinalPriceInBasket: 0,
+  count: 1,
+})
+export let containerValueBasket = document.getElementById('name-and-value-id')
+export let arrFinalBasket = {
+  name: 'Овощной',
+  keyFinalPriceInBasket: 0,
+  count: 1,
+}
+export let finalPriceInBasket = 0
+export let emptyPrice = 0
+export let fullPrice = 0
 export const containerPlusAndMinus = document.getElementById(
   'id-buttons-and-quantity'
 )
 export const containerPriceAndBtnBasket = document.getElementById(
   'id-price-and-basket'
 )
-
-export let gta = 'sandwiches'

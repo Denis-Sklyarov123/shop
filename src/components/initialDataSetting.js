@@ -1,4 +1,9 @@
-import { arrNameInBasket, productount } from '../constants'
+import {
+  arrNameInBasket,
+  cardContainer,
+  objBasketData,
+  productount,
+} from '../constants'
 import { store } from '..'
 import { api } from '..'
 import ActiveCards from './dataActive/activeCards'
@@ -20,13 +25,14 @@ class InitialDataSetting {
     let newFinalSum = document.getElementById(
       'the-final-price-of-the-product-in-the-modal-window'
     )
+    objBasketData = {}
     counterFinal.innerHTML = productount
     newFinalSum.innerHTML = newSum
     let containerLastNewCards = document.getElementById('size-products')
     containerLastNewCards.innerHTML = ''
-    api.getCustomerId(store).then(() => {
-      new ActiveCards('sizes', 0)
-    })
+    store.setState('indexName', 0)
+    cardContainer.innerHTML = ''
+    store.setState('currentCattegoryModal', 'sizes')
   }
 }
 

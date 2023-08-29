@@ -11,13 +11,14 @@ class Store {
     return { ...this.state }
   }
 
-  deleteСategory(items) {
-    delete items.currentCattegory
-    this.state = items
-    return items
-  }
+  // deleteСategory(items) {
+  //   delete items.currentCattegory
+  //   this.state = items
+  //   return items
+  // }
 
   setState(key, value) {
+    // console.log(value)
     this.state = {
       ...this.state,
       [key]: value,
@@ -26,7 +27,7 @@ class Store {
   }
 
   notifyAll() {
-    console.log('this.actions', this.actions)
+    // console.log('this.actions', this.actions)
     return this.actions.forEach(action => action())
   }
 

@@ -17,11 +17,12 @@ class MainMenu {
   }
 
   render() {
-    const items = store.getState()
-    items.arrMenuItems.map(element => {
-      new ItemMainMenu(this.container, element.nameCategory, () => {
+    // console.log(store.getState())
+    const state = store.getState()
+    state.arrMenuItems.map(item => {
+      new ItemMainMenu(this.container, item.nameCategory, () => {
         this.prodContainer.innerHTML = ''
-        store.setState('currentCattegory', element.keyCategory)
+        state.setState('currentCattegory', item.keyCategory)
       })
     })
   }

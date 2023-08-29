@@ -20,10 +20,9 @@ class ModalMenu {
       new ModalMenuItem(this.container, item.nameCategory, () => {
         this.prodContainer.innerHTML = ''
         document.querySelector('p').textContent = titleList[index]
-        // this.setActiveCards(item.keyCategory, index)
         store.setState('indexName', index)
+        this.prodContainer.innerHTML = ''
         store.setState('currentCattegoryModal', item.keyCategory)
-        console.log('items', items)
       })
     })
   }
