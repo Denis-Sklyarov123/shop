@@ -24,7 +24,7 @@ class ModalCard {
   render() {
     const html = `
     <button class="product-size-card-buttons" id="${this.id}">
-      <div class="opptions-background-little-bread">
+      <div class="options-background-little-bread">
         <img class="img-filling" src="/img${this.state.item.image}" />
       </div>
       <div class="the-final-filling-in-the-product">${this.state.item.name}</div>

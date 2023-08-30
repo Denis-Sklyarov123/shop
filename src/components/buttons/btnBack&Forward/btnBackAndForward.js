@@ -24,8 +24,8 @@ class BtnBackAndForward {
   }
 
   render() {
-    const items = store.getState()
-    if (items.indexName == 0) {
+    const state = store.getState()
+    if (state.orderCategoryIndex == 0) {
       document.getElementById('size-menu').classList.add('one-button')
       this.state.container.innerHTML = `<button class="forward-button" id="go-to-sauce-block">
       <div class="indent-for-word-forward">ВПЕРЕД</div>
@@ -38,7 +38,7 @@ class BtnBackAndForward {
       this.element.addEventListener('click', () => {
         this.state.onClick('forward')
       })
-    } else if (items.indexName > 0 && items.indexName < 5) {
+    } else if (state.orderCategoryIndex > 0 && state.orderCategoryIndex < 5) {
       this.state.container.innerHTML = `<button class="back-button" id="go-to-back-bread-block">
       <img class="arrow" src="img/left_icon-icons.com_61213.svg" />
       <div class="indent-for-word-back">НАЗАД</div>
@@ -59,7 +59,7 @@ class BtnBackAndForward {
       this.element.addEventListener('click', () => {
         this.state.onClick('forward')
       })
-    } else if (items.indexName == 5) {
+    } else if (state.orderCategoryIndex == 5) {
       document.getElementById('size-menu').classList.remove('one-button')
       this.state.container.innerHTML = `<button class="back-button" id="go-to-back-bread-block">
           <img class="arrow" src="img/left_icon-icons.com_61213.svg" />
@@ -70,7 +70,8 @@ class BtnBackAndForward {
         this.state.onClick('back')
       })
     }
-    document.querySelector('p').textContent = this.list[items.indexName]
+    document.querySelector('p').textContent =
+      this.list[state.orderCategoryIndex]
   }
 }
 

@@ -11,12 +11,6 @@ class Store {
     return { ...this.state }
   }
 
-  // deleteСategory(items) {
-  //   delete items.currentCattegory
-  //   this.state = items
-  //   return items
-  // }
-
   setState(key, value) {
     // console.log(value)
     this.state = {

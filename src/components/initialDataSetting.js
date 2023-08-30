@@ -1,12 +1,10 @@
 import {
   arrNameInBasket,
-  cardContainer,
+  fillingsContainer,
   objBasketData,
-  productount,
+  productCount,
 } from '../constants'
 import { store } from '..'
-import { api } from '..'
-import ActiveCards from './dataActive/activeCards'
 
 class InitialDataSetting {
   useInitialDataSetting() {
@@ -20,19 +18,17 @@ class InitialDataSetting {
       fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
     }
     let newSum = 0
-    productount = 1
+    productCount = 1
     let counterFinal = document.querySelector('.input-in-modal-window')
     let newFinalSum = document.getElementById(
       'the-final-price-of-the-product-in-the-modal-window'
     )
     objBasketData = {}
-    counterFinal.innerHTML = productount
+    counterFinal.innerHTML = productCount
     newFinalSum.innerHTML = newSum
-    let containerLastNewCards = document.getElementById('size-products')
-    containerLastNewCards.innerHTML = ''
-    store.setState('indexName', 0)
-    cardContainer.innerHTML = ''
-    store.setState('currentCattegoryModal', 'sizes')
+    store.setState('orderCategoryIndex', 0)
+    fillingsContainer.innerHTML = ''
+    store.setState('currentCategoryModal', 'sizes')
   }
 }
 

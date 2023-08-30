@@ -1,4 +1,4 @@
-class PlusAndMinus {
+class Counter {
   state = {
     container: undefined,
   }
@@ -51,4 +51,4 @@ class PlusAndMinus {
   }
 }
 
-export default PlusAndMinus
+export default Counter

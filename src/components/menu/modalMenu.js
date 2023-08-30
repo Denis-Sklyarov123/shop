@@ -1,6 +1,7 @@
 import ModalMenuItem from './modalMenuItem'
 import { titleList } from '../../constants/index'
 import { store } from '../..'
+import ModalTitle from './modalTitle'
 
 class ModalMenu {
   constructor(container, prodContainer) {
@@ -15,14 +16,14 @@ class ModalMenu {
   }
 
   render() {
-    const items = store.getState()
-    items.arrModalMenuItems.map((item, index) => {
+    const state = store.getState()
+    state.arrModalMenuItems.map((item, index) => {
       new ModalMenuItem(this.container, item.nameCategory, () => {
         this.prodContainer.innerHTML = ''
-        document.querySelector('p').textContent = titleList[index]
-        store.setState('indexName', index)
+        new ModalTitle()
+        store.setState('orderCategoryIndex', index)
         this.prodContainer.innerHTML = ''
-        store.setState('currentCattegoryModal', item.keyCategory)
+        store.setState('currentCategoryModal', item.keyCategory)
       })
     })
   }

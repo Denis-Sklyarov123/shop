@@ -11,13 +11,13 @@ class RenderReady {
     const sectionReady = `
         <div class="selection-columns">
           <div class="container-img">
-            <div class="opptions-background-img-card">
+            <div class="options-background-img-card">
               <img class="img-filling-final" src="img/i/result_sandwich.jpg" </img>
             </div>
           </div>
           <div class="selection-columns-in-modal">
           <div class="your-product-is-ready">Ваш сендвич готов!</div>
-          <div class="name-of-final-products" id="container-category"></div>
+          <div class="name-of-final-products" id="container-all-toppings"></div>
           <div class="name-final-product">Овощной</div>
           </div>
         </div>`
@@ -28,13 +28,13 @@ class RenderReady {
         if (item.stuffing) {
           const category = item.nameСhapter
           if (item.stuffing.length) {
-            const arrName = item.stuffing.map(element => {
+            const arrNames = item.stuffing.map(element => {
               return element.name
             })
             return `<div
                     class="size-of-the-final-product"
                     >
-                    ${category}: ${arrName.join(', ')}
+                    ${category}: ${arrNames.join(', ')}
                     </div>`
           } else {
             return `<div
@@ -55,9 +55,10 @@ class RenderReady {
       })
       .join('')
 
-    const containerCategoryElement =
-      document.getElementById('container-category')
-    containerCategoryElement.innerHTML = listItemsCart
+    const containerAllToppings = document.getElementById(
+      'container-all-toppings'
+    )
+    containerAllToppings.innerHTML = listItemsCart
   }
 }
 

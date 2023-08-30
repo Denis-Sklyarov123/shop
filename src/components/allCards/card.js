@@ -21,7 +21,7 @@ class Card {
     const html = `
       <div class="card-product">
       <img class="subway" src="img/SUBWAY1.png" />
-      <img class="opptions-background-img" src="/img${this.state.item.image}" />
+      <img class="options-background-img" src="/img${this.state.item.image}" />
       <div class="names">${this.state.item.name}</div>
       <div class="ingredients">${this.state.item.description}</div>
       <div class="price">Цена: ${this.state.item.price} руб.</div>

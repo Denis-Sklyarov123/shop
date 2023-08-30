@@ -3,7 +3,7 @@ import {
   arrNameInBasket,
   containerSum,
   objBasketData,
-  productount,
+  productCount,
 } from '../../constants'
 
 class ItemAddCard {
@@ -16,8 +16,8 @@ class ItemAddCard {
   }
 
   itemAddCard() {
-    const items = store.getState()
-    switch (items.currentCattegoryModal) {
+    const state = store.getState()
+    switch (state.currentCategoryModal) {
       case 'sizes':
         arrNameInBasket.sizes.name = this.nameProduct
         arrNameInBasket.sizes.price = this.priceProduct
@@ -49,18 +49,19 @@ class ItemAddCard {
         arrNameInBasket.fillings.price = this.priceProduct
         break
     }
-    let counterPAM = document.querySelector('.input-in-modal-window')
-    let priceSize = arrNameInBasket.sizes.price
-    const finalSum = (priceSize + arrNameInBasket.fillings.price) * productount
+    let counter = document.querySelector('.input-in-modal-window')
+    let currentPrice = arrNameInBasket.sizes.price
+    const finalSum =
+      (currentPrice + arrNameInBasket.fillings.price) * productCount
     containerSum.innerHTML = finalSum
     this.price = finalSum
-    counterPAM.innerHTML = productount
+    counter.innerHTML = productCount
     let finalPriceInBasket =
-      items.arrFinalBasket.keyFinalPriceInBasket + this.price
+      state.cartInitialValues.keyFinalPriceInBasket + this.price
     objBasketData = {
       name: 'Овощной',
       keyFinalPriceInBasket: finalPriceInBasket,
-      count: productount,
+      count: productCount,
     }
   }
 }

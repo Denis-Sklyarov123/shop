@@ -1,6 +1,5 @@
 import { store } from '../..'
-import { containerMenu, gta } from '../../constants'
-import ActiveCategory from '../dataActive/activeCategory'
+import { fillingsContainer } from '../../constants'
 import ItemMainMenu from './ItemMainMenu'
 
 class MainMenu {
@@ -12,17 +11,16 @@ class MainMenu {
       this.prodContainer = prodContainer
     }
 
-    // store.register(this.render())
     this.render()
   }
 
   render() {
-    // console.log(store.getState())
     const state = store.getState()
     state.arrMenuItems.map(item => {
       new ItemMainMenu(this.container, item.nameCategory, () => {
         this.prodContainer.innerHTML = ''
-        state.setState('currentCattegory', item.keyCategory)
+        fillingsContainer.innerHTML = ''
+        store.setState('currentCategory', item.keyCategory)
       })
     })
   }

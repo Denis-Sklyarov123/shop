@@ -1,6 +1,4 @@
-import { containerValueBasket } from '../../../constants'
-
-class LastBtnInModal {
+class InBasketModal {
   state = {
     label: '',
     container: undefined,
@@ -35,4 +33,4 @@ class LastBtnInModal {
   }
 }
 
-export default LastBtnInModal
+export default InBasketModal

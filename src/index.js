@@ -4,26 +4,24 @@ import {
   containerMenu,
   productsContainer,
   containerModalMenu,
-  cardContainer,
-  containerPlusAndMinus,
+  fillingsContainer,
+  containerCounter,
   containerPriceAndBtnBasket,
-  arrFinalBasket,
+  cartInitialValues,
   objBasketData,
-  containerValueBasket,
 } from './constants'
-import PlusAndMinus from './components/buttons/btnPlus&Minus/plusAndMinus'
-import LastBtnInModal from './components/buttons/btnLastInModal/lastBtnInModal'
+import Counter from './components/buttons/btnPlus&Minus/counter'
+import InBasketModal from './components/buttons/btnLastInModal/lastBtnInModal'
 import Api from './api/api'
 import ActiveCategory from './components/dataActive/activeCategory'
-import TypePlusAndMinus from './components/buttons/btnPlus&Minus/typePlusAndMinus'
-import FinalBtnModal from './components/buttons/btnLastInModal/finalBtnModal'
+import TypeCounter from './components/buttons/btnPlus&Minus/typeCounter'
 import InitialDataSetting from './components/initialDataSetting'
 import Store from './store/index'
 import MainMenu from './components/menu/mainMenu'
 import ActiveCards from './components/dataActive/activeCards'
 import ModalMenu from './components/menu/modalMenu'
-// import NameAndNumberInBasket from './components/buttons/btnLastInModal/nameAndNumberInBasket'
 import ResultSum from './components/dataActive/resultSum'
+import QuantityAndName from './components/buttons/btnLastInModal/quantityAndName'
 
 document.addEventListener('click', function (e) {
   if (e.target.classList.contains('in-basket')) {
@@ -35,7 +33,7 @@ document.addEventListener('click', function (e) {
 document
   .getElementById('close-my-modal-btn')
   .addEventListener('click', function () {
-    now.useInitialDataSetting()
+    initialDataSetting.useInitialDataSetting()
   })
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
@@ -55,33 +53,40 @@ document.getElementById('my-modal').addEventListener('click', event => {
   document.getElementById('body-id').classList.remove('modal-open')
 })
 
-export const store = new Store()
-export const api = new Api()
-export const now = new InitialDataSetting()
-
-const typePlusAndMinus = new TypePlusAndMinus()
-
-api.getCustomerId().then(data => {
-  store.setState('data', data)
-  store.setState('arrMenuItems', arrMenuItems)
-  store.setState('currentCattegory', 'sandwiches')
-  store.setState('arrModalMenuItems', arrModalMenuItems)
-
-  new ActiveCategory()
-  new MainMenu(containerMenu, productsContainer)
-
-  store.setState('indexName', 0)
-  store.setState('currentCattegoryModal', 'sizes')
-
-  new ActiveCards()
-  store.setState('arrFinalBasket', arrFinalBasket)
-  new ModalMenu(containerModalMenu, cardContainer)
-
-  new PlusAndMinus(containerPlusAndMinus, typePlusAndMinus.plusAndMinus())
-
-  new ResultSum()
-  new LastBtnInModal(containerPriceAndBtnBasket, () => {
-    store.setState('arrFinalBasket', objBasketData)
-    now.useInitialDataSetting()
-  })
+export const store = new Store({
+  arrMenuItems,
+  currentCategory: 'sandwiches',
+  arrModalMenuItems,
+  orderCategoryIndex: 0,
+  currentCategoryModal: 'sizes',
+  cartInitialValues,
 })
+
+export const api = new Api()
+export const initialDataSetting = new InitialDataSetting()
+
+const typeCounter = new TypeCounter()
+
+new ActiveCategory()
+new MainMenu(containerMenu, productsContainer)
+
+new ActiveCards()
+
+new ModalMenu(containerModalMenu, fillingsContainer)
+new Counter(containerCounter, typeCounter.counter())
+
+new ResultSum()
+new InBasketModal(containerPriceAndBtnBasket, () => {
+  store.setState('cartInitialValues', objBasketData)
+  new QuantityAndName()
+  initialDataSetting.useInitialDataSetting()
+})
+
+api
+  .getData()
+  .then(data => {
+    store.setState('data', data)
+  })
+  .catch(error => {
+    alert(error, 'Error 404')
+  })

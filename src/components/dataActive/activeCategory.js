@@ -8,9 +8,9 @@ class ActiveCategory {
   }
 
   render() {
-    const items = store.getState()
-    items.data.menu
-      .filter(item => item.category == items.currentCattegory)
+    const state = store.getState()
+    state.data.menu
+      .filter(item => item.category == state.currentCategory)
       .map(item => {
         new Card(productsContainer, item)
       })

@@ -1,5 +1,5 @@
 class Api {
-  async getCustomerId() {
+  async getData() {
     let data
     let response = await fetch('./data.json')
     if (response.status !== 200) {
