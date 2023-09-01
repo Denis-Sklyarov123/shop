@@ -1,9 +1,10 @@
-import { fillingsContainer } from '../../../constants'
+// import { fillingsContainer } from '../../../constants'
 import { arrModalMenuItems } from '../../../constants'
 import { store } from '../../..'
 
 class BtnTypeBackAndForward {
   typeBackAndForth() {
+    const fillingsContainer = document.getElementById('size-products')
     const state = store.getState()
     return type => {
       if (type === 'forward') {

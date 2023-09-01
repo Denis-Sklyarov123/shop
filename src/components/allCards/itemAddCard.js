@@ -1,7 +1,7 @@
 import { store } from '../..'
 import {
   arrNameInBasket,
-  containerSum,
+  // containerSum,
   objBasketData,
   productCount,
 } from '../../constants'
@@ -16,6 +16,9 @@ class ItemAddCard {
   }
 
   itemAddCard() {
+    const containerSum = document.getElementById(
+      'the-final-price-of-the-product-in-the-modal-window'
+    )
     const state = store.getState()
     switch (state.currentCategoryModal) {
       case 'sizes':

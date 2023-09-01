@@ -1,5 +1,5 @@
 import { store } from '../..'
-import { modalTitleContainer, titleList } from '../../constants'
+import { titleList } from '../../constants'
 
 class ModalTitle {
   constructor() {
@@ -7,6 +7,7 @@ class ModalTitle {
   }
 
   render() {
+    const modalTitleContainer = document.getElementById('modalTitleContainer')
     const state = store.getState()
     modalTitleContainer.innerHTML = titleList[state.orderCategoryIndex]
   }

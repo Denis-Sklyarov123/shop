@@ -3,7 +3,7 @@ import {
   arrNameInBasket,
   productCount,
   objBasketData,
-  containerSum,
+  // containerSum,
 } from '../../../constants'
 
 class TypeCounter {
@@ -11,9 +11,9 @@ class TypeCounter {
     this.counter()
   }
   counter() {
-    // const containerSum = document.getElementById(
-    //   'the-final-price-of-the-product-in-the-modal-window'
-    // )
+    const containerSum = document.getElementById(
+      'the-final-price-of-the-product-in-the-modal-window'
+    )
     return action => {
       let counter = document.querySelector('.input-in-modal-window')
       if (action === 'minus' && productCount > 1) {

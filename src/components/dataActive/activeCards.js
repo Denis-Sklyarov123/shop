@@ -4,7 +4,7 @@ import BtnTypeBackAndForward from '../buttons/btnBack&Forward/btnTypeBackAndForw
 import ModalCard from '../allCards/modalCards'
 import ItemAddCard from '../allCards/itemAddCard'
 import { store } from '../..'
-import { containerBtnForwardBack, fillingsContainer } from '../../constants'
+// import { fillingsContainer } from '../../constants'
 
 class ActiveCards {
   constructor() {
@@ -12,6 +12,8 @@ class ActiveCards {
   }
 
   render() {
+    const fillingsContainer = document.getElementById('size-products')
+    const containerBtnForwardBack = document.getElementById('size-menu')
     const state = store.getState()
     let btnTypeBackAndForward = new BtnTypeBackAndForward()
     if (state.currentCategoryModal === 'ready') {

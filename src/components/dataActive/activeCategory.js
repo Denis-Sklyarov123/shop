@@ -1,5 +1,4 @@
 import Card from '../allCards/card'
-import { productsContainer } from '../../constants'
 import { store } from '../..'
 
 class ActiveCategory {
@@ -8,6 +7,7 @@ class ActiveCategory {
   }
 
   render() {
+    const productsContainer = document.getElementById('productsContainer')
     const state = store.getState()
     state.data.menu
       .filter(item => item.category == state.currentCategory)

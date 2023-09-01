@@ -1,14 +1,11 @@
-import { containerCounter } from '../../../constants'
+// import { containerCounter } from '../../../constants'
 
 class Counter {
   state = {
     container: undefined,
   }
 
-  constructor(container, onClick) {
-    if (container) {
-      this.container = container
-    }
+  constructor(onClick) {
     if (onClick) {
       this.state.onClick = onClick
     }
@@ -17,7 +14,7 @@ class Counter {
   }
 
   render() {
-    // const containerCounter = document.getElementById('id-buttons-and-quantity')
+    const containerCounter = document.getElementById('id-buttons-and-quantity')
     const html = `<div class="buttons-and-quantity">
     <div class="quantity-in-modal">КОЛИЧЕСТВО</div>
 

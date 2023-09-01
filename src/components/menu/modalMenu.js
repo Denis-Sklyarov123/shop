@@ -4,25 +4,20 @@ import { store } from '../..'
 import ModalTitle from './modalTitle'
 
 class ModalMenu {
-  constructor(container, prodContainer) {
-    if (container) {
-      this.container = container
-    }
-    if (prodContainer) {
-      this.prodContainer = prodContainer
-    }
-
+  constructor() {
     this.render()
   }
 
   render() {
+    const fillingsContainer = document.getElementById('size-products')
+    const containerModalMenu = document.getElementById('modal-menu')
     const state = store.getState()
     state.arrModalMenuItems.map((item, index) => {
-      new ModalMenuItem(this.container, item.nameCategory, () => {
-        this.prodContainer.innerHTML = ''
+      new ModalMenuItem(containerModalMenu, item.nameCategory, () => {
+        fillingsContainer.innerHTML = ''
         new ModalTitle()
         store.setState('orderCategoryIndex', index)
-        this.prodContainer.innerHTML = ''
+        fillingsContainer.innerHTML = ''
         store.setState('currentCategoryModal', item.keyCategory)
       })
     })

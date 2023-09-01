@@ -1,6 +1,6 @@
 import {
   arrNameInBasket,
-  fillingsContainer,
+  // fillingsContainer,
   objBasketData,
   productCount,
 } from '../constants'
@@ -8,6 +8,7 @@ import { store } from '..'
 
 class InitialDataSetting {
   useInitialDataSetting() {
+    const fillingsContainer = document.getElementById('size-products')
     document.getElementById('my-modal').classList.remove('open')
     document.getElementById('body-id').classList.remove('modal-open')
     arrNameInBasket = {

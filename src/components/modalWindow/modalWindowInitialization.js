@@ -6,10 +6,10 @@ class ModalWindowInitialization {
     this.initialization()
   }
   initialization() {
-    // const containerModalWindow = document.getElementById(
-    //   'container-modal-window'
-    // )
-    // new ModalWindow(containerModalWindow)
+    const containerModalWindow = document.getElementById(
+      'container-modal-window'
+    )
+    new ModalWindow(containerModalWindow)
     document.addEventListener('click', e => {
       if (e.target.classList.contains('in-basket')) {
         document.getElementById('my-modal').classList.add('open')
