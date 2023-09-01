@@ -4,6 +4,9 @@ import BtnTypeBackAndForward from '../buttons/btnBack&Forward/btnTypeBackAndForw
 import ModalCard from '../allCards/modalCards'
 import ItemAddCard from '../allCards/itemAddCard'
 import { store } from '../..'
+import ModalFillingColor from '../menu/modalFillingColor'
+import ModalSaucesColor from '../menu/modalSaucesColor'
+import { arrIndexCategory } from '../../constants'
 // import { fillingsContainer } from '../../constants'
 
 class ActiveCards {
@@ -23,18 +26,44 @@ class ActiveCards {
         btnTypeBackAndForward.typeBackAndForth()
       )
       new RenderReady(fillingsContainer)
-    } else {
-      Object.values(state.data[state.currentCategoryModal]).map(item => {
-        new BtnBackAndForward(
-          containerBtnForwardBack,
-          state.orderCategoryIndex,
-          btnTypeBackAndForward.typeBackAndForth()
-        )
-        new ModalCard(fillingsContainer, item, () => {
-          new ItemAddCard(item.name, item.price)
-        })
-      })
-    }
+    } else if (
+      state.currentCategoryModal === 'sizes' ||
+      state.currentCategoryModal === 'breads' ||
+      state.currentCategoryModal === 'fillings'
+    ) {
+      Object.values(state.data[state.currentCategoryModal]).map(
+        (item, index) => {
+          new BtnBackAndForward(
+            containerBtnForwardBack,
+            state.orderCategoryIndex,
+            btnTypeBackAndForward.typeBackAndForth()
+          )
+          new ModalCard(fillingsContainer, item, () => {
+            new ModalFillingColor(index)
+            new ItemAddCard(item.name, item.price)
+          })
+        }
+      )
+    } else if (
+      state.currentCategoryModal === 'sauces' ||
+      state.currentCategoryModal === 'vegetables'
+    ) {
+      Object.values(state.data[state.currentCategoryModal]).map(
+        (item, index) => {
+          new BtnBackAndForward(
+            containerBtnForwardBack,
+            state.orderCategoryIndex,
+            btnTypeBackAndForward.typeBackAndForth()
+          )
+          new ModalCard(fillingsContainer, item, () => {
+            new ModalSaucesColor(index)
+            arrIndexCategory.push(index)
+            console.log('arrIndexCategory', arrIndexCategory)
+            new ItemAddCard(item.name, item.price)
+          })
+        }
+      )
+    } //vot//
   }
 }
 

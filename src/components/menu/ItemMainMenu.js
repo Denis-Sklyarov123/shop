@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import MenuItemColor from './menuItemColor'
 
 class ItemMainMenu {
   id = uuidv4()
@@ -25,7 +26,6 @@ class ItemMainMenu {
     const html = `<button class="menu-item" id="${this.id}">
         ${this.state.label}
       </button>`
-
     this.state.container.insertAdjacentHTML('beforeend', html)
 
     if (this.state.onClick) {

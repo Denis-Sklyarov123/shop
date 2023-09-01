@@ -37,6 +37,18 @@ h1 {
   cursor: pointer;
 }
 
+.active {
+  background: #ffa500;
+}
+
+.active-modal-color {
+  background: #e07474;
+}
+
+.active-card-color {
+  background: #FFD700;
+}
+
 .menu {
   display: flex;
   flex-direction: column;

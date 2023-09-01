@@ -2,6 +2,7 @@ import ModalMenuItem from './modalMenuItem'
 import { titleList } from '../../constants/index'
 import { store } from '../..'
 import ModalTitle from './modalTitle'
+import ModalMenuItemColor from './modalMenuItemColor'
 
 class ModalMenu {
   constructor() {
@@ -19,6 +20,7 @@ class ModalMenu {
         store.setState('orderCategoryIndex', index)
         fillingsContainer.innerHTML = ''
         store.setState('currentCategoryModal', item.keyCategory)
+        new ModalMenuItemColor(index)
       })
     })
   }

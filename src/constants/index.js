@@ -56,16 +56,6 @@ export const titleList = {
 }
 
 export const containerMenu = document.getElementById('products-menu')
-// export const productsContainer = document.getElementById('productsContainer')
-// export const containerModalMenu = document.getElementById('modal-menu')
-// export const containerBtnForwardBack = document.getElementById('size-menu')
-// export const fillingsContainer = document.getElementById('size-products')
-// export const containerSum = document.getElementById(
-//   'the-final-price-of-the-product-in-the-modal-window'
-// )
-// export const modalTitleContainer = document.getElementById(
-//   'modalTitleContainer'
-// )
 
 export let productCount = 1
 export let objBasketData = (objBasketData = {
@@ -82,9 +72,5 @@ export let cartInitialValues = {
 export let finalPriceInBasket = 0
 export let emptyPrice = 0
 export let fullPrice = 0
-// export const containerCounter = document.getElementById(
-//   'id-buttons-and-quantity'
-// )
-// export const containerPriceAndBtnBasket = document.getElementById(
-//   'id-price-and-basket'
-// )
+
+export let arrIndexCategory = []
