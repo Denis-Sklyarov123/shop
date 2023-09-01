@@ -1,13 +1,19 @@
 import { store } from '../../..'
 import {
   arrNameInBasket,
-  containerSum,
   productCount,
   objBasketData,
+  containerSum,
 } from '../../../constants'
 
 class TypeCounter {
+  constructor() {
+    this.counter()
+  }
   counter() {
+    // const containerSum = document.getElementById(
+    //   'the-final-price-of-the-product-in-the-modal-window'
+    // )
     return action => {
       let counter = document.querySelector('.input-in-modal-window')
       if (action === 'minus' && productCount > 1) {
@@ -23,8 +29,6 @@ class TypeCounter {
       const state = store.getState()
       let finalPriceInBasket =
         state.cartInitialValues.keyFinalPriceInBasket + this.price
-      // console.log('finalPriceInBasket', finalPriceInBasket)
-      // console.log('1234', state.cartInitialValues.keyFinalPriceInBasket)
       objBasketData = {
         name: 'Овощной',
         keyFinalPriceInBasket: finalPriceInBasket,

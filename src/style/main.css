@@ -380,3 +380,7 @@ h1 {
   position: absolute;
   top: 0;
 }
+
+.container-quantity-and-name-in-basket {
+  display: flex;
+}

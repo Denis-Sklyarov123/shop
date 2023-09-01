@@ -1,4 +1,4 @@
-class InBasketModal {
+class InBasketBtnModal {
   state = {
     label: '',
     container: undefined,
@@ -6,7 +6,7 @@ class InBasketModal {
 
   constructor(container, onClick) {
     if (container) {
-      this.state.container = container
+      this.container = container
     }
     if (onClick) {
       this.state.onClick = onClick
@@ -16,13 +16,16 @@ class InBasketModal {
   }
 
   render() {
+    // const containerPriceAndBtnBasket = document.getElementById(
+    //   'id-price-and-basket'
+    // )
     const html = `<button
       class="add-to-final-price"
       id="id-add-to-final-price">
       В КОРЗИНУ
       </button>`
 
-    this.state.container.insertAdjacentHTML('beforeend', html)
+    this.container.insertAdjacentHTML('beforeend', html)
 
     if (this.state.onClick) {
       this.element = document.getElementById('id-add-to-final-price')
@@ -33,4 +36,4 @@ class InBasketModal {
   }
 }
 
-export default InBasketModal
+export default InBasketBtnModal

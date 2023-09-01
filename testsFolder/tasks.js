@@ -85,5 +85,12 @@
 
 // const car = new Car()
 // const twoCar = new Car(new Engine(new GearBox(5)))
- 
+
 // console.log(twoCar.getNumberOfGears());
+
+function removeChar(str) {
+  const arr = str.split('')
+  console.log('arr', arr)
+}
+
+removeChar('aboba')

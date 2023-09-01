@@ -1,28 +1,12 @@
-<!DOCTYPE html>
-
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shop</title>
-    <link rel="stylesheet" href="./style/main.css" />
-    <link rel="shortcut icon" href="img/2088955.png" type="image/x-icon" />
-    <script defer src="index.js"></script>
-  </head>
-
-  <body class="body-style" id="body-id">
-    <h1>CДЕЛАЙТЕ ЗАКАЗ НАПРЯМУЮ ИЗ РЕСТОРАНА</h1>
-
-    <main class="basis">
-      <nav>
-        <ul id="products-menu" class="menu"></ul>
-
-        <aside class="basket" id="container-basket"></aside>
-      </nav>
-
-      <div id="container-modal-window">
-        <section class="all-product-card-windows">
+class ModalWindow {
+  constructor(container) {
+    if (container) {
+      this.container = container
+    }
+    this.render()
+  }
+  render() {
+    const html = `<section class="all-product-card-windows">
           <div class="main-pancakes-content" id="productsContainer"></div>
         </section>
 
@@ -60,8 +44,9 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </main>
-  </body>
-</html>
+        </div>`
+    this.container.innerHTML = html
+  }
+}
+
+export default ModalWindow
