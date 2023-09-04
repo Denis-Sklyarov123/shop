@@ -6,15 +6,16 @@ import ItemAddCard from '../allCards/itemAddCard'
 import { store } from '../..'
 import ModalFillingColor from '../menu/modalFillingColor'
 import ModalSaucesColor from '../menu/modalSaucesColor'
-import { arrIndexCategory } from '../../constants'
+import { arrSaucesIndex, arrVegetablesIndex } from '../../constants'
+import ModalVegetablesColor from '../menu/modalVegetablesColor'
 // import { fillingsContainer } from '../../constants'
 
 class ActiveCards {
   constructor() {
-    store.register(this.render)
+    store.register(this.renderCards)
   }
 
-  render() {
+  renderCards() {
     const fillingsContainer = document.getElementById('size-products')
     const containerBtnForwardBack = document.getElementById('size-menu')
     const state = store.getState()
@@ -44,10 +45,23 @@ class ActiveCards {
           })
         }
       )
-    } else if (
-      state.currentCategoryModal === 'sauces' ||
-      state.currentCategoryModal === 'vegetables'
-    ) {
+    } else if (state.currentCategoryModal === 'vegetables') {
+      arrVegetablesIndex = []
+      Object.values(state.data[state.currentCategoryModal]).map(
+        (item, index) => {
+          new BtnBackAndForward(
+            containerBtnForwardBack,
+            state.orderCategoryIndex,
+            btnTypeBackAndForward.typeBackAndForth()
+          )
+          new ModalCard(fillingsContainer, item, () => {
+            new ModalVegetablesColor(index)
+            new ItemAddCard(item.name, item.price)
+          })
+        }
+      )
+    } else if (state.currentCategoryModal === 'sauces') {
+      arrSaucesIndex = []
       Object.values(state.data[state.currentCategoryModal]).map(
         (item, index) => {
           new BtnBackAndForward(
@@ -57,8 +71,6 @@ class ActiveCards {
           )
           new ModalCard(fillingsContainer, item, () => {
             new ModalSaucesColor(index)
-            arrIndexCategory.push(index)
-            console.log('arrIndexCategory', arrIndexCategory)
             new ItemAddCard(item.name, item.price)
           })
         }

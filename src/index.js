@@ -19,8 +19,8 @@ import ResultSum from './components/dataActive/resultSum'
 import ProductInBasket from './components/buttons/btnLastInModal/productInBasket'
 import Basket from './components/basket/basket'
 import ModalWindowInitialization from './components/modalWindow/modalWindowInitialization'
-
-new ModalWindowInitialization()
+import ActiveModal from './components/dataActive/activeModal'
+import CloseModal from './components/dataActive/closeModal'
 
 export const store = new Store({
   arrMenuItems,
@@ -29,7 +29,12 @@ export const store = new Store({
   orderCategoryIndex: 0,
   currentCategoryModal: 'sizes',
   cartInitialValues,
+  isOpen: false,
 })
+
+new CloseModal()
+new ActiveModal()
+new ModalWindowInitialization()
 
 export const api = new Api()
 export const initialDataSetting = new InitialDataSetting()
@@ -50,7 +55,7 @@ new Basket()
 new InBasketBtnModal(() => {
   store.setState('cartInitialValues', objBasketData)
   new ProductInBasket()
-  initialDataSetting.useInitialDataSetting()
+  store.setState('isOpen', false)
 })
 
 api

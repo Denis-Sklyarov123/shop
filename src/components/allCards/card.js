@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import { store } from '../..'
 
 class Card {
   id = uuidv4()
@@ -46,8 +47,9 @@ class Card {
 
     this.element = document.getElementById(this.id)
     this.element.addEventListener('click', () => {
-      document.getElementById('my-modal').classList.add('open')
-      document.getElementById('body-id').classList.add('modal-open')
+      const fillingsContainer = document.getElementById('size-products')
+      fillingsContainer.innerHTML = ''
+      store.setState('isOpen', true)
       document.querySelector('p').textContent = 'Выберите размер сендвича'
     })
   }

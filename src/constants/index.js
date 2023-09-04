@@ -73,4 +73,6 @@ export let finalPriceInBasket = 0
 export let emptyPrice = 0
 export let fullPrice = 0
 
-export let arrIndexCategory = []
+// export let arrIndexCategory = []
+export let arrSaucesIndex = []
+export let arrVegetablesIndex = []

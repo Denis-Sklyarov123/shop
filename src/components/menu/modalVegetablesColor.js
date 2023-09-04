@@ -1,6 +1,6 @@
-import { arrSaucesIndex } from '../../constants'
+import { arrVegetablesIndex } from '../../constants'
 
-class ModalSaucesColor {
+class ModalVegetablesColor {
   constructor(index) {
     this.index = index
     this.changeColor()
@@ -9,17 +9,17 @@ class ModalSaucesColor {
     const items = document.querySelectorAll('.product-size-card-buttons')
     console.log(items)
 
-    if (arrSaucesIndex.length < 3) {
-      arrSaucesIndex.push(this.index)
+    if (arrVegetablesIndex.length < 3) {
+      arrVegetablesIndex.push(this.index)
       items[this.index].classList.add('active-card-color')
-    } else if (arrSaucesIndex.length >= 3) {
+    } else if (arrVegetablesIndex.length >= 3) {
       const activeCards = document.querySelectorAll('.active-card-color')
       activeCards[0].classList.remove('active-card-color')
 
-      arrSaucesIndex.push(this.index)
+      arrVegetablesIndex.push(this.index)
       items[this.index].classList.add('active-card-color')
     }
   }
 }
 
-export default ModalSaucesColor
+export default ModalVegetablesColor

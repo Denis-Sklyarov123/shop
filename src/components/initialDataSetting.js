@@ -30,6 +30,8 @@ class InitialDataSetting {
     store.setState('orderCategoryIndex', 0)
     fillingsContainer.innerHTML = ''
     store.setState('currentCategoryModal', 'sizes')
+    const items = document.querySelectorAll('.item-modal-window-menu')
+    items.forEach(elem => elem.classList.remove('active-modal-color'))
   }
 }
 

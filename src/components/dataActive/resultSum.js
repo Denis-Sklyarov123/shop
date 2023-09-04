@@ -9,7 +9,6 @@ class ResultSum {
     const state = store.getState()
     document.getElementById('id-final-purchase-price').innerHTML =
       state.cartInitialValues.keyFinalPriceInBasket
-    // console.log('hyhy', state)
   }
 }
 

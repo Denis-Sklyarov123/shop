@@ -21,6 +21,10 @@ class BtnTypeBackAndForward {
       )
         return
 
+      const items = document.querySelectorAll('.item-modal-window-menu')
+      items.forEach(elem => elem.classList.remove('active-modal-color'))
+      items[state.orderCategoryIndex].classList.add('active-modal-color')
+
       fillingsContainer.innerHTML = ''
       let category = arrModalMenuItems[state.orderCategoryIndex].keyCategory
       store.setState('currentCategoryModal', category)

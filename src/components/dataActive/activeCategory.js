@@ -3,10 +3,10 @@ import { store } from '../..'
 
 class ActiveCategory {
   constructor() {
-    store.register(this.render)
+    store.register(this.renderCategory)
   }
 
-  render() {
+  renderCategory() {
     const productsContainer = document.getElementById('productsContainer')
     const state = store.getState()
     state.data.menu
