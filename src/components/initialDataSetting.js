@@ -9,8 +9,8 @@ import { store } from '..'
 class InitialDataSetting {
   useInitialDataSetting() {
     const fillingsContainer = document.getElementById('size-products')
-    document.getElementById('my-modal').classList.remove('open')
-    document.getElementById('body-id').classList.remove('modal-open')
+    // document.getElementById('my-modal').classList.remove('open')
+    // document.getElementById('body-id').classList.remove('modal-open')
     arrNameInBasket = {
       sizes: { name: '', price: 0, nameСhapter: 'Размер' },
       breads: { name: '', price: 0, nameСhapter: 'Хлеб' },

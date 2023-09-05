@@ -8,7 +8,6 @@ import ModalFillingColor from '../menu/modalFillingColor'
 import ModalSaucesColor from '../menu/modalSaucesColor'
 import { arrSaucesIndex, arrVegetablesIndex } from '../../constants'
 import ModalVegetablesColor from '../menu/modalVegetablesColor'
-// import { fillingsContainer } from '../../constants'
 
 class ActiveCards {
   constructor() {

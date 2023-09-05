@@ -1,5 +1,4 @@
 import { store } from '../../..'
-import { containerValueBasket } from '../../../constants'
 
 class ProductInBasket {
   constructor() {
@@ -15,8 +14,6 @@ class ProductInBasket {
           ${state.cartInitialValues.count}
         </div>
         </div>`
-    // containerValueBasket.innerHTML = ''
-    console.log('store', state)
     containerValueBasket.insertAdjacentHTML('beforeend', html)
   }
 }

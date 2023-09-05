@@ -88,9 +88,12 @@
 
 // console.log(twoCar.getNumberOfGears());
 
-function removeChar(str) {
-  const arr = str.split('')
-  console.log('arr', arr)
-}
+// function removeChar(str) {
+//   const arr = str.split('')
+//   arr.pop()
+//   arr.shift()
+//   const string = arr.join('')
+//   return string
+// }
 
-removeChar('aboba')
+// removeChar('aboba')

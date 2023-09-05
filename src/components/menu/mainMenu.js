@@ -4,20 +4,17 @@ import ItemMainMenu from './ItemMainMenu'
 import MenuItemColor from './menuItemColor'
 
 class MainMenu {
-  constructor(container) {
-    if (container) {
-      this.container = container
-    }
-
+  constructor() {
     this.render()
   }
 
   render() {
+    const containerMenu = document.getElementById('products-menu')
     const fillingsContainer = document.getElementById('size-products')
     const productsContainer = document.getElementById('productsContainer')
     const state = store.getState()
     state.arrMenuItems.map((item, index) => {
-      new ItemMainMenu(this.container, item.nameCategory, () => {
+      new ItemMainMenu(containerMenu, item.nameCategory, () => {
         productsContainer.innerHTML = ''
         fillingsContainer.innerHTML = ''
         store.setState('currentCategory', item.keyCategory)

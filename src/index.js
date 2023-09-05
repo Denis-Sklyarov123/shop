@@ -1,26 +1,13 @@
-import {
-  arrMenuItems,
-  arrModalMenuItems,
-  containerMenu,
-  cartInitialValues,
-  objBasketData,
-} from './constants'
-import Counter from './components/buttons/counter/counter'
-import InBasketBtnModal from './components/buttons/btnLastInModal/inBasketBtnModal'
+import { arrMenuItems, arrModalMenuItems, cartInitialValues } from './constants'
 import Api from './api/api'
 import ActiveCategory from './components/dataActive/activeCategory'
-import TypeCounter from './components/buttons/counter/typeCounter'
-import InitialDataSetting from './components/initialDataSetting'
 import Store from './store/index'
 import MainMenu from './components/menu/mainMenu'
 import ActiveCards from './components/dataActive/activeCards'
-import ModalMenu from './components/menu/modalMenu'
 import ResultSum from './components/dataActive/resultSum'
-import ProductInBasket from './components/buttons/btnLastInModal/productInBasket'
-import Basket from './components/basket/basket'
 import ModalWindowInitialization from './components/modalWindow/modalWindowInitialization'
 import ActiveModal from './components/dataActive/activeModal'
-import CloseModal from './components/dataActive/closeModal'
+import Basket from './components/basket/basket'
 
 export const store = new Store({
   arrMenuItems,
@@ -31,34 +18,18 @@ export const store = new Store({
   cartInitialValues,
   isOpen: false,
 })
-
-new CloseModal()
-new ActiveModal()
-new ModalWindowInitialization()
-
 export const api = new Api()
-export const initialDataSetting = new InitialDataSetting()
 
-const typeCounter = new TypeCounter()
-
-new ActiveCategory()
-new MainMenu(containerMenu)
-
+new ActiveCategory() //Регистрация событий
 new ActiveCards()
-
-new ModalMenu()
-new Counter(typeCounter.counter())
-
 new ResultSum()
-new Basket()
+new ActiveModal()
 
-new InBasketBtnModal(() => {
-  store.setState('cartInitialValues', objBasketData)
-  new ProductInBasket()
-  store.setState('isOpen', false)
-})
+new MainMenu() // Создания главного и карточек в нём.
+new Basket() // Создание корзины.
+new ModalWindowInitialization() //Cоздание модального окна, меню и карточек в нём.
 
-api
+api //Получение данных с JSON файла.
   .getData()
   .then(data => {
     store.setState('data', data)

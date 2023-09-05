@@ -55,8 +55,6 @@ export const titleList = {
   5: 'Проверьте и добавьте в корзину',
 }
 
-export const containerMenu = document.getElementById('products-menu')
-
 export let productCount = 1
 export let objBasketData = (objBasketData = {
   name: 'Овощной',
@@ -73,6 +71,5 @@ export let finalPriceInBasket = 0
 export let emptyPrice = 0
 export let fullPrice = 0
 
-// export let arrIndexCategory = []
 export let arrSaucesIndex = []
 export let arrVegetablesIndex = []
