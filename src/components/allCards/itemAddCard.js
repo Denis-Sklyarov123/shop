@@ -16,9 +16,9 @@ class ItemAddCard {
   }
 
   itemAddCard() {
-    const containerSum = document.getElementById(
-      'the-final-price-of-the-product-in-the-modal-window'
-    )
+    // const containerSum = document.getElementById(
+    //   'the-final-price-of-the-product-in-the-modal-window'
+    // )
     const state = store.getState()
     switch (state.currentCategoryModal) {
       case 'sizes':
@@ -52,20 +52,9 @@ class ItemAddCard {
         arrNameInBasket.fillings.price = this.priceProduct
         break
     }
-    let counter = document.querySelector('.input-in-modal-window')
-    let currentPrice = arrNameInBasket.sizes.price
-    const finalSum =
-      (currentPrice + arrNameInBasket.fillings.price) * productCount
-    containerSum.innerHTML = finalSum
-    this.price = finalSum
-    counter.innerHTML = productCount
-    let finalPriceInBasket =
-      state.cartInitialValues.keyFinalPriceInBasket + this.price
-    objBasketData = {
-      name: 'Овощной',
-      keyFinalPriceInBasket: finalPriceInBasket,
-      count: productCount,
-    }
+    const fillingsContainer = document.getElementById('size-products')
+    fillingsContainer.innerHTML = ''
+    store.setState('arrNameInBasket', arrNameInBasket)
   }
 }
 

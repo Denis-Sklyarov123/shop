@@ -8,7 +8,7 @@ import InitialDataSetting from '../initialDataSetting'
 import ModalMenu from '../menu/modalMenu'
 import ModalWindow from './modalWindow'
 
-class ModalWindowInitialization {
+class ModalWindowRender {
   constructor() {
     this.initialization()
   }
@@ -36,4 +36,4 @@ class ModalWindowInitialization {
   }
 }
 
-export default ModalWindowInitialization
+export default ModalWindowRender
