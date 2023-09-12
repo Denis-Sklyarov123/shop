@@ -73,3 +73,14 @@ export let fullPrice = 0
 
 export let arrSaucesIndex = []
 export let arrVegetablesIndex = []
+
+export let arrReadyOrders = []
+export let arrAllOrders = [
+  {
+    name: 'Овощной',
+    keyFinalPriceInBasket: 0,
+    count: 0,
+  },
+]
+
+export const indexSelectedCard = 0

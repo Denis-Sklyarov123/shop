@@ -18,20 +18,20 @@ class InitialDataSetting {
       sauces: { nameСhapter: 'Соусы', id: '1', stuffing: [] },
       fillings: { name: '', price: 0, nameСhapter: 'Начинка' },
     }
-    let newSum = 0
     productCount = 1
     let counterFinal = document.querySelector('.input-in-modal-window')
-    let newFinalSum = document.getElementById(
+    const newFinalSum = document.getElementById(
       'the-final-price-of-the-product-in-the-modal-window'
     )
     objBasketData = {}
     counterFinal.innerHTML = productCount
-    newFinalSum.innerHTML = newSum
     store.setState('orderCategoryIndex', 0)
     fillingsContainer.innerHTML = ''
     store.setState('currentCategoryModal', 'sizes')
     const items = document.querySelectorAll('.item-modal-window-menu')
     items.forEach(elem => elem.classList.remove('active-modal-color'))
+    store.setState('isOpen', false)
+    newFinalSum.innerHTML = 0
   }
 }
 

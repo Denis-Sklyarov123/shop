@@ -51,6 +51,10 @@ class Card {
       fillingsContainer.innerHTML = ''
       store.setState('isOpen', true)
       document.querySelector('p').textContent = 'Выберите размер сендвича'
+      const newFinalSum = document.getElementById(
+        'the-final-price-of-the-product-in-the-modal-window'
+      )
+      newFinalSum.innerHTML = 0
     })
   }
 }

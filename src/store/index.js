@@ -12,7 +12,7 @@ class Store {
   }
 
   setState(key, value) {
-    console.log(this.state)
+    // console.log(this.state)
     this.state = {
       ...this.state,
       [key]: value,
@@ -21,7 +21,7 @@ class Store {
   }
 
   notifyAll() {
-    console.log('this.actions', this.actions)
+    // console.log('this.actions', this.actions)
     return this.actions.forEach(action => action())
   }
 

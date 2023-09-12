@@ -7,7 +7,7 @@ class ModalVegetablesColor {
   }
   changeColor() {
     const items = document.querySelectorAll('.product-size-card-buttons')
-    console.log(items)
+    // console.log(items)
 
     if (arrVegetablesIndex.length < 3) {
       arrVegetablesIndex.push(this.index)

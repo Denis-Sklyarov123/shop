@@ -39,8 +39,8 @@ class ActiveCards {
             btnTypeBackAndForward.typeBackAndForth()
           )
           new ModalCard(fillingsContainer, item, () => {
-            new ModalFillingColor(index)
             new ItemAddCard(item.name, item.price)
+            new ModalFillingColor(index)
           })
         }
       )
@@ -54,8 +54,8 @@ class ActiveCards {
             btnTypeBackAndForward.typeBackAndForth()
           )
           new ModalCard(fillingsContainer, item, () => {
-            new ModalVegetablesColor(index)
             new ItemAddCard(item.name, item.price)
+            new ModalVegetablesColor(index)
           })
         }
       )
@@ -69,8 +69,8 @@ class ActiveCards {
             btnTypeBackAndForward.typeBackAndForth()
           )
           new ModalCard(fillingsContainer, item, () => {
-            new ModalSaucesColor(index)
             new ItemAddCard(item.name, item.price)
+            new ModalSaucesColor(index)
           })
         }
       )
