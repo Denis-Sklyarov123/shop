@@ -6,7 +6,11 @@ import ItemAddCard from '../allCards/itemAddCard'
 import { store } from '../..'
 import ModalFillingColor from '../menu/modalFillingColor'
 import ModalSaucesColor from '../menu/modalSaucesColor'
-import { arrSaucesIndex, arrVegetablesIndex } from '../../constants'
+import {
+  arrSaucesIndex,
+  arrVegetablesIndex,
+  categoryIndexSelectedCard,
+} from '../../constants'
 import ModalVegetablesColor from '../menu/modalVegetablesColor'
 
 class ActiveCards {
@@ -31,6 +35,8 @@ class ActiveCards {
       state.currentCategoryModal === 'breads' ||
       state.currentCategoryModal === 'fillings'
     ) {
+      const containerCard = document.getElementById('size-products')
+      containerCard.innerHTML = ''
       Object.values(state.data[state.currentCategoryModal]).map(
         (item, index) => {
           new BtnBackAndForward(
@@ -38,14 +44,22 @@ class ActiveCards {
             state.orderCategoryIndex,
             btnTypeBackAndForward.typeBackAndForth()
           )
-          new ModalCard(fillingsContainer, item, () => {
+          const isActive =
+            categoryIndexSelectedCard[state.currentCategoryModal] === index
+
+          new ModalCard(fillingsContainer, item, isActive, () => {
             new ItemAddCard(item.name, item.price)
-            new ModalFillingColor(index)
+            categoryIndexSelectedCard[state.currentCategoryModal] = index
+            store.setState(
+              'categoryIndexSelectedCard',
+              categoryIndexSelectedCard
+            )
           })
         }
       )
     } else if (state.currentCategoryModal === 'vegetables') {
-      arrVegetablesIndex = []
+      const containerCard = document.getElementById('size-products')
+      containerCard.innerHTML = ''
       Object.values(state.data[state.currentCategoryModal]).map(
         (item, index) => {
           new BtnBackAndForward(
@@ -53,9 +67,23 @@ class ActiveCards {
             state.orderCategoryIndex,
             btnTypeBackAndForward.typeBackAndForth()
           )
-          new ModalCard(fillingsContainer, item, () => {
+          const isActive =
+            categoryIndexSelectedCard[state.currentCategoryModal].includes(
+              index
+            )
+
+          new ModalCard(fillingsContainer, item, isActive, () => {
             new ItemAddCard(item.name, item.price)
-            new ModalVegetablesColor(index)
+            if (
+              (categoryIndexSelectedCard[state.currentCategoryModal].length = 3)
+            ) {
+              categoryIndexSelectedCard[state.currentCategoryModal].shift()
+            }
+            categoryIndexSelectedCard[state.currentCategoryModal].push(index)
+            store.setState(
+              'categoryIndexSelectedCard',
+              categoryIndexSelectedCard
+            )
           })
         }
       )

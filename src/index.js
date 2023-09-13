@@ -4,7 +4,7 @@ import {
   cartInitialValues,
   arrNameInBasket,
   arrAllOrders,
-  indexSelectedCard,
+  categoryIndexSelectedCard,
 } from './constants'
 import Api from './api/api'
 import ActiveCategory from './components/dataActive/activeCategory'
@@ -14,9 +14,9 @@ import ActiveCards from './components/dataActive/activeCards'
 import ResultSum from './components/dataActive/resultSum'
 import ModalWindowRender from './components/modalWindow/modalWindowRender'
 import ActiveModal from './components/dataActive/activeModal'
-import Basket from './components/basket/basket'
 import CounterSum from './components/dataActive/counterSum'
 import RenderBasket from './components/dataActive/renderBasket'
+import ModalFillingColor from './components/menu/modalFillingColor'
 
 export const store = new Store({
   arrMenuItems,
@@ -28,6 +28,7 @@ export const store = new Store({
   cartInitialValues,
   isOpen: false,
   arrAllOrders,
+  categoryIndexSelectedCard,
 })
 export const api = new Api()
 
@@ -37,6 +38,7 @@ new ActiveModal()
 new CounterSum()
 new RenderBasket()
 new ResultSum()
+// new ModalFillingColor()
 
 new ModalWindowRender() //Cоздание модального окна, меню и карточек в нём.
 new MainMenu() // Создания главного и карточек в нём.

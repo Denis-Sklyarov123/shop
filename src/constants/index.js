@@ -83,4 +83,10 @@ export let arrAllOrders = [
   },
 ]
 
-export const indexSelectedCard = 0
+export const categoryIndexSelectedCard = {
+  sizes: null,
+  breads: null,
+  vegetables: [],
+  sauces: [],
+  fillings: null,
+}

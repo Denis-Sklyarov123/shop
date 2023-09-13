@@ -7,9 +7,12 @@ class ModalCard {
     container: undefined,
   }
 
-  constructor(container, item, onClick) {
+  constructor(container, item, isActive, onClick) {
     if (item) {
       this.state.item = item
+    }
+    if (isActive) {
+      this.isActive = isActive ? isActive : false
     }
     if (container) {
       this.state.container = container
@@ -22,12 +25,19 @@ class ModalCard {
   }
 
   render() {
+    console.log(this.isActive)
     const html = `
-    <button class="product-size-card-buttons" id="${this.id}">
+    <button class="${
+      this.isActive
+        ? 'product-size-card-buttons active'
+        : 'product-size-card-buttons'
+    }" id="${this.id}">
       <div class="options-background-little-bread">
         <img class="img-filling" src="/img${this.state.item.image}" />
       </div>
-      <div class="the-final-filling-in-the-product">${this.state.item.name}</div>
+      <div class="the-final-filling-in-the-product">${
+        this.state.item.name
+      }</div>
       <div class="price-size-letters">
         <div class="price-size-letters">Цена:</div>
         <div class="price-filling">${this.state.item.price}</div>

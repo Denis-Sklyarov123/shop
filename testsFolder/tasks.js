@@ -97,3 +97,7 @@
 // }
 
 // removeChar('aboba')
+
+function explode(arr) {
+    if (arr[0] === )
+}
