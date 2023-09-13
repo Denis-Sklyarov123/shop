@@ -29,7 +29,7 @@ class ModalCard {
     const html = `
     <button class="${
       this.isActive
-        ? 'product-size-card-buttons active'
+        ? 'product-size-card-buttons active-card-color'
         : 'product-size-card-buttons'
     }" id="${this.id}">
       <div class="options-background-little-bread">

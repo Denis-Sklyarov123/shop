@@ -88,7 +88,8 @@ class ActiveCards {
         }
       )
     } else if (state.currentCategoryModal === 'sauces') {
-      arrSaucesIndex = []
+      const containerCard = document.getElementById('size-products')
+      containerCard.innerHTML = ''
       Object.values(state.data[state.currentCategoryModal]).map(
         (item, index) => {
           new BtnBackAndForward(
@@ -96,9 +97,22 @@ class ActiveCards {
             state.orderCategoryIndex,
             btnTypeBackAndForward.typeBackAndForth()
           )
-          new ModalCard(fillingsContainer, item, () => {
+          const isActive =
+            categoryIndexSelectedCard[state.currentCategoryModal].includes(
+              index
+            )
+          new ModalCard(fillingsContainer, item, isActive, () => {
             new ItemAddCard(item.name, item.price)
-            new ModalSaucesColor(index)
+            if (
+              (categoryIndexSelectedCard[state.currentCategoryModal].length = 3)
+            ) {
+              categoryIndexSelectedCard[state.currentCategoryModal].shift()
+            }
+            categoryIndexSelectedCard[state.currentCategoryModal].push(index)
+            store.setState(
+              'categoryIndexSelectedCard',
+              categoryIndexSelectedCard
+            )
           })
         }
       )
