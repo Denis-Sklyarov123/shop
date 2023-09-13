@@ -1,5 +1,6 @@
 import {
   arrNameInBasket,
+  categoryIndexSelectedCard,
   // fillingsContainer,
   objBasketData,
   productCount,
@@ -32,6 +33,14 @@ class InitialDataSetting {
     items.forEach(elem => elem.classList.remove('active-modal-color'))
     store.setState('isOpen', false)
     newFinalSum.innerHTML = 0
+    categoryIndexSelectedCard = {
+      sizes: null,
+      breads: null,
+      vegetables: [],
+      sauces: [],
+      fillings: null,
+    }
+    store.setState('categoryIndexSelectedCard', categoryIndexSelectedCard)
   }
 }
 
