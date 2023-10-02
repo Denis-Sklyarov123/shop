@@ -9,6 +9,7 @@ import { store } from '..'
 
 class InitialDataSetting {
   useInitialDataSetting() {
+    const containerMenuItem = document.getElementById('productsContainer')
     const fillingsContainer = document.getElementById('size-products')
     // document.getElementById('my-modal').classList.remove('open')
     // document.getElementById('body-id').classList.remove('modal-open')
@@ -40,6 +41,7 @@ class InitialDataSetting {
       sauces: [],
       fillings: null,
     }
+    containerMenuItem.innerHTML = ''
     store.setState('categoryIndexSelectedCard', categoryIndexSelectedCard)
   }
 }

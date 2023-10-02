@@ -1,16 +1,16 @@
+import { store } from '../..'
+
 class ModalWindow {
-  constructor(container) {
-    if (container) {
-      this.container = container
-    }
+  constructor() {
     this.render()
   }
   render() {
-    const html = `<section class="all-product-card-windows">
-          <div class="main-pancakes-content" id="productsContainer"></div>
-        </section>
-
-        <div class="modal" id="my-modal">
+    const state = store.getState()
+    const containerModalWindow = document.getElementById(
+      'container-modal-window'
+    )
+    const html = `
+        <div class="modal ${state.isOpen ? 'open' : ''}" id="my-modal">
           <div class="modal-box">
             <button class="modal-close-btn" id="close-my-modal-btn">
               <img
@@ -45,7 +45,7 @@ class ModalWindow {
             </div>
           </div>
         </div>`
-    this.container.innerHTML = html
+    containerModalWindow.innerHTML = html
   }
 }
 

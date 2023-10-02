@@ -14,7 +14,7 @@ class ModalMenu {
     const containerModalMenu = document.getElementById('modal-menu')
     const state = store.getState()
     state.arrModalMenuItems.map((item, index) => {
-      new ModalMenuItem(containerModalMenu, item.nameCategory, () => {
+      new ModalMenuItem(containerModalMenu, item, () => {
         fillingsContainer.innerHTML = ''
         new ModalTitle()
         store.setState('orderCategoryIndex', index)

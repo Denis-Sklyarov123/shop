@@ -4,14 +4,7 @@ import BtnTypeBackAndForward from '../buttons/btnBack&Forward/btnTypeBackAndForw
 import ModalCard from '../allCards/modalCards'
 import ItemAddCard from '../allCards/itemAddCard'
 import { store } from '../..'
-import ModalFillingColor from '../menu/modalFillingColor'
-import ModalSaucesColor from '../menu/modalSaucesColor'
-import {
-  arrSaucesIndex,
-  arrVegetablesIndex,
-  categoryIndexSelectedCard,
-} from '../../constants'
-import ModalVegetablesColor from '../menu/modalVegetablesColor'
+import { categoryIndexSelectedCard } from '../../constants'
 
 class ActiveCards {
   constructor() {

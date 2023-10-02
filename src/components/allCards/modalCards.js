@@ -25,7 +25,6 @@ class ModalCard {
   }
 
   render() {
-    console.log(this.isActive)
     const html = `
     <button class="${
       this.isActive

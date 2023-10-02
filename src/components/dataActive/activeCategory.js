@@ -8,6 +8,7 @@ class ActiveCategory {
 
   renderCategory() {
     const productsContainer = document.getElementById('productsContainer')
+    // console.log('123', productsContainer)
     const state = store.getState()
     state.data.menu
       .filter(item => item.category == state.currentCategory)

@@ -16,7 +16,7 @@ import ModalWindowRender from './components/modalWindow/modalWindowRender'
 import ActiveModal from './components/dataActive/activeModal'
 import CounterSum from './components/dataActive/counterSum'
 import RenderBasket from './components/dataActive/renderBasket'
-import ModalFillingColor from './components/menu/modalFillingColor'
+import ModalWindow from './components/modalWindow/modalWindow'
 
 export const store = new Store({
   arrMenuItems,
@@ -33,12 +33,11 @@ export const store = new Store({
 export const api = new Api()
 
 new ActiveCategory() //Регистрация событий
-new ActiveCards()
 new ActiveModal()
+new ActiveCards()
 new CounterSum()
 new RenderBasket()
 new ResultSum()
-// new ModalFillingColor()
 
 new ModalWindowRender() //Cоздание модального окна, меню и карточек в нём.
 new MainMenu() // Создания главного и карточек в нём.

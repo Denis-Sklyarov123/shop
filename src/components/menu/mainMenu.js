@@ -14,7 +14,7 @@ class MainMenu {
     const productsContainer = document.getElementById('productsContainer')
     const state = store.getState()
     state.arrMenuItems.map((item, index) => {
-      new ItemMainMenu(containerMenu, item.nameCategory, () => {
+      new ItemMainMenu(containerMenu, item, () => {
         productsContainer.innerHTML = ''
         fillingsContainer.innerHTML = ''
         store.setState('currentCategory', item.keyCategory)

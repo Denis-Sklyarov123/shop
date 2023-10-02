@@ -7,7 +7,6 @@ class ModalSaucesColor {
   }
   changeColor() {
     const items = document.querySelectorAll('.product-size-card-buttons')
-    // console.log(items)
 
     if (arrSaucesIndex.length < 3) {
       arrSaucesIndex.push(this.index)

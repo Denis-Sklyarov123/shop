@@ -1,4 +1,5 @@
 import { initialDataSetting, store } from '../..'
+import ModalWindowRender from '../modalWindow/modalWindowRender'
 
 class ActiveModal {
   constructor() {
@@ -7,12 +8,11 @@ class ActiveModal {
   render() {
     const state = store.getState()
     if (state.isOpen) {
-      document.getElementById('my-modal').classList.add('open')
       document.getElementById('body-id').classList.add('modal-open')
     } else {
-      document.getElementById('my-modal').classList.remove('open')
       document.getElementById('body-id').classList.remove('modal-open')
     }
+    new ModalWindowRender()
   }
 }
 

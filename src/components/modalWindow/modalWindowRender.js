@@ -14,11 +14,11 @@ class ModalWindowRender {
   }
   initialization() {
     const initialDataSetting = new InitialDataSetting()
-    const containerModalWindow = document.getElementById(
-      'container-modal-window'
-    )
+    // const containerModalWindow = document.getElementById(
+    //   'container-modal-window'
+    // )
     const typeCounter = new TypeCounter()
-    new ModalWindow(containerModalWindow)
+    new ModalWindow()
     new ModalMenu()
     new Counter(typeCounter.counter())
     new InBasketBtnModal(() => {

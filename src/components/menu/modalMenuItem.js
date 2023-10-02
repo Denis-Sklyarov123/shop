@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import { store } from '../..'
 
 class ModalMenuItem {
   id = uuidv4()
@@ -7,12 +8,12 @@ class ModalMenuItem {
     container: undefined,
   }
 
-  constructor(container, label, onClick) {
+  constructor(container, item, onClick) {
     if (container) {
       this.state.container = container
     }
-    if (label) {
-      this.state.label = label
+    if (item) {
+      this.state.item = item
     }
     if (onClick) {
       this.state.onClick = onClick
@@ -22,8 +23,13 @@ class ModalMenuItem {
   }
 
   render() {
-    const html = `<button class="item-modal-window-menu" id="${this.id}">
-    ${this.state.label}
+    const state = store.getState()
+    const html = `<button class="item-modal-window-menu ${
+      state.currentCategoryModal === this.state.item.keyCategory
+        ? 'active-modal-color'
+        : ''
+    }" id="${this.id}">
+    ${this.state.item.nameCategory}
     </button>`
 
     this.state.container.insertAdjacentHTML('beforeend', html)
